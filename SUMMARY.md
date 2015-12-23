@@ -10,4 +10,5 @@
    * Deal
    * Order
    * OrderBook
+   * ParticipantStrategy
 
