@@ -8,4 +8,5 @@
 * API
    * ContestBookInfo
    * Deal
+   * Order
 
