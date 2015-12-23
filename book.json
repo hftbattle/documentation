@@ -1,9 +1,11 @@
 {
     "variables": {
         "contest.name": "HFT Battle 2016",
-        "contest.url": "http://aimfund.ru/history/hft-battle-2016/",
+        "contest.url-long": "http://aimfund.ru/history/hft-battle-2016/",
+        "contest.url-short": "aimfund.ru/history/hft-battle-2016/",
         "contest.support.email": "contest@aimfund.ru",
-        "contest.support.slack": "http://hftbattle2016.slack.com",
+        "contest.support.slack.url-long": "http://hftbattle2016.slack.com",
+        "contest.support.slack.url-short": "hftbattle2016.slack.com",
         "viewer.url": "viewer.aimfund.ru"
     }
 }
