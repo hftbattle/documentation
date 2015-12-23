@@ -1,5 +1,5 @@
 # Документация {{ book["contest.name"] }}
-Здесь содержится документация для {{ book.contest.name }}
+Здесь содержится документация для {{ book["contest.url"] }}.
 
 {{ book.myVariable }}
 
