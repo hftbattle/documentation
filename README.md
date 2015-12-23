@@ -1,6 +1,6 @@
-# Документация HFT Battle 
-Здесь содержится документация для HFT Battle.
+# Документация HFT Battle 2016
+Здесь содержится документация для HFT Battle 2016.
 
-# Help and Support
-По всем вопросам обращайтесь на почту 
-[contest@aimfund.ru](contest@aimfund.ru), а также в [наш канал в Slack](http://hftbattle.slack.com).
+# Вопросы и поддержка
+Свои вопросы вы можете задавать в нашем Slack-канале [hftbattle.slack.com](http://hftbattle.slack.com), а также написав нам на почту [contest@aimfund.ru](contest@aimfund.ru).
+
