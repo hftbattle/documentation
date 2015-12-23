@@ -7,4 +7,5 @@
 * [Глоссарий биржевых терминов](docs/exchange_terms.md)
 * API
    * ContestBookInfo
+   * Deal
 
