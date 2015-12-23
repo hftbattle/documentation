@@ -1,7 +1,7 @@
 # Summary
 
 * [Introduction](README.md)
-* [Глоссарий биржевых терминов](glossarii_birzhevih_terminov.md)
+* [Глоссарий биржевых терминов](docs/exchange_terms2.md)
 * Симулятор торгов
 * Интерфейс участника
 * Примеры стратегий
