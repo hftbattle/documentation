@@ -11,4 +11,5 @@
    * Order
    * OrderBook
    * ParticipantStrategy
+   * Quote
 
