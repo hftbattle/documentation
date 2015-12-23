@@ -1,6 +1,9 @@
 {
     "variables": {
-        "myVariable": "Hello World",
-        "contest.name": "HFT Battle 2016"
+        "contest.name": "HFT Battle 2016",
+        "contest.url": "aimfund.ru/history/hft-battle-2016/",
+        "contest.support.email": "contest@aimfund.ru",
+        "contest.support.slack": "hftbattle2016.slack.com",
+        "viewer.url": "viewer.aimfund.ru"
     }
 }
