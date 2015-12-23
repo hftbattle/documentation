@@ -1,1 +1,8 @@
-{}
+{
+    "variables": {
+        "contest_name": "HFT Battle 2016"
+        "contest_url": "aimfund.ru/history/hft-battle-2016/"
+        "viewer_url": "viewer.aimfund.ru"
+        "support_email": "contest@aimfund.ru"
+    }
+}
