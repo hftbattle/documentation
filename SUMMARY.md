@@ -5,6 +5,7 @@
    * [Отправка стратегии](docs/web-interface/sending.md)
    * [Просмотр результатов](docs/web-interface/results.md)
    * [Перебор параметров](docs/web-interface/params.md)
+   * Сравнение стратегий
 * [Написание стратегий](docs/strategy/README.md)
    * [Сравнение стратегий](docs/web-interface/comparator.md)
    * [Общая структура стратегий](docs/strategy/structure.md)
