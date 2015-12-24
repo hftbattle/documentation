@@ -1,14 +1,18 @@
 {
     "variables": {
         "contest.name": "HFT Battle 2016",
-        "contest.url-long": "https://aimfund.ru/history/hft-battle-2016",
-        "contest.url-short": "aimfund.ru/history/hft-battle-2016/",
-        "contest.doc.url-long": "https://contest.aimfund.ru/docs",
-        "contest.doc.url-short": "contest.aimfund.ru/docs",
+        
+        "contest.landing-page.url": "https://aimfund.ru/history/hft-battle-2016",
+        "contest.landing-page.name": "HFT Battle 2016",
+        
+        "contest.doc.url": "https://contest.aimfund.ru/docs",
+        "contest.doc.name": "contest.aimfund.ru/docs",
+        
         "contest.support.email": "contest@aimfund.ru",
-        "contest.support.slack.url-long": "https://hftbattle2016.slack.com",
-        "contest.support.slack.url-short": "hftbattle2016.slack.com",
-        "viewer.url-long": "http://viewer.aimfund.ru",
-        "viewer.url-short": "viewer.aimfund.ru"
+        "contest.support.slack.url": "https://hftbattle2016.slack.com",
+        "contest.support.slack.name": "hftbattle2016.slack.com",
+        
+        "viewer.url": "http://viewer.aimfund.ru",
+        "viewer.name": "viewer.aimfund.ru"
     }
 }
