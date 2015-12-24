@@ -8,10 +8,10 @@
    * [Сравнение стратегий](docs/web-interface/comparator.md)
 * [Написание стратегий](docs/strategy/README.md)
    * [Общая структура стратегий](docs/strategy/structure.md)
-   * [Примеры стратегий](/docs/strategy/examples.md)
+   * [Примеры стратегий](docs/strategy/examples.md)
 * [Симулятор торгов](docs/simulator.md)
 * [Глоссарий биржевых терминов](docs/exchange_terms.md)
-* API
+* [API](api/README.md)
    * [ContestBookInfo](api/ContestBookInfo.md)
    * [Deal](api/Deal.md)
    * [Order](api/Order.md)
