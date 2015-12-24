@@ -3,7 +3,7 @@
 * [Introduction](README.md)
 * [Симулятор торгов](docs/simulator.md)
 * Интерфейс участника
-* Примеры стратегий
+* Написание стратегий
 * [Глоссарий биржевых терминов](docs/exchange_terms.md)
 * API
    * [ContestBookInfo](api/ContestBookInfo.md)
@@ -11,5 +11,5 @@
    * [Order](api/Order.md)
    * [OrderBook](api/OrderBook.md)
    * [ParticipantStrategy](api/ParticipantStrategy.md)
-   * [Quote](./api/Quote.md)
+   * [Quote](api/Quote.md)
 
