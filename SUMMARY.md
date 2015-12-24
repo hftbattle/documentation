@@ -1,7 +1,7 @@
 # Summary
 
 * [Introduction](README.md)
-* Интерфейс участника
+* [Интерфейс участника](docs/participant_interface.md)
    * [Перебор параметров](docs/params.md)
 * Написание стратегий
    * [Tutorial по написанию стратегий](docs/strategy_tutorial.md)
