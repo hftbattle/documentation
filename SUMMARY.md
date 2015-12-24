@@ -4,7 +4,7 @@
 * [Симулятор торгов](docs/simulator.md)
 * Интерфейс участника
 * Написание стратегий
-   * Tutorial по написанию стратегий
+   * [Tutorial по написанию стратегий](./docs/strategy_tutorial.md)
 * [Глоссарий биржевых терминов](docs/exchange_terms.md)
 * API
    * [ContestBookInfo](api/ContestBookInfo.md)
