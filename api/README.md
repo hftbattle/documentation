@@ -1,6 +1,6 @@
 # API
 
-* [ContestBookInfo](#ContestBookInfo)
+* [ContestBookInfo](ContestBookInfo.md)
 * [Deal](#Deal)
 * [Order](#Order)
 * [OrderBook](#OrderBook)
