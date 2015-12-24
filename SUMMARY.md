@@ -11,7 +11,7 @@
    * [Примеры стратегий](docs/strategy/examples.md)
 * [Симулятор торгов](docs/simulator/README.md)
    * [Данные](docs/simulator/data.md)
-   * Особенности симулятора
+   * [Особенности симулятора](docs/simulator/features.md)
 * [Глоссарий биржевых терминов](docs/exchange_terms.md)
 * [API](api/README.md)
    * [ContestBookInfo](api/ContestBookInfo.md)
