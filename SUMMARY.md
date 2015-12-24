@@ -8,6 +8,7 @@
    * [Сравнение стратегий](docs/web-interface/comparator.md)
 * [Написание стратегий](docs/strategy/README.md)
    * [Общая структура стратегий](docs/strategy/structure.md)
+   * Примеры стратегий
 * [Симулятор торгов](docs/simulator.md)
 * [Глоссарий биржевых терминов](docs/exchange_terms.md)
 * API
