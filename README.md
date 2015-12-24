@@ -1,5 +1,5 @@
 # Документация {{ book["contest.name"] }}
-Здесь содержится документация для [{{ book["contest.url-short"] }}]({{ book["contest.url-long"] }}).
+Здесь содержится документация для [{{ book["contest.landing-page.name"] }}]({{ book["contest.landing-page.url"] }}).
 
 # Как начать участие
 Для участия в соревновании необходимо:
