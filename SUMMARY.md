@@ -1,11 +1,11 @@
 # Summary
 
 * [Introduction](README.md)
-* [Симулятор торгов](docs/simulator.md)
 * Интерфейс участника
    * [Перебор параметров](docs/params.md)
 * Написание стратегий
    * [Tutorial по написанию стратегий](docs/strategy_tutorial.md)
+* [Симулятор торгов](docs/simulator.md)
 * [Глоссарий биржевых терминов](docs/exchange_terms.md)
 * API
    * [ContestBookInfo](api/ContestBookInfo.md)
