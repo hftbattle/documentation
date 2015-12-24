@@ -4,7 +4,7 @@
 * [Интерфейс участника](docs/web-interface/participant_interface.md)
    * [Перебор параметров](docs/web-interface/params.md)
    * [Отправка стратегии](docs/web-interface/sending.md)
-   * Просмотр результатов
+   * [Просмотр результатов](docs/web-interface/results.md)
    * Сравнение стратегий
 * Написание стратегий
    * [Tutorial по написанию стратегий](docs/strategy_tutorial.md)
