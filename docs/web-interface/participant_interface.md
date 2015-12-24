@@ -8,7 +8,7 @@
   - [Сравнение стратегий][comparator]
   - [Перебор параметров][params]
   
-[sending]: "sending.md"
-[results]: "results.md"
-[comparator]: "comparator.md"
-[params]: "params.md"
+[sending]: sending.md
+[results]: results.md
+[comparator]: comparator.md
+[params]: params.md
