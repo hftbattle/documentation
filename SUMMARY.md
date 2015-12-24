@@ -4,6 +4,7 @@
 * [Интерфейс участника](docs/web-interface/participant_interface.md)
    * [Перебор параметров](docs/web-interface/params.md)
    * Отправка стратегии
+   * Просмотр результатов
 * Написание стратегий
    * [Tutorial по написанию стратегий](docs/strategy_tutorial.md)
 * [Симулятор торгов](docs/simulator.md)
