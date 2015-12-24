@@ -3,7 +3,7 @@
 * [Introduction](README.md)
 * [Интерфейс участника](docs/web-interface/participant_interface.md)
    * [Перебор параметров](docs/web-interface/params.md)
-   * Отправка стратегии
+   * [Отправка стратегии](./dpc)
    * Просмотр результатов
    * Сравнение стратегий
 * Написание стратегий
