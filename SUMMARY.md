@@ -2,7 +2,7 @@
 
 * [Introduction](README.md)
 * [Интерфейс участника](docs/web-interface/participant_interface.md)
-   * [Перебор параметров](docs/params.md)
+   * [Перебор параметров](docs/web-interface/params.md)
 * Написание стратегий
    * [Tutorial по написанию стратегий](docs/strategy_tutorial.md)
 * [Симулятор торгов](docs/simulator.md)
