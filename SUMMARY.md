@@ -2,8 +2,8 @@
 
 * [Introduction](README.md)
 * [Интерфейс участника](docs/web-interface/README.md)
-   * [Перебор параметров](docs/web-interface/params.md)
    * [Отправка стратегии](docs/web-interface/sending.md)
+   * [Перебор параметров](docs/web-interface/params.md)
    * [Просмотр результатов](docs/web-interface/results.md)
 * [Написание стратегий](docs/strategy/README.md)
    * [Сравнение стратегий](docs/web-interface/comparator.md)
