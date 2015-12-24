@@ -10,7 +10,7 @@
    * [Общая структура стратегий](docs/strategy/structure.md)
    * [Примеры стратегий](docs/strategy/examples.md)
 * [Симулятор торгов](docs/simulator/README.md)
-   * [Данные](simulator/data.md)
+   * [Данные](docs/simulator/data.md)
 * [Глоссарий биржевых терминов](docs/exchange_terms.md)
 * [API](api/README.md)
    * [ContestBookInfo](api/ContestBookInfo.md)
