@@ -6,7 +6,7 @@
    * [Отправка стратегии](docs/web-interface/sending.md)
    * [Просмотр результатов](docs/web-interface/results.md)
    * [Сравнение стратегий](docs/web-interface/comparator.md)
-* Написание стратегий
+* [Написание стратегий](docs/strategy/README.md)
    * [Tutorial по написанию стратегий](docs/strategy_tutorial.md)
 * [Симулятор торгов](docs/simulator.md)
 * [Глоссарий биржевых терминов](docs/exchange_terms.md)
