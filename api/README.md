@@ -1,8 +1,8 @@
 # API
 
 * [ContestBookInfo](ContestBookInfo.md)
-* [Deal](#Deal)
-* [Order](#Order)
-* [OrderBook](#OrderBook)
-* [ParticipantStrategy][#ParticipantStrategy]
-* [Quote][#Quote]
+* [Deal](Deal.md)
+* [Order](Order.md)
+* [OrderBook](OrderBook.md)
+* [ParticipantStrategy][ParticipantStrategy.md]
+* [Quote][Quote.md]
