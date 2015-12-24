@@ -3,8 +3,10 @@
 Веб-интерфейс участника доступен по адресу [{{ book["contest.url-short"] }}]({{ book["contest.url-long"] }}).
 
 Подробнее о возможностях веб-интерфейса участника можно узнать в следующих пунктах:
-  - [Отправка стратегии][strategy_sending]
-  - [Перебор параметров][params_sweeping]
+  - [Отправка стратегии][sending]
+  - [Просмотр результатов][results]
+  - [Перебор параметров][params]
  
-[strategy_sending]: strategy_sending.md
-[params_sweeping]: params.md
+[sending]: sending.md
+[results]: results.md
+[params]: params.md
