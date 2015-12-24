@@ -1,6 +1,7 @@
 # Документация {{ book["contest.name"] }}
 Здесь содержится документация для [{{ book["contest.name"] }}]({{ book["contest.landing-page.url"] }}).
 
+
 # Как начать участие
 Для участия в соревновании необходимо:
 - Прочитать все материалы, находящиеся в [{{ book["contest.doc.name"] }}]({{ book["contest.doc.url"] }}).
