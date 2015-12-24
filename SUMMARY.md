@@ -6,7 +6,7 @@
 * Примеры стратегий
 * [Глоссарий биржевых терминов](docs/exchange_terms.md)
 * API
-   * ContestBookInfo
+   * [ContestBookInfo](./api/ContestBookInfo.md)
    * Deal
    * Order
    * OrderBook
