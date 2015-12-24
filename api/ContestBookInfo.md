@@ -11,14 +11,14 @@
 * [ContestBookInfo.price_volume()](#price_volume)
 * ...
 
-### best_price
+###best_price
 Лучшие цены (минимальная цена продажи и максимальная цена покупки) в момент последнего обновления стакана
 ```cpp
 const std::array<Decimal, 2>& best_price() const;
 
 ```
 
-### book_updates_count
+###book_updates_count
 Возвращает количество апдейтов стакана с начала дня
 ```cpp
 int32_t book_updates_count() const;
