@@ -5,4 +5,4 @@
   - [Перебор параметров][params_sweeping]
  
 
-[params_sweeping]: "./params.md" "Перебор параметров"
+[params_sweeping]: params.md "Перебор параметров"
