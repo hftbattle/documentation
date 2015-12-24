@@ -1,5 +1,5 @@
 
-[params sweeping] ###Перебор параметров #params_sweeping
+###Перебор параметров
 
 {{ book.myVariable }}
 
