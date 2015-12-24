@@ -1,7 +1,7 @@
 # Summary
 
 * [Introduction](README.md)
-* [Интерфейс участника](docs/web-interface/participant_interface.md)
+* [Интерфейс участника](docs/web-interface/README.md)
    * [Перебор параметров](docs/web-interface/params.md)
    * [Отправка стратегии](docs/web-interface/sending.md)
    * [Просмотр результатов](docs/web-interface/results.md)
