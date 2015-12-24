@@ -5,7 +5,7 @@
    * [Перебор параметров](docs/web-interface/params.md)
    * [Отправка стратегии](docs/web-interface/sending.md)
    * [Просмотр результатов](docs/web-interface/results.md)
-   * Сравнение стратегий
+   * [Сравнение стратегий](docs/web-interface/comparator.md)
 * Написание стратегий
    * [Tutorial по написанию стратегий](docs/strategy_tutorial.md)
 * [Симулятор торгов](docs/simulator.md)
