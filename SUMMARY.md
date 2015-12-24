@@ -1,7 +1,7 @@
 # Summary
 
 * [Introduction](README.md)
-* Симулятор торгов
+* [Симулятор торгов](./docs/simulator.md)
 * Интерфейс участника
    * [Перебор параметров](docs/params.md)
 * Написание стратегий
