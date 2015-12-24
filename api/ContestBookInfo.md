@@ -7,9 +7,9 @@
 
 ## Ключевые неприватные поля и методы класса:
 
-* [ContestBookInfo.best_price](#best_price)
-* [ContestBookInfo.price_volume](#price_volume)
-* 
+* [ContestBookInfo.best_price()](#best_price)
+* [ContestBookInfo.price_volume()](#price_volume)
+* ...
 
 ### best_price
 Лучшие цены (минимальная цена продажи и максимальная цена покупки) в момент последнего обновления стакана
