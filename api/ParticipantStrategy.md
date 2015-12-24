@@ -1,3 +1,5 @@
+#ParticipantStrategy
+
 Описание класса ParticipantStrategy (объявлен в include/simulator/strategy/participant_strategy_layer.h)
 ----------------
 
