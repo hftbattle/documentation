@@ -2,4 +2,4 @@
 
 Интерфейс участника доступен по адресу [{{ book["contest.url-short"] }}]({{ book["contest.url-long"] }}).
 
-{% include "./params.md" %}
+  - [Перебор параметров][params_sweeping]
