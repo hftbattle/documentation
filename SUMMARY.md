@@ -3,7 +3,7 @@
 * [Introduction](README.md)
 * [Симулятор торгов](docs/simulator.md)
 * Интерфейс участника
-   * Перебор параметров
+   * [Перебор параметров](./docs/params.md)
 * Написание стратегий
    * [Tutorial по написанию стратегий](docs/strategy_tutorial.md)
 * [Глоссарий биржевых терминов](docs/exchange_terms.md)
