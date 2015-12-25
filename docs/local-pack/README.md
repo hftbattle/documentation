@@ -4,4 +4,4 @@
 
 Чтобы использовать local pack, нужно скачать репозиторий отсюда: [{{ book["contest.local-pack.name"] }}]({{ book["contest.local-pack.url"] }}).
 
-{% include local-pack.README.md %}
+{% include "local-pack.README.md" %}
