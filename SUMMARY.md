@@ -12,7 +12,7 @@
 * [Симулятор торгов](docs/simulator/README.md)
    * [Данные](docs/simulator/data.md)
    * [Особенности симулятора](docs/simulator/features.md)
-* Local Pack
+* Local pack
 * [Глоссарий](docs/glossary/glossary.md)
 * [FAQ](FAQ.md)
 * [API](api/README.md)
