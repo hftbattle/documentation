@@ -20,52 +20,52 @@
 
 #Основные поля и методы класса
 
-```cpp
+```c++
 inline xor_platform::Id outer_id() const;
 ```
 id заявки
 
-```cpp
+```c++
 int64_t origin_server_time;
 ```
 биржевое время постановки заявки в стакан в тиках
 
-```cpp
+```c++
 const xor_platform::Decimal price;
 ```
 цена заявки
 
-```cpp
+```c++
 const int32_t amount;
 ```
 количество лотов
 
-```cpp
+```c++
 const Dir dir;
 ```
 направление
 
-```cpp
+```c++
 const xor_platform::OrderTimeInForce time_in_force;
 ```
 тип заявки - Limit или IOC
 
-```cpp
+```c++
 const Security * security;
 ```
 инструмент, к которому относится заявка
 
-```cpp
+```c++
 inline int32_t amount_rest() const;
 ```
 текущее количество лотов в заявке (может быть меньше начального, если были сделки с ее участием)
 
-```cpp
+```c++
 inline int32_t implied_amount() const;
 ```
 количество лотов, которое предположительно будет сведено
 
-```cpp
+```c++
 inline xor_platform::OrderStatus status() const;
 ```
 статус заявки - активная, ждущая удаления, удаленная

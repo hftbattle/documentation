@@ -21,57 +21,57 @@
 
 #Основные поля и методы класса
 
-```cpp
+```c++
 xor_platform::Microseconds server_time;
 ```
 биржевое время совершения сделки
 
-```cpp
+```c++
 xor_platform::Microseconds passive_order_server_time;
 ```
 время постановки "пассивного" ордера, если оно известно
 
-```cpp
+```c++
 xor_platform::Decimal price;
 ```
 цена по которой произошла сделка
 
-```cpp
+```c++
 xor_platform::Amount amount;
 ```
 количество лотов в сделке
 
-```cpp
+```c++
 xor_platform::Amount implied_amount;
 ```
 количество лотов, которые предположительно должны были свестись в случае, когда налетающая заявка была нашей
 
-```cpp
+```c++
 xor_platform::Dir dir;
 ```
 направление сделки (покупка или продажа)
 
-```cpp
+```c++
 std::vector<std::string> const& get_comments() const;
 ```
 комментарии к заявкам, участвующим в сделке
 
-```cpp
+```c++
 std::vector<std::shared_ptr<Order>> const& get_orders() const;
 ```
 вектор заявок (на продажу и на покупку), участвующих в сделке
 
-```cpp
+```c++
 inline int64_t get_tsc() const;
 ```
 время машины, на которой сохранялись данные
 
-```cpp
+```c++
 inline xor_platform::Dir get_agressor_side() const;
 ```
 направление налетающей заявки
 
-```cpp
+```c++
 bool is_our() const;
 ```
 наша ли это сделка

@@ -21,63 +21,63 @@
 |[ContestBookInfo.executed_amount() const](#executed_amount)|наша текущая позиция|
 
 #Основные поля и методы класса
-###best_price
-```cpp
+
+```c++
 const std::array<Decimal, 2>& best_price() const;
 ```
 лучшие цены (минимальная цена продажи и максимальная цена покупки) в момент последнего обновления стакана
 
-```cpp
+```c++
 int32_t book_updates_count() const;
 ```
 Возвращает количество апдейтов стакана с начала дня
 
-```cpp
+```c++
 const std::array<int64_t, 2>& best_price_volume() const;
 ```
 объем лотов на лучших ценах
 
-```cpp
+```c++
 Decimal middle_price() const;
 ```
 полусумма лучших цен
 
-```cpp
+```c++
 int32_t spread() const;
 ```
 расстояние между лучшим аском и лучшим бидом в минимальных шагах цены
 
-```cpp
+```c++
 SecurityOrdersSnapshot& active_orders();
 ```
 структура, содержащая наши заявки, описана отдельно тут
 
-```cpp
+```c++
 StatisticsSnapshot statistics();
 ```
 структура, содержащая статистику по нашей текущей позиции. Используется из стратегии неявно, в вызовах executed_amount() и total_amount().
 
-```cpp
+```c++
 SecurityId security_id() const;
 ```
 инструмент которому соответствует данная структура
 
-```cpp
+```c++
 Microseconds server_time() const;
 ```
 биржевое время последнего апдейта
 
-```cpp
+```c++
 xor_platform::Decimal min_step() const;
 ```
 минимальный шаг цены в стакане (минимальная возможная разница между ценами)
 
-```cpp
+```c++
 int32_t total_amount() const;
 ```
 наша "предполагаемая" позиция - учитывается и реальная позиция на руках, и та, что мы ожидаем что будет проторгована
 
-```cpp
+```c++
 int32_t executed_amount() const;
 ```
 наша текущая позиция

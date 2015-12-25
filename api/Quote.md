@@ -18,17 +18,17 @@
 
 #Основные методы класса
 
-```cpp
+```c++
 inline Amount get_volume() const;
 ```
 объем лотов на цене
 
-```cpp
+```c++
 inline Decimal get_price() const;
 ```
 цена
 
-```cpp
+```c++
 Dir get_dir() const;
 ```
 направление котировки
