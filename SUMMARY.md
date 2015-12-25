@@ -12,7 +12,7 @@
 * [Симулятор торгов](docs/simulator/README.md)
    * [Данные](docs/simulator/data.md)
    * [Особенности симулятора](docs/simulator/features.md)
-* [Глоссарий](GLOSSARY.md)
+* [Глоссарий](./docs/glossary/glossary.md)
 * [FAQ](FAQ.md)
 * [API](api/README.md)
    * [ContestBookInfo](api/ContestBookInfo.md)
