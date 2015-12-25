@@ -12,7 +12,7 @@
         "contest.support.slack.url": "https://slack.hftbattle.com",
         "contest.support.slack.name": "slack.hftbattle.com",
         
-        "viewer.url": "http://viewer.aimfund.ru",
-        "viewer.name": "viewer.aimfund.ru"
+        "viewer.url": "http://viewer.hftbattle.com",
+        "viewer.name": "viewer.hftbattle.com"
     }
 }
