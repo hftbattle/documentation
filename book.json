@@ -5,12 +5,12 @@
         "contest.landing-page.url": "http://hftbattle.com",
         "contest.landing-page.name": "hftbattle.com",
         
-        "contest.doc.url": "https://hftbattle.com/reference",
-        "contest.doc.name": "hftbattle.com/reference",
+        "contest.docs.url": "https://hftbattle.com/reference",
+        "contest.docs.name": "hftbattle.com/reference",
         
         "contest.support.email": "help@hftbattle.com",
-        "contest.support.slack.url": "https://hftbattle2016.slack.com",
-        "contest.support.slack.name": "hftbattle2016.slack.com",
+        "contest.support.slack.url": "https://slack.hftbattle.com",
+        "contest.support.slack.name": "slack.hftbattle.com",
         
         "viewer.url": "http://viewer.aimfund.ru",
         "viewer.name": "viewer.aimfund.ru"
