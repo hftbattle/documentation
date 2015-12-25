@@ -1,7 +1,6 @@
 # Summary
 
 * [Introduction](README.md)
-* [Глоссарий](GLOSSARY.md)
 * [Интерфейс участника](docs/web-interface/README.md)
    * [Отправка стратегии](docs/web-interface/sending.md)
    * [Просмотр результатов](docs/web-interface/results.md)
@@ -13,6 +12,7 @@
 * [Симулятор торгов](docs/simulator/README.md)
    * [Данные](docs/simulator/data.md)
    * [Особенности симулятора](docs/simulator/features.md)
+* [Глоссарий](GLOSSARY.md)
 * [FAQ](FAQ.md)
 * [API](api/README.md)
    * [ContestBookInfo](api/ContestBookInfo.md)
