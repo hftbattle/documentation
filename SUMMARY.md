@@ -23,4 +23,5 @@
    * [Deal](api/Deal.md)
    * [ContestBookInfo](api/ContestBookInfo.md)
    * [SecurityOrdersSnapshot](api/SecurityOrdersSnapshot.md)
+* Viewer
 
