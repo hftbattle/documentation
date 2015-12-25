@@ -13,7 +13,7 @@
    * [Данные](docs/simulator/data.md)
    * [Особенности симулятора](docs/simulator/features.md)
 * [Local pack](docs/local-pack/README.md)
-* Viewer
+* [Viewer](docs/viewer/README.md)
 * [Глоссарий](docs/glossary/glossary.md)
 * [FAQ](FAQ.md)
 * [API](api/README.md)
