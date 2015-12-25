@@ -2,7 +2,7 @@
 
 * [Introduction](README.md)
 * [FAQ](FAQ.md)
-* [Глоссарий биржевых терминов](docs/exchange_terms.md)
+* [Глоссарий биржевых терминов](GLOSSARY.md)
 * [Интерфейс участника](docs/web-interface/README.md)
    * [Отправка стратегии](docs/web-interface/sending.md)
    * [Просмотр результатов](docs/web-interface/results.md)
