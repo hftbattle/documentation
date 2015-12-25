@@ -13,11 +13,11 @@
 |[Deal.amount](#amount)|количество лотов в сделке|
 |[Deal.implied_amount](#implied_amount)|количество лотов, которые предположительно должны были свестись в случае, когда налетающая заявка была нашей|
 |[Deal.dir](#dir)|направление сделки (покупка или продажа)|
-|[Deal.get_comments() const()](#get_comments)|комментарии к заявкам, участвующим в сделке|
-|[Deal.get_orders() const()](#get_orders)|вектор заявок (на продажу и на покупку), участвующих в сделке|
-|[Deal.get_tsc() const()](#get_tsc)|время машины, на которой сохранялись данные|
-|[Deal.get_agressor_side() const()](#get_agressor_side)|направление налетающей заявки|
-|[Deal.is_our() const()](#is_our)|наша ли это сделка|
+|[Deal.get_comments() const](#get_comments)|комментарии к заявкам, участвующим в сделке|
+|[Deal.get_orders() const](#get_orders)|вектор заявок (на продажу и на покупку), участвующих в сделке|
+|[Deal.get_tsc() const](#get_tsc)|время машины, на которой сохранялись данные|
+|[Deal.get_agressor_side() const](#get_agressor_side)|направление налетающей заявки|
+|[Deal.is_our() const](#is_our)|наша ли это сделка|
 
 #Основные поля и методы класса
 

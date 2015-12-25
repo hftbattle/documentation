@@ -7,16 +7,16 @@
 
 |Имя| Описание|
 |------------------|--------------------|
-|[Order.outer_id() const()](#outer_id)|id заявки|
+|[Order.outer_id() const](#outer_id)|id заявки|
 |[Order.origin_server_time](#origin_server_time)|биржевое время постановки заявки в стакан в тиках|
 |[Order.price](#price)|цена заявки|
 |[Order.amount](#amount)|количество лотов|
 |[Order.dir](#dir)|направление|
 |[Order.time_in_force](#time_in_force)|тип заявки - Limit или IOC|
 |[Order.security](#security)|инструмент, к которому относится заявка|
-|[Order.amount_rest() const()](#amount_rest)|текущее количество лотов в заявке (может быть меньше начального, если были сделки с ее участием)|
-|[Order.implied_amount() const()](#implied_amount)|количество лотов, которое предположительно будет сведено|
-|[Order.status() const()](#status)|статус заявки - активная, ждущая удаления, удаленная|
+|[Order.amount_rest() const](#amount_rest)|текущее количество лотов в заявке (может быть меньше начального, если были сделки с ее участием)|
+|[Order.implied_amount() const](#implied_amount)|количество лотов, которое предположительно будет сведено|
+|[Order.status() const](#status)|статус заявки - активная, ждущая удаления, удаленная|
 
 #Основные поля и методы класса
 

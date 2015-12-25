@@ -12,9 +12,9 @@
 
 |Имя| Описание|
 |------------------|--------------------|
-|[Quote.get_volume() const()](#get_volume)|объем лотов на цене|
-|[Quote.get_price() const()](#get_price)|цена|
-|[Quote.get_dir() const()](#get_dir)|направление котировки|
+|[Quote.get_volume() const](#get_volume)|объем лотов на цене|
+|[Quote.get_price() const](#get_price)|цена|
+|[Quote.get_dir() const](#get_dir)|направление котировки|
 
 #Основные методы класса
 

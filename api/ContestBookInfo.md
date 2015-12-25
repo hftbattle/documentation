@@ -7,18 +7,18 @@
 
 |Имя| Описание|
 |------------------|--------------------|
-|[ContestBookInfo.best_price() const()](#best_price)|лучшие цены (минимальная цена продажи и максимальная цена покупки) в момент последнего обновления стакана|
-|[ContestBookInfo.book_updates_count() const()](#book_updates_count)|Возвращает количество апдейтов стакана с начала дня|
-|[ContestBookInfo.best_price_volume() const()](#best_price_volume)|объем лотов на лучших ценах|
-|[ContestBookInfo.middle_price() const()](#middle_price)|полусумма лучших цен|
-|[ContestBookInfo.spread() const()](#spread)|расстояние между лучшим аском и лучшим бидом в минимальных шагах цены|
-|[ContestBookInfo.active_orders()()](#active_orders)|структура, содержащая наши заявки, описана отдельно тут|
-|[ContestBookInfo.statistics()()](#statistics)|структура, содержащая статистику по нашей текущей позиции. Используется из стратегии неявно, в вызовах executed_amount() и total_amount().|
-|[ContestBookInfo.security_id() const()](#security_id)|инструмент которому соответствует данная структура|
-|[ContestBookInfo.server_time() const()](#server_time)|биржевое время последнего апдейта|
-|[ContestBookInfo.min_step() const()](#min_step)|минимальный шаг цены в стакане (минимальная возможная разница между ценами)|
-|[ContestBookInfo.total_amount() const()](#total_amount)|наша "предполагаемая" позиция - учитывается и реальная позиция на руках, и та, что мы ожидаем что будет проторгована|
-|[ContestBookInfo.executed_amount() const()](#executed_amount)|наша текущая позиция|
+|[ContestBookInfo.best_price() const](#best_price)|лучшие цены (минимальная цена продажи и максимальная цена покупки) в момент последнего обновления стакана|
+|[ContestBookInfo.book_updates_count() const](#book_updates_count)|Возвращает количество апдейтов стакана с начала дня|
+|[ContestBookInfo.best_price_volume() const](#best_price_volume)|объем лотов на лучших ценах|
+|[ContestBookInfo.middle_price() const](#middle_price)|полусумма лучших цен|
+|[ContestBookInfo.spread() const](#spread)|расстояние между лучшим аском и лучшим бидом в минимальных шагах цены|
+|[ContestBookInfo.active_orders()](#active_orders)|структура, содержащая наши заявки, описана отдельно тут|
+|[ContestBookInfo.statistics()](#statistics)|структура, содержащая статистику по нашей текущей позиции. Используется из стратегии неявно, в вызовах executed_amount() и total_amount().|
+|[ContestBookInfo.security_id() const](#security_id)|инструмент которому соответствует данная структура|
+|[ContestBookInfo.server_time() const](#server_time)|биржевое время последнего апдейта|
+|[ContestBookInfo.min_step() const](#min_step)|минимальный шаг цены в стакане (минимальная возможная разница между ценами)|
+|[ContestBookInfo.total_amount() const](#total_amount)|наша "предполагаемая" позиция - учитывается и реальная позиция на руках, и та, что мы ожидаем что будет проторгована|
+|[ContestBookInfo.executed_amount() const](#executed_amount)|наша текущая позиция|
 
 #Основные поля и методы класса
 
