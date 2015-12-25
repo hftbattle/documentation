@@ -16,10 +16,10 @@
 * [FAQ](FAQ.md)
 * [API](api/README.md)
    * [ParticipantStrategy](api/ParticipantStrategy.md)
+   * [OrderBook](api/OrderBook.md)
    * [ContestBookInfo](api/ContestBookInfo.md)
    * [Deal](api/Deal.md)
    * [Order](api/Order.md)
-   * [OrderBook](api/OrderBook.md)
    * [Quote](api/Quote.md)
    * [SecurityOrdersSnapshot](api/SecurityOrdersSnapshot.md)
 
