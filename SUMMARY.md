@@ -17,9 +17,9 @@
 * [API](api/README.md)
    * [ParticipantStrategy](api/ParticipantStrategy.md)
    * [OrderBook](api/OrderBook.md)
-   * [ContestBookInfo](api/ContestBookInfo.md)
    * [Deal](api/Deal.md)
    * [Order](api/Order.md)
    * [Quote](api/Quote.md)
+   * [ContestBookInfo](api/ContestBookInfo.md)
    * [SecurityOrdersSnapshot](api/SecurityOrdersSnapshot.md)
 
