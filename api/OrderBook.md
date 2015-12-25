@@ -1,31 +1,31 @@
 #OrderBook
-include/simulator/orderbook/order_book.h
+
+`include/simulator/orderbook/order_book.h`
 
 
+Стакан – это агрегатор всех заявок по конкретному финансовому инструменту (подробнее можно почитать в описании биржевых терминов). Класс OrderBook как раз и является реализацией биржевого стакана в нашем симуляторе.
 
-Стакан - это агрегатор всех заявок по конкретному финансовому инструменту (подробнее можно почитать в описании биржевых терминов). Класс OrderBook как раз и является реализацией биржевого стакана в нашем симуляторе.
+
+ |Имя| Описание|
+ |------------------|--------------------|
+ |[get_quote_by_idx](#get_quote_by_idx)|котировка номер index в стакане по выбранному направлению |
+ |[quote_view_by_price](#quote_view_by_price) | котировка по цене price по направлению dir |
 
 
-* [OrderBook.get_quote_by_idx(Dir dir, int index) const](#get_quote_by_idx)
-* [OrderBook.quote_view_by_price(Dir dir, xor_platform::Decimal price) const](#quote_view_by_price)
-* [OrderBook.quote_by_price(Dir dir, xor_platform::Decimal price)](#quote_by_price)
-* [OrderBook.quote_by_index(Dir dir, int index)](#quote_by_index)
-* [OrderBook.all_quotes(Dir dir) const](#all_quotes)
-* [OrderBook.best_price(Dir dir)](#best_price)
-* [OrderBook.best_amount(Dir dir) const](#best_amount)
-* [OrderBook.get_volume_by_price(Dir dir, xor_platform::Decimal price) const](#get_volume_by_price)
-* [OrderBook.get_volume_by_idx(Dir dir, int index) const](#get_volume_by_idx)
-* [OrderBook.get_price_by_idx(Dir dir, int index) const](#get_price_by_idx)
-* [OrderBook.index_by_price(Dir dir, xor_platform::Decimal price) const](#index_by_price)
-* [OrderBook.quotes_count(Dir dir) const](#quotes_count)
-* [OrderBook.contains_price(Dir dir, xor_platform::Decimal price) const](#contains_price)
-* [OrderBook.depth() const](#depth)
+* Основные поля и методы класса
+    * [get_quote_by_idx](#get_quote_by_idx) 
+    * [quote_view_by_price](#quote_view_by_price)
+    * [quote_by_price](#quote_by_price)
+    * [quote_by_index](#quote_by_index)
+    * [all_quotes](#all_quotes)
+    * [best_price](#best_price)
 
-#Основные поля и методы класса
 
+###get_quote_by_idx
 ```cpp
 const Quote& get_quote_by_idx(Dir dir, int index) const;
-```котировка номер index в стакане по выбранному направлению
+```
+котировка номер index в стакане по выбранному направлению
 
 ```cpp
 const Quote& quote_view_by_price(Dir dir, xor_platform::Decimal price) const;
@@ -63,7 +63,7 @@ inline Amount get_volume_by_idx(Dir dir, int index) const;
 inline xor_platform::Decimal get_price_by_idx(Dir dir, int index) const;
 ```цена котировки по индексу (нумерация с нуля, начиная от лучшей цены)
 
-```cpp
+```.cpp
 size_t index_by_price(Dir dir, xor_platform::Decimal price) const;
 ```узнать индекс (нумерация с нуля, начиная от лучшей цены) по цене
 
