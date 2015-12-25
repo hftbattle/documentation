@@ -1,21 +1,22 @@
 #Order
-include/simulator/order/order.h
-
+`include/simulator/order/order.h`
 
 
 Класс Order представляет собой реализацию заявки (надеемся, вы уже знакомы с тем что это такое! Если нет - то вам сюда). Ничего необычного, поэтому переходим сразу к
 
 
-* [Order.outer_id() const](#outer_id)
-* [Order.origin_server_time](#origin_server_time)
-* [Order.price](#price)
-* [Order.amount](#amount)
-* [Order.dir](#dir)
-* [Order.time_in_force](#time_in_force)
-* [Order.security](#security)
-* [Order.amount_rest() const](#amount_rest)
-* [Order.implied_amount() const](#implied_amount)
-* [Order.status() const](#status)
+|Имя| Описание|
+|------------------|--------------------|
+|[Order.outer_id() const()](#outer_id)|id заявки|
+|[Order.origin_server_time](#origin_server_time)|биржевое время постановки заявки в стакан в тиках|
+|[Order.price](#price)|цена заявки|
+|[Order.amount](#amount)|количество лотов|
+|[Order.dir](#dir)|направление|
+|[Order.time_in_force](#time_in_force)|тип заявки - Limit или IOC|
+|[Order.security](#security)|инструмент, к которому относится заявка|
+|[Order.amount_rest() const()](#amount_rest)|текущее количество лотов в заявке (может быть меньше начального, если были сделки с ее участием)|
+|[Order.implied_amount() const()](#implied_amount)|количество лотов, которое предположительно будет сведено|
+|[Order.status() const()](#status)|статус заявки - активная, ждущая удаления, удаленная|
 
 #Основные поля и методы класса
 

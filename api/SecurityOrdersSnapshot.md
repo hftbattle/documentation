@@ -1,16 +1,17 @@
 #SecurityOrdersSnapshot
-include/xor/sender/active_orders_storage.h
-
+`include/xor/sender/active_orders_storage.h`
 
 
 Эта структура хранит активные заявки стратегии (при этом в ней содержатся те заявки, что уже были отправлены, но еще "не дошли" до стакана, но не содержатся те, на которые отправлен запрос на удаление). В стратегии она доступна как поле в trade_book_info (описание класса ContestBookInfo можно почитать тут). Структура обновляется перед приходом каждого апдейта в стратегию, но в процессе обработки одного апдейта стратегией не меняется (и более того, фактическая обработка действий стратегии начинается только после выхода из функции обработки апдейта).
 
 
-* [SecurityOrdersSnapshot.orders_by_dir](#orders_by_dir)
-* [SecurityOrdersSnapshot.deleting_amount](#deleting_amount)
-* [SecurityOrdersSnapshot.amount(Dir dir, Price price) const](#amount)
-* [SecurityOrdersSnapshot.size() const](#size)
-* [SecurityOrdersSnapshot.count_active_orders(Dir dir)](#count_active_orders)
+|Имя| Описание|
+|------------------|--------------------|
+|[SecurityOrdersSnapshot.orders_by_dir](#orders_by_dir)|списки наших активных заявок по направлению и цене|
+|[SecurityOrdersSnapshot.deleting_amount](#deleting_amount)|суммарный объем заявок по направлению, отправленных на удаление, но еще не удаленных|
+|[SecurityOrdersSnapshot.amount(Dir dir, Price price) const()](#amount)|объем наших заявок на данной цене по данному направлению|
+|[SecurityOrdersSnapshot.size() const()](#size)|суммарное количество наших заявок по обоим направлениям|
+|[SecurityOrdersSnapshot.count_active_orders(Dir dir)()](#count_active_orders)|количество наших активных заявок (сюда не включены те, на которые отправлен запрос на удаление)|
 
 #Основные поля и методы класса
 

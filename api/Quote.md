@@ -1,6 +1,5 @@
 #Quote
-include/simulator/quote/quote.h
-
+`include/simulator/quote/quote.h`
 
 
 Котировка (или квота) - это термин для обозначения одного ценового уровня в стакане.
@@ -11,9 +10,11 @@ include/simulator/quote/quote.h
 объекта типа Quote (таких как get_quote_by_idx).
 
 
-* [Quote.get_volume() const](#get_volume)
-* [Quote.get_price() const](#get_price)
-* [Quote.get_dir() const](#get_dir)
+|Имя| Описание|
+|------------------|--------------------|
+|[Quote.get_volume() const()](#get_volume)|объем лотов на цене|
+|[Quote.get_price() const()](#get_price)|цена|
+|[Quote.get_dir() const()](#get_dir)|направление котировки|
 
 #Основные методы класса
 
