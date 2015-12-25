@@ -7,18 +7,19 @@
 
 ## Ключевые неприватные поля и методы класса:
 
-* [ContestBookInfo.best_price()](#best_price)
-* [ContestBookInfo.price_volume()](#price_volume)
+* [ContestBookInfo.best_price()](best_price)
+* [ContestBookInfo.price_volume()](price_volume)
 * ...
 
-### ContestBookInfo.best_price() [best_price] ##
+### ContestBookInfo.best_price() ###
 
 Лучшие цены (минимальная цена продажи и максимальная цена покупки) в момент последнего обновления стакана
 ```cpp
 const std::array<Decimal, 2>& best_price() const;
 
 ```
-
+[
+](best_price)
 ###book_updates_count
 Возвращает количество апдейтов стакана с начала дня
 ```cpp
