@@ -26,57 +26,71 @@
 
 ```cpp
 const Quote& get_quote_by_idx(Dir dir, int index) const;
-```котировка номер index в стакане по выбранному направлению
+```
+котировка номер index в стакане по выбранному направлению
 
 ```cpp
 const Quote& quote_view_by_price(Dir dir, xor_platform::Decimal price) const;
-```котировка по цене price по направлению dir
+```
+котировка по цене price по направлению dir
 
 ```cpp
 Quote* quote_by_price(Dir dir, xor_platform::Decimal price);
-```котировка по цене price по направлению dir
+```
+котировка по цене price по направлению dir
 
 ```cpp
 Quote* quote_by_index(Dir dir, int index);
-```котировка номер index в стакане по выбранному направлению
+```
+котировка номер index в стакане по выбранному направлению
 
 ```cpp
 QuotesHolder all_quotes(Dir dir) const;
-```все котировки по выбранному направлению
+```
+все котировки по выбранному направлению
 
 ```cpp
 inline xor_platform::Decimal best_price(Dir dir);
-```лучшая цена в стакане по направлению dir
+```
+лучшая цена в стакане по направлению dir
 
 ```cpp
 inline Amount best_amount(Dir dir) const;
-```объем лучшей котировки по направлению dir
+```
+объем лучшей котировки по направлению dir
 
 ```cpp
 inline Amount get_volume_by_price(Dir dir, xor_platform::Decimal price) const;
-```суммарный объем лотов на цене
+```
+суммарный объем лотов на цене
 
 ```cpp
 inline Amount get_volume_by_idx(Dir dir, int index) const;
-```объем котировки по индексу (нумерация с нуля, начиная от лучшей цены)
+```
+объем котировки по индексу (нумерация с нуля, начиная от лучшей цены)
 
 ```cpp
 inline xor_platform::Decimal get_price_by_idx(Dir dir, int index) const;
-```цена котировки по индексу (нумерация с нуля, начиная от лучшей цены)
+```
+цена котировки по индексу (нумерация с нуля, начиная от лучшей цены)
 
 ```cpp
 size_t index_by_price(Dir dir, xor_platform::Decimal price) const;
-```узнать индекс (нумерация с нуля, начиная от лучшей цены) по цене
+```
+узнать индекс (нумерация с нуля, начиная от лучшей цены) по цене
 
 ```cpp
 virtual size_t quotes_count(Dir dir) const;
-```количество отображаемых котировок по направлению
+```
+количество отображаемых котировок по направлению
 
 ```cpp
 bool contains_price(Dir dir, xor_platform::Decimal price) const;
-```есть ли такая цена в стакане по направлению
+```
+есть ли такая цена в стакане по направлению
 
 ```cpp
 size_t depth() const;
-```максимальная глубина отображаемого стакана
+```
+максимальная глубина отображаемого стакана
 

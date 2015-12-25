@@ -20,13 +20,16 @@
 
 ```cpp
 inline Amount get_volume() const;
-```объем лотов на цене
+```
+объем лотов на цене
 
 ```cpp
 inline Decimal get_price() const;
-```цена
+```
+цена
 
 ```cpp
 Dir get_dir() const;
-```направление котировки
+```
+направление котировки
 
