@@ -11,7 +11,7 @@
 * [ContestBookInfo.price_volume()](#price_volume)
 * ...
 
-###best_price###
+### ContestBookInfo.best_price() [best_price] ##
 
 Лучшие цены (минимальная цена продажи и максимальная цена покупки) в момент последнего обновления стакана
 ```cpp
