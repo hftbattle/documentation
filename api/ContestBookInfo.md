@@ -21,7 +21,7 @@
 |[ContestBookInfo.executed_amount() const](#executed_amount)|наша текущая позиция|
 
 #Основные поля и методы класса
-
+###best_price
 ```cpp
 const std::array<Decimal, 2>& best_price() const;
 ```
