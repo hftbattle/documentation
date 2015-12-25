@@ -12,30 +12,30 @@
 
 |Имя| Описание|
 |------------------|--------------------|
-|[Quote.get_volume() const](#get_volume)|объем лотов на цене|
-|[Quote.get_price() const](#get_price)|цена|
-|[Quote.get_dir() const](#get_dir)|направление котировки|
+|[get_volume() const](#get_volume)|Объем лотов на цене.|
+|[get_price() const](#get_price)|Цена.|
+|[get_dir() const](#get_dir)|Направление котировки.|
 
 ##Основные методы класса
 
 <a id="get_volume"></a>
-###get_volume
+###get_volume()
 ```c++
 inline Amount get_volume() const;
 ```
-объем лотов на цене
+Объем лотов на цене.
 
 <a id="get_price"></a>
-###get_price
+###get_price()
 ```c++
 inline Decimal get_price() const;
 ```
-цена
+Цена.
 
 <a id="get_dir"></a>
-###get_dir
+###get_dir()
 ```c++
 Dir get_dir() const;
 ```
-направление котировки
+Направление котировки.
 
