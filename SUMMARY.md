@@ -12,6 +12,7 @@
 * [Симулятор торгов](docs/simulator/README.md)
    * [Данные](docs/simulator/data.md)
    * [Особенности симулятора](docs/simulator/features.md)
+* Viewer
 * [Local pack](docs/local-pack/README.md)
 * [Глоссарий](docs/glossary/glossary.md)
 * [FAQ](FAQ.md)
@@ -23,5 +24,4 @@
    * [Deal](api/Deal.md)
    * [ContestBookInfo](api/ContestBookInfo.md)
    * [SecurityOrdersSnapshot](api/SecurityOrdersSnapshot.md)
-* Viewer
 
