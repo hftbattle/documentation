@@ -13,7 +13,7 @@
    * [Данные](docs/simulator/data.md)
    * [Особенности симулятора](docs/simulator/features.md)
 * [Глоссарий биржевых терминов](docs/exchange_terms.md)
-* FAQ
+* [FAQ](FAQ.md)
 * [API](api/README.md)
    * [ContestBookInfo](api/ContestBookInfo.md)
    * [Deal](api/Deal.md)
