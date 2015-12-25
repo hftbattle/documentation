@@ -22,7 +22,7 @@
 |[OrderBook.contains_price(Dir dir, xor_platform::Decimal price) const](#contains_price)|есть ли такая цена в стакане по направлению|
 |[OrderBook.depth() const](#depth)|максимальная глубина отображаемого стакана|
 
-#Основные поля и методы класса
+##Основные поля и методы класса
 
 <a id="get_quote_by_idx"></a>
 ###get_quote_by_idx

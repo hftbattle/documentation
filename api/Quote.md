@@ -16,7 +16,7 @@
 |[Quote.get_price() const](#get_price)|цена|
 |[Quote.get_dir() const](#get_dir)|направление котировки|
 
-#Основные методы класса
+##Основные методы класса
 
 <a id="get_volume"></a>
 ###get_volume

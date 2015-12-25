@@ -13,7 +13,7 @@
 |[SecurityOrdersSnapshot.size() const](#size)|суммарное количество наших заявок по обоим направлениям|
 |[SecurityOrdersSnapshot.count_active_orders(Dir dir)](#count_active_orders)|количество наших активных заявок (сюда не включены те, на которые отправлен запрос на удаление)|
 
-#Основные поля и методы класса
+##Основные поля и методы класса
 
 <a id="orders_by_dir"></a>
 ###orders_by_dir

@@ -20,7 +20,7 @@
 |[ContestBookInfo.total_amount() const](#total_amount)|наша "предполагаемая" позиция - учитывается и реальная позиция на руках, и та, что мы ожидаем что будет проторгована|
 |[ContestBookInfo.executed_amount() const](#executed_amount)|наша текущая позиция|
 
-#Основные поля и методы класса
+##Основные поля и методы класса
 
 <a id="best_price"></a>
 ###best_price

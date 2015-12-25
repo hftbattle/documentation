@@ -19,7 +19,7 @@
 |[Deal.get_agressor_side() const](#get_agressor_side)|направление налетающей заявки|
 |[Deal.is_our() const](#is_our)|наша ли это сделка|
 
-#Основные поля и методы класса
+##Основные поля и методы класса
 
 <a id="server_time"></a>
 ###server_time

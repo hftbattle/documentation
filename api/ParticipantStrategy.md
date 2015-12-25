@@ -26,13 +26,13 @@
 |[ParticipantStrategy.executed_amount()](#executed_amount)|Функция, возвращающая нашу текущую позу без учета implied - заявок.|
 |[ParticipantStrategy.total_active_amount(Dir dir)](#total_active_amount)|Функция для подсчета текущего суммарного размера выставленных ордеров по фиксированному направлению: dir - направление ордеров|
 |[ParticipantStrategy.count_active_orders(Dir dir)](#count_active_orders)|Функция, возвращающая количество активных ордеров по фиксированному направлению: dir - направление ордеров|
-|[ParticipantStrategy.(Dir dir, bool is_book_trade = true)](#)|Функция, возвращающая лучшую цену по данному направлению:|
+|[ParticipantStrategy.best_price(Dir dir, bool is_book_trade = true)](#best_price)|Функция, возвращающая лучшую цену по данному направлению:|
 |[ParticipantStrategy.get_saldo()](#get_saldo)|Функция, возвращающая текущее сальдо (текущий баланс без учета позы)|
 |[ParticipantStrategy.get_current_result()](#get_current_result)|Функция, возвращающая текущий результат (заработок)|
 |[ParticipantStrategy.cmp(Price a, Price b, Dir dir)](#cmp)|Функция сравнения двух цен по фиксированному направлению|
 |[ParticipantStrategy.get_local_time_tm()](#get_local_time_tm)|Метод, возвращающий локальное время типа tm c точностью до секунды.|
 
-#Основные неприватные поля класса:
+##Основные неприватные поля класса:
 
 <a id="book_trade"></a>
 ###book_trade
@@ -62,7 +62,7 @@ ContestBookInfo feed_book_info;
 ```
 Стуктура-аггрегатор основной информации о стакане, на который смотрим.
 
-#Методы, реализующие доставку апдейтов от симуляции к стратегии:
+##Методы, реализующие доставку апдейтов от симуляции к стратегии:
 
 <a id="book_trade_update"></a>
 ###book_trade_update
@@ -106,7 +106,7 @@ virtual void execution_report_update(const ExecutionReportSnapshot* snapshot);
 ```
 Функция, которую должен реализовать участник в классе UserStrategy, которая вызывается при получении отчета о сделке с участием вашего ордера
 
-#Методы для постановки, снятия и перемещения заявок:
+##Методы для постановки, снятия и перемещения заявок:
 
 bool add_order(Price price, Amount amount, Dir dir, Amount implied_amount = 0);
 Функция, выставляющая наш заявку:
@@ -145,7 +145,7 @@ void delete_order(Order* order);
 Функция, снимающая наш ордер с торгов:
 order - ордер, который мы хотим снять
 
-#Вспомогательные методы:
+##Вспомогательные методы
 
 <a id="total_amount"></a>
 ###total_amount
@@ -175,10 +175,10 @@ Amount count_active_orders(Dir dir);
 ```
 Функция, возвращающая количество активных ордеров по фиксированному направлению: dir - направление ордеров
 
-<a id=""></a>
-###
+<a id="best_price"></a>
+###best_price
 ```c++
-Price best_price (Dir dir, bool is_book_trade = true);
+Price best_price(Dir dir, bool is_book_trade = true);
 ```
 Функция, возвращающая лучшую цену по данному направлению:
 dir - направление
