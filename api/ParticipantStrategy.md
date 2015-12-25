@@ -32,7 +32,7 @@
 |[ParticipantStrategy.cmp(Price a, Price b, Dir dir)](#cmp)|Функция сравнения двух цен по фиксированному направлению|
 |[ParticipantStrategy.get_local_time_tm()](#get_local_time_tm)|Метод, возвращающий локальное время типа tm c точностью до секунды.|
 
-##Основные неприватные поля класса:
+##Основные публичные поля класса
 
 <a id="book_trade"></a>
 ###book_trade
@@ -62,7 +62,7 @@ ContestBookInfo feed_book_info;
 ```
 Стуктура-аггрегатор основной информации о стакане, на который смотрим.
 
-##Методы, реализующие доставку апдейтов от симуляции к стратегии:
+##Методы, реализующие доставку апдейтов от симуляции к стратегии
 
 <a id="book_trade_update"></a>
 ###book_trade_update
@@ -106,7 +106,7 @@ virtual void execution_report_update(const ExecutionReportSnapshot* snapshot);
 ```
 Функция, которую должен реализовать участник в классе UserStrategy, которая вызывается при получении отчета о сделке с участием вашего ордера
 
-##Методы для постановки, снятия и перемещения заявок:
+##Методы для постановки, снятия и перемещения заявок
 
 bool add_order(Price price, Amount amount, Dir dir, Amount implied_amount = 0);
 Функция, выставляющая наш заявку:
