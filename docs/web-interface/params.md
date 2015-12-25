@@ -15,8 +15,10 @@
 
 Рассмотрим способы задания параметров: 
 
-1. Постоянная:
+[//]: <> (TODO: переделать на локальные изображения ![Screenshot](img/screenshot.png))
     
+1. Постоянная:
+
 ![param_const_double_set](https://lh3.googleusercontent.com/-JVRLRYRSSKQ/VnA6C_4IrWI/AAAAAAAAAFA/SbOoXN2JeaQ/s0/param_const_double_set.png "Константный вещественный параметр")
 2. Список значений через запятую:
 
