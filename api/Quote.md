@@ -18,16 +18,22 @@
 
 #Основные методы класса
 
+<a id="get_volume"></a>
+###get_volume
 ```c++
 inline Amount get_volume() const;
 ```
 объем лотов на цене
 
+<a id="get_price"></a>
+###get_price
 ```c++
 inline Decimal get_price() const;
 ```
 цена
 
+<a id="get_dir"></a>
+###get_dir
 ```c++
 Dir get_dir() const;
 ```

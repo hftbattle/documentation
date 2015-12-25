@@ -15,26 +15,36 @@
 
 #Основные поля и методы класса
 
+<a id="orders_by_dir"></a>
+###orders_by_dir
 ```c++
 std::array<std::vector<OrderSnapshot>, 2> orders_by_dir;
 ```
 списки наших активных заявок по направлению и цене
 
+<a id="deleting_amount"></a>
+###deleting_amount
 ```c++
 std::array<Amount, 2> deleting_amount;
 ```
 суммарный объем заявок по направлению, отправленных на удаление, но еще не удаленных
 
+<a id="amount"></a>
+###amount
 ```c++
 Amount amount(Dir dir, Price price) const;
 ```
 объем наших заявок на данной цене по данному направлению
 
+<a id="size"></a>
+###size
 ```c++
 size_t size() const;
 ```
 суммарное количество наших заявок по обоим направлениям
 
+<a id="count_active_orders"></a>
+###count_active_orders
 ```c++
 int32_t count_active_orders(Dir dir);
 ```

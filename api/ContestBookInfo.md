@@ -4,7 +4,6 @@
 
 Для каждого используемого инструмента есть разные параметры, описывающие его состояние -- начиная от стакана (описание тут) до нашей позиции. Класс ContestBookInfo служит агрегатором информации по текущему состоянию стакана. Он не является полноценной заменой стакана, но содержит часть информации о нем -- и предпочтительно пользоваться именно этим классом, например, для определения лучших цен, это значительно быстрее, чем запрашивать у стакана. Также именно тут можно узнать наши активные заявки, позицию и сальдо.
 
-##Основные поля и методы класса
 
 |Имя| Описание|
 |------------------|--------------------|
@@ -21,65 +20,87 @@
 |[ContestBookInfo.total_amount() const](#total_amount)|наша "предполагаемая" позиция - учитывается и реальная позиция на руках, и та, что мы ожидаем что будет проторгована|
 |[ContestBookInfo.executed_amount() const](#executed_amount)|наша текущая позиция|
 
+#Основные поля и методы класса
 
 <a id="best_price"></a>
 ###best_price
-
 ```c++
 const std::array<Decimal, 2>& best_price() const;
 ```
 лучшие цены (минимальная цена продажи и максимальная цена покупки) в момент последнего обновления стакана
 
+<a id="book_updates_count"></a>
+###book_updates_count
 ```c++
 int32_t book_updates_count() const;
 ```
 Возвращает количество апдейтов стакана с начала дня
 
+<a id="best_price_volume"></a>
+###best_price_volume
 ```c++
 const std::array<int64_t, 2>& best_price_volume() const;
 ```
 объем лотов на лучших ценах
 
+<a id="middle_price"></a>
+###middle_price
 ```c++
 Decimal middle_price() const;
 ```
 полусумма лучших цен
 
+<a id="spread"></a>
+###spread
 ```c++
 int32_t spread() const;
 ```
 расстояние между лучшим аском и лучшим бидом в минимальных шагах цены
 
+<a id="active_orders"></a>
+###active_orders
 ```c++
 SecurityOrdersSnapshot& active_orders();
 ```
 структура, содержащая наши заявки, описана отдельно тут
 
+<a id="statistics"></a>
+###statistics
 ```c++
 StatisticsSnapshot statistics();
 ```
 структура, содержащая статистику по нашей текущей позиции. Используется из стратегии неявно, в вызовах executed_amount() и total_amount().
 
+<a id="security_id"></a>
+###security_id
 ```c++
 SecurityId security_id() const;
 ```
 инструмент которому соответствует данная структура
 
+<a id="server_time"></a>
+###server_time
 ```c++
 Microseconds server_time() const;
 ```
 биржевое время последнего апдейта
 
+<a id="min_step"></a>
+###min_step
 ```c++
 xor_platform::Decimal min_step() const;
 ```
 минимальный шаг цены в стакане (минимальная возможная разница между ценами)
 
+<a id="total_amount"></a>
+###total_amount
 ```c++
 int32_t total_amount() const;
 ```
 наша "предполагаемая" позиция - учитывается и реальная позиция на руках, и та, что мы ожидаем что будет проторгована
 
+<a id="executed_amount"></a>
+###executed_amount
 ```c++
 int32_t executed_amount() const;
 ```
