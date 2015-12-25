@@ -22,7 +22,8 @@
 |[ContestBookInfo.executed_amount() const](#executed_amount)|наша текущая позиция|
 
 
-[#best_price]: best_price
+<a id="best_price"></a>
+###best_price
 
 ```c++
 const std::array<Decimal, 2>& best_price() const;
