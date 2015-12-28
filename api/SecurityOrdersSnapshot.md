@@ -23,8 +23,7 @@
 |[count_active_orders(Dir dir)](#count_active_orders)|Количество наших активных заявок (сюда не включены те, на которые отправлен запрос на удаление).|
 |[size()](#size)|Суммарное количество наших заявок по обоим направлениям.|
 
-###Поля
-
+Описание полей
 <a id="deleting_amount"></a>
 ####deleting_amount
 ```c++
@@ -41,8 +40,7 @@ std::array<std::vector<OrderSnapshot>, 2> orders_by_dir;
 
 
 
-###Методы
-
+Описание методов
 <a id="amount"></a>
 ####amount()
 ```c++

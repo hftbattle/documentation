@@ -45,8 +45,7 @@
 |[cmp(Price a, Price b, Dir dir)](#cmp)|Функция сравнения двух цен по фиксированному направлению.|
 |[get_local_time_tm()](#get_local_time_tm)|Метод, возвращающий локальное время типа tm c точностью до секунды.|
 
-###Поля
-
+Описание полей
 <a id="book_trade"></a>
 ####book_trade
 ```c++
@@ -76,8 +75,7 @@ ContestBookInfo feed_book_info;
 Стуктура-аггрегатор основной информации о стакане, на который смотрим.
 
 
-###Методы
-
+Описание методов
 
 <a id="book_trade_update"></a>
 ####book_trade_update()

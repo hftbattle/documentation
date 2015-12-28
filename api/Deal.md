@@ -29,8 +29,7 @@
 |[get_agressor_side()](#get_agressor_side)|Направление налетающей заявки.|
 |[is_our()](#is_our)|Наша ли это сделка.|
 
-###Поля
-
+Описание полей
 <a id="server_time"></a>
 ####server_time
 ```c++
@@ -74,8 +73,7 @@ xor_platform::Dir dir;
 Направление сделки (покупка или продажа).
 
 
-###Методы
-
+Описание методов
 <a id="get_comments"></a>
 ####get_comments()
 ```c++
