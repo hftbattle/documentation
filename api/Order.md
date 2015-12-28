@@ -40,7 +40,7 @@ int64_t origin_server_time;
 <a id="price"></a>
 ####price
 ```c++
-const xor_platform::Decimal price;
+const     Decimal price;
 ```
 Цена заявки.
 

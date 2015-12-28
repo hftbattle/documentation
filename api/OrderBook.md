@@ -12,18 +12,18 @@
 |Имя| Описание|
 |------------------|--------------------|
 |[get_quote_by_idx(Dir dir, int index)](#get_quote_by_idx)|Котировка номер index в стакане по выбранному направлению.|
-|[quote_view_by_price(Dir dir, xor_platform::Decimal price)](#quote_view_by_price)|Котировка по цене price по направлению dir.|
-|[quote_by_price(Dir dir, xor_platform::Decimal price)](#quote_by_price)|Котировка по цене price по направлению dir.|
+|[quote_view_by_price(Dir dir,     Decimal price)](#quote_view_by_price)|Котировка по цене price по направлению dir.|
+|[quote_by_price(Dir dir,     Decimal price)](#quote_by_price)|Котировка по цене price по направлению dir.|
 |[quote_by_index(Dir dir, int index)](#quote_by_index)|Котировка номер index в стакане по выбранному направлению.|
 |[all_quotes(Dir dir)](#all_quotes)|Все котировки по выбранному направлению.|
 |[best_price(Dir dir)](#best_price)|Лучшая цена в стакане по направлению dir.|
 |[best_amount(Dir dir)](#best_amount)|Объем лучшей котировки по направлению dir.|
-|[get_volume_by_price(Dir dir, xor_platform::Decimal price)](#get_volume_by_price)|Суммарный объем лотов на цене.|
+|[get_volume_by_price(Dir dir,     Decimal price)](#get_volume_by_price)|Суммарный объем лотов на цене.|
 |[get_volume_by_idx(Dir dir, int index)](#get_volume_by_idx)|Объем котировки по индексу (нумерация с нуля, начиная от лучшей цены).|
 |[get_price_by_idx(Dir dir, int index)](#get_price_by_idx)|Цена котировки по индексу (нумерация с нуля, начиная от лучшей цены).|
-|[index_by_price(Dir dir, xor_platform::Decimal price)](#index_by_price)|Узнать индекс (нумерация с нуля, начиная от лучшей цены) по цене.|
+|[index_by_price(Dir dir,     Decimal price)](#index_by_price)|Узнать индекс (нумерация с нуля, начиная от лучшей цены) по цене.|
 |[quotes_count(Dir dir)](#quotes_count)|Количество отображаемых котировок по направлению.|
-|[contains_price(Dir dir, xor_platform::Decimal price)](#contains_price)|Есть ли такая цена в стакане по направлению.|
+|[contains_price(Dir dir,     Decimal price)](#contains_price)|Есть ли такая цена в стакане по направлению.|
 |[depth()](#depth)|Максимальная глубина отображаемого стакана.|
 
 ###Описание методов
@@ -38,14 +38,14 @@ const Quote& get_quote_by_idx(Dir dir, int index) const;
 <a id="quote_view_by_price"></a>
 ####quote_view_by_price()
 ```c++
-const Quote& quote_view_by_price(Dir dir, xor_platform::Decimal price) const;
+const Quote& quote_view_by_price(Dir dir,     Decimal price) const;
 ```
 Котировка по цене price по направлению dir.
 
 <a id="quote_by_price"></a>
 ####quote_by_price()
 ```c++
-Quote* quote_by_price(Dir dir, xor_platform::Decimal price);
+Quote* quote_by_price(Dir dir,     Decimal price);
 ```
 Котировка по цене price по направлению dir.
 
@@ -66,7 +66,7 @@ QuotesHolder all_quotes(Dir dir) const;
 <a id="best_price"></a>
 ####best_price()
 ```c++
-inline xor_platform::Decimal best_price(Dir dir);
+inline     Decimal best_price(Dir dir);
 ```
 Лучшая цена в стакане по направлению dir.
 
@@ -80,7 +80,7 @@ inline Amount best_amount(Dir dir) const;
 <a id="get_volume_by_price"></a>
 ####get_volume_by_price()
 ```c++
-inline Amount get_volume_by_price(Dir dir, xor_platform::Decimal price) const;
+inline Amount get_volume_by_price(Dir dir,     Decimal price) const;
 ```
 Суммарный объем лотов на цене.
 
@@ -94,14 +94,14 @@ inline Amount get_volume_by_idx(Dir dir, int index) const;
 <a id="get_price_by_idx"></a>
 ####get_price_by_idx()
 ```c++
-inline xor_platform::Decimal get_price_by_idx(Dir dir, int index) const;
+inline     Decimal get_price_by_idx(Dir dir, int index) const;
 ```
 Цена котировки по индексу (нумерация с нуля, начиная от лучшей цены).
 
 <a id="index_by_price"></a>
 ####index_by_price()
 ```c++
-size_t index_by_price(Dir dir, xor_platform::Decimal price) const;
+size_t index_by_price(Dir dir,     Decimal price) const;
 ```
 Узнать индекс (нумерация с нуля, начиная от лучшей цены) по цене.
 
@@ -115,7 +115,7 @@ virtual size_t quotes_count(Dir dir) const;
 <a id="contains_price"></a>
 ####contains_price()
 ```c++
-bool contains_price(Dir dir, xor_platform::Decimal price) const;
+bool contains_price(Dir dir,     Decimal price) const;
 ```
 Есть ли такая цена в стакане по направлению.
 

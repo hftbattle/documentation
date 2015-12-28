@@ -48,7 +48,7 @@ xor_platform::Microseconds passive_order_server_time;
 <a id="price"></a>
 ####price
 ```c++
-xor_platform::Decimal price;
+    Decimal price;
 ```
 Цена по которой произошла сделка.
 

@@ -92,7 +92,7 @@ Microseconds server_time() const;
 <a id="min_step"></a>
 ####min_step()
 ```c++
-xor_platform::Decimal min_step() const;
+    Decimal min_step() const;
 ```
 Минимальный шаг цены в стакане (минимальная возможная разница между ценами).
 
