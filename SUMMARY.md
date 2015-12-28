@@ -20,8 +20,8 @@
    * [ContestBookInfo](api/ContestBookInfo.md)
    * [Deal](api/Deal.md)
    * [Order](api/Order.md)
-   * [ParticipantStrategy](api/ParticipantStrategy.md)
    * [OrderBook](api/OrderBook.md)
+   * [ParticipantStrategy](api/ParticipantStrategy.md)
    * [Quote](api/Quote.md)
    * [SecurityOrdersSnapshot](api/SecurityOrdersSnapshot.md)
 
