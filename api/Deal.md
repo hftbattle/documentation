@@ -29,7 +29,7 @@
 |[get_agressor_side() const](#get_agressor_side)|Направление налетающей заявки.|
 |[is_our() const](#is_our)|Наша ли это сделка.|
 
-###Основные поля класса
+####Основные поля класса
 
 <a id="server_time"></a>
 ###server_time
@@ -74,7 +74,7 @@ xor_platform::Dir dir;
 Направление сделки (покупка или продажа).
 
 
-###Основные методы класса
+####Основные методы класса
 
 <a id="get_comments"></a>
 ###get_comments()

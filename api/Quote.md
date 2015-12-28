@@ -20,7 +20,7 @@
 |[get_price() const](#get_price)|Цена.|
 |[get_dir() const](#get_dir)|Направление котировки.|
 
-###Основные методы класса
+####Основные методы класса
 
 <a id="get_volume"></a>
 ###get_volume()
