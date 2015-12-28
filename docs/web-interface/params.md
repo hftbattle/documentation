@@ -23,7 +23,6 @@
 ![list_int](https://lh3.googleusercontent.com/-_4dkBZBEkGg/VnA2I27c88I/AAAAAAAAADE/CCnaD-bfp10/s0/param_list_int_set.png "Список целых значений")
 
 3. Диапазон значений с шагом: (start, end, step)
-
 ![param_range_int_set](https://lh3.googleusercontent.com/-xcBtI-CIZBM/VnA3L-BOX3I/AAAAAAAAADw/rLAUPLcjoSo/s0/param_range_int_set.png "Диапазон значений от 0 до 10 с шагом 2")
 
 
