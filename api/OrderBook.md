@@ -11,20 +11,20 @@
 
 |Имя| Описание|
 |------------------|--------------------|
-|[get_quote_by_idx(Dir dir, int index) const](#get_quote_by_idx)|Котировка номер index в стакане по выбранному направлению.|
-|[quote_view_by_price(Dir dir, xor_platform::Decimal price) const](#quote_view_by_price)|Котировка по цене price по направлению dir.|
+|[get_quote_by_idx(Dir dir, int index)](#get_quote_by_idx)|Котировка номер index в стакане по выбранному направлению.|
+|[quote_view_by_price(Dir dir, xor_platform::Decimal price)](#quote_view_by_price)|Котировка по цене price по направлению dir.|
 |[quote_by_price(Dir dir, xor_platform::Decimal price)](#quote_by_price)|Котировка по цене price по направлению dir.|
 |[quote_by_index(Dir dir, int index)](#quote_by_index)|Котировка номер index в стакане по выбранному направлению.|
-|[all_quotes(Dir dir) const](#all_quotes)|Все котировки по выбранному направлению.|
+|[all_quotes(Dir dir)](#all_quotes)|Все котировки по выбранному направлению.|
 |[best_price(Dir dir)](#best_price)|Лучшая цена в стакане по направлению dir.|
-|[best_amount(Dir dir) const](#best_amount)|Объем лучшей котировки по направлению dir.|
-|[get_volume_by_price(Dir dir, xor_platform::Decimal price) const](#get_volume_by_price)|Суммарный объем лотов на цене.|
-|[get_volume_by_idx(Dir dir, int index) const](#get_volume_by_idx)|Объем котировки по индексу (нумерация с нуля, начиная от лучшей цены).|
-|[get_price_by_idx(Dir dir, int index) const](#get_price_by_idx)|Цена котировки по индексу (нумерация с нуля, начиная от лучшей цены).|
-|[index_by_price(Dir dir, xor_platform::Decimal price) const](#index_by_price)|Узнать индекс (нумерация с нуля, начиная от лучшей цены) по цене.|
-|[quotes_count(Dir dir) const](#quotes_count)|Количество отображаемых котировок по направлению.|
-|[contains_price(Dir dir, xor_platform::Decimal price) const](#contains_price)|Есть ли такая цена в стакане по направлению.|
-|[depth() const](#depth)|Максимальная глубина отображаемого стакана.|
+|[best_amount(Dir dir)](#best_amount)|Объем лучшей котировки по направлению dir.|
+|[get_volume_by_price(Dir dir, xor_platform::Decimal price)](#get_volume_by_price)|Суммарный объем лотов на цене.|
+|[get_volume_by_idx(Dir dir, int index)](#get_volume_by_idx)|Объем котировки по индексу (нумерация с нуля, начиная от лучшей цены).|
+|[get_price_by_idx(Dir dir, int index)](#get_price_by_idx)|Цена котировки по индексу (нумерация с нуля, начиная от лучшей цены).|
+|[index_by_price(Dir dir, xor_platform::Decimal price)](#index_by_price)|Узнать индекс (нумерация с нуля, начиная от лучшей цены) по цене.|
+|[quotes_count(Dir dir)](#quotes_count)|Количество отображаемых котировок по направлению.|
+|[contains_price(Dir dir, xor_platform::Decimal price)](#contains_price)|Есть ли такая цена в стакане по направлению.|
+|[depth()](#depth)|Максимальная глубина отображаемого стакана.|
 
 ###Основные методы класса
 
