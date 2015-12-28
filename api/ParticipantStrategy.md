@@ -23,18 +23,15 @@
 
 |Имя| Описание|
 |------------------|--------------------|
-| Доставка апдейтов от симуляции к стратегии|
 |[book_trade_update(const OrderBook& order_book)](#book_trade_update)|Функция, которую должен реализовать участник в классе UserStrategy, которая вызывается при получении нового стакана инструмента, на котором мы торгуем: order_book - новый стакан.|
 |[book_feed_update(const OrderBook& order_book)](#book_feed_update)|Функция, которую должен реализовать участник в классе UserStrategy, которая вызывается при получении нового стакана инструмента, на который мы смотрим: order_book - новый стакан.|
 |[trades_trade_update(const std::vector<Trade>& trades)](#trades_trade_update)|Функция, которую должен реализовать участник в классе UserStrategy, которая вызывается при получении новой порции сделок инструмента, на котором мы торгуем. trades - вектор новых сделок.|
 |[trades_feed_update(const std::vector<Trade>& trades)](#trades_feed_update)|Функция, которую должен реализовать участник в классе UserStrategy, которая вызывается при получении новой порции сделок инструмента, на который мы смотрим. trades - вектор новых сделок.|
 |[process_event_end()](#process_event_end)|Функция, которую должен реализовать участник в классе UserStrategy. Вызывается, когда симуляция закончила обрабатывать все изменения, соответствующие одному биржевому событию.|
 |[execution_report_update(const ExecutionReportSnapshot* snapshot)](#execution_report_update)|Функция, которую должен реализовать участник в классе UserStrategy, которая вызывается при получении отчета о сделке с участием вашего ордера.|
-| Постановка, снятие и перемещение заявок|
 |[add_ioc_order(Price price, Amount amount, Dir dir)](#add_ioc_order)|Функция, выставляющая нашу заявку по принципу immediate-or-close.|
 |[add_ioc_order(Price price, Amount amount, Dir dir, Amount implied_amount)](#add_ioc_order)|Функция, выставляющая нашу заявку по принципу immediate-or-close.|
 |[delete_order(Order* order)](#delete_order)|Функция, снимающая наш ордер с торгов.|
-| Вспомогательные методы|
 |[total_amount()](#total_amount)|Функция, возвращающая нашу текущую позу.|
 |[executed_amount()](#executed_amount)|Функция, возвращающая нашу текущую позу без учета implied - заявок.|
 |[total_active_amount(Dir dir)](#total_active_amount)|Функция для подсчета текущего суммарного размера выставленных ордеров по фиксированному направлению.|
@@ -75,9 +72,7 @@ ContestBookInfo feed_book_info;
 Стуктура-аггрегатор основной информации о стакане, на который смотрим.
 
 
-Описание методов
-
-<a id="book_trade_update"></a>
+Описание методов<a id="book_trade_update"></a>
 ####book_trade_update()
 ```c++
 virtual void book_trade_update(const OrderBook& order_book);
@@ -118,7 +113,6 @@ virtual void process_event_end();
 virtual void execution_report_update(const ExecutionReportSnapshot* snapshot);
 ```
 Функция, которую должен реализовать участник в классе UserStrategy, которая вызывается при получении отчета о сделке с участием вашего ордера.
-
 
 bool add_order(Price price, Amount amount, Dir dir, Amount implied_amount = 0);
 Функция, выставляющая наш заявку.
@@ -168,7 +162,6 @@ void delete_order(Order* order);
 Функция, снимающая наш ордер с торгов.
 
 order – ордер, который мы хотим снять.
-
 
 <a id="total_amount"></a>
 ####total_amount()
