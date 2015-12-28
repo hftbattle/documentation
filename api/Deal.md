@@ -32,42 +32,42 @@
 ###Основные поля класса
 
 <a id="server_time"></a>
-###server_time
+####server_time
 ```c++
 xor_platform::Microseconds server_time;
 ```
 Биржевое время совершения сделки.
 
 <a id="passive_order_server_time"></a>
-###passive_order_server_time
+####passive_order_server_time
 ```c++
 xor_platform::Microseconds passive_order_server_time;
 ```
 Время постановки "пассивного" ордера, если оно известно.
 
 <a id="price"></a>
-###price
+####price
 ```c++
 xor_platform::Decimal price;
 ```
 Цена по которой произошла сделка.
 
 <a id="amount"></a>
-###amount
+####amount
 ```c++
 xor_platform::Amount amount;
 ```
 Количество лотов в сделке.
 
 <a id="implied_amount"></a>
-###implied_amount
+####implied_amount
 ```c++
 xor_platform::Amount implied_amount;
 ```
 Количество лотов, которые предположительно должны были свестись в случае, когда налетающая заявка была нашей.
 
 <a id="dir"></a>
-###dir
+####dir
 ```c++
 xor_platform::Dir dir;
 ```
@@ -77,35 +77,35 @@ xor_platform::Dir dir;
 ###Основные методы класса
 
 <a id="get_comments"></a>
-###get_comments()
+####get_comments()
 ```c++
 std::vector<std::string> const& get_comments() const;
 ```
 Комментарии к заявкам, участвующим в сделке.
 
 <a id="get_orders"></a>
-###get_orders()
+####get_orders()
 ```c++
 std::vector<std::shared_ptr<Order>> const& get_orders() const;
 ```
 Вектор заявок (на продажу и на покупку), участвующих в сделке.
 
 <a id="get_tsc"></a>
-###get_tsc()
+####get_tsc()
 ```c++
 inline int64_t get_tsc() const;
 ```
 Время машины, на которой сохранялись данные.
 
 <a id="get_agressor_side"></a>
-###get_agressor_side()
+####get_agressor_side()
 ```c++
 inline xor_platform::Dir get_agressor_side() const;
 ```
 Направление налетающей заявки.
 
 <a id="is_our"></a>
-###is_our()
+####is_our()
 ```c++
 bool is_our() const;
 ```

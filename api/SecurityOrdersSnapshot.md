@@ -26,14 +26,14 @@
 ###Основные поля класса
 
 <a id="orders_by_dir"></a>
-###orders_by_dir
+####orders_by_dir
 ```c++
 std::array<std::vector<OrderSnapshot>, 2> orders_by_dir;
 ```
 Списки наших активных заявок по направлению и цене.
 
 <a id="deleting_amount"></a>
-###deleting_amount
+####deleting_amount
 ```c++
 std::array<Amount, 2> deleting_amount;
 ```
@@ -43,21 +43,21 @@ std::array<Amount, 2> deleting_amount;
 ###Основные методы класса
 
 <a id="amount"></a>
-###amount()
+####amount()
 ```c++
 Amount amount(Dir dir, Price price) const;
 ```
 Объем наших заявок на данной цене по данному направлению.
 
 <a id="size"></a>
-###size()
+####size()
 ```c++
 size_t size() const;
 ```
 Суммарное количество наших заявок по обоим направлениям.
 
 <a id="count_active_orders"></a>
-###count_active_orders()
+####count_active_orders()
 ```c++
 int32_t count_active_orders(Dir dir);
 ```

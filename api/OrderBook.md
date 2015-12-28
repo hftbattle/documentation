@@ -29,98 +29,98 @@
 ###Основные методы класса
 
 <a id="get_quote_by_idx"></a>
-###get_quote_by_idx()
+####get_quote_by_idx()
 ```c++
 const Quote& get_quote_by_idx(Dir dir, int index) const;
 ```
 Котировка номер index в стакане по выбранному направлению.
 
 <a id="quote_view_by_price"></a>
-###quote_view_by_price()
+####quote_view_by_price()
 ```c++
 const Quote& quote_view_by_price(Dir dir, xor_platform::Decimal price) const;
 ```
 Котировка по цене price по направлению dir.
 
 <a id="quote_by_price"></a>
-###quote_by_price()
+####quote_by_price()
 ```c++
 Quote* quote_by_price(Dir dir, xor_platform::Decimal price);
 ```
 Котировка по цене price по направлению dir.
 
 <a id="quote_by_index"></a>
-###quote_by_index()
+####quote_by_index()
 ```c++
 Quote* quote_by_index(Dir dir, int index);
 ```
 Котировка номер index в стакане по выбранному направлению.
 
 <a id="all_quotes"></a>
-###all_quotes()
+####all_quotes()
 ```c++
 QuotesHolder all_quotes(Dir dir) const;
 ```
 Все котировки по выбранному направлению.
 
 <a id="best_price"></a>
-###best_price()
+####best_price()
 ```c++
 inline xor_platform::Decimal best_price(Dir dir);
 ```
 Лучшая цена в стакане по направлению dir.
 
 <a id="best_amount"></a>
-###best_amount()
+####best_amount()
 ```c++
 inline Amount best_amount(Dir dir) const;
 ```
 Объем лучшей котировки по направлению dir.
 
 <a id="get_volume_by_price"></a>
-###get_volume_by_price()
+####get_volume_by_price()
 ```c++
 inline Amount get_volume_by_price(Dir dir, xor_platform::Decimal price) const;
 ```
 Суммарный объем лотов на цене.
 
 <a id="get_volume_by_idx"></a>
-###get_volume_by_idx()
+####get_volume_by_idx()
 ```c++
 inline Amount get_volume_by_idx(Dir dir, int index) const;
 ```
 Объем котировки по индексу (нумерация с нуля, начиная от лучшей цены).
 
 <a id="get_price_by_idx"></a>
-###get_price_by_idx()
+####get_price_by_idx()
 ```c++
 inline xor_platform::Decimal get_price_by_idx(Dir dir, int index) const;
 ```
 Цена котировки по индексу (нумерация с нуля, начиная от лучшей цены).
 
 <a id="index_by_price"></a>
-###index_by_price()
+####index_by_price()
 ```c++
 size_t index_by_price(Dir dir, xor_platform::Decimal price) const;
 ```
 Узнать индекс (нумерация с нуля, начиная от лучшей цены) по цене.
 
 <a id="quotes_count"></a>
-###quotes_count()
+####quotes_count()
 ```c++
 virtual size_t quotes_count(Dir dir) const;
 ```
 Количество отображаемых котировок по направлению.
 
 <a id="contains_price"></a>
-###contains_price()
+####contains_price()
 ```c++
 bool contains_price(Dir dir, xor_platform::Decimal price) const;
 ```
 Есть ли такая цена в стакане по направлению.
 
 <a id="depth"></a>
-###depth()
+####depth()
 ```c++
 size_t depth() const;
 ```
