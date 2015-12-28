@@ -10,4 +10,3 @@
 * [ParticipantStrategy](ParticipantStrategy.md)
 * [Quote](Quote.md)
 * [SecurityOrdersSnapshot](SecurityOrdersSnapshot.md)
-
