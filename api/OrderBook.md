@@ -26,7 +26,7 @@
 |[contains_price(Dir dir, xor_platform::Decimal price) const](#contains_price)|Есть ли такая цена в стакане по направлению.|
 |[depth() const](#depth)|Максимальная глубина отображаемого стакана.|
 
-##Основные методы класса
+###Основные методы класса
 
 <a id="get_quote_by_idx"></a>
 ###get_quote_by_idx()
