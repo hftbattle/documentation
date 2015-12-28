@@ -29,6 +29,7 @@
 |[status()](#status)|Статус заявки - активная, ждущая удаления, удаленная.|
 
 ###Описание полей
+
 <a id="origin_server_time"></a>
 ####origin_server_time
 ```c++
@@ -73,6 +74,7 @@ const Security * security;
 
 
 ###Описание методов
+
 <a id="outer_id"></a>
 ####outer_id()
 ```c++

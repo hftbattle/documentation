@@ -43,6 +43,7 @@
 |[get_local_time_tm()](#get_local_time_tm)|Метод, возвращающий локальное время типа tm c точностью до секунды.|
 
 ###Описание полей
+
 <a id="book_trade"></a>
 ####book_trade
 ```c++
@@ -72,7 +73,8 @@ ContestBookInfo feed_book_info;
 Стуктура-аггрегатор основной информации о стакане, на который смотрим.
 
 
-###Описание методов<a id="book_trade_update"></a>
+###Описание методов
+<a id="book_trade_update"></a>
 ####book_trade_update()
 ```c++
 virtual void book_trade_update(const OrderBook& order_book);

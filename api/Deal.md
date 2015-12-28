@@ -30,6 +30,7 @@
 |[is_our()](#is_our)|Наша ли это сделка.|
 
 ###Описание полей
+
 <a id="server_time"></a>
 ####server_time
 ```c++
@@ -74,6 +75,7 @@ xor_platform::Dir dir;
 
 
 ###Описание методов
+
 <a id="get_comments"></a>
 ####get_comments()
 ```c++

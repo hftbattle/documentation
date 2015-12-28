@@ -25,6 +25,7 @@
 |[executed_amount()](#executed_amount)|Наша текущая позиция.|
 
 ###Описание методов
+
 <a id="best_price"></a>
 ####best_price()
 ```c++

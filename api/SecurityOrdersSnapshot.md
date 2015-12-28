@@ -24,6 +24,7 @@
 |[size()](#size)|Суммарное количество наших заявок по обоим направлениям.|
 
 ###Описание полей
+
 <a id="deleting_amount"></a>
 ####deleting_amount
 ```c++
@@ -41,6 +42,7 @@ std::array<std::vector<OrderSnapshot>, 2> orders_by_dir;
 
 
 ###Описание методов
+
 <a id="amount"></a>
 ####amount()
 ```c++
