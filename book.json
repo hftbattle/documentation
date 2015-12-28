@@ -12,6 +12,9 @@
         "contest.support.slack.url": "https://slack.hftbattle.com",
         "contest.support.slack.name": "slack.hftbattle.com",
         
+        "contest.local-pack.name": "github.com/hftbattle/local_pack",
+        "contest.local-pack.url": "https://github.com/hftbattle/local_pack",
+        
         "viewer.url": "http://viewer.hftbattle.com",
         "viewer.name": "viewer.hftbattle.com"
     }
