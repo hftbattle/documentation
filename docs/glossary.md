@@ -19,7 +19,7 @@
 <img src="../img/order_book_example.png" alt="Пример биржевого стакана">
 </p>
 
-<a name="bname"></a>
+<a name="bid"></a>
  - `Бид` (от англ. «bname» – предлагать) – заявка на покупку.
 
 <a name="ask"></a>
