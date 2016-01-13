@@ -17,7 +17,7 @@
 
 [//]: <> (TODO: переделать на локальные изображения ![Screenshot](img/screenshot.png))
 
- ![Пример биржевого стакана](img/order_book_example.jpg)
+![Пример биржевого стакана](order_book_example.png)
 
 <a id="bid"></a>
  - `Бид` (от англ. «bid» – предлагать) -- заявка на покупку.
