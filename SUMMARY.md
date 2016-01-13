@@ -15,7 +15,7 @@
    * [Особенности симулятора](docs/simulator/features.md)
 * [Local pack](docs/local-pack/README.md)
 * [Viewer](docs/viewer/README.md)
-* [Глоссарий](docs/glossary/glossary.md)
+* [Глоссарий](docs/glossary.md)
 * [FAQ](FAQ.md)
 * [API](api/README.md)
    * [ContestBookInfo](api/ContestBookInfo.md)
