@@ -16,7 +16,7 @@
 * [Local pack](docs/local-pack/README.md)
 * [Viewer](docs/viewer/README.md)
 * [Глоссарий](docs/glossary.md)
-* [FAQ](FAQ.md)
+* [FAQ](./docs/FAQ.md)
 * [API](api/README.md)
    * [ContestBookInfo](api/ContestBookInfo.md)
    * [Deal](api/Deal.md)
