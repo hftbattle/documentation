@@ -15,7 +15,7 @@
 
 <a name = "user_strategy"></a>
 ## Класс-шаблон UserStrategy
-Рассмотрим класс-шаблон **UserStrategy** для написания стратегий:
+Рассмотрим класс-шаблон **UserStrategy**, предназначенный для написания стратегий:
 ```cpp
 #include "strategy/participant_strategy_layer.h"
 
