@@ -26,7 +26,7 @@ std::array<std::vector<OrderSnapshot>, 2>& active_orders;
 
 Будем ставить заявку, если не существует активной заявки по этому направлению:
 ```cpp
-virtual void process_event_end() {
+void event_end_update() override {
   for (Dir dir:{BID, ASK}) {
     if (active_orders[dir].size() == 0) {
       add_order(best_price(dir), 1, dir, 0);
@@ -52,24 +52,9 @@ void event_end_update() override {
 
 В нашем примере мы реализуем самый простой вариант закрытия позиций - при наступлении фиксированного времени мы просто снимем все свои заявки и закроем все позиции по текущей лучшей цене. Вот как это выглядит:
 ```cpp
-void simple_liquidate() {
-  for (Dir dir: {BID, ASK}) {
-    for (auto order: active_orders[dir]) {
-      delete_order(order);
-    }
-  }
-  Dir dir_close = ((total_amount() > 0)?(ASK):(BID));
-  if (total_amount() != 0) {
-      add_ioc_order(best_price(opposite_dir(dir_close)),
-                    abs(total_amount()),
-                    dir_close,
-                    abs(total_amount()));
-  }
-}
+const int32_t close_time_hour = 23;
 
-const int32_t close_time_hour = 19;
-
-virtual void process_event_end() {
+void event_end_update() override {
   if (get_local_time_tm().tm_hour < close_time_hour) {
     go_quoting();
   } else {
@@ -80,47 +65,63 @@ virtual void process_event_end() {
 void go_quoting() {
   for (Dir dir:{BID, ASK}) {
     if (active_orders[dir].size() == 0) {
-      add_order(best_price(dir), 1, dir, 0);
+      add_order(best_price(dir), 1, dir);
     } else if (active_orders[dir][0]->price != best_price(dir)) {
       delete_order(active_orders[dir][0]);
-      add_order(best_price(dir), 1, dir, 0);
+      add_order(best_price(dir), 1, dir);
     }
   }
 }
-```
-В этом коде при закрытии позиции мы используем функцию **add_ioc_order**, которая работает следующим образом: она пытается реализовать данную заявку по обычным правилам, и если у неё не выходит это сделать, то она автоматически удаляется (ioc расшифровывается как immediately or cancel).
 
-Добавим последний, но немаловажный штрих к нашей стратегии, а именно ограничим объём открытых позиций величиной **max_executed_amount = 10**. Если этого не сделать, то к концу дня может скопиться огромная поза, и фактически успех торгового дня будет зависеть от того, по какой стоимости эти позиции будут ликвидированы.
+void simple_liquidate() {
+  for (Dir dir: {BID, ASK}) {
+    for (auto order: active_orders[dir]) {
+      delete_order(order);
+    }
+  }
+  Dir dir_close = ((total_amount() > 0)?(ASK):(BID));
+  if (total_amount() != 0) {
+      add_ioc_order(best_price(opposite_dir(dir_close)),
+                    abs(total_amount()),
+                    dir_close);
+  }
+}
+```
+
+В этом коде при закрытии позиции мы используем функцию [add_ioc_order](../../api/ParticipantStrategy.md#add_ioc_order), которая работает следующим образом: она пытается реализовать данную заявку по обычным правилам, и если у неё не выходит это сделать, то она автоматически удаляется (ioc значит immediately or cancel).
+
+Добавим последний штрих к нашей стратегии, а именно ограничим объём открытых позиций величиной `max_executed_amount = 10`. Если этого не сделать, то к концу дня может скопиться огромная поза, и фактически успех торгового дня будет зависеть от того, по какой стоимости эти позиции будут ликвидированы.
 
 Итоговый код простейшей торговой стратегии:
 ```cpp
 #include "strategy/participant_strategy_layer.h"
 
-using namespace xor_platform;
 using namespace contest_platform;
 
-// Это основной класс, в котором пользователь реализует свою стратегию.
+// UserStrategy - основной класс, в котором пользователь реализует свою стратегию.
 class UserStrategy : public ParticipantStrategy {
 public:
-
-  virtual void book_trade_update(const OrderBook &order_book) {
-    // написать свою реализацию здесь
-  }
-
-  virtual void book_feed_update(const OrderBook &order_book) {
-    // написать свою реализацию здесь
-  }
-
-  virtual void trades_trade_update(const std::vector<Trade> &trades) {
-    // написать свою реализацию здесь
-  }
-
-  virtual void trades_feed_update(const std::vector<Trade> &trades) {
-    // написать свою реализацию здесь
-  }
-
-  const int32_t close_time_hour = 19;
+  const int32_t close_time_hour = 23;
   const int32_t max_executed_amount = 10;
+    
+  void event_end_update() override {
+    if (get_local_time_tm().tm_hour < close_time_hour) {
+      go_quoting();
+    } else {
+      simple_liquidate();
+    }
+  }
+
+  void go_quoting() {
+    for (Dir dir:{BID, ASK}) {
+      if (active_orders[dir].size() == 0) {
+        add_order(best_price(dir), 1, dir);
+      } else if (active_orders[dir][0]->price != best_price(dir)) {
+        delete_order(active_orders[dir][0]);
+        add_order(best_price(dir), 1, dir);
+      }
+    }
+  }
 
   void simple_liquidate() {
     for (Dir dir: {BID, ASK}) {
@@ -132,33 +133,9 @@ public:
     if (total_amount() != 0) {
       add_ioc_order(best_price(opposite_dir(dir_close)),
                     abs(total_amount()),
-                    dir_close,
-                    abs(total_amount()));
+                    dir_close);
     }
   }
-
-  virtual void process_event_end() {
-    if (get_local_time_tm().tm_hour < close_time_hour) {
-      go_quoting();
-    } else {
-      simple_liquidate();
-    }
-  }
-
-  void go_quoting() {
-    for (Dir dir:{BID, ASK}) {
-      int32_t dir_amount = ((dir == BID)?(1):(-1));
-      bool enough = (total_amount() == max_executed_amount * dir_amount);
-      if (active_orders[dir].size() == 0) {
-        if (!enough)
-          add_order(best_price(dir), 1, dir, 0);
-      } else if (active_orders[dir][0]->price != best_price(dir)) {
-        delete_order(active_orders[dir][0]);
-        add_order(best_price(dir), 1, dir, 0);
-      }
-    }
-  }
-
 };
 ```
  Теперь вы можете писать простейшие стратегии. Для дальнейшего обучения смотрите примеры и документацию.
