@@ -13,9 +13,9 @@
 
 |Имя| Описание|
 |------------------|--------------------|
-|[book_trade](#book_trade)|Стакан инструмента, на котором торгуем.|
-|[book_trade_snapshot](#book_trade_snapshot)|Указатель на структуру данных, в которой содержится текущий стакан торгового инструмента.|
-|[book_feed](#book_feed)|Стакан инструмента, на который только смотрим.|
+|[trade_book](#trade_book)|Указатель на стакан торгового инструмента.|
+|[trade_book_snapshot](#trade_book_snapshot)|Указатель на структуру данных, в которой содержится текущий стакан торгового инструмента.|
+|[book_feed](#book_feed)|Указатель на стакан инструмента, на который только смотрим.|
 |[book_feed_snapshot](#book_feed_snapshot)|Аналогично book_trade_snapshot.|
 |[trade_book_info](#trade_book_info)|Стуктура-аггрегатор основной информации о стакане, на котором торгуем.|
 |[feed_book_info](#feed_book_info)|Стуктура-аггрегатор основной информации о стакане, на который смотрим.|
@@ -25,8 +25,8 @@
 
 |Имя| Описание|
 |------------------|--------------------|
-|[book_trade_update(const OrderBook& order_book)](#book_trade_update)|Функция, которую должен реализовать участник в классе UserStrategy, которая вызывается при получении нового стакана инструмента, на котором мы торгуем: order_book - новый стакан.|
-|[book_feed_update(const OrderBook& order_book)](#book_feed_update)|Функция, которую должен реализовать участник в классе UserStrategy, которая вызывается при получении нового стакана инструмента, на который мы смотрим: order_book - новый стакан.|
+|[trade_book_update(const OrderBook& order_book)](#trade_book_update)|Функция, которую должен реализовать участник в классе UserStrategy, которая вызывается при получении нового стакана торгового инструмента:|
+|[signal_book_update(const OrderBook& order_book)](#signal_book_update)|Функция, которую должен реализовать участник в классе UserStrategy, которая вызывается при получении нового стакана сигнального инструмента, на который мы смотрим: order_book - новый стакан.|
 |[trades_trade_update(const std::vector<Trade>& trades)](#trades_trade_update)|Функция, которую должен реализовать участник в классе UserStrategy, которая вызывается при получении новой порции сделок инструмента, на котором мы торгуем. trades - вектор новых сделок.|
 |[trades_feed_update(const std::vector<Trade>& trades)](#trades_feed_update)|Функция, которую должен реализовать участник в классе UserStrategy, которая вызывается при получении новой порции сделок инструмента, на который мы смотрим. trades - вектор новых сделок.|
 |[process_event_end()](#process_event_end)|Функция, которую должен реализовать участник в классе UserStrategy. Вызывается, когда симуляция закончила обрабатывать все изменения, соответствующие одному биржевому событию.|
@@ -48,28 +48,29 @@
 
 ###Описание полей
 
-<a id="book_trade"></a>
-####book_trade
+<a id="trade_book"></a>
+####trade_book
 ```c++
-const OrderBookL2* book_trade;
+const OrderBookL2* trade_book;
 ```
-Стакан инструмента, на котором торгуем.
+Указатель на стакан торгового инструмента.
 
-<a id="book_trade_snapshot"></a>
-####book_trade_snapshot
+<a id="trade_book_snapshot"></a>
+####trade_book_snapshot
 ```c++
-SharedPtr<DataFeedSnapshot> book_trade_snapshot;
+SharedPtr<DataFeedSnapshot> trade_book_snapshot;
 ```
 Указатель на структуру данных, в которой содержится текущий стакан торгового инструмента. 
-Будьте внимательны, с приходом очередного апдейта этого стакана указатель тоже обновляется, и объект внутри (стакан) разрушается.
-Чтобы сохранить старый стакан, нужно явно в стратегии сохранить этот указатель.
-    
+Будьте внимательны, с приходом очередного апдейта
+    // этого стакана указатель тоже обновляется, и объект внутри (стакан) разрушается.
+    // Чтобы сохранить старый стакан, нужно явно в стратегии сохранить этот указатель.
+
 <a id="book_feed"></a>
 ####book_feed
 ```c++
 const OrderBookL2* book_feed;
 ```
-Стакан инструмента, на который только смотрим.
+Указатель на стакан инструмента, на который только смотрим.
 
 <a id="book_feed_snapshot"></a>
 ####book_feed_snapshot
@@ -94,19 +95,21 @@ ContestBookInfo feed_book_info;
 
 
 ###Описание методов
-<a id="book_trade_update"></a>
-####book_trade_update()
+<a id="trade_book_update"></a>
+####trade_book_update()
 ```c++
-virtual void book_trade_update(const OrderBook& order_book);
+virtual void trade_book_update(const OrderBook& order_book);
 ```
-Функция, которую должен реализовать участник в классе UserStrategy, которая вызывается при получении нового стакана инструмента, на котором мы торгуем: order_book - новый стакан.
+Функция, которую должен реализовать участник в классе UserStrategy, которая вызывается при получении нового стакана торгового инструмента: 
 
-<a id="book_feed_update"></a>
-####book_feed_update()
+order_book - новый стакан.
+
+<a id="signal_book_update"></a>
+####signal_book_update()
 ```c++
-virtual void book_feed_update(const OrderBook& order_book);
+virtual void signal_book_update(const OrderBook& order_book);
 ```
-Функция, которую должен реализовать участник в классе UserStrategy, которая вызывается при получении нового стакана инструмента, на который мы смотрим: order_book - новый стакан.
+Функция, которую должен реализовать участник в классе UserStrategy, которая вызывается при получении нового стакана сигнального инструмента, на который мы смотрим: order_book - новый стакан.
 
 <a id="trades_trade_update"></a>
 ####trades_trade_update()
