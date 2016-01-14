@@ -11,20 +11,48 @@
 
 |Имя| Описание|
 |------------------|--------------------|
+|[security_id()](#security_id)|Инструмент которому соответствует данная структура.|
+|[active_orders()](#active_orders)|Структура, содержащая наши заявки. Отдельно описана в разделе [SecurityOrdersSnapshot](SecurityOrdersSnapshot.md).|
+|[total_amount()](#total_amount)|Наша "предполагаемая" позиция - учитывается и реальная позиция на руках, и та, что мы ожидаем что будет проторгована.|
+|[executed_amount()](#executed_amount)|Наша текущая позиция.|
 |[best_price()](#best_price)|Лучшие цены (минимальная цена продажи и максимальная цена покупки) в момент последнего обновления стакана.|
-|[book_updates_count()](#book_updates_count)|Возвращает количество апдейтов стакана с начала дня.|
 |[best_price_volume()](#best_price_volume)|Объем лотов на лучших ценах.|
 |[middle_price()](#middle_price)|Полусумма лучших цен.|
 |[spread()](#spread)|Расстояние между лучшим аском и лучшим бидом в минимальных шагах цены.|
-|[active_orders()](#active_orders)|Структура, содержащая наши заявки, описана отдельно тут.|
-|[statistics()](#statistics)|Структура, содержащая статистику по нашей текущей позиции. Используется из стратегии неявно, в вызовах executed_amount() и total_amount().|
-|[security_id()](#security_id)|Инструмент которому соответствует данная структура.|
+|[book_updates_count()](#book_updates_count)|Количество апдейтов стакана с начала дня.|
+|[statistics()](#statistics)|Структура, содержащая статистику по нашей текущей позиции.|
 |[server_time()](#server_time)|Биржевое время последнего апдейта.|
 |[min_step()](#min_step)|Минимальный шаг цены в стакане (минимальная возможная разница между ценами).|
-|[total_amount()](#total_amount)|Наша "предполагаемая" позиция - учитывается и реальная позиция на руках, и та, что мы ожидаем что будет проторгована.|
-|[executed_amount()](#executed_amount)|Наша текущая позиция.|
 
 ###Описание методов
+
+<a id="security_id"></a>
+####security_id()
+```c++
+SecurityId security_id() const;
+```
+Инструмент которому соответствует данная структура.
+
+<a id="active_orders"></a>
+####active_orders()
+```c++
+SecurityOrdersSnapshot& active_orders();
+```
+Структура, содержащая наши заявки. Отдельно описана в разделе [SecurityOrdersSnapshot](SecurityOrdersSnapshot.md).
+
+<a id="total_amount"></a>
+####total_amount()
+```c++
+int32_t total_amount() const;
+```
+Наша "предполагаемая" позиция - учитывается и реальная позиция на руках, и та, что мы ожидаем что будет проторгована.
+
+<a id="executed_amount"></a>
+####executed_amount()
+```c++
+int32_t executed_amount() const;
+```
+Наша текущая позиция.
 
 <a id="best_price"></a>
 ####best_price()
@@ -32,13 +60,6 @@
 const std::array<Decimal, 2>& best_price() const;
 ```
 Лучшие цены (минимальная цена продажи и максимальная цена покупки) в момент последнего обновления стакана.
-
-<a id="book_updates_count"></a>
-####book_updates_count()
-```c++
-int32_t book_updates_count() const;
-```
-Возвращает количество апдейтов стакана с начала дня.
 
 <a id="best_price_volume"></a>
 ####best_price_volume()
@@ -61,26 +82,19 @@ int32_t spread() const;
 ```
 Расстояние между лучшим аском и лучшим бидом в минимальных шагах цены.
 
-<a id="active_orders"></a>
-####active_orders()
+<a id="book_updates_count"></a>
+####book_updates_count()
 ```c++
-SecurityOrdersSnapshot& active_orders();
+int32_t book_updates_count() const;
 ```
-Структура, содержащая наши заявки, описана отдельно тут.
+Количество апдейтов стакана с начала дня.
 
 <a id="statistics"></a>
 ####statistics()
 ```c++
 StatisticsSnapshot statistics();
 ```
-Структура, содержащая статистику по нашей текущей позиции. Используется из стратегии неявно, в вызовах executed_amount() и total_amount().
-
-<a id="security_id"></a>
-####security_id()
-```c++
-SecurityId security_id() const;
-```
-Инструмент которому соответствует данная структура.
+Структура, содержащая статистику по нашей текущей позиции.
 
 <a id="server_time"></a>
 ####server_time()
@@ -96,17 +110,4 @@ Decimal min_step() const;
 ```
 Минимальный шаг цены в стакане (минимальная возможная разница между ценами).
 
-<a id="total_amount"></a>
-####total_amount()
-```c++
-int32_t total_amount() const;
-```
-Наша "предполагаемая" позиция - учитывается и реальная позиция на руках, и та, что мы ожидаем что будет проторгована.
-
-<a id="executed_amount"></a>
-####executed_amount()
-```c++
-int32_t executed_amount() const;
-```
-Наша текущая позиция.
 
