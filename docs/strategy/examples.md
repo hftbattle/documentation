@@ -11,7 +11,7 @@
 Будем выполнять все действия внутри функции [event_end_update](../../api/ParticipantStrategy.md#event_end_update), гарантируя тем самым, что биржевое событие полностью обработано:
 
 ```cpp
-virtual void event_end_update() {
+void event_end_update() override {
 	for (Dir dir: {BID, ASK}) {
 		add_order(best_price(dir), 1, dir);
 	}
@@ -36,7 +36,7 @@ virtual void process_event_end() {
 ```
 В такой реализации есть минус - если лучшая цена изменится, то мы не реагируем на это, что может привести к тому, что мы очень долго не будем торговать по одному направлению. Исправим это:
 ```cpp
-virtual void process_event_end() {
+void event_end_update() override {
   for (Dir dir:{BID, ASK}) {
     if (active_orders[dir].size() == 0) {
       add_order(best_price(dir), 1, dir, 0);
