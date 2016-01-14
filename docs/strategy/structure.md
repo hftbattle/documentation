@@ -30,10 +30,9 @@
 ```cpp
 #include "strategy/participant_strategy_layer.h"
 
-using namespace xor_platform;
 using namespace contest_platform;
 
-// Это основной класс, в котором пользователь реализует свою стратегию.
+// UserStrategy - основной класс, в котором пользователь реализует свою стратегию.
 class UserStrategy : public ParticipantStrategy {
 public:  
     // Вызывается при получении нового стакана торгового инструмента:
@@ -72,6 +71,8 @@ public:
       /* написать свою реализацию здесь */
     }
 }
+
+REGISTER_CONTEST_STRATEGY(UserStrategy, user_strategy)
 ```
 
 Рассмотрим методы, подлежащие реализации, подробнее.
