@@ -31,6 +31,7 @@
 |[signal_deals_update(const std::vector<Deal>& deals)](#signal_deals_update)|Функция, которую может реализовать участник в классе UserStrategy, которая вызывается при получении новых сделок сигнального инструмента:|
 |[execution_report_update(const ExecutionReportSnapshot& snapshot)](#execution_report_update)|Функция, которую может реализовать участник в классе UserStrategy, которая вызывается при получении отчета о сделке с участием вашего ордера.|
 |[event_end_update()](#event_end_update)|Функция, которую может реализовать участник в классе UserStrategy, которая вызывается, когда симуляция закончила обрабатывать все изменения, соответствующие одному биржевому событию.|
+|[add_order(Price price, Amount amount, Dir dir, Amount implied_amount = 0)](#add_order)|Функция, выставляющая нашу заявку.|
 |[add_ioc_order(Price price, Amount amount, Dir dir)](#add_ioc_order)|Функция, выставляющая нашу заявку по принципу immediate-or-close.|
 |[add_ioc_order(Price price, Amount amount, Dir dir, Amount implied_amount)](#add_ioc_order)|Функция, выставляющая нашу заявку по принципу immediate-or-close.|
 |[delete_order(Order* order)](#delete_order)|Функция, снимающая наш ордер с торгов.|
@@ -147,7 +148,11 @@ virtual void event_end_update();
 ```
 Функция, которую может реализовать участник в классе UserStrategy, которая вызывается, когда симуляция закончила обрабатывать все изменения, соответствующие одному биржевому событию.
 
+<a id="add_order"></a>
+####add_order()
+```c++
 bool add_order(Price price, Amount amount, Dir dir, Amount implied_amount = 0);
+```
 Функция, выставляющая нашу заявку.
 
 price - цена, по которой заявка будет выставлена,
