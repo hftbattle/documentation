@@ -14,7 +14,9 @@
 |Имя| Описание|
 |------------------|--------------------|
 |[book_trade](#book_trade)|Стакан инструмента, на котором торгуем.|
+|[book_trade_snapshot](#book_trade_snapshot)|Указатель на структуру данных, в которой содержится текущий стакан торгового инструмента.|
 |[book_feed](#book_feed)|Стакан инструмента, на который только смотрим.|
+|[book_feed_snapshot](#book_feed_snapshot)|Аналогично book_trade_snapshot.|
 |[trade_book_info](#trade_book_info)|Стуктура-аггрегатор основной информации о стакане, на котором торгуем.|
 |[feed_book_info](#feed_book_info)|Стуктура-аггрегатор основной информации о стакане, на который смотрим.|
 
@@ -40,7 +42,9 @@
 |[get_saldo()](#get_saldo)|Функция, возвращающая текущее сальдо (текущий баланс без учета позы).|
 |[get_current_result()](#get_current_result)|Функция, возвращающая текущий результат (заработок).|
 |[cmp(Price a, Price b, Dir dir)](#cmp)|Функция сравнения двух цен по фиксированному направлению.|
-|[get_local_time_tm()](#get_local_time_tm)|Метод, возвращающий локальное время типа tm c точностью до секунды.|
+|[get_local_time_as_microseconds()](#get_local_time_as_microseconds)|Функция, возвращающая локальное время в микросекундах.|
+|[get_server_time_as_microseconds()](#get_server_time_as_microseconds)|Функция, возвращающая биржевое время в микросекундах.|
+|[get_server_time_as_tm()](#get_server_time_as_tm)|Функция, возвращающая биржевое время типа tm c точностью до секунды.|
 
 ###Описание полей
 
@@ -51,12 +55,28 @@ const OrderBookL2* book_trade;
 ```
 Стакан инструмента, на котором торгуем.
 
+<a id="book_trade_snapshot"></a>
+####book_trade_snapshot
+```c++
+SharedPtr<DataFeedSnapshot> book_trade_snapshot;
+```
+Указатель на структуру данных, в которой содержится текущий стакан торгового инструмента. 
+Будьте внимательны, с приходом очередного апдейта этого стакана указатель тоже обновляется, и объект внутри (стакан) разрушается.
+Чтобы сохранить старый стакан, нужно явно в стратегии сохранить этот указатель.
+    
 <a id="book_feed"></a>
 ####book_feed
 ```c++
 const OrderBookL2* book_feed;
 ```
 Стакан инструмента, на который только смотрим.
+
+<a id="book_feed_snapshot"></a>
+####book_feed_snapshot
+```c++
+SharedPtr<DataFeedSnapshot> book_feed_snapshot;
+```
+Аналогично book_trade_snapshot.
 
 <a id="trade_book_info"></a>
 ####trade_book_info
@@ -229,10 +249,26 @@ bool cmp(Price a, Price b, Dir dir);
 ```
 Функция сравнения двух цен по фиксированному направлению.
 
-<a id="get_local_time_tm"></a>
-####get_local_time_tm()
+<a id="get_local_time_as_microseconds"></a>
+####get_local_time_as_microseconds()
 ```c++
-tm get_local_time_tm();
+Microseconds get_local_time_as_microseconds();
 ```
-Метод, возвращающий локальное время типа tm c точностью до секунды.
+Функция, возвращающая локальное время в микросекундах.
+Локальное время здесь – это время на машине, получающей биржевые данные.
+
+<a id="get_server_time_as_microseconds"></a>
+####get_server_time_as_microseconds()
+```c++
+Microseconds get_server_time_as_microseconds();
+```
+Функция, возвращающая биржевое время в микросекундах.
+
+<a id="get_server_time_as_tm"></a>
+####get_server_time_as_tm()
+```c++
+tm get_server_time_as_tm();
+```
+Функция, возвращающая биржевое время типа tm c точностью до секунды.
+
 

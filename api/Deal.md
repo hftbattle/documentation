@@ -3,7 +3,7 @@
 `include/simulator/deal/deal.h`
 
 
-Сделка - это акт (ссылка) купли-продажи определенного инструмента.
+Сделка - это акт купли-продажи определенного инструмента.
 
 
 ###Поля
@@ -34,14 +34,14 @@
 <a id="server_time"></a>
 ####server_time
 ```c++
-xor_platform::Microseconds server_time;
+Microseconds server_time;
 ```
 Биржевое время совершения сделки.
 
 <a id="passive_order_server_time"></a>
 ####passive_order_server_time
 ```c++
-xor_platform::Microseconds passive_order_server_time;
+Microseconds passive_order_server_time;
 ```
 Время постановки "пассивного" ордера, если оно известно.
 
@@ -55,21 +55,21 @@ Decimal price;
 <a id="amount"></a>
 ####amount
 ```c++
-xor_platform::Amount amount;
+Amount amount;
 ```
 Количество лотов в сделке.
 
 <a id="implied_amount"></a>
 ####implied_amount
 ```c++
-xor_platform::Amount implied_amount;
+Amount implied_amount;
 ```
 Количество лотов, которые предположительно должны были свестись в случае, когда налетающая заявка была нашей.
 
 <a id="dir"></a>
 ####dir
 ```c++
-xor_platform::Dir dir;
+Dir dir;
 ```
 Направление сделки (покупка или продажа).
 
@@ -100,7 +100,7 @@ inline int64_t get_tsc() const;
 <a id="get_agressor_side"></a>
 ####get_agressor_side()
 ```c++
-inline xor_platform::Dir get_agressor_side() const;
+inline Dir get_agressor_side() const;
 ```
 Направление налетающей заявки.
 

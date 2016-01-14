@@ -61,7 +61,7 @@ const Dir dir;
 <a id="time_in_force"></a>
 ####time_in_force
 ```c++
-const xor_platform::OrderTimeInForce time_in_force;
+const OrderTimeInForce time_in_force;
 ```
 Тип заявки - Limit или IOC.
 
@@ -78,7 +78,7 @@ const Security * security;
 <a id="outer_id"></a>
 ####outer_id()
 ```c++
-inline xor_platform::Id outer_id() const;
+inline Id outer_id() const;
 ```
 Id заявки.
 
@@ -99,7 +99,7 @@ inline int32_t implied_amount() const;
 <a id="status"></a>
 ####status()
 ```c++
-inline xor_platform::OrderStatus status() const;
+inline OrderStatus status() const;
 ```
 Статус заявки - активная, ждущая удаления, удаленная.
 
