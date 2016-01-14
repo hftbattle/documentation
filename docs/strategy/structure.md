@@ -38,37 +38,37 @@ class UserStrategy : public ParticipantStrategy {
 public:  
     // Вызывается при получении нового стакана торгового инструмента:
     // order_book – новый стакан.
-    virtual void trade_book_update(const OrderBook &order_book) {
+    void trade_book_update(const OrderBook &order_book) override {
       /* написать свою реализацию здесь */
     }
     
     // Вызывается при получении нового стакана сигнального инструмента:
     // order_book – новый стакан.
-    virtual void signal_book_update(const OrderBook &order_book) {
+    void signal_book_update(const OrderBook &order_book) override {
       /* написать свою реализацию здесь */
     }
     
     // Вызывается при получении новых сделок торгового инструмента:
     // deals - вектор новых сделок.
-    virtual void trade_deals_update(const std::vector<Deal> &deals) {
+    void trade_deals_update(const std::vector<Deal> &deals) override {
       /* написать свою реализацию здесь */
     }
     
     // Вызывается при получении новых сделок сигнального инструмента:
     // deals - вектор новых сделок.
-    virtual void signal_deals_update(const std::vector<Deal> &deals) {
+    void signal_deals_update(const std::vector<Deal> &deals) override {
       /* написать свою реализацию здесь */
     }
     
     // Вызывается при получении отчета о сделке с участием вашего ордера:
     // snapshot – структура-отчет о совершенной сделке.
-    virtual void execution_report_update(const ExecutionReportSnapshot &snapshot) {
+    void execution_report_update(const ExecutionReportSnapshot &snapshot) override {
       /* написать свою реализацию здесь */
     }
     
     // Вызывается, когда симуляция закончила обрабатывать все изменения,
     // соответствующие одному биржевому событию.
-    virtual void event_end_update() {
+    void event_end_update() override {
       /* написать свою реализацию здесь */
     }
 }
