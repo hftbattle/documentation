@@ -3,9 +3,15 @@
 * [Торговые и сигнальные инструменты](#trade_and_feed_instruments)
 * [Класс-шаблон UserStrategy](#user_strategy)
     * [Обновление стаканов](#book_update)
-    * [Обновление сделок](#trade_update)
-    * [Конец биржевого события](#event_end)
+      * [trade_book_update](#book_update)
+      * [signal_book_update](#book_update)
+    * [Обновление сделок](#deals_update)
+      * [trade_deals_update](#deals_update)
+      * [signal_deals_update](#deals_update)
     * [Отчет о наших сделках](#execution_report)
+      * [execution_report_update](#execution_report)
+    * [Конец биржевого события](#event_end)
+      * [event_end_update](#event_end)
 
 <a name = "trade_and_feed_instruments"></a>
 ## Торговые и сигнальные инструменты
@@ -29,73 +35,63 @@ using namespace contest_platform;
 
 // Это основной класс, в котором пользователь реализует свою стратегию.
 class UserStrategy : public ParticipantStrategy {
-public:
-  /**
-   * Вызывается при получении нового стакана инструмента, на котором мы торгуем:
-   * order_book – новый стакан.
-   **/
-  virtual void book_trade_update(const OrderBook& order_book) {
-    /* написать свою реализацию здесь */
-  }
-
-  /**
-   * Вызывается при получении нового стакана инструмента, на который мы смотрим:
-   * order_book – новый стакан.
-   **/
-  virtual void book_feed_update(const OrderBook& order_book) {
-    /* написать свою реализацию здесь */
-  }
-
-  /**
-   * Вызывается при получении новых сделок инструмента, на котором мы торгуем:
-   * trades - вектор новых сделок.
-   **/
-  virtual void trades_trade_update(const std::vector<Trade>& trades) {
-    /* написать свою реализацию здесь */
-  }
-
-  /**
-   * Вызывается при получении новых сделок инструмента, на который мы смотрим:
-   * trades - вектор новых сделок.
-   **/
-  virtual void trades_feed_update(const std::vector<Trade>& trades) {
-    /* написать свою реализацию здесь */
-  }
-
-  /**
-   * Вызывается, когда симуляция закончила обрабатывать все изменения,
-   * соответствующие одному биржевому событию.
-   **/
-  virtual void process_event_end() {
-    /* написать свою реализацию здесь */
-  }
-
-  /**
-   * Вызывается при получении отчета о сделке с участием вашего ордера.
-   **/
-  virtual void execution_report_update(const ExecutionReportSnapshot* snapshot) {
-    /* написать свою реализацию здесь */
-  }
+public:  
+    // Вызывается при получении нового стакана торгового инструмента:
+    // order_book – новый стакан.
+    virtual void trade_book_update(const OrderBook &order_book) {
+      /* написать свою реализацию здесь */
+    }
+    
+    // Вызывается при получении нового стакана сигнального инструмента:
+    // order_book – новый стакан.
+    virtual void signal_book_update(const OrderBook &order_book) {
+      /* написать свою реализацию здесь */
+    }
+    
+    // Вызывается при получении новых сделок торгового инструмента:
+    // deals - вектор новых сделок.
+    virtual void trade_deals_update(const std::vector<Deal> &deals) {
+      /* написать свою реализацию здесь */
+    }
+    
+    // Вызывается при получении новых сделок сигнального инструмента:
+    // deals - вектор новых сделок.
+    virtual void signal_deals_update(const std::vector<Deal> &deals) {
+      /* написать свою реализацию здесь */
+    }
+    
+    // Вызывается при получении отчета о сделке с участием вашего ордера:
+    // snapshot – структура-отчет о совершенной сделке.
+    virtual void execution_report_update(const ExecutionReportSnapshot &snapshot) {
+      /* написать свою реализацию здесь */
+    }
+    
+    // Вызывается, когда симуляция закончила обрабатывать все изменения,
+    // соответствующие одному биржевому событию.
+    virtual void event_end_update() {
+      /* написать свою реализацию здесь */
+    }
+}
 ```
 
 Рассмотрим методы, подлежащие реализации, подробнее.
 
 <a name="book_update"></a>
 ### Обновление стаканов
-При торговле на бирже постоянно происходят какие-то события в [стаканах](../glossary.md#order_book) инструментов. Для информирования стратегии о произошедших изменениях биржа посылает актуальную версию текущего состояния стакана. Функции [book_trade_update](../../api/ParticipantStrategy.md#book_trade_update) и [book_feed_update](../../api/ParticipantStrategy.md#book_feed_update) принимают на вход ссылку на элемент типа [OrderBook](../../api/OrderBook.md), который и является новой версией стакана для торгового и сигнального инструментов соответственно.
+При торговле на бирже постоянно происходят какие-то события в [стаканах](../glossary.md#order_book) инструментов. Для информирования стратегии о произошедших изменениях используются функции <a name="trade_book_update"></a>[trade_book_update](../../api/ParticipantStrategy.md#trade_book_update) и <a name="signal_book_update"></a>[signal_book_update](../../api/ParticipantStrategy.md#signal_book_update). Они принимают на вход ссылку на элемент типа [OrderBook](../../api/OrderBook.md), который является новой версией стакана для торгового и сигнального инструментов соответственно.
 
->**Замечание 1**: в [ParticipantStrategy](../../api/ParticipantStrategy.md) есть поле [book_trade](../../api/ParticipantStrategy.md#book_trade), содержащее указатель на актуальный стакан, и поле [book_trade_snapshot](../../api/ParticipantStrategy.md#book_trade_snapshot) – умный указатель на структуру, содержащую этот стакан. Если в вашей стратегии вы явно не сохраните аналог [book_trade_snapshot](../../api/ParticipantStrategy.md#book_trade_snapshot), то при следующем вызове [trade_book_update](../../api/ParticipantStrategy.md#trade_book_update) поля [book_trade](../../api/ParticipantStrategy.md#book_trade) и [book_trade_snapshot](../../api/ParticipantStrategy.md#book_trade_snapshot) обновятся, и предыдущий актуальный стакан будет недоступен (потому что на предыдущий стакан останется 0 активных ссылок).
+>**Замечание 1**: в [ParticipantStrategy](../../api/ParticipantStrategy.md) есть поле [book_trade](../../api/ParticipantStrategy.md#trade_book) – указатель на актуальный торговый стакан, и поле [trade_book_snapshot](../../api/ParticipantStrategy.md#trade_book_snapshot) – умный указатель на структуру, содержащую этот стакан. Если в вашей стратегии вы явно не сохраните копию [trade_book_snapshot](../../api/ParticipantStrategy.md#trade_book_snapshot), то при следующем вызове [trade_book_update](../../api/ParticipantStrategy.md#trade_book_update) поля [book_trade](../../api/ParticipantStrategy.md#trade_book) и [book_trade_snapshot](../../api/ParticipantStrategy.md#trade_book_snapshot) обновятся, и предыдущий актуальный стакан будет недоступен (потому что на предыдущий стакан останется 0 активных ссылок). Для [signal_book_snapshot](../../api/ParticipantStrategy.md#signal_book_snapshot) все аналогично.
 
->**Замечание 2**: [book_trade](../../api/ParticipantStrategy.md#book_trade) содержит указатель на копию того стакана, с которым работает симулятор, поэтому эта копия никогда не меняется.
+>**Замечание 2**: [trade_book](../../api/ParticipantStrategy.md#trade_book) содержит указатель на копию того стакана, с которым работает симулятор, поэтому эта копия никогда не меняется.
 
-<a name="trade_update"></a>
+<a name="deals_update"></a>
 ### Обновление сделок
-Помимо изменений стакана полезной информацией являются совершенные сделки. Для того, чтобы получать и обрабатывать эти изменения, вам предоставлены функции [trades_trade_update](../../api/ParticipantStrategy.md#trades_trade_update) и [trades_feed_update](../../api/ParticipantStrategy.md#trades_feed_update), которые принимают в качестве аргумента вектор элементов класса `Trade`, который хранит в себе информацию об одной совершённой сделке. Заметьте, что для каждой совершенной сделки информация о ней приходит **ровно один раз**. Различие этих функций абсолютно такое же, как и у book-функций: [trades_trade_update](../../api/ParticipantStrategy.md#trades_trade_update) позволяет обрабатывать сделки инструмента на котором идет торговля, [trades_feed_update](../../api/ParticipantStrategy.md#trades_feed_update) - функция для сигнального инструмента (то есть того, на который стратегия только смотрит).
+Помимо изменений стакана полезной информацией являются совершенные сделки. Для того, чтобы получать и обрабатывать эти изменения, вам предоставлены функции [trade_deals_update](../../api/ParticipantStrategy.md#trade_deals_update) и [signal_deals_update](../../api/ParticipantStrategy.md#signal_deals_update), которые принимают в качестве аргумента вектор элементов класса [Deal](../../api/Deal.md), который хранит в себе информацию об одной совершённой сделке. Заметьте, что для каждой совершенной сделки информация о ней приходит **ровно один раз**. Различие этих функций абсолютно такое же, как и у book-функций: [trade_deals_update](../../api/ParticipantStrategy.md#trade_deals_update) позволяет обрабатывать сделки торгового инструмента, [signal_deals_update](../../api/ParticipantStrategy.md#signal_deals_update) - сделки сигнального инструмента.
 
 <a name="event_end"></a>
 ### Конец биржевого события
-В общем-то, реализовывать логику стратегии вплоть до постановки и удаления заявок можно во всех описанных выше методах. Однако следует понимать, что биржа шлет информацию лимитированными **пакетами**, и при этом любое событие выше может не соответствовать реальному окончанию обработки биржей (и нами) какого-то события. Например, если в результате постановки заявки случилось много сделок, и не все они влезли в один пакет, то будет прислано два (или более) подряд апдейта со сделками. При этом об окончании сообщений о конкретном событии нас информирует вызов метода  **process_event_end**. Ее вызов означает, что всю возможную информацию о некотором биржевом событии вы уже получили.
+В общем-то, реализовывать логику стратегии вплоть до постановки и удаления заявок можно во всех описанных выше методах. Однако следует понимать, что биржа шлет информацию лимитированными **пакетами**, и при этом любое событие выше может не соответствовать реальному окончанию обработки биржей (и нами) какого-то события. Например, если в результате постановки заявки случилось много сделок, и не все они влезли в один пакет, то будет прислано два (или более) подряд апдейта со сделками. При этом об окончании сообщений о конкретном событии нас информирует вызов метода [event_end_update](../../api/ParticipantStrategy.md#event_end_update). Ее вызов означает, что всю возможную информацию о некотором биржевом событии вы уже получили.
 
-### Отчет о наших сделках
 <a name="execution_report"></a>
-Функция **execution_report_update** предназначена для того, чтобы получать информацию о совершенных сделках с участием наших заявок.
+### Отчет о наших сделках
+Функция [execution_report_update](../../api/ParticipantStrategy.md#execution_report_update) предназначена для того, чтобы получать информацию о совершенных сделках с участием наших заявок.
