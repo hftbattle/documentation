@@ -25,12 +25,12 @@
 
 |Имя| Описание|
 |------------------|--------------------|
-|[trade_book_update(const OrderBook& order_book)](#trade_book_update)|Функция, которую должен реализовать участник в классе UserStrategy, которая вызывается при получении нового стакана торгового инструмента:|
-|[signal_book_update(const OrderBook& order_book)](#signal_book_update)|Функция, которую должен реализовать участник в классе UserStrategy, которая вызывается при получении нового стакана сигнального инструмента, на который мы смотрим: order_book - новый стакан.|
-|[trades_trade_update(const std::vector<Trade>& trades)](#trades_trade_update)|Функция, которую должен реализовать участник в классе UserStrategy, которая вызывается при получении новой порции сделок инструмента, на котором мы торгуем. trades - вектор новых сделок.|
-|[trades_feed_update(const std::vector<Trade>& trades)](#trades_feed_update)|Функция, которую должен реализовать участник в классе UserStrategy, которая вызывается при получении новой порции сделок инструмента, на который мы смотрим. trades - вектор новых сделок.|
-|[process_event_end()](#process_event_end)|Функция, которую должен реализовать участник в классе UserStrategy. Вызывается, когда симуляция закончила обрабатывать все изменения, соответствующие одному биржевому событию.|
-|[execution_report_update(const ExecutionReportSnapshot* snapshot)](#execution_report_update)|Функция, которую должен реализовать участник в классе UserStrategy, которая вызывается при получении отчета о сделке с участием вашего ордера.|
+|[trade_book_update(const OrderBook& order_book)](#trade_book_update)|Функция, которую может реализовать участник в классе UserStrategy, которая вызывается при получении нового стакана торгового инструмента:|
+|[signal_book_update(const OrderBook& order_book)](#signal_book_update)|Функция, которую может реализовать участник в классе UserStrategy, которая вызывается при получении нового стакана сигнального инструмента:|
+|[trade_deals_update(const std::vector<Deal>& deals)](#trade_deals_update)|Функция, которую может реализовать участник в классе UserStrategy, которая вызывается при получении новой порции сделок торгового инструмента:|
+|[signal_deals_update(const std::vector<Deal>& deals)](#signal_deals_update)|Функция, которую может реализовать участник в классе UserStrategy, которая вызывается при получении новых сделок сигнального инструмента:|
+|[execution_report_update(const ExecutionReportSnapshot& snapshot)](#execution_report_update)|Функция, которую может реализовать участник в классе UserStrategy, которая вызывается при получении отчета о сделке с участием вашего ордера.|
+|[event_end_update()](#event_end_update)|Функция, которую может реализовать участник в классе UserStrategy, которая вызывается, когда симуляция закончила обрабатывать все изменения, соответствующие одному биржевому событию.|
 |[add_ioc_order(Price price, Amount amount, Dir dir)](#add_ioc_order)|Функция, выставляющая нашу заявку по принципу immediate-or-close.|
 |[add_ioc_order(Price price, Amount amount, Dir dir, Amount implied_amount)](#add_ioc_order)|Функция, выставляющая нашу заявку по принципу immediate-or-close.|
 |[delete_order(Order* order)](#delete_order)|Функция, снимающая наш ордер с торгов.|
@@ -102,7 +102,7 @@ SharedPtr<DataFeedSnapshot> signal_book_snapshot;
 ```c++
 virtual void trade_book_update(const OrderBook& order_book);
 ```
-Функция, которую должен реализовать участник в классе UserStrategy, которая вызывается при получении нового стакана торгового инструмента: 
+Функция, которую может реализовать участник в классе UserStrategy, которая вызывается при получении нового стакана торгового инструмента: 
 
 order_book - новый стакан.
 
@@ -111,45 +111,52 @@ order_book - новый стакан.
 ```c++
 virtual void signal_book_update(const OrderBook& order_book);
 ```
-Функция, которую должен реализовать участник в классе UserStrategy, которая вызывается при получении нового стакана сигнального инструмента, на который мы смотрим: order_book - новый стакан.
+Функция, которую может реализовать участник в классе UserStrategy, которая вызывается при получении нового стакана сигнального инструмента: 
 
-<a id="trades_trade_update"></a>
-####trades_trade_update()
-```c++
-virtual void trades_trade_update(const std::vector<Trade>& trades);
-```
-Функция, которую должен реализовать участник в классе UserStrategy, которая вызывается при получении новой порции сделок инструмента, на котором мы торгуем. trades - вектор новых сделок.
+order_book - новый стакан.
 
-<a id="trades_feed_update"></a>
-####trades_feed_update()
+<a id="trade_deals_update"></a>
+####trade_deals_update()
 ```c++
-virtual void trades_feed_update(const std::vector<Trade>& trades);
+virtual void trade_deals_update(const std::vector<Deal>& deals);
 ```
-Функция, которую должен реализовать участник в классе UserStrategy, которая вызывается при получении новой порции сделок инструмента, на который мы смотрим. trades - вектор новых сделок.
+Функция, которую может реализовать участник в классе UserStrategy, которая вызывается при получении новой порции сделок торгового инструмента: 
 
-<a id="process_event_end"></a>
-####process_event_end()
+deals - вектор новых сделок.
+
+<a id="signal_deals_update"></a>
+####signal_deals_update()
 ```c++
-virtual void process_event_end();
+virtual void signal_deals_update(const std::vector<Deal>& deals);
 ```
-Функция, которую должен реализовать участник в классе UserStrategy. Вызывается, когда симуляция закончила обрабатывать все изменения, соответствующие одному биржевому событию.
+Функция, которую может реализовать участник в классе UserStrategy, которая вызывается при получении новых сделок сигнального инструмента: 
+
+deals - вектор новых сделок.
 
 <a id="execution_report_update"></a>
 ####execution_report_update()
 ```c++
-virtual void execution_report_update(const ExecutionReportSnapshot* snapshot);
+virtual void execution_report_update(const ExecutionReportSnapshot& snapshot);
 ```
-Функция, которую должен реализовать участник в классе UserStrategy, которая вызывается при получении отчета о сделке с участием вашего ордера.
+Функция, которую может реализовать участник в классе UserStrategy, которая вызывается при получении отчета о сделке с участием вашего ордера.
+
+<a id="event_end_update"></a>
+####event_end_update()
+```c++
+virtual void event_end_update();
+```
+Функция, которую может реализовать участник в классе UserStrategy, которая вызывается, когда симуляция закончила обрабатывать все изменения, соответствующие одному биржевому событию.
 
 bool add_order(Price price, Amount amount, Dir dir, Amount implied_amount = 0);
-Функция, выставляющая наш заявку.
+Функция, выставляющая нашу заявку.
 
 price - цена, по которой заявка будет выставлена,
 
 amount - размер заявки,
 
 dir - направление (BID = 0 - покупка, ASK = 1 - продажа),
-implied_amount - ожидаемое реализованное количество (рекомендуется использовать значение 0).
+
+implied_amount - ожидаемое реализованное количество (по умолчанию 0).
 
 <a id="add_ioc_order"></a>
 ####add_ioc_order()
@@ -164,7 +171,7 @@ amount - размер заявки,
 
 dir - направление (BID = 0 - покупка, ASK = 1 - продажа),
 
-ожидаемый реализованный объем совпадает с объемом заявки.
+ожидаемое реализованное количество совпадает с объемом заявки.
 
 <a id="add_ioc_order"></a>
 ####add_ioc_order()
@@ -179,7 +186,7 @@ amount – размер заявки,
 
 dir – направление (BID = 0 - покупка, ASK = 1 - продажа),
 
-implied_amount – ожидаемое реализованное количество (рекомендуется использовать значение amount).
+implied_amount – ожидаемое реализованное количество.
 
 <a id="delete_order"></a>
 ####delete_order()
