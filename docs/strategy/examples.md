@@ -1,6 +1,11 @@
 #Примеры стратегий
 
-Реализуем простейшую стратегию: будем поддерживать наши заявки на лучшей цене в обоих направлениях. 
+* [Stay on best prices strategy](#stay_on_best_prices_strategy)
+
+
+<a name="stay_on_best_prices_strategy"></a>
+## Stay on best prices strategy
+Реализуем следующую стратегию: будем поддерживать наши заявки на лучшей цене в обоих направлениях. 
 
 Сначала научимся ставить заявку. Для этого предназначена функция [add_order](../../api/ParticipantStrategy.md#add_order). Чтобы узнать лучшую цену по направлению, можно воспользоваться функцией [best_price](../../api/ParticipantStrategy.md#best_price). 
 Будем выполнять все действия внутри функции [event_end_update](../../api/ParticipantStrategy.md#event_end_update), гарантируя тем самым, что биржевое событие полностью обработано:
