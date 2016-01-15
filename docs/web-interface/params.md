@@ -50,16 +50,18 @@
 
 <a name="from_strategy"></a>
 ####Чтение параметров из стратегии
-Все переданные стратегии параметры можно извлечь из конфига, передаваемого в конструктор стратегии пользователя *UserStrategy*. Например:
+Все переданные стратегии параметры можно извлечь из конфига, передаваемого в конструктор стратегии пользователя *UserStrategy*. Параметры конфига приводятся к нужному типу с помощью метода `as<type>()`. Пример:
 ```cpp
 struct UserStrategy : public ParticipantStrategy {
+  // Параметры стратегии, которые хочется подобрать.
   int int_param;
   double double_param;
+  
   UserStrategy(JsonValue config) {
-	// читаем целочисленный параметр
-	int_param = config["int_param"].asInt();
-	// читаем вещественный параметр
-	double_param = config["double_param"].asDouble();
+	// Читаем целочисленный параметр.
+	int_param = config["int_param"].as<int>();
+	// Читаем вещественный параметр.
+	double_param = config["double_param"].as<double>();
   }
   ...
 }
