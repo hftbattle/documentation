@@ -25,7 +25,7 @@
 
 <a name = "user_strategy"></a>
 ## Класс-шаблон UserStrategy
-Рассмотрим класс-шаблон **UserStrategy**, предназначенный для написания стратегий. Он наследует от базового класса [ParticipantStrategy](../../api/ParticipantStrategy.md), где объявлено 6 виртуальных функций, которые вы можете реализовать в своей стратегии.
+Рассмотрим класс-шаблон **UserStrategy**, предназначенный для написания стратегий. Он наследует от класса-интерфейса [ParticipantStrategy](../../api/ParticipantStrategy.md), где объявлено 6 виртуальных функций, которые вы можете реализовать в своей стратегии.
 
 ```cpp
 #include "strategy/participant_strategy_layer.h"
