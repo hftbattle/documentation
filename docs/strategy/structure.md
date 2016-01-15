@@ -85,6 +85,7 @@ public:
     }
 }
 
+// Регистрируем свою стратегию.
 REGISTER_CONTEST_STRATEGY(UserStrategy, user_strategy)
 ```
 
