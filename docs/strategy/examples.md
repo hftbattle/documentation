@@ -18,13 +18,13 @@ void event_end_update() override {
 }
 ```
 
-Однако в тот момент, когда у нас вызывается функция [event_end_update](../../api/ParticipantStrategy.md#event_end_update), наши заявки, поставленные в прошлых вызовах этой функции, всё еще могут быть не реализованы. В итоге, у нас может скопиться огромное количество заявок и мы превысим лимит на количество заявок в день. К счастью, у нас есть возможность посмотреть все наши активные заявки. Для этого понадобится поле [trade_book_info](../../api/ParticipantStrategy.md#trade_book_info) типа [ContestBookInfo](../../api/ContestBookInfo.md), у которого есть метод [active_orders](../../api/ContestBookInfo.md#active_orders):
+Однако в тот момент, когда у нас вызывается функция [event_end_update](../../api/ParticipantStrategy.md#event_end_update), наши заявки, поставленные в прошлых вызовах этой функции, всё еще могут быть не реализованы. В итоге, у нас может скопиться огромное количество заявок и мы превысим лимит на количество заявок в день. К счастью, у нас есть возможность посмотреть все наши активные заявки. Для этого используем поле [trade_book_info](../../api/ParticipantStrategy.md#trade_book_info) типа [ContestBookInfo](../../api/ContestBookInfo.md), у которого есть метод [active_orders](../../api/ContestBookInfo.md#active_orders):
 ```cpp
-SecurityOrdersSnapshot my_active_orders = trade_book_info.active_orders();
+SecurityOrdersSnapshot& my_active_orders = trade_book_info.active_orders();
 ```
-Важно отметить, что `my_active_orders` содержит те заявки, которые мы уже отправили, но на которые еще не отправили запрос на удаление. Поэтому если для какой-то заявки будет вызван метод [delete_order](../../api/ParticipantStrategy.md#delete_order), то к следующему апдейту этой заявки в `my_active_orders` точно не будет (даже если она еще не успела удалиться). Также отметим, что обновление active_orders происходит только между апдейтами, внутри апдейта она не меняется.
+Важно отметить, что `my_active_orders` содержит те заявки, которые мы уже отправили, но на которые еще не отправили запрос на удаление. Поэтому если для какой-то заявки будет вызван метод [delete_order](../../api/ParticipantStrategy.md#delete_order), то к следующему обновлению этой заявки в `my_active_orders` точно не будет (даже если она еще не успела удалиться). Также отметим, что обновление структуры [active_orders](../../api/ContestBookInfo.md#active_orders) происходит только между апдейтами, внутри апдейта она не меняется.
 
-Будем ставить заявку, если не существует активной заявки по этому направлению. 
+Будем ставить заявку, если не существует активной заявки по этому направлению. Для этого используем поле 
 ```cpp
 void event_end_update() override {
   auto my_active_orders = trade_book_info.active_orders();
