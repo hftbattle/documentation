@@ -7,7 +7,10 @@
 ## Stay on best prices strategy
 Реализуем следующую стратегию: будем поддерживать наши заявки на лучшей цене в обоих направлениях. 
 
-Сначала научимся ставить заявку. Для этого предназначена функция [add_order](../../api/ParticipantStrategy.md#add_order). Чтобы узнать лучшую цену по направлению, можно воспользоваться функцией [best_price](../../api/ParticipantStrategy.md#best_price). 
+Сначала научимся ставить заявку. Для этого предназначена функция [add_order](../../api/ParticipantStrategy.md#add_order), принимающая на вход цену заявки, количество лотов (объем заявки) и направление.
+
+Так как мы хотим поддерживать наши заявки на лучшей цене, нам нужно уметь узнавать лучшую цену по направлению. Для этого есть функция [best_price](../../api/ParticipantStrategy.md#best_price), принимающая на вход направление. 
+
 Будем выполнять все действия внутри функции [event_end_update](../../api/ParticipantStrategy.md#event_end_update), гарантируя тем самым, что биржевое событие полностью обработано:
 
 ```cpp
@@ -24,13 +27,13 @@ SecurityOrdersSnapshot& my_active_orders = trade_book_info.active_orders();
 ```
 Важно отметить, что `my_active_orders` содержит те заявки, которые мы уже отправили, но на которые еще не отправили запрос на удаление. Поэтому если для какой-то заявки будет вызван метод [delete_order](../../api/ParticipantStrategy.md#delete_order), то к следующему обновлению этой заявки в `my_active_orders` точно не будет (даже если она еще не успела удалиться). Также отметим, что обновление структуры [active_orders](../../api/ContestBookInfo.md#active_orders) происходит только между апдейтами, внутри апдейта она не меняется.
 
-Будем ставить заявку, если не существует активной заявки по этому направлению. Для этого используем поле 
+Будем ставить заявку, если не существует активной заявки по этому направлению. Для этого понадобится поле [orders_by_dir](../../api/SecurityOrdersSnapshot.md#orders_by_dir) класса [SecurityOrdersSnapshot](../../api/SecurityOrdersSnapshot.md#), разбивающие списки наших активных заявок по напралвениям [бид](../glossary.md#bid) и [аск](../glossary.md#ask):
 ```cpp
 void event_end_update() override {
   auto my_active_orders = trade_book_info.active_orders();
   for (Dir dir:{BID, ASK}) {
-    if (my_active_orders.order_by_dir[dir].size() == 0) {
-      add_order(best_price(dir), 1, dir, 0);
+    if (my_active_orders.orders_by_dir[dir].size() == 0) {
+      add_order(best_price(dir), 1, dir);
     }
   }
 }
