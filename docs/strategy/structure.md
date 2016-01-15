@@ -32,9 +32,17 @@
 
 using namespace contest_platform;
 
-// UserStrategy - основной класс, в котором пользователь реализует свою стратегию.
+/** 
+ * UserStrategy - основной класс, в котором пользователь реализует свою стратегию.
+
+ **/
 class UserStrategy : public ParticipantStrategy {
-public:  
+public:
+    // В конструктор стратегии участника передается конфиг.
+    // В конфиг можно передавать параметры, необходимые для работы стратегии. 
+    // Значения параметров можно перебирать в web-интерфейсе.
+    UserStrategy(JsonValue config) {}
+    
     // Вызывается при получении нового стакана торгового инструмента:
     // order_book – новый стакан.
     void trade_book_update(const OrderBook &order_book) override {
