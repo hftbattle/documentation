@@ -116,7 +116,7 @@ virtual void trade_book_update(const OrderBook &order_book)
 ```
 Вызывается при получении нового стакана торгового инструмента:
 
-order_book – новый стакан.
+@order_book – новый стакан.
 
 <a id="signal_book_update"></a>
 ####signal_book_update()
@@ -125,7 +125,7 @@ virtual void signal_book_update(const OrderBook &order_book)
 ```
 Вызывается при получении нового стакана сигнального инструмента:
 
-order_book – новый стакан.
+@order_book – новый стакан.
 
 <a id="trade_deals_update"></a>
 ####trade_deals_update()
@@ -134,7 +134,7 @@ virtual void trade_deals_update(const std::vector<Deal> &deals)
 ```
 Вызывается при получении новых сделок торгового инструмента:
 
-deals - вектор новых сделок.
+@deals - вектор новых сделок.
 
 <a id="signal_deals_update"></a>
 ####signal_deals_update()
@@ -143,7 +143,7 @@ virtual void signal_deals_update(const std::vector<Deal> &deals)
 ```
 Вызывается при получении новых сделок сигнального инструмента:
 
-deals - вектор новых сделок.
+@deals - вектор новых сделок.
 
 <a id="execution_report_update"></a>
 ####execution_report_update()
@@ -152,7 +152,7 @@ virtual void execution_report_update(const ExecutionReportSnapshot &snapshot)
 ```
 Вызывается при получении отчета о сделке с участием вашего ордера:
 
-snapshot – структура-отчет о совершенной сделке.
+@snapshot – структура-отчет о совершенной сделке.
 
 <a id="event_end_update"></a>
 ####event_end_update()
