@@ -17,6 +17,5 @@
         
         "viewer.url": "http://viewer.hftbattle.com",
         "viewer.name": "viewer.hftbattle.com"
-    },
-    plugins: ["gitbook-plugin-customheader"]
+    }
 }
