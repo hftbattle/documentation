@@ -108,40 +108,40 @@ ContestBookInfo signal_book_info;
 ```c++
 virtual void trade_book_update(const OrderBook &order_book)
 ```
-Вызывается при получении нового стакана торгового инструмента:- `order_book` – новый стакан.
-
+Вызывается при получении нового стакана торгового инструмента:
+- `order_book` – новый стакан.
 
 <a id="signal_book_update"></a>
 ####signal_book_update()
 ```c++
 virtual void signal_book_update(const OrderBook &order_book)
 ```
-Вызывается при получении нового стакана сигнального инструмента:- `order_book` – новый стакан.
-
+Вызывается при получении нового стакана сигнального инструмента:
+- `order_book` – новый стакан.
 
 <a id="trade_deals_update"></a>
 ####trade_deals_update()
 ```c++
 virtual void trade_deals_update(const std::vector<Deal> &deals)
 ```
-Вызывается при получении новых сделок торгового инструмента:- `deals` - вектор новых сделок.
-
+Вызывается при получении новых сделок торгового инструмента:
+- `deals` - вектор новых сделок.
 
 <a id="signal_deals_update"></a>
 ####signal_deals_update()
 ```c++
 virtual void signal_deals_update(const std::vector<Deal> &deals)
 ```
-Вызывается при получении новых сделок сигнального инструмента:- `deals` - вектор новых сделок.
-
+Вызывается при получении новых сделок сигнального инструмента:
+- `deals` - вектор новых сделок.
 
 <a id="execution_report_update"></a>
 ####execution_report_update()
 ```c++
 virtual void execution_report_update(const ExecutionReportSnapshot &snapshot)
 ```
-Вызывается при получении отчета о сделке с участием вашего ордера:- `snapshot` – структура-отчет о совершенной сделке.
-
+Вызывается при получении отчета о сделке с участием вашего ордера:
+- `snapshot` – структура-отчет о совершенной сделке.
 
 <a id="event_end_update"></a>
 ####event_end_update()
@@ -155,40 +155,40 @@ virtual void event_end_update()
 ```c++
 bool add_order(Price price, Amount amount, Dir dir, Amount implied_amount = 0)
 ```
-Выставляет нашу заявку:- `price` - цена, по которой заявка будет выставлена,
+Выставляет нашу заявку:
+- `price` - цена, по которой заявка будет выставлена,
 - `amount` - размер заявки,
 - `dir` - направление (BID = 0 - покупка, ASK = 1 - продажа),
 - `implied_amount` - ожидаемое реализованное количество (по умолчанию 0).
-
 
 <a id="add_ioc_order"></a>
 ####add_ioc_order()
 ```c++
 bool add_ioc_order(Price price, Amount amount, Dir dir)
 ```
-Выставляет нашу заявку по принципу Immediate-Or-Cancel:- `price` - цена, по которой заявка будет выставлена,
+Выставляет нашу заявку по принципу Immediate-Or-Cancel:
+- `price` - цена, по которой заявка будет выставлена,
 - `amount` - размер заявки,
-- `dir` - направление (BID = 0 - покупка, ASK = 1 - продажа),
-ожидаемое реализованное количество совпадает с объемом заявки.
+- `dir` - направление (BID = 0 - покупка, ASK = 1 - продажа),ожидаемое реализованное количество совпадает с объемом заявки.
 
 <a id="add_ioc_order"></a>
 ####add_ioc_order()
 ```c++
 bool add_ioc_order(Price price, Amount amount, Dir dir, Amount implied_amount)
 ```
-Выставляет нашу заявку по принципу Immediate-Or-Cancel:- `price` - цена, по которой заявка будет выставлена,
+Выставляет нашу заявку по принципу Immediate-Or-Cancel:
+- `price` - цена, по которой заявка будет выставлена,
 - `amount` - размер заявки,
 - `dir` - направление (BID = 0 - покупка, ASK = 1 - продажа),
 - `implied_amount` – ожидаемое реализованное количество.
-
 
 <a id="delete_order"></a>
 ####delete_order()
 ```c++
 void delete_order(Order *order)
 ```
-Снимает наш ордер с торгов:- `order` - ордер, который мы хотим снять.
-
+Снимает наш ордер с торгов:
+- `order` - ордер, который мы хотим снять.
 
 <a id="active_orders_by_dir"></a>
 ####active_orders_by_dir()
@@ -216,26 +216,26 @@ Amount executed_amount()
 ```c++
 Amount total_active_amount(Dir dir)
 ```
-Возвращает текущий суммарный объем выставленных ордеров по направлению:- `dir` - направление ордеров.
-
+Возвращает текущий суммарный объем выставленных ордеров по направлению:
+- `dir` - направление ордеров.
 
 <a id="count_added_orders"></a>
 ####count_added_orders()
 ```c++
 Amount count_added_orders(Dir dir)
 ```
-Возвращает количество активных ордеров по направлению:- `dir` - направление ордеров.
-
+Возвращает количество активных ордеров по направлению:
+- `dir` - направление ордеров.
 
 <a id="best_price"></a>
 ####best_price()
 ```c++
 Price best_price(Dir dir, bool is_book_trade = true)
 ```
-Возвращает лучшую цену по направлению:- `dir` - направление,
+Возвращает лучшую цену по направлению:
+- `dir` - направление,
 - `is_book_trade` = true - торговый стакан (по умолчанию),
 - `is_book_trade` = false - сигнальный стакан.
-
 
 <a id="get_saldo"></a>
 ####get_saldo()
