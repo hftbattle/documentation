@@ -1,34 +1,40 @@
 #Order
+`simulator/order/order.h`
 
-`include/simulator/order/order.h`
-
-
-Класс Order представляет собой реализацию заявки (надеемся, вы уже знакомы с тем что это такое! Если нет - то вам сюда). Ничего необычного, поэтому переходим сразу к
-
+Заявка - это пара <цена, количество лотов>.
+Класс Order представляет собой реализацию биржевой заявки.
 
 ###Поля
 
-
 |Имя| Описание|
 |------------------|--------------------|
+|[20](#20)|Максимальная длина комментария к заявке.|
 |[origin_server_time](#origin_server_time)|Биржевое время постановки заявки в стакан в тиках.|
+|[origin_time](#origin_time)|Локальное время постановки заявки в стакан в тиках.|
+|[id](#id)|Наш (внутренний) ID заявки.|
+|[dir](#dir)|Направление заявки.|
 |[price](#price)|Цена заявки.|
-|[amount](#amount)|Количество лотов.|
-|[dir](#dir)|Направление.|
+|[amount](#amount)|Объем заявки (количество лотов).|
 |[time_in_force](#time_in_force)|Тип заявки - Limit или IOC.|
-|[security](#security)|Инструмент, к которому относится заявка.|
+|[market_id](#market_id)|ID биржи.|
+|[*security](#*security)|Инструмент, к которому относится заявка.|
 
 ###Методы
 
-
 |Имя| Описание|
 |------------------|--------------------|
-|[outer_id()](#outer_id)|Id заявки.|
-|[amount_rest()](#amount_rest)|Текущее количество лотов в заявке (может быть меньше начального, если были сделки с ее участием).|
+|[amount_rest()](#amount_rest)|Текущий объем заявки. Может быть меньше начального, если были сделки с ее участием.|
 |[implied_amount()](#implied_amount)|Количество лотов, которое предположительно будет сведено.|
-|[status()](#status)|Статус заявки - активная, ждущая удаления, удаленная.|
+|[status()](#status)|Статус заявки: в процессе добавления, активная, ждущая удаления, удаленная.|
+|[outer_id()](#outer_id)|Биржевой (внешний) ID заявки.|
 
 ###Описание полей
+<a id="20"></a>
+####20
+```c++
+static const size_t kMaxCommentLength = 20;
+```
+Максимальная длина комментария к заявке.
 
 <a id="origin_server_time"></a>
 ####origin_server_time
@@ -37,26 +43,40 @@ int64_t origin_server_time;
 ```
 Биржевое время постановки заявки в стакан в тиках.
 
-<a id="price"></a>
-####price
+<a id="origin_time"></a>
+####origin_time
 ```c++
-const Decimal price;
+const Ticks origin_time;
 ```
-Цена заявки.
+Локальное время постановки заявки в стакан в тиках.
 
-<a id="amount"></a>
-####amount
+<a id="id"></a>
+####id
 ```c++
-const int32_t amount;
+const Id id;
 ```
-Количество лотов.
+Наш (внутренний) ID заявки.
 
 <a id="dir"></a>
 ####dir
 ```c++
 const Dir dir;
 ```
-Направление.
+Направление заявки.
+
+<a id="price"></a>
+####price
+```c++
+const Price price;
+```
+Цена заявки.
+
+<a id="amount"></a>
+####amount
+```c++
+const Amount amount;
+```
+Объем заявки (количество лотов).
 
 <a id="time_in_force"></a>
 ####time_in_force
@@ -65,41 +85,48 @@ const OrderTimeInForce time_in_force;
 ```
 Тип заявки - Limit или IOC.
 
-<a id="security"></a>
-####security
+<a id="market_id"></a>
+####market_id
 ```c++
-const Security * security;
+const MarketId market_id;
+```
+ID биржи.
+
+<a id="*security"></a>
+####*security
+```c++
+const Security *security;
 ```
 Инструмент, к которому относится заявка.
 
 
 ###Описание методов
-
-<a id="outer_id"></a>
-####outer_id()
-```c++
-inline Id outer_id() const;
-```
-Id заявки.
-
 <a id="amount_rest"></a>
 ####amount_rest()
 ```c++
-inline int32_t amount_rest() const;
+inline Amount amount_rest() const 
 ```
-Текущее количество лотов в заявке (может быть меньше начального, если были сделки с ее участием).
+Текущий объем заявки. Может быть меньше начального, если были сделки с ее участием.
 
 <a id="implied_amount"></a>
 ####implied_amount()
 ```c++
-inline int32_t implied_amount() const;
+inline Amount implied_amount() const 
 ```
 Количество лотов, которое предположительно будет сведено.
 
 <a id="status"></a>
 ####status()
 ```c++
-inline OrderStatus status() const;
+inline OrderStatus status() const 
 ```
-Статус заявки - активная, ждущая удаления, удаленная.
+Статус заявки: в процессе добавления, активная, ждущая удаления, удаленная.
+
+<a id="outer_id"></a>
+####outer_id()
+```c++
+inline Id outer_id() const 
+```
+Биржевой (внешний) ID заявки.
+
 

@@ -1,128 +1,125 @@
 #OrderBook
+`simulator/orderbook/order_book.h`
 
-`include/simulator/orderbook/order_book.h`
+Биржевой стакан - это агрегатор всех заявок по конкретному инструменту.
+Класс OrderBook представляет собой реализацию биржевого стакана.
+Для котировок в стакане используется 0-нумерация, начиная от лучшей цены.
 
-
-Стакан - это агрегатор всех заявок по конкретному финансовому инструменту (подробнее можно почитать в описании биржевых терминов). Класс OrderBook как раз и является реализацией биржевого стакана в нашем симуляторе.
-
-
-###Методы
-
+###Поля
 
 |Имя| Описание|
 |------------------|--------------------|
-|[get_quote_by_idx(Dir dir, int index)](#get_quote_by_idx)|Котировка номер index в стакане по выбранному направлению.|
-|[quote_view_by_price(Dir dir, Decimal price)](#quote_view_by_price)|Котировка по цене price по направлению dir.|
-|[quote_by_price(Dir dir, Decimal price)](#quote_by_price)|Котировка по цене price по направлению dir.|
-|[quote_by_index(Dir dir, int index)](#quote_by_index)|Котировка номер index в стакане по выбранному направлению.|
-|[all_quotes(Dir dir)](#all_quotes)|Все котировки по выбранному направлению.|
-|[best_price(Dir dir)](#best_price)|Лучшая цена в стакане по направлению dir.|
-|[best_amount(Dir dir)](#best_amount)|Объем лучшей котировки по направлению dir.|
-|[get_volume_by_price(Dir dir, Decimal price)](#get_volume_by_price)|Суммарный объем лотов на цене.|
-|[get_volume_by_idx(Dir dir, int index)](#get_volume_by_idx)|Объем котировки по индексу (нумерация с нуля, начиная от лучшей цены).|
-|[get_price_by_idx(Dir dir, int index)](#get_price_by_idx)|Цена котировки по индексу (нумерация с нуля, начиная от лучшей цены).|
-|[index_by_price(Dir dir, Decimal price)](#index_by_price)|Узнать индекс (нумерация с нуля, начиная от лучшей цены) по цене.|
-|[quotes_count(Dir dir)](#quotes_count)|Количество отображаемых котировок по направлению.|
-|[contains_price(Dir dir, Decimal price)](#contains_price)|Есть ли такая цена в стакане по направлению.|
-|[depth()](#depth)|Максимальная глубина отображаемого стакана.|
+|[const](#const)|Котировка с индексом @index в стакане по направлению @dir.|
+|[const](#const)|Котировка по цене @price по направлению @dir.|
+
+###Методы
+
+|Имя| Описание|
+|------------------|--------------------|
+|[all_quotes(Dir dir)](#all_quotes)|Все котировки по направлению @dir.|
+|[best_price(Dir dir)](#best_price)|Лучшая цена в стакане по направлению @dir.|
+|[best_volume(Dir dir)](#best_volume)|Суммарный объем лотов на лучшей цене по направлению @dir.|
+|[get_volume_by_idx(Dir dir, int index)](#get_volume_by_idx)|Суммарный объем лотов котировки с индексом @index по направлению @dir.|
+|[get_volume_by_price(Dir dir, Price price)](#get_volume_by_price)|Суммарный объем лотов на цене @price по направлению @dir.|
+|[get_price_by_idx(Dir dir, int index)](#get_price_by_idx)|Цена котировки с индексом @index по направлению @dir.|
+|[const](#const)|Индекс котировки с ценой @price по направлению @dir.|
+|[const](#const)|Количество котировок по направлению @dir.|
+|[const](#const)|Есть ли в стакане цена @price по направлению @dir.|
+|[const](#const)|Максимальная глубина отображаемого стакана.|
+|[get_quote_server_time(Dir dir, int index)](#get_quote_server_time)|Биржевое время последнего изменения котировки с индексом @index по направлению @dir.|
+
+###Описание полей
+<a id="const"></a>
+####const
+```c++
+const Quote& quote_view_by_idx(Dir dir, int index) const;
+```
+Котировка с индексом @index в стакане по направлению @dir.
+
+<a id="const"></a>
+####const
+```c++
+const Quote& quote_view_by_price(Dir dir, Price price) const;
+```
+Котировка по цене @price по направлению @dir.
+
 
 ###Описание методов
-
-<a id="get_quote_by_idx"></a>
-####get_quote_by_idx()
-```c++
-const Quote& get_quote_by_idx(Dir dir, int index) const;
-```
-Котировка номер index в стакане по выбранному направлению.
-
-<a id="quote_view_by_price"></a>
-####quote_view_by_price()
-```c++
-const Quote& quote_view_by_price(Dir dir, Decimal price) const;
-```
-Котировка по цене price по направлению dir.
-
-<a id="quote_by_price"></a>
-####quote_by_price()
-```c++
-Quote* quote_by_price(Dir dir, Decimal price);
-```
-Котировка по цене price по направлению dir.
-
-<a id="quote_by_index"></a>
-####quote_by_index()
-```c++
-Quote* quote_by_index(Dir dir, int index);
-```
-Котировка номер index в стакане по выбранному направлению.
-
 <a id="all_quotes"></a>
 ####all_quotes()
 ```c++
-QuotesHolder all_quotes(Dir dir) const;
+QuotesHolder all_quotes(Dir dir) const 
 ```
-Все котировки по выбранному направлению.
+Все котировки по направлению @dir.
 
 <a id="best_price"></a>
 ####best_price()
 ```c++
-inline Decimal best_price(Dir dir);
+inline Price best_price(Dir dir) const 
 ```
-Лучшая цена в стакане по направлению dir.
+Лучшая цена в стакане по направлению @dir.
 
-<a id="best_amount"></a>
-####best_amount()
+<a id="best_volume"></a>
+####best_volume()
 ```c++
-inline Amount best_amount(Dir dir) const;
+inline Amount best_volume(Dir dir) const 
 ```
-Объем лучшей котировки по направлению dir.
-
-<a id="get_volume_by_price"></a>
-####get_volume_by_price()
-```c++
-inline Amount get_volume_by_price(Dir dir, Decimal price) const;
-```
-Суммарный объем лотов на цене.
+Суммарный объем лотов на лучшей цене по направлению @dir.
 
 <a id="get_volume_by_idx"></a>
 ####get_volume_by_idx()
 ```c++
-inline Amount get_volume_by_idx(Dir dir, int index) const;
+inline Amount get_volume_by_idx(Dir dir, int index) const 
 ```
-Объем котировки по индексу (нумерация с нуля, начиная от лучшей цены).
+Суммарный объем лотов котировки с индексом @index по направлению @dir.
+
+<a id="get_volume_by_price"></a>
+####get_volume_by_price()
+```c++
+inline Amount get_volume_by_price(Dir dir, Price price) const 
+```
+Суммарный объем лотов на цене @price по направлению @dir.
 
 <a id="get_price_by_idx"></a>
 ####get_price_by_idx()
 ```c++
-inline Decimal get_price_by_idx(Dir dir, int index) const;
+inline Price get_price_by_idx(Dir dir, int index) const 
 ```
-Цена котировки по индексу (нумерация с нуля, начиная от лучшей цены).
+Цена котировки с индексом @index по направлению @dir.
 
-<a id="index_by_price"></a>
-####index_by_price()
+<a id="const"></a>
+####const
 ```c++
-size_t index_by_price(Dir dir, Decimal price) const;
+size_t index_by_price(Dir dir, Price price) const;
 ```
-Узнать индекс (нумерация с нуля, начиная от лучшей цены) по цене.
+Индекс котировки с ценой @price по направлению @dir.
 
-<a id="quotes_count"></a>
-####quotes_count()
+<a id="const"></a>
+####const
 ```c++
 virtual size_t quotes_count(Dir dir) const;
 ```
-Количество отображаемых котировок по направлению.
+Количество котировок по направлению @dir.
 
-<a id="contains_price"></a>
-####contains_price()
+<a id="const"></a>
+####const
 ```c++
-bool contains_price(Dir dir, Decimal price) const;
+bool contains_price(Dir dir, Price price) const;
 ```
-Есть ли такая цена в стакане по направлению.
+Есть ли в стакане цена @price по направлению @dir.
 
-<a id="depth"></a>
-####depth()
+<a id="const"></a>
+####const
 ```c++
 size_t depth() const;
 ```
 Максимальная глубина отображаемого стакана.
+
+<a id="get_quote_server_time"></a>
+####get_quote_server_time()
+```c++
+inline int64_t get_quote_server_time(Dir dir, int index) const 
+```
+Биржевое время последнего изменения котировки с индексом @index по направлению @dir.
+
 
