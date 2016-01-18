@@ -1,29 +1,29 @@
 #SecurityOrdersSnapshot
-
-`include/xor/sender/active_orders_storage.h`
-
-
-Эта структура хранит активные заявки стратегии (при этом в ней содержатся те заявки, что уже были отправлены, но еще "не дошли" до стакана, но не содержатся те, на которые отправлен запрос на удаление). В стратегии она доступна как поле в trade_book_info (описание класса ContestBookInfo можно почитать тут). Структура обновляется перед приходом каждого апдейта в стратегию, но в процессе обработки одного апдейта стратегией не меняется (и более того, фактическая обработка действий стратегии начинается только после выхода из функции обработки апдейта).
-
+`xor/sender/security_orders_snapshot.h`
 
 ###Поля
 
-
 |Имя| Описание|
 |------------------|--------------------|
+|[orders_by_dir](#orders_by_dir)|Списки наших текущих заявок по направлению.|
 |[deleting_amount](#deleting_amount)|Суммарный объем заявок по направлению, отправленных на удаление, но еще не удаленных.|
-|[orders_by_dir](#orders_by_dir)|Списки наших активных заявок по направлению и цене.|
 
 ###Методы
 
-
 |Имя| Описание|
 |------------------|--------------------|
-|[amount(Dir dir, Price price)](#amount)|Объем наших заявок на данной цене по данному направлению.|
-|[count_active_orders(Dir dir)](#count_active_orders)|Количество наших активных заявок (сюда не включены те, на которые отправлен запрос на удаление).|
+|[amount(Dir dir, Price price)](#amount)|Объем наших заявок на цене @price по направлению @dir.|
 |[size()](#size)|Суммарное количество наших заявок по обоим направлениям.|
+|[count_added_orders(Dir dir)](#count_added_orders)|Количество наших добавленных заявок по направлению @dir.|
+|[clear()](#clear)|Очищает списки наших текущих заявок @orders_by_dir и зануляет @deleting_amount.|
 
 ###Описание полей
+<a id="orders_by_dir"></a>
+####orders_by_dir
+```c++
+std::array<std::vector<OrderSnapshot>, 2> orders_by_dir;
+```
+Списки наших текущих заявок по направлению.
 
 <a id="deleting_amount"></a>
 ####deleting_amount
@@ -32,36 +32,34 @@ std::array<Amount, 2> deleting_amount;
 ```
 Суммарный объем заявок по направлению, отправленных на удаление, но еще не удаленных.
 
-<a id="orders_by_dir"></a>
-####orders_by_dir
-```c++
-std::array<std::vector<OrderSnapshot>, 2> orders_by_dir;
-```
-Списки наших активных заявок по направлению и цене.
-
-
 
 ###Описание методов
-
 <a id="amount"></a>
 ####amount()
 ```c++
-Amount amount(Dir dir, Price price) const;
+Amount amount(Dir dir, Price price) const 
 ```
-Объем наших заявок на данной цене по данному направлению.
-
-<a id="count_active_orders"></a>
-####count_active_orders()
-```c++
-int32_t count_active_orders(Dir dir);
-```
-Количество наших активных заявок (сюда не включены те, на которые отправлен запрос на удаление).
+Объем наших заявок на цене @price по направлению @dir.
 
 <a id="size"></a>
 ####size()
 ```c++
-size_t size() const;
+size_t size() const 
 ```
 Суммарное количество наших заявок по обоим направлениям.
+
+<a id="count_added_orders"></a>
+####count_added_orders()
+```c++
+int32_t count_added_orders(Dir dir) 
+```
+Количество наших добавленных заявок по направлению @dir.
+
+<a id="clear"></a>
+####clear()
+```c++
+void clear() 
+```
+Очищает списки наших текущих заявок @orders_by_dir и зануляет @deleting_amount.
 
 
