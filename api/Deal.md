@@ -25,7 +25,7 @@
 |[get_orders()](#get_orders)|Вектор заявок (на продажу и на покупку), участвующих в сделке.|
 |[get_tsc()](#get_tsc)|Локальное время.|
 |[get_agressor_side()](#get_agressor_side)|Направление налетающей заявки.|
-|[const](#const)|Наша ли это сделка.|
+|[is_our()](#is_our)|Наша ли это сделка.|
 |[get_amount()](#get_amount)|Объем сделки.|
 |[get_moment()](#get_moment)|Биржевое время сделки.|
 |[get_price()](#get_price)|Цена, по которой произошла сделка.|
@@ -117,8 +117,8 @@ inline Dir get_agressor_side() const
 ```
 Направление налетающей заявки.
 
-<a id="const"></a>
-####const
+<a id="is_our"></a>
+####is_our()
 ```c++
 bool is_our() const;
 ```
