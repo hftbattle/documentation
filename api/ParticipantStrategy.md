@@ -265,11 +265,9 @@ Price best_price(Dir dir, bool is_book_trade = true)
 ```
 Возвращает лучшую цену по направлению:
 
-@dir - направление,
-
-@is_book_trade = true - торговый стакан (по умолчанию),
-
-@is_book_trade = false - сигнальный стакан.
+- `dir` - направление,
+- `is_book_trade = true` - торговый стакан (по умолчанию),
+- `is_book_trade = false` - сигнальный стакан.
 
 <a id="get_saldo"></a>
 ####get_saldo()
