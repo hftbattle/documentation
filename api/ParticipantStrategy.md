@@ -44,7 +44,7 @@ ParticipantStrategy - класс-интерфейс для написания п
 |[add_order(Price price, Amount amount, Dir dir, Amount implied_amount = 0)](#add_order)|Выставляет нашу заявку.|
 |[add_ioc_order(Price price, Amount amount, Dir dir)](#add_ioc_order)|Выставляет нашу заявку по принципу Immediate-Or-Cancel.|
 |[add_ioc_order(Price price, Amount amount, Dir dir, Amount implied_amount)](#add_ioc_order)|Выставляет нашу заявку по принципу Immediate-Or-Cancel.|
-|[delete_order(Order *order)](#delete_order)|Снимает наш ордер с торгов.|
+|[delete_order(Order* order)](#delete_order)|Снимает наш ордер с торгов.|
 |[active_orders_by_dir()](#active_orders_by_dir)|Возвращает массив списков наших активных заявок, то есть заявок со статусом OrderStatus::Adding и OrderStatus::Active для бида и аска соответственно.|
 |[total_amount()](#total_amount)|Возвращает нашу текущую позу.|
 |[executed_amount()](#executed_amount)|Возвращает нашу текущую позу без учета implied-заявок.|
@@ -185,7 +185,7 @@ bool add_ioc_order(Price price, Amount amount, Dir dir, Amount implied_amount);
 <a name="delete_order"></a>
 ####delete_order()
 ```c++
-void delete_order(Order *order);
+void delete_order(Order* order);
 ```
 Снимает наш ордер с торгов:
 - `order` - ордер, который мы хотим снять.

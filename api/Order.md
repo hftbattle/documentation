@@ -8,7 +8,7 @@
 
 |Имя| Описание|
 |------------------|--------------------|
-|[20](#20)|Максимальная длина комментария к заявке.|
+|[kMaxCommentLength ](#kMaxCommentLength )|Максимальная длина комментария к заявке, по умолчанию равна 20.|
 |[origin_server_time](#origin_server_time)|Биржевое время постановки заявки в стакан в тиках.|
 |[origin_time](#origin_time)|Локальное время постановки заявки в стакан в тиках.|
 |[id](#id)|Наш (внутренний) ID заявки.|
@@ -17,7 +17,7 @@
 |[amount](#amount)|Объем заявки (количество лотов).|
 |[time_in_force](#time_in_force)|Тип заявки - Limit или IOC.|
 |[market_id](#market_id)|ID биржи.|
-|[*security](#*security)|Инструмент, к которому относится заявка.|
+|[security](#security)|Инструмент, к которому относится заявка.|
 
 ###Методы
 
@@ -29,12 +29,12 @@
 |[outer_id()](#outer_id)|Биржевой (внешний) ID заявки.|
 
 ###Описание полей
-<a name="20"></a>
-####20
+<a name="kMaxCommentLength "></a>
+####kMaxCommentLength 
 ```c++
 static const size_t kMaxCommentLength = 20;
 ```
-Максимальная длина комментария к заявке.
+Максимальная длина комментария к заявке, по умолчанию равна 20.
 
 <a name="origin_server_time"></a>
 ####origin_server_time
@@ -92,10 +92,10 @@ const MarketId market_id;
 ```
 ID биржи.
 
-<a name="*security"></a>
-####*security
+<a name="security"></a>
+####security
 ```c++
-const Security *security;
+const Security* security;
 ```
 Инструмент, к которому относится заявка.
 
