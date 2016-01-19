@@ -8,7 +8,7 @@
 
 |Имя| Описание|
 |------------------|--------------------|
-|[kMaxCommentLength ](#kMaxCommentLength )|Максимальная длина комментария к заявке, по умолчанию равна 20.|
+|[kMaxCommentLength](#kMaxCommentLength)|Максимальная длина комментария к заявке, по умолчанию равна 20.|
 |[origin_server_time](#origin_server_time)|Биржевое время постановки заявки в стакан в тиках.|
 |[origin_time](#origin_time)|Локальное время постановки заявки в стакан в тиках.|
 |[id](#id)|Наш (внутренний) ID заявки.|
@@ -29,8 +29,8 @@
 |[outer_id()](#outer_id)|Биржевой (внешний) ID заявки.|
 
 ###Описание полей
-<a name="kMaxCommentLength "></a>
-####kMaxCommentLength 
+<a name="kMaxCommentLength"></a>
+####kMaxCommentLength
 ```c++
 static const size_t kMaxCommentLength = 20;
 ```
