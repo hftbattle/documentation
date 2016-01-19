@@ -92,28 +92,28 @@ int64_t outer_id;
 <a id="get_comments"></a>
 ####get_comments()
 ```c++
-std::vector<std::string> const& get_comments() const 
+std::vector<std::string> const& get_comments() const;
 ```
 Комментарии к заявкам, участвующим в сделке.
 
 <a id="get_orders"></a>
 ####get_orders()
 ```c++
-std::vector<std::shared_ptr<Order>> const& get_orders() const 
+std::vector<std::shared_ptr<Order>> const& get_orders() const;
 ```
 Вектор заявок (на продажу и на покупку), участвующих в сделке.
 
 <a id="get_tsc"></a>
 ####get_tsc()
 ```c++
-inline int64_t get_tsc() const 
+inline int64_t get_tsc() const;
 ```
 Локальное время.
 
 <a id="get_agressor_side"></a>
 ####get_agressor_side()
 ```c++
-inline Dir get_agressor_side() const 
+inline Dir get_agressor_side() const;
 ```
 Направление налетающей заявки.
 
@@ -127,21 +127,21 @@ bool is_our() const;
 <a id="get_amount"></a>
 ####get_amount()
 ```c++
-inline Amount get_amount() const 
+inline Amount get_amount() const;
 ```
 Объем сделки.
 
 <a id="get_moment"></a>
 ####get_moment()
 ```c++
-inline int64_t get_moment() const 
+inline int64_t get_moment() const;
 ```
 Биржевое время сделки.
 
 <a id="get_price"></a>
 ####get_price()
 ```c++
-inline Price get_price() const 
+inline Price get_price() const;
 ```
 Цена, по которой произошла сделка.
 

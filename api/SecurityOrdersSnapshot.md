@@ -37,28 +37,28 @@ std::array<Amount, 2> deleting_amount;
 <a id="amount"></a>
 ####amount()
 ```c++
-Amount amount(Dir dir, Price price) const 
+Amount amount(Dir dir, Price price) const;
 ```
 Объем наших заявок на цене @price по направлению @dir.
 
 <a id="size"></a>
 ####size()
 ```c++
-size_t size() const 
+size_t size() const;
 ```
 Суммарное количество наших заявок по обоим направлениям.
 
 <a id="count_added_orders"></a>
 ####count_added_orders()
 ```c++
-int32_t count_added_orders(Dir dir) 
+int32_t count_added_orders(Dir dir);
 ```
 Количество наших добавленных заявок по направлению @dir.
 
 <a id="clear"></a>
 ####clear()
 ```c++
-void clear() 
+void clear();
 ```
 Очищает списки наших текущих заявок @orders_by_dir и зануляет @deleting_amount.
 

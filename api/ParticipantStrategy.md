@@ -106,7 +106,7 @@ ContestBookInfo signal_book_info;
 <a id="trade_book_update"></a>
 ####trade_book_update()
 ```c++
-virtual void trade_book_update(const OrderBook &order_book) 
+virtual void trade_book_update(const OrderBook &order_book);
 ```
 Вызывается при получении нового стакана торгового инструмента:
 - `order_book` – новый стакан.
@@ -114,7 +114,7 @@ virtual void trade_book_update(const OrderBook &order_book)
 <a id="signal_book_update"></a>
 ####signal_book_update()
 ```c++
-virtual void signal_book_update(const OrderBook &order_book) 
+virtual void signal_book_update(const OrderBook &order_book);
 ```
 Вызывается при получении нового стакана сигнального инструмента:
 - `order_book` – новый стакан.
@@ -122,7 +122,7 @@ virtual void signal_book_update(const OrderBook &order_book)
 <a id="trade_deals_update"></a>
 ####trade_deals_update()
 ```c++
-virtual void trade_deals_update(const std::vector<Deal> &deals) 
+virtual void trade_deals_update(const std::vector<Deal> &deals);
 ```
 Вызывается при получении новых сделок торгового инструмента:
 - `deals` - вектор новых сделок.
@@ -130,7 +130,7 @@ virtual void trade_deals_update(const std::vector<Deal> &deals)
 <a id="signal_deals_update"></a>
 ####signal_deals_update()
 ```c++
-virtual void signal_deals_update(const std::vector<Deal> &deals) 
+virtual void signal_deals_update(const std::vector<Deal> &deals);
 ```
 Вызывается при получении новых сделок сигнального инструмента:
 - `deals` - вектор новых сделок.
@@ -138,7 +138,7 @@ virtual void signal_deals_update(const std::vector<Deal> &deals)
 <a id="execution_report_update"></a>
 ####execution_report_update()
 ```c++
-virtual void execution_report_update(const ExecutionReportSnapshot &snapshot) 
+virtual void execution_report_update(const ExecutionReportSnapshot &snapshot);
 ```
 Вызывается при получении отчета о сделке с участием вашего ордера:
 - `snapshot` – структура-отчет о совершенной сделке.
@@ -146,14 +146,14 @@ virtual void execution_report_update(const ExecutionReportSnapshot &snapshot)
 <a id="event_end_update"></a>
 ####event_end_update()
 ```c++
-virtual void event_end_update() 
+virtual void event_end_update();
 ```
 Вызывается, когда симуляция закончила обрабатывать все изменения, соответствующие одному биржевому событию.
 
 <a id="add_order"></a>
 ####add_order()
 ```c++
-bool add_order(Price price, Amount amount, Dir dir, Amount implied_amount = 0) 
+bool add_order(Price price, Amount amount, Dir dir, Amount implied_amount = 0);
 ```
 Выставляет нашу заявку:
 - `price` - цена, по которой заявка будет выставлена,
@@ -164,7 +164,7 @@ bool add_order(Price price, Amount amount, Dir dir, Amount implied_amount = 0)
 <a id="add_ioc_order"></a>
 ####add_ioc_order()
 ```c++
-bool add_ioc_order(Price price, Amount amount, Dir dir) 
+bool add_ioc_order(Price price, Amount amount, Dir dir);
 ```
 Выставляет нашу заявку по принципу Immediate-Or-Cancel:
 - `price` - цена, по которой заявка будет выставлена,
@@ -174,7 +174,7 @@ bool add_ioc_order(Price price, Amount amount, Dir dir)
 <a id="add_ioc_order"></a>
 ####add_ioc_order()
 ```c++
-bool add_ioc_order(Price price, Amount amount, Dir dir, Amount implied_amount) 
+bool add_ioc_order(Price price, Amount amount, Dir dir, Amount implied_amount);
 ```
 Выставляет нашу заявку по принципу Immediate-Or-Cancel:
 - `price` - цена, по которой заявка будет выставлена,
@@ -185,7 +185,7 @@ bool add_ioc_order(Price price, Amount amount, Dir dir, Amount implied_amount)
 <a id="delete_order"></a>
 ####delete_order()
 ```c++
-void delete_order(Order *order) 
+void delete_order(Order *order);
 ```
 Снимает наш ордер с торгов:
 - `order` - ордер, который мы хотим снять.
@@ -193,28 +193,28 @@ void delete_order(Order *order)
 <a id="active_orders_by_dir"></a>
 ####active_orders_by_dir()
 ```c++
-const std::array<std::vector<OrderSnapshot>, 2>& active_orders_by_dir() 
+const std::array<std::vector<OrderSnapshot>, 2>& active_orders_by_dir();
 ```
 Возвращает массив списков наших активных заявок, то есть заявок со статусом OrderStatus::Adding и OrderStatus::Active для бида и аска соответственно.
 
 <a id="total_amount"></a>
 ####total_amount()
 ```c++
-Amount total_amount() 
+Amount total_amount();
 ```
 Возвращает нашу текущую позу.
 
 <a id="executed_amount"></a>
 ####executed_amount()
 ```c++
-Amount executed_amount() 
+Amount executed_amount();
 ```
 Возвращает нашу текущую позу без учета implied-заявок.
 
 <a id="total_active_amount"></a>
 ####total_active_amount()
 ```c++
-Amount total_active_amount(Dir dir) 
+Amount total_active_amount(Dir dir);
 ```
 Возвращает текущий суммарный объем выставленных ордеров по направлению:
 - `dir` - направление ордеров.
@@ -222,7 +222,7 @@ Amount total_active_amount(Dir dir)
 <a id="count_added_orders"></a>
 ####count_added_orders()
 ```c++
-Amount count_added_orders(Dir dir) 
+Amount count_added_orders(Dir dir);
 ```
 Возвращает количество активных ордеров по направлению:
 - `dir` - направление ордеров.
@@ -230,7 +230,7 @@ Amount count_added_orders(Dir dir)
 <a id="best_price"></a>
 ####best_price()
 ```c++
-Price best_price(Dir dir, bool is_book_trade = true) 
+Price best_price(Dir dir, bool is_book_trade = true);
 ```
 Возвращает лучшую цену по направлению:
 - `dir` - направление,
@@ -240,42 +240,42 @@ Price best_price(Dir dir, bool is_book_trade = true)
 <a id="get_saldo"></a>
 ####get_saldo()
 ```c++
-Price get_saldo() 
+Price get_saldo();
 ```
 Возвращает текущее сальдо (текущий баланс без учета позы).
 
 <a id="get_current_result"></a>
 ####get_current_result()
 ```c++
-Price get_current_result() 
+Price get_current_result();
 ```
 Возвращает текущий результат (заработок).
 
 <a id="signal_security_exists"></a>
 ####signal_security_exists()
 ```c++
-bool signal_security_exists() const 
+bool signal_security_exists() const;
 ```
 Есть ли сигнальный инструмент.
 
 <a id="get_local_time"></a>
 ####get_local_time()
 ```c++
-Microseconds get_local_time() 
+Microseconds get_local_time();
 ```
 Возвращает локальное время в микросекундах. Локальное время здесь – это время на машине, получающей биржевые данные.
 
 <a id="get_server_time"></a>
 ####get_server_time()
 ```c++
-Microseconds get_server_time() 
+Microseconds get_server_time();
 ```
 Возвращает биржевое время с точностью до микросекунд.
 
 <a id="get_server_time_tm"></a>
 ####get_server_time_tm()
 ```c++
-tm get_server_time_tm() 
+tm get_server_time_tm();
 ```
 Возвращает биржевое время типа tm c точностью до секунды.
 

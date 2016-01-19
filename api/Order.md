@@ -104,28 +104,28 @@ const Security *security;
 <a id="amount_rest"></a>
 ####amount_rest()
 ```c++
-inline Amount amount_rest() const 
+inline Amount amount_rest() const;
 ```
 Текущий объем заявки. Может быть меньше начального, если были сделки с ее участием.
 
 <a id="implied_amount"></a>
 ####implied_amount()
 ```c++
-inline Amount implied_amount() const 
+inline Amount implied_amount() const;
 ```
 Количество лотов, которое предположительно будет сведено.
 
 <a id="status"></a>
 ####status()
 ```c++
-inline OrderStatus status() const 
+inline OrderStatus status() const;
 ```
 Статус заявки: в процессе добавления, активная, ждущая удаления, удаленная.
 
 <a id="outer_id"></a>
 ####outer_id()
 ```c++
-inline Id outer_id() const 
+inline Id outer_id() const;
 ```
 Биржевой (внешний) ID заявки.
 

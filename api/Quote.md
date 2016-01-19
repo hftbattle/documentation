@@ -23,35 +23,35 @@
 <a id="get_dir"></a>
 ####get_dir()
 ```c++
-inline Dir get_dir() const 
+inline Dir get_dir() const;
 ```
 Направление котировки.
 
 <a id="get_price"></a>
 ####get_price()
 ```c++
-inline Price get_price() const 
+inline Price get_price() const;
 ```
 Цена котировки.
 
 <a id="get_volume"></a>
 ####get_volume()
 ```c++
-inline Amount get_volume() const 
+inline Amount get_volume() const;
 ```
 Объем лотов котировки.
 
 <a id="get_last_moment_ticks"></a>
 ####get_last_moment_ticks()
 ```c++
-int64_t get_last_moment_ticks() const 
+int64_t get_last_moment_ticks() const;
 ```
 Биржевое время последнего изменения (в сотнях наносекунд).
 
 <a id="get_last_tsc"></a>
 ####get_last_tsc()
 ```c++
-int64_t get_last_tsc() const 
+int64_t get_last_tsc() const;
 ```
 Локальное время последнего изменения (в микросекундах).
 

@@ -41,42 +41,42 @@ const Quote& quote_view_by_price(Dir dir, Price price) const;
 <a id="all_quotes"></a>
 ####all_quotes()
 ```c++
-QuotesHolder all_quotes(Dir dir) const 
+QuotesHolder all_quotes(Dir dir) const;
 ```
 Все котировки по направлению @dir.
 
 <a id="best_price"></a>
 ####best_price()
 ```c++
-inline Price best_price(Dir dir) const 
+inline Price best_price(Dir dir) const;
 ```
 Лучшая цена в стакане по направлению @dir.
 
 <a id="best_volume"></a>
 ####best_volume()
 ```c++
-inline Amount best_volume(Dir dir) const 
+inline Amount best_volume(Dir dir) const;
 ```
 Суммарный объем лотов на лучшей цене по направлению @dir.
 
 <a id="get_volume_by_idx"></a>
 ####get_volume_by_idx()
 ```c++
-inline Amount get_volume_by_idx(Dir dir, int index) const 
+inline Amount get_volume_by_idx(Dir dir, int index) const;
 ```
 Суммарный объем лотов котировки с индексом @index по направлению @dir.
 
 <a id="get_volume_by_price"></a>
 ####get_volume_by_price()
 ```c++
-inline Amount get_volume_by_price(Dir dir, Price price) const 
+inline Amount get_volume_by_price(Dir dir, Price price) const;
 ```
 Суммарный объем лотов на цене @price по направлению @dir.
 
 <a id="get_price_by_idx"></a>
 ####get_price_by_idx()
 ```c++
-inline Price get_price_by_idx(Dir dir, int index) const 
+inline Price get_price_by_idx(Dir dir, int index) const;
 ```
 Цена котировки с индексом @index по направлению @dir.
 
@@ -111,7 +111,7 @@ size_t depth() const;
 <a id="get_quote_server_time"></a>
 ####get_quote_server_time()
 ```c++
-inline int64_t get_quote_server_time(Dir dir, int index) const 
+inline int64_t get_quote_server_time(Dir dir, int index) const;
 ```
 Биржевое время последнего изменения котировки с индексом @index по направлению @dir.
 
