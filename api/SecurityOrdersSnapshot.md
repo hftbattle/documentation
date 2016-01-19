@@ -12,10 +12,10 @@
 
 |Имя| Описание|
 |------------------|--------------------|
-|[amount(Dir dir, Price price)](#amount)|Объем наших заявок на цене `price` по направлению `dir`.|
+|[amount(Dir dir, Price price)](#amount)|Объем наших заявок на цене *price* по направлению *dir*.|
 |[size()](#size)|Суммарное количество наших заявок по обоим направлениям.|
-|[count_added_orders(Dir dir)](#count_added_orders)|Количество наших добавленных заявок по направлению `dir`.|
-|[clear()](#clear)|Очищает списки наших текущих заявок `orders_by_dir` и зануляет `deleting_amount`.|
+|[count_added_orders(Dir dir)](#count_added_orders)|Количество наших добавленных заявок по направлению *dir*.|
+|[clear()](#clear)|Очищает списки наших текущих заявок *orders_by_dir* и зануляет *deleting_amount*.|
 
 ###Описание полей
 <a name="orders_by_dir"></a>
@@ -39,7 +39,7 @@ std::array<Amount, 2> deleting_amount;
 ```c++
 Amount amount(Dir dir, Price price) const;
 ```
-Объем наших заявок на цене `price` по направлению `dir`.
+Объем наших заявок на цене *price* по направлению *dir*.
 
 <a name="size"></a>
 ####size()
@@ -53,13 +53,13 @@ size_t size() const;
 ```c++
 int32_t count_added_orders(Dir dir);
 ```
-Количество наших добавленных заявок по направлению `dir`.
+Количество наших добавленных заявок по направлению *dir*.
 
 <a name="clear"></a>
 ####clear()
 ```c++
 void clear();
 ```
-Очищает списки наших текущих заявок `orders_by_dir` и зануляет `deleting_amount`.
+Очищает списки наших текущих заявок *orders_by_dir* и зануляет *deleting_amount*.
 
 
