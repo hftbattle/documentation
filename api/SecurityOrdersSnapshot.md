@@ -51,7 +51,7 @@ size_t size() const;
 <a name="count_added_orders"></a>
 ####count_added_orders()
 ```c++
-int32_t count_added_orders(Dir dir);
+int32_t count_added_orders(Dir dir) const;
 ```
 Количество наших добавленных заявок по направлению *dir*.
 
