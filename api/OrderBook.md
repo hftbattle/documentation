@@ -14,9 +14,9 @@
 |[all_quotes(Dir dir)](#all_quotes)|Все котировки по направлению *dir*.|
 |[best_price(Dir dir)](#best_price)|Лучшая цена в стакане по направлению *dir*.|
 |[best_volume(Dir dir)](#best_volume)|Суммарный объем лотов на лучшей цене по направлению *dir*.|
-|[get_volume_by_idx(Dir dir, int index)](#get_volume_by_idx)|Суммарный объем лотов котировки с индексом *index* по направлению *dir*.|
-|[get_volume_by_price(Dir dir, Price price)](#get_volume_by_price)|Суммарный объем лотов на цене *price* по направлению *dir*.|
-|[get_price_by_idx(Dir dir, int index)](#get_price_by_idx)|Цена котировки с индексом *index* по направлению *dir*.|
+|[volume_by_idx(Dir dir, int index)](#volume_by_idx)|Суммарный объем лотов котировки с индексом *index* по направлению *dir*.|
+|[volume_by_price(Dir dir, Price price)](#volume_by_price)|Суммарный объем лотов на цене *price* по направлению *dir*.|
+|[price_by_idx(Dir dir, int index)](#price_by_idx)|Цена котировки с индексом *index* по направлению *dir*.|
 |[index_by_price(Dir dir, Price price)](#index_by_price)|Индекс котировки с ценой *price* по направлению *dir*.|
 |[quotes_count(Dir dir)](#quotes_count)|Количество котировок по направлению *dir*.|
 |[contains_price(Dir dir, Price price)](#contains_price)|Есть ли в стакане цена *price* по направлению *dir*.|
@@ -59,24 +59,24 @@ inline Amount best_volume(Dir dir) const;
 ```
 Суммарный объем лотов на лучшей цене по направлению *dir*.
 
-<a name="get_volume_by_idx"></a>
-####get_volume_by_idx()
+<a name="volume_by_idx"></a>
+####volume_by_idx()
 ```c++
-inline Amount get_volume_by_idx(Dir dir, int index) const;
+inline Amount volume_by_idx(Dir dir, int index) const;
 ```
 Суммарный объем лотов котировки с индексом *index* по направлению *dir*.
 
-<a name="get_volume_by_price"></a>
-####get_volume_by_price()
+<a name="volume_by_price"></a>
+####volume_by_price()
 ```c++
-inline Amount get_volume_by_price(Dir dir, Price price) const;
+inline Amount volume_by_price(Dir dir, Price price) const;
 ```
 Суммарный объем лотов на цене *price* по направлению *dir*.
 
-<a name="get_price_by_idx"></a>
-####get_price_by_idx()
+<a name="price_by_idx"></a>
+####price_by_idx()
 ```c++
-inline Price get_price_by_idx(Dir dir, int index) const;
+inline Price price_by_idx(Dir dir, int index) const;
 ```
 Цена котировки с индексом *index* по направлению *dir*.
 
