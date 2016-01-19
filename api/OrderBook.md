@@ -24,91 +24,91 @@
 |[get_quote_server_time(Dir dir, int index)](#get_quote_server_time)|Биржевое время последнего изменения котировки с индексом @index по направлению @dir.|
 
 ###Описание методов
-<a id="quote_view_by_idx"></a>
+<a name="quote_view_by_idx"></a>
 ####quote_view_by_idx()
 ```c++
 const Quote& quote_view_by_idx(Dir dir, int index) const;
 ```
 Котировка с индексом @index в стакане по направлению @dir.
 
-<a id="quote_view_by_price"></a>
+<a name="quote_view_by_price"></a>
 ####quote_view_by_price()
 ```c++
 const Quote& quote_view_by_price(Dir dir, Price price) const;
 ```
 Котировка по цене @price по направлению @dir.
 
-<a id="all_quotes"></a>
+<a name="all_quotes"></a>
 ####all_quotes()
 ```c++
 QuotesHolder all_quotes(Dir dir) const;
 ```
 Все котировки по направлению @dir.
 
-<a id="best_price"></a>
+<a name="best_price"></a>
 ####best_price()
 ```c++
 inline Price best_price(Dir dir) const;
 ```
 Лучшая цена в стакане по направлению @dir.
 
-<a id="best_volume"></a>
+<a name="best_volume"></a>
 ####best_volume()
 ```c++
 inline Amount best_volume(Dir dir) const;
 ```
 Суммарный объем лотов на лучшей цене по направлению @dir.
 
-<a id="get_volume_by_idx"></a>
+<a name="get_volume_by_idx"></a>
 ####get_volume_by_idx()
 ```c++
 inline Amount get_volume_by_idx(Dir dir, int index) const;
 ```
 Суммарный объем лотов котировки с индексом @index по направлению @dir.
 
-<a id="get_volume_by_price"></a>
+<a name="get_volume_by_price"></a>
 ####get_volume_by_price()
 ```c++
 inline Amount get_volume_by_price(Dir dir, Price price) const;
 ```
 Суммарный объем лотов на цене @price по направлению @dir.
 
-<a id="get_price_by_idx"></a>
+<a name="get_price_by_idx"></a>
 ####get_price_by_idx()
 ```c++
 inline Price get_price_by_idx(Dir dir, int index) const;
 ```
 Цена котировки с индексом @index по направлению @dir.
 
-<a id="index_by_price"></a>
+<a name="index_by_price"></a>
 ####index_by_price()
 ```c++
 size_t index_by_price(Dir dir, Price price) const;
 ```
 Индекс котировки с ценой @price по направлению @dir.
 
-<a id="quotes_count"></a>
+<a name="quotes_count"></a>
 ####quotes_count()
 ```c++
 virtual size_t quotes_count(Dir dir) const;
 ```
 Количество котировок по направлению @dir.
 
-<a id="contains_price"></a>
+<a name="contains_price"></a>
 ####contains_price()
 ```c++
 bool contains_price(Dir dir, Price price) const;
 ```
 Есть ли в стакане цена @price по направлению @dir.
 
-<a id="depth"></a>
+<a name="depth"></a>
 ####depth()
 ```c++
 size_t depth() const;
 ```
 Максимальная глубина отображаемого стакана.
 
-<a id="get_quote_server_time"></a>
+<a name="get_quote_server_time"></a>
 ####get_quote_server_time()
 ```c++
 inline int64_t get_quote_server_time(Dir dir, int index) const;

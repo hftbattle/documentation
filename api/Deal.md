@@ -31,56 +31,56 @@
 |[get_price()](#get_price)|Цена, по которой произошла сделка.|
 
 ###Описание полей
-<a id="server_time"></a>
+<a name="server_time"></a>
 ####server_time
 ```c++
 Microseconds server_time;
 ```
 Биржевое время совершения сделки.
 
-<a id="passive_order_server_time"></a>
+<a name="passive_order_server_time"></a>
 ####passive_order_server_time
 ```c++
 Microseconds passive_order_server_time;
 ```
 Время постановки "пассивного" ордера, если оно известно.
 
-<a id="price"></a>
+<a name="price"></a>
 ####price
 ```c++
 Price price;
 ```
 Цена по которой произошла сделка.
 
-<a id="amount"></a>
+<a name="amount"></a>
 ####amount
 ```c++
 Amount amount;
 ```
 Количество лотов в сделке.
 
-<a id="implied_amount"></a>
+<a name="implied_amount"></a>
 ####implied_amount
 ```c++
 Amount implied_amount;
 ```
 Количество лотов, которые предположительно должны были свестись в случае, когда налетающая заявка была нашей.
 
-<a id="dir"></a>
+<a name="dir"></a>
 ####dir
 ```c++
 Dir dir;
 ```
 Направление сделки (покупка или продажа).
 
-<a id="origin_time"></a>
+<a name="origin_time"></a>
 ####origin_time
 ```c++
 Ticks origin_time;
 ```
 Локальное время в тиках.
 
-<a id="outer_id"></a>
+<a name="outer_id"></a>
 ####outer_id
 ```c++
 int64_t outer_id;
@@ -89,56 +89,56 @@ int64_t outer_id;
 
 
 ###Описание методов
-<a id="get_comments"></a>
+<a name="get_comments"></a>
 ####get_comments()
 ```c++
 std::vector<std::string> const& get_comments() const;
 ```
 Комментарии к заявкам, участвующим в сделке.
 
-<a id="get_orders"></a>
+<a name="get_orders"></a>
 ####get_orders()
 ```c++
 std::vector<std::shared_ptr<Order>> const& get_orders() const;
 ```
 Вектор заявок (на продажу и на покупку), участвующих в сделке.
 
-<a id="get_tsc"></a>
+<a name="get_tsc"></a>
 ####get_tsc()
 ```c++
 inline int64_t get_tsc() const;
 ```
 Локальное время.
 
-<a id="get_agressor_side"></a>
+<a name="get_agressor_side"></a>
 ####get_agressor_side()
 ```c++
 inline Dir get_agressor_side() const;
 ```
 Направление налетающей заявки.
 
-<a id="is_our"></a>
+<a name="is_our"></a>
 ####is_our()
 ```c++
 bool is_our() const;
 ```
 Наша ли это сделка.
 
-<a id="get_amount"></a>
+<a name="get_amount"></a>
 ####get_amount()
 ```c++
 inline Amount get_amount() const;
 ```
 Объем сделки.
 
-<a id="get_moment"></a>
+<a name="get_moment"></a>
 ####get_moment()
 ```c++
 inline int64_t get_moment() const;
 ```
 Биржевое время сделки.
 
-<a id="get_price"></a>
+<a name="get_price"></a>
 ####get_price()
 ```c++
 inline Price get_price() const;

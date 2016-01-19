@@ -18,14 +18,14 @@
 |[clear()](#clear)|Очищает списки наших текущих заявок @orders_by_dir и зануляет @deleting_amount.|
 
 ###Описание полей
-<a id="orders_by_dir"></a>
+<a name="orders_by_dir"></a>
 ####orders_by_dir
 ```c++
 std::array<std::vector<OrderSnapshot>, 2> orders_by_dir;
 ```
 Списки наших текущих заявок по направлению.
 
-<a id="deleting_amount"></a>
+<a name="deleting_amount"></a>
 ####deleting_amount
 ```c++
 std::array<Amount, 2> deleting_amount;
@@ -34,28 +34,28 @@ std::array<Amount, 2> deleting_amount;
 
 
 ###Описание методов
-<a id="amount"></a>
+<a name="amount"></a>
 ####amount()
 ```c++
 Amount amount(Dir dir, Price price) const;
 ```
 Объем наших заявок на цене @price по направлению @dir.
 
-<a id="size"></a>
+<a name="size"></a>
 ####size()
 ```c++
 size_t size() const;
 ```
 Суммарное количество наших заявок по обоим направлениям.
 
-<a id="count_added_orders"></a>
+<a name="count_added_orders"></a>
 ####count_added_orders()
 ```c++
 int32_t count_added_orders(Dir dir);
 ```
 Количество наших добавленных заявок по направлению @dir.
 
-<a id="clear"></a>
+<a name="clear"></a>
 ####clear()
 ```c++
 void clear();
