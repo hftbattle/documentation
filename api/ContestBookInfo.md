@@ -16,10 +16,10 @@
 |[spread_in_min_steps()](#spread_in_min_steps)|Расстояние между лучшим аском и лучшим бидом в минимальных шагах цены.|
 |[book_updates_count()](#book_updates_count)|Количество апдейтов стакана с начала дня.|
 |[statistics()](#statistics)|Структура, содержащая статистику по нашей текущей позиции.|
-|[market_time()](#market_time)|Биржевое время последнего обновления.|
+|[server_time()](#server_time)|Биржевое время последнего обновления.|
 |[min_step()](#min_step)|Минимальный шаг цены в стакане (минимальная возможная разница между ценами).|
 |[best_price_by_dir()](#best_price_by_dir)|Лучшие цены (минимальная цена продажи и максимальная цена покупки) в момент последнего обновления стакана.|
-|[best_amount_by_dir()](#best_amount_by_dir)|Объем лотов на лучших ценах.|
+|[best_volume_by_dir()](#best_volume_by_dir)|Объем лотов на лучших ценах.|
 |[active_orders()](#active_orders)|Ссылка на структуру, содержащая наши активные заявки.|
 |[executed_amount()](#executed_amount)|Наша текущая позиция.|
 |[implied_amount()](#implied_amount)|Наша предполагаемая позиция, т.е. та, что мы ожидаем будет проторгована.|
@@ -61,10 +61,10 @@ StatisticsSnapshot statistics();
 ```
 Структура, содержащая статистику по нашей текущей позиции.
 
-<a name="market_time"></a>
-####market_time()
+<a name="server_time"></a>
+####server_time()
 ```c++
-Microseconds market_time() const;
+Microseconds server_time() const;
 ```
 Биржевое время последнего обновления.
 
@@ -82,10 +82,10 @@ const std::array<Price, 2>& best_price_by_dir() const;
 ```
 Лучшие цены (минимальная цена продажи и максимальная цена покупки) в момент последнего обновления стакана.
 
-<a name="best_amount_by_dir"></a>
-####best_amount_by_dir()
+<a name="best_volume_by_dir"></a>
+####best_volume_by_dir()
 ```c++
-const std::array<int64_t, 2>& best_amount_by_dir() const;
+const std::array<int64_t, 2>& best_volume_by_dir() const;
 ```
 Объем лотов на лучших ценах.
 
