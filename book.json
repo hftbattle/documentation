@@ -13,7 +13,7 @@
         "contest.support.slack.name": "slack.hftbattle.com",
         
         "contest.local-pack.name": "github.com/hftbattle/local_pack",
-        "contest.local-pack.url": "https://github.com/hftbattle/local_pack",
+        "contest.local-pack.url": "https://github.com/hftbattle/local_pack.git",
         
         "viewer.url": "http://viewer.hftbattle.com",
         "viewer.name": "viewer.hftbattle.com"
