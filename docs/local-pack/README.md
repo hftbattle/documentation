@@ -4,7 +4,7 @@
 
 Чтобы воспользоваться им, необходимо склонировать гит-репозиторий:
 ```
-git clone [{{ book["contest.local-pack.name"] }}]({{ book["contest.local-pack.url"] }}
+git clone {{ book["contest.local-pack.url"] }}
 ```
 
 {% include "local-pack.README.md" %}
