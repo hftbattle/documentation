@@ -19,6 +19,7 @@
         "viewer.url": "http://viewer.hftbattle.com",
         "viewer.name": "viewer.hftbattle.com",
         
-        "git-download.url": "http://git-scm.com/download"
+        "git-download.url": "http://git-scm.com/download",
+        "cme-wiki.url": "https://en.wikipedia.org/wiki/Чикагская_товарная_биржа"
     }
 }
