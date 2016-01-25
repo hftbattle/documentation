@@ -24,20 +24,20 @@ ParticipantStrategy - класс-интерфейс для написания п
 
 |Имя| Описание|
 |------------------|--------------------|
-|[trade_book](#trade_book)|Указатель на стакан торгового инструментов.|
+|[trading_book](#trading_book)|Указатель на стакан торгового инструментов.|
 |[signal_book](#signal_book)|Указатель на стакан сигнального инструментов.|
-|[trade_book_snapshot](#trade_book_snapshot)|Умный указатель на текущий стакан торгового инструмента.|
-|[signal_book_snapshot](#signal_book_snapshot)|Аналогично trade_book_snapshot для сигнального инструмента.|
-|[trade_book_info](#trade_book_info)|Стуктура-аггрегатор основной информации о торговом стакане.|
+|[trading_book_snapshot](#trading_book_snapshot)|Умный указатель на текущий стакан торгового инструмента.|
+|[signal_book_snapshot](#signal_book_snapshot)|Аналогично trading_book_snapshot для сигнального инструмента.|
+|[trading_book_info](#trading_book_info)|Стуктура-аггрегатор основной информации о торговом стакане.|
 |[signal_book_info](#signal_book_info)|Стуктура-аггрегатор основной информации о сигнальном стакане.|
 
 ###Методы
 
 |Имя| Описание|
 |------------------|--------------------|
-|[trade_book_update(const OrderBook &order_book)](#trade_book_update)|Вызывается при получении нового стакана торгового инструмента.|
+|[trading_book_update(const OrderBook &order_book)](#trading_book_update)|Вызывается при получении нового стакана торгового инструмента.|
 |[signal_book_update(const OrderBook &order_book)](#signal_book_update)|Вызывается при получении нового стакана сигнального инструмента.|
-|[trade_deals_update(const std::vector<Deal> &deals)](#trade_deals_update)|Вызывается при получении новых сделок торгового инструмента.|
+|[trading_deals_update(const std::vector<Deal> &deals)](#trading_deals_update)|Вызывается при получении новых сделок торгового инструмента.|
 |[signal_deals_update(const std::vector<Deal> &deals)](#signal_deals_update)|Вызывается при получении новых сделок сигнального инструмента.|
 |[execution_report_update(const ExecutionReportSnapshot &snapshot)](#execution_report_update)|Вызывается при получении отчета о сделке с участием вашего ордера.|
 |[event_end_update()](#event_end_update)|Вызывается, когда симуляция закончила обрабатывать все изменения, соответствующие одному биржевому событию.|
@@ -59,10 +59,10 @@ ParticipantStrategy - класс-интерфейс для написания п
 |[get_server_time_tm()](#get_server_time_tm)|Возвращает биржевое время типа tm c точностью до секунды.|
 
 ###Описание полей
-<a name="trade_book"></a>
-####trade_book
+<a name="trading_book"></a>
+####trading_book
 ```c++
-const OrderBookL2* trade_book;
+const OrderBookL2* trading_book;
 ```
 Указатель на стакан торгового инструментов.
 
@@ -73,10 +73,10 @@ const OrderBookL2* signal_book;
 ```
 Указатель на стакан сигнального инструментов.
 
-<a name="trade_book_snapshot"></a>
-####trade_book_snapshot
+<a name="trading_book_snapshot"></a>
+####trading_book_snapshot
 ```c++
-SharedPtr<DataFeedSnapshot> trade_book_snapshot;
+SharedPtr<DataFeedSnapshot> trading_book_snapshot;
 ```
 Умный указатель на текущий стакан торгового инструмента. Они обновляются каждый раз с приходом очередного апдейта торгового стакана. При этом объект внутри (стакан) разрушается. Чтобы сохранить старый стакан, нужно явно в стратегии сохранить этот указатель.
 
@@ -85,12 +85,12 @@ SharedPtr<DataFeedSnapshot> trade_book_snapshot;
 ```c++
 SharedPtr<DataFeedSnapshot> signal_book_snapshot;
 ```
-Аналогично trade_book_snapshot для сигнального инструмента.
+Аналогично trading_book_snapshot для сигнального инструмента.
 
-<a name="trade_book_info"></a>
-####trade_book_info
+<a name="trading_book_info"></a>
+####trading_book_info
 ```c++
-ContestBookInfo trade_book_info;
+ContestBookInfo trading_book_info;
 ```
 Стуктура-аггрегатор основной информации о торговом стакане.
 
@@ -103,10 +103,10 @@ ContestBookInfo signal_book_info;
 
 
 ###Описание методов
-<a name="trade_book_update"></a>
-####trade_book_update()
+<a name="trading_book_update"></a>
+####trading_book_update()
 ```c++
-virtual void trade_book_update(const OrderBook &order_book);
+virtual void trading_book_update(const OrderBook &order_book);
 ```
 Вызывается при получении нового стакана торгового инструмента:
 - *order_book* – новый стакан.
@@ -119,10 +119,10 @@ virtual void signal_book_update(const OrderBook &order_book);
 Вызывается при получении нового стакана сигнального инструмента:
 - *order_book* – новый стакан.
 
-<a name="trade_deals_update"></a>
-####trade_deals_update()
+<a name="trading_deals_update"></a>
+####trading_deals_update()
 ```c++
-virtual void trade_deals_update(const std::vector<Deal> &deals);
+virtual void trading_deals_update(const std::vector<Deal> &deals);
 ```
 Вызывается при получении новых сделок торгового инструмента:
 - *deals* - вектор новых сделок.

@@ -1,6 +1,10 @@
 #SecurityOrdersSnapshot
 `xor/sender/security_orders_snapshot.h`
 
+Класс SecurityOrdersSnapshot хранит текущие заявки стратегии.
+Структура обновляется перед приходом каждого апдейта в стратегию.
+В процессе обработки одного апдейта структура гарантированно не меняется.
+
 ###Поля
 
 |Имя| Описание|
@@ -14,8 +18,7 @@
 |------------------|--------------------|
 |[volume(Dir dir, Price price)](#volume)|Объем наших заявок на цене *price* и направлению *dir*.|
 |[size()](#size)|Суммарное количество наших заявок по обоим направлениям.|
-|[count_added_orders(Dir dir)](#count_added_orders)|Количество наших добавленных заявок по направлению *dir*.|
-|[clear()](#clear)|Очищает списки наших текущих заявок *orders_by_dir* и зануляет *deleting_amount*.|
+|[count_active_orders(Dir dir)](#count_active_orders)|Количество наших добавленных заявок по направлению *dir*.|
 
 ###Описание полей
 <a name="orders_by_dir"></a>
@@ -48,18 +51,11 @@ size_t size() const;
 ```
 Суммарное количество наших заявок по обоим направлениям.
 
-<a name="count_added_orders"></a>
-####count_added_orders()
+<a name="count_active_orders"></a>
+####count_active_orders()
 ```c++
-int32_t count_added_orders(Dir dir) const;
+size_t count_active_orders(Dir dir) const;
 ```
 Количество наших добавленных заявок по направлению *dir*.
-
-<a name="clear"></a>
-####clear()
-```c++
-void clear();
-```
-Очищает списки наших текущих заявок *orders_by_dir* и зануляет *deleting_amount*.
 
 

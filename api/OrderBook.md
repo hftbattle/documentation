@@ -9,41 +9,75 @@
 
 |Имя| Описание|
 |------------------|--------------------|
-|[quote_view_by_idx(Dir dir, int index)](#quote_view_by_idx)|Котировка с индексом *index* в стакане по направлению *dir*.|
-|[quote_view_by_price(Dir dir, Price price)](#quote_view_by_price)|Котировка по цене *price* по направлению *dir*.|
-|[all_quotes(Dir dir)](#all_quotes)|Все котировки по направлению *dir*.|
+|[get_quote_by_index(Dir dir, int index)](#get_quote_by_index)|Котировка с индексом *index* в стакане по направлению *dir*.|
+|[get_quote_by_price(Dir dir, Price price)](#get_quote_by_price)|Котировка по цене *price* по направлению *dir*.|
+|[get_price_by_index(Dir dir, int index)](#get_price_by_index)|Цена котировки с индексом *index* по направлению *dir*.|
+|[get_volume_by_index(Dir dir, int index)](#get_volume_by_index)|Суммарный объем лотов котировки с индексом *index* по направлению *dir*.|
+|[get_volume_by_price(Dir dir, Price price)](#get_volume_by_price)|Суммарный объем лотов на цене *price* по направлению *dir*.|
+|[get_quote_server_time_by_index(Dir dir, int index)](#get_quote_server_time_by_index)|Биржевое время последнего изменения котировки с индексом *index* по направлению *dir*.|
+|[get_quote_server_time_by_price(Dir dir, Price price)](#get_quote_server_time_by_price)|Биржевое время последнего изменения котировки по цене *price* по направлению *dir*.|
 |[best_price(Dir dir)](#best_price)|Лучшая цена в стакане по направлению *dir*.|
 |[best_volume(Dir dir)](#best_volume)|Суммарный объем лотов на лучшей цене по направлению *dir*.|
-|[volume_by_idx(Dir dir, int index)](#volume_by_idx)|Суммарный объем лотов котировки с индексом *index* по направлению *dir*.|
-|[volume_by_price(Dir dir, Price price)](#volume_by_price)|Суммарный объем лотов на цене *price* по направлению *dir*.|
-|[price_by_idx(Dir dir, int index)](#price_by_idx)|Цена котировки с индексом *index* по направлению *dir*.|
-|[index_by_price(Dir dir, Price price)](#index_by_price)|Индекс котировки с ценой *price* по направлению *dir*.|
-|[quotes_count(Dir dir)](#quotes_count)|Количество котировок по направлению *dir*.|
 |[contains_price(Dir dir, Price price)](#contains_price)|Есть ли в стакане цена *price* по направлению *dir*.|
-|[depth()](#depth)|Максимальная глубина отображаемого стакана.|
-|[get_quote_server_time(Dir dir, int index)](#get_quote_server_time)|Биржевое время последнего изменения котировки с индексом *index* по направлению *dir*.|
+|[index_by_price(Dir dir, Price price)](#index_by_price)|Индекс котировки с ценой *price* по направлению *dir*.|
+|[all_quotes(Dir dir)](#all_quotes)|Все котировки по направлению *dir*.|
+|[quotes_count(Dir dir)](#quotes_count)|Количество котировок по направлению *dir*.|
+|[depth()](#depth)|Максимальная по направлениям глубина отображаемого стакана.|
+|[get_quote_by_idx(Dir dir, int index)](#get_quote_by_idx)|[[deprecated("use get_quote_by_index() instead")]].|
+|[get_volume_by_idx(Dir dir, int index)](#get_volume_by_idx)|[[deprecated("use get_volume_by_index() instead")]].|
+|[get_price_by_idx(Dir dir, int index)](#get_price_by_idx)|[[deprecated("use get_price_by_index() instead")]].|
+|[get_quote_server_time(Dir dir, int index)](#get_quote_server_time)|[[deprecated("use get_quote_server_time_by_index() instead")]].|
+|[best_amount(Dir dir)](#best_amount)|[[deprecated("use best_volume() instead")]].|
 
 ###Описание методов
-<a name="quote_view_by_idx"></a>
-####quote_view_by_idx()
+<a name="get_quote_by_index"></a>
+####get_quote_by_index()
 ```c++
-const Quote& quote_view_by_idx(Dir dir, int index) const;
+const Quote& get_quote_by_index(Dir dir, int index) const;
 ```
 Котировка с индексом *index* в стакане по направлению *dir*.
 
-<a name="quote_view_by_price"></a>
-####quote_view_by_price()
+<a name="get_quote_by_price"></a>
+####get_quote_by_price()
 ```c++
-const Quote& quote_view_by_price(Dir dir, Price price) const;
+const Quote& get_quote_by_price(Dir dir, Price price) const;
 ```
 Котировка по цене *price* по направлению *dir*.
 
-<a name="all_quotes"></a>
-####all_quotes()
+<a name="get_price_by_index"></a>
+####get_price_by_index()
 ```c++
-QuotesHolder all_quotes(Dir dir) const;
+inline Price get_price_by_index(Dir dir, int index) const;
 ```
-Все котировки по направлению *dir*.
+Цена котировки с индексом *index* по направлению *dir*.
+
+<a name="get_volume_by_index"></a>
+####get_volume_by_index()
+```c++
+inline Amount get_volume_by_index(Dir dir, int index) const;
+```
+Суммарный объем лотов котировки с индексом *index* по направлению *dir*.
+
+<a name="get_volume_by_price"></a>
+####get_volume_by_price()
+```c++
+inline Amount get_volume_by_price(Dir dir, Price price) const;
+```
+Суммарный объем лотов на цене *price* по направлению *dir*.
+
+<a name="get_quote_server_time_by_index"></a>
+####get_quote_server_time_by_index()
+```c++
+inline int64_t get_quote_server_time_by_index(Dir dir, int index) const;
+```
+Биржевое время последнего изменения котировки с индексом *index* по направлению *dir*.
+
+<a name="get_quote_server_time_by_price"></a>
+####get_quote_server_time_by_price()
+```c++
+inline int64_t get_quote_server_time_by_price(Dir dir, Price price) const;
+```
+Биржевое время последнего изменения котировки по цене *price* по направлению *dir*.
 
 <a name="best_price"></a>
 ####best_price()
@@ -59,26 +93,12 @@ inline Amount best_volume(Dir dir) const;
 ```
 Суммарный объем лотов на лучшей цене по направлению *dir*.
 
-<a name="volume_by_idx"></a>
-####volume_by_idx()
+<a name="contains_price"></a>
+####contains_price()
 ```c++
-inline Amount volume_by_idx(Dir dir, int index) const;
+bool contains_price(Dir dir, Price price) const;
 ```
-Суммарный объем лотов котировки с индексом *index* по направлению *dir*.
-
-<a name="volume_by_price"></a>
-####volume_by_price()
-```c++
-inline Amount volume_by_price(Dir dir, Price price) const;
-```
-Суммарный объем лотов на цене *price* по направлению *dir*.
-
-<a name="price_by_idx"></a>
-####price_by_idx()
-```c++
-inline Price price_by_idx(Dir dir, int index) const;
-```
-Цена котировки с индексом *index* по направлению *dir*.
+Есть ли в стакане цена *price* по направлению *dir*.
 
 <a name="index_by_price"></a>
 ####index_by_price()
@@ -87,6 +107,13 @@ size_t index_by_price(Dir dir, Price price) const;
 ```
 Индекс котировки с ценой *price* по направлению *dir*.
 
+<a name="all_quotes"></a>
+####all_quotes()
+```c++
+QuotesHolder all_quotes(Dir dir) const;
+```
+Все котировки по направлению *dir*.
+
 <a name="quotes_count"></a>
 ####quotes_count()
 ```c++
@@ -94,25 +121,46 @@ virtual size_t quotes_count(Dir dir) const;
 ```
 Количество котировок по направлению *dir*.
 
-<a name="contains_price"></a>
-####contains_price()
-```c++
-bool contains_price(Dir dir, Price price) const;
-```
-Есть ли в стакане цена *price* по направлению *dir*.
-
 <a name="depth"></a>
 ####depth()
 ```c++
 size_t depth() const;
 ```
-Максимальная глубина отображаемого стакана.
+Максимальная по направлениям глубина отображаемого стакана.
+
+<a name="get_quote_by_idx"></a>
+####get_quote_by_idx()
+```c++
+const Quote& get_quote_by_idx(Dir dir, int index) const;
+```
+[[deprecated("use get_quote_by_index() instead")]]
+
+<a name="get_volume_by_idx"></a>
+####get_volume_by_idx()
+```c++
+Amount get_volume_by_idx(Dir dir, int index) const;
+```
+[[deprecated("use get_volume_by_index() instead")]]
+
+<a name="get_price_by_idx"></a>
+####get_price_by_idx()
+```c++
+Price get_price_by_idx(Dir dir, int index) const;
+```
+[[deprecated("use get_price_by_index() instead")]]
 
 <a name="get_quote_server_time"></a>
 ####get_quote_server_time()
 ```c++
-inline int64_t get_quote_server_time(Dir dir, int index) const;
+int64_t get_quote_server_time(Dir dir, int index) const;
 ```
-Биржевое время последнего изменения котировки с индексом *index* по направлению *dir*.
+[[deprecated("use get_quote_server_time_by_index() instead")]]
+
+<a name="best_amount"></a>
+####best_amount()
+```c++
+Amount best_amount(Dir dir) const;
+```
+[[deprecated("use best_volume() instead")]]
 
 
