@@ -1,5 +1,5 @@
 #Deal
-Путь в LocalPack-е: `include/simulator/deal/deal.h`
+Путь в Local Pack-е: `include/simulator/deal/deal.h`
 
 Сделка - это акт купли-продажи определенного инструмента.
 Класс Deal представляет собой реализацию биржевой сделки.

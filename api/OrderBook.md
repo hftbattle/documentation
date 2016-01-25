@@ -1,5 +1,5 @@
 #OrderBook
-Путь в LocalPack-е: `include/simulator/orderbook/order_book.h`
+Путь в Local Pack-е: `include/simulator/orderbook/order_book.h`
 
 Биржевой стакан - это агрегатор всех заявок по конкретному инструменту.
 Класс OrderBook представляет собой реализацию биржевого стакана.

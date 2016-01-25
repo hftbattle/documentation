@@ -1,5 +1,5 @@
 #ContestBookInfo
-Путь в LocalPack-е: `include/simulator/strategy/contest_book_info.h`
+Путь в Local Pack-е: `include/simulator/strategy/contest_book_info.h`
 
 Класс ContestBookInfo служит агрегатором информации по текущему состоянию стакана.
 Он не является полноценной заменой стакана, но содержит часть информации о нем.
