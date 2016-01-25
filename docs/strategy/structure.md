@@ -3,10 +3,10 @@
 * [Торговые и сигнальные инструменты](#trade_and_feed_instruments)
 * [Класс-шаблон UserStrategy](#user_strategy)
     * [Обновление стаканов](#book_update)
-      * [trade_book_update](#book_update)
+      * [trading_book_update](#book_update)
       * [signal_book_update](#book_update)
     * [Обновление сделок](#deals_update)
-      * [trade_deals_update](#deals_update)
+      * [trading_deals_update](#deals_update)
       * [signal_deals_update](#deals_update)
     * [Отчет о наших сделках](#execution_report)
       * [execution_report_update](#execution_report)
@@ -86,15 +86,15 @@ REGISTER_CONTEST_STRATEGY(UserStrategy, user_strategy)
 
 <a name="book_update"></a>
 ### Обновление стаканов
-При торговле на бирже постоянно происходят какие-то события в [стаканах](../glossary.md#order_book) инструментов. Для информирования стратегии о произошедших изменениях используются функции [trade_book_update](../../api/ParticipantStrategy.md#trade_book_update) и [signal_book_update](../../api/ParticipantStrategy.md#signal_book_update). Они принимают на вход ссылку на элемент типа [OrderBook](../../api/OrderBook.md), который является новой версией стакана для торгового и сигнального инструментов соответственно.
+При торговле на бирже постоянно происходят какие-то события в [стаканах](../glossary.md#order_book) инструментов. Для информирования стратегии о произошедших изменениях используются функции [trading_book_update](../../api/ParticipantStrategy.md#trading_book_update) и [signal_book_update](../../api/ParticipantStrategy.md#signal_book_update). Они принимают на вход ссылку на элемент типа [OrderBook](../../api/OrderBook.md), который является новой версией стакана для торгового и сигнального инструментов соответственно.
 
->**Замечание 1**: в [ParticipantStrategy](../../api/ParticipantStrategy.md) есть поле [trade_book](../../api/ParticipantStrategy.md#trade_book) – указатель на актуальный торговый стакан, и поле [trade_book_snapshot](../../api/ParticipantStrategy.md#trade_book_snapshot) – умный указатель на структуру, содержащую этот стакан. Если в вашей стратегии вы явно не сохраните копию [trade_book_snapshot](../../api/ParticipantStrategy.md#trade_book_snapshot), то при следующем вызове [trade_book_update](../../api/ParticipantStrategy.md#trade_book_update) поля [trade_book](../../api/ParticipantStrategy.md#trade_book) и [trade_book_snapshot](../../api/ParticipantStrategy.md#trade_book_snapshot) обновятся, и предыдущий актуальный стакан будет недоступен (потому что на предыдущий стакан останется 0 активных ссылок). Для [signal_book_snapshot](../../api/ParticipantStrategy.md#signal_book_snapshot) все аналогично.
+>**Замечание 1**: в [ParticipantStrategy](../../api/ParticipantStrategy.md) есть поле [trading_book](../../api/ParticipantStrategy.md#trading_book) – указатель на актуальный торговый стакан, и поле [trading_book_snapshot](../../api/ParticipantStrategy.md#trading_book_snapshot) – умный указатель на структуру, содержащую этот стакан. Если в вашей стратегии вы явно не сохраните копию [trading_book_snapshot](../../api/ParticipantStrategy.md#trading_book_snapshot), то при следующем вызове [trading_book_update](../../api/ParticipantStrategy.md#trade_book_update) поля [trading_book](../../api/ParticipantStrategy.md#trade_book) и [trading_book_snapshot](../../api/ParticipantStrategy.md#trade_book_snapshot) обновятся, и предыдущий актуальный стакан будет недоступен (потому что на предыдущий стакан останется 0 активных ссылок). Для [signal_book_snapshot](../../api/ParticipantStrategy.md#signal_book_snapshot) все аналогично.
 
->**Замечание 2**: [trade_book](../../api/ParticipantStrategy.md#trade_book) содержит указатель на копию того стакана, с которым работает симулятор, поэтому эта копия никогда не меняется.
+>**Замечание 2**: [trading_book](../../api/ParticipantStrategy.md#trading_book) содержит указатель на копию того стакана, с которым работает симулятор, поэтому эта копия никогда не меняется.
 
 <a name="deals_update"></a>
 ### Обновление сделок
-Помимо изменений стакана полезной информацией являются совершенные сделки. Для того, чтобы получать и обрабатывать эти изменения, вам предоставлены функции [trade_deals_update](../../api/ParticipantStrategy.md#trade_deals_update) и [signal_deals_update](../../api/ParticipantStrategy.md#signal_deals_update), которые принимают в качестве аргумента вектор элементов класса [Deal](../../api/Deal.md), который хранит в себе информацию об одной совершённой сделке. Заметьте, что для каждой совершенной сделки информация о ней приходит **ровно один раз**. Различие этих функций абсолютно такое же, как и у book-функций: [trade_deals_update](../../api/ParticipantStrategy.md#trade_deals_update) позволяет обрабатывать сделки торгового инструмента, [signal_deals_update](../../api/ParticipantStrategy.md#signal_deals_update) - сделки сигнального инструмента.
+Помимо изменений стакана полезной информацией являются совершенные сделки. Для того, чтобы получать и обрабатывать эти изменения, вам предоставлены функции [trading_deals_update](../../api/ParticipantStrategy.md#trading_deals_update) и [signal_deals_update](../../api/ParticipantStrategy.md#signal_deals_update), которые принимают в качестве аргумента вектор элементов класса [Deal](../../api/Deal.md), который хранит в себе информацию об одной совершённой сделке. Заметьте, что для каждой совершенной сделки информация о ней приходит **ровно один раз**. Различие этих функций абсолютно такое же, как и у book-функций: [trading_deals_update](../../api/ParticipantStrategy.md#trading_deals_update) позволяет обрабатывать сделки торгового инструмента, [signal_deals_update](../../api/ParticipantStrategy.md#signal_deals_update) - сделки сигнального инструмента.
 
 <a name="execution_report"></a>
 ### Отчет о наших сделках
