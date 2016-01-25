@@ -8,16 +8,16 @@
 
 |Имя| Описание|
 |------------------|--------------------|
-|[kMaxCommentLength](#kMaxCommentLength)|Максимальная длина комментария к заявке.|
-|[origin_server_time](#origin_server_time)|Биржевое время постановки заявки в стакан в тиках.|
-|[origin_time](#origin_time)|Локальное время постановки заявки в стакан в тиках.|
 |[id](#id)|Наш (внутренний) ID заявки.|
 |[dir](#dir)|Направление заявки.|
 |[price](#price)|Цена заявки.|
 |[amount](#amount)|Объем заявки (количество лотов).|
 |[time_in_force](#time_in_force)|Тип заявки - Limit или IOC.|
+|[origin_server_time](#origin_server_time)|Биржевое время постановки заявки в стакан в тиках.|
+|[origin_time](#origin_time)|Локальное время постановки заявки в стакан в тиках.|
 |[market_id](#market_id)|ID биржи.|
 |[security](#security)|Инструмент, к которому относится заявка.|
+|[kMaxCommentLength](#kMaxCommentLength)|Максимальная длина комментария к заявке.|
 
 ###Методы
 
@@ -29,27 +29,6 @@
 |[outer_id()](#outer_id)|Биржевой (внешний) ID заявки.|
 
 ###Описание полей
-<a name="kMaxCommentLength"></a>
-####kMaxCommentLength
-```c++
-static const size_t kMaxCommentLength = 20;
-```
-Максимальная длина комментария к заявке.
-
-<a name="origin_server_time"></a>
-####origin_server_time
-```c++
-int64_t origin_server_time;
-```
-Биржевое время постановки заявки в стакан в тиках.
-
-<a name="origin_time"></a>
-####origin_time
-```c++
-const Ticks origin_time;
-```
-Локальное время постановки заявки в стакан в тиках.
-
 <a name="id"></a>
 ####id
 ```c++
@@ -85,6 +64,20 @@ const OrderTimeInForce time_in_force;
 ```
 Тип заявки - Limit или IOC.
 
+<a name="origin_server_time"></a>
+####origin_server_time
+```c++
+int64_t origin_server_time;
+```
+Биржевое время постановки заявки в стакан в тиках.
+
+<a name="origin_time"></a>
+####origin_time
+```c++
+const Ticks origin_time;
+```
+Локальное время постановки заявки в стакан в тиках.
+
 <a name="market_id"></a>
 ####market_id
 ```c++
@@ -98,6 +91,13 @@ ID биржи.
 const Security* security;
 ```
 Инструмент, к которому относится заявка.
+
+<a name="kMaxCommentLength"></a>
+####kMaxCommentLength
+```c++
+static const size_t kMaxCommentLength = 20;
+```
+Максимальная длина комментария к заявке.
 
 
 ###Описание методов
