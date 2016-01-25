@@ -23,11 +23,6 @@
 |[all_quotes(Dir dir)](#all_quotes)|Все котировки по направлению *dir*.|
 |[quotes_count(Dir dir)](#quotes_count)|Количество котировок по направлению *dir*.|
 |[depth()](#depth)|Максимальная по направлениям глубина отображаемого стакана.|
-|[get_quote_by_idx(Dir dir, int index)](#get_quote_by_idx)|[[deprecated("use get_quote_by_index() instead")]].|
-|[get_volume_by_idx(Dir dir, int index)](#get_volume_by_idx)|[[deprecated("use get_volume_by_index() instead")]].|
-|[get_price_by_idx(Dir dir, int index)](#get_price_by_idx)|[[deprecated("use get_price_by_index() instead")]].|
-|[get_quote_server_time(Dir dir, int index)](#get_quote_server_time)|[[deprecated("use get_quote_server_time_by_index() instead")]].|
-|[best_amount(Dir dir)](#best_amount)|[[deprecated("use best_volume() instead")]].|
 
 ###Описание методов
 <a name="get_quote_by_index"></a>
@@ -127,40 +122,5 @@ virtual size_t quotes_count(Dir dir) const;
 size_t depth() const;
 ```
 Максимальная по направлениям глубина отображаемого стакана.
-
-<a name="get_quote_by_idx"></a>
-####get_quote_by_idx()
-```c++
-const Quote& get_quote_by_idx(Dir dir, int index) const;
-```
-[[deprecated("use get_quote_by_index() instead")]]
-
-<a name="get_volume_by_idx"></a>
-####get_volume_by_idx()
-```c++
-Amount get_volume_by_idx(Dir dir, int index) const;
-```
-[[deprecated("use get_volume_by_index() instead")]]
-
-<a name="get_price_by_idx"></a>
-####get_price_by_idx()
-```c++
-Price get_price_by_idx(Dir dir, int index) const;
-```
-[[deprecated("use get_price_by_index() instead")]]
-
-<a name="get_quote_server_time"></a>
-####get_quote_server_time()
-```c++
-int64_t get_quote_server_time(Dir dir, int index) const;
-```
-[[deprecated("use get_quote_server_time_by_index() instead")]]
-
-<a name="best_amount"></a>
-####best_amount()
-```c++
-Amount best_amount(Dir dir) const;
-```
-[[deprecated("use best_volume() instead")]]
 
 
