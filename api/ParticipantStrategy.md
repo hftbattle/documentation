@@ -1,5 +1,5 @@
 #ParticipantStrategy
-`simulator/strategy/participant_strategy_layer.h`
+Путь в LocalPack-е: `include/simulator/strategy/participant_strategy_layer.h`
 
 ParticipantStrategy - класс-интерфейс для написания пользовательских стратегий.
 Этот класс служит прослойкой между симуляционным ядром и стратегией.

@@ -1,5 +1,5 @@
 #Order
-`simulator/order/order.h`
+Путь в LocalPack-е: `include/simulator/order/order.h`
 
 Заявка - это пара <цена, количество лотов>.
 Класс Order представляет собой реализацию биржевой заявки.

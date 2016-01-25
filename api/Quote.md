@@ -1,5 +1,5 @@
 #Quote
-`simulator/quote/quote.h`
+Путь в LocalPack-е: `include/simulator/quote/quote.h`
 
 Котировка (или квота) - это термин для обозначения одного ценового уровня в стакане.
 Она характеризуется
