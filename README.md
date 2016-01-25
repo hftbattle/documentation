@@ -12,9 +12,9 @@ git clone https://github.com/hftbattle/local_pack.git
 ```
 Подробнее в разделе [Local Pack](./docs/local-pack/README.md).
 
-- Прочитайте документацию: [Написание стратегий](docs/strategy/README.md), 
-- Зайти на [{{ book["viewer.name"] }}]({{ book["viewer.url"] }}), попробовать отобразить какой-нибудь момент в нем. Подробнее в разделе [Viewer](./docs/viewer/README.md).
-- Приступить к написанию своей стратегии!
+- Прочитайте документацию: вам помогут разделы [Написание стратегий](docs/strategy/README.md), [Симулятор торгов]()
+- Для анализа процесса реальных торгов, вы можете использовать [viewer]({{ book["viewer.url"] }}). Подробнее в разделе [Viewer](./docs/viewer/README.md).
+- Можете приступать к написанию своей стратегии!
 
 {% include "./docs/general/rules.md" %}
 
