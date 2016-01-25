@@ -3,12 +3,7 @@
 Веб-интерфейс участника доступен по адресу [{{ book["contest.landing-page.name"] }}]({{ book["contest.landing-page.url"] }}).
 
 Подробнее о возможностях веб-интерфейса участника можно узнать в следующих пунктах:
-  - [Отправка стратегии][sending]
-  - [Просмотр результатов][results]
-  - [Сравнение стратегий][comparator]
-  - [Перебор параметров][params]
-  
-[sending]: sending.md
-[results]: results.md
-[comparator]: comparator.md
-[params]: params.md
+  - [Отправка стратегии][sending.md]
+  - [Просмотр результатов][results.md]
+  - [Сравнение стратегий][comparator.md]
+  - [Перебор параметров][params.md]
