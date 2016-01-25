@@ -10,7 +10,7 @@
 ```
 git clone https://github.com/hftbattle/local_pack.git
 ```
-Как им пользоваться описано в разделе [Local Pack](./docs/local-pack/README.md), а также в файле [README]() в самом репозитории.
+Как им пользоваться описано в разделе [Local Pack](./docs/local-pack/README.md), а также в файле [README]( {{ book["contest.local-pack.readme"] }}) в самом репозитории.
 
 - Зайти на [{{ book["viewer.name"] }}]({{ book["viewer.url"] }}), попробовать отобразить какой-нибудь момент в нем. Подробнее в разделе [Viewer](./docs/viewer/README.md).
 - Приступить к написанию своей стратегии!
