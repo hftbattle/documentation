@@ -76,7 +76,7 @@ public:
   virtual void event_end_update() {
     /* написать свою реализацию здесь */
   }
-}
+};
 
 // Регистрируем свою стратегию.
 REGISTER_CONTEST_STRATEGY(UserStrategy, user_strategy)
