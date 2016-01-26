@@ -7,7 +7,7 @@
    * [Сравнение стратегий](docs/web-interface/comparator.md)
    * [Перебор параметров](docs/web-interface/params.md)
 * [Local pack](docs/local-pack/README.md)
-   * Сборка и запуск
+   * [Сборка и запуск](./docs/local-pack/run.md)
 * [Написание стратегий](docs/strategy/README.md)
    * [Общая структура стратегий](docs/strategy/structure.md)
    * [Примеры стратегий](docs/strategy/examples.md)
