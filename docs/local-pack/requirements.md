@@ -46,7 +46,7 @@ setx path "%path%;YOUR_PATH_TO_MINGW\x86_64-4.9.2-posix-seh-rt_v3-rev0\mingw64\b
 
 - cmake 2.8.4 и выше
 
-Например, можно поставить [CLion](https://www.jetbrains.com/clion/download/#section=windows-version), cmake будет в комплекте. Далее необходимо добавить путь до cmake.exe в PATH.
+Например, можно поставить [CLion]({{ book["clion.download.url"] }}), cmake будет в комплекте. Далее необходимо добавить путь до cmake.exe в PATH.
 
 - python
 
