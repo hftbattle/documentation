@@ -32,14 +32,14 @@ brew install python
 ```
 
 ### [Windows](#windows)
-- MinGW-w64 версии не ниже 4.9
+- MinGW-w64 версии 4.9 и выше
 
 Установить [MinGW-w64](http://sourceforge.net/projects/mingw-w64/)
 с настройками 
 ```
 --rev=0 --bootstrap --jobs=4 --threads=posix --exceptions=seh --arch=x86_64
 ```
-Добавить файл с бинарниками в path:
+Добавить файл с бинарниками в *path*:
 ```
 setx path "%path%;YOUR_PATH_TO_MINGW\x86_64-4.9.2-posix-seh-rt_v3-rev0\mingw64\bin"
 ```
