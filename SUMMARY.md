@@ -8,6 +8,7 @@
    * [Перебор параметров](docs/web-interface/params.md)
 * [Local pack](docs/local-pack/README.md)
    * [Требования к запуску](docs/local-pack/requirements.md)
+   * Данные для симуляции
 * [Написание стратегий](docs/strategy/README.md)
    * [Общая структура стратегий](docs/strategy/structure.md)
    * [Примеры стратегий](docs/strategy/examples.md)
