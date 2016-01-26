@@ -39,13 +39,13 @@ brew install python
 ```
 --rev=0 --bootstrap --jobs=4 --threads=posix --exceptions=seh --arch=x86_64
 ```
-Добавить файл с бинарниками в *path*:
+Добавить файл с бинарниками в *PATH*:
 ```
 setx path "%path%;YOUR_PATH_TO_MINGW\x86_64-4.9.2-posix-seh-rt_v3-rev0\mingw64\bin"
 ```
 
-- CMake 2.8.4 и выше"
+- CMake 2.8.4 и выше:
 
-Например, можно поставить [CLion]({{ book["clion.download.url"] }}), *CMake* будет в комплекте. Далее необходимо добавить путь до cmake.exe в PATH.
+Например, можно поставить [CLion]({{ book["clion.download.url"] }}), *CMake* будет в комплекте. Далее необходимо добавить путь до *cmake.exe* в переменную окружения *PATH*.
 
-- Python 2.7 и выше
+- Python 2.7 и выше. Можно скачать [здесь]({{book["python.download.url"]}}).
