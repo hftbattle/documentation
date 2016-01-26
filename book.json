@@ -22,6 +22,7 @@
         
         "git.download.url": "http://git-scm.com/download",
         "cme.wiki.url": "https://en.wikipedia.org/wiki/Чикагская_товарная_биржа",
-        "clion.download.url": "https://www.jetbrains.com/clion/download/"
+        "clion.download.url": "https://www.jetbrains.com/clion/download/",
+        "python.download.url": "https://www.python.org/downloads/"
     }
 }
