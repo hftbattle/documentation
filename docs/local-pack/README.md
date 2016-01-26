@@ -4,7 +4,7 @@
 
 Пакет доступен для скачивания на [GitHub]({{ book["contest.local-pack.url"]}}). 
 
-Скачать пакет можно следующей командой (должен быть установлен [Git]({{ book["git.download.url"] }}):
+Скачать пакет можно следующей командой (должен быть установлен [Git]({{ book["git.download.url"] }})):
 ```
 git clone https://github.com/hftbattle/local_pack.git
 ```
