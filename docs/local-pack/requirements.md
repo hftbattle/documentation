@@ -39,7 +39,7 @@ brew install python
 ```
 --rev=0 --bootstrap --jobs=4 --threads=posix --exceptions=seh --arch=x86_64
 ```
-Добавить файл с бинарниками в *PATH*:
+Добавить файл с бинарниками в переменную окружения *PATH*:
 ```
 setx path "%path%;YOUR_PATH_TO_MINGW\x86_64-4.9.2-posix-seh-rt_v3-rev0\mingw64\bin"
 ```
