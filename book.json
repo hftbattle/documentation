@@ -20,10 +20,6 @@
         "viewer.url": "http://viewer.hftbattle.com",
         "viewer.name": "viewer.hftbattle.com",
         
-        "git.download.url": "http://git-scm.com/download",
         "cme.wiki.url": "https://en.wikipedia.org/wiki/Чикагская_товарная_биржа",
-        "mingw.download.url": "http://sourceforge.net/projects/mingw-w64/",
-        "clion.download.url": "https://www.jetbrains.com/clion/download/",
-        "python.download.url": "https://www.python.org/downloads/"
     }
 }
