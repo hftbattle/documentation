@@ -49,7 +49,7 @@ ParticipantStrategy - класс-интерфейс для написания п
 |[total_amount()](#total_amount)|Возвращает нашу текущую позу.|
 |[executed_amount()](#executed_amount)|Возвращает нашу текущую позу без учета implied-заявок.|
 |[total_active_amount(Dir dir)](#total_active_amount)|Возвращает текущий суммарный объем выставленных ордеров по направлению.|
-|[count_added_orders(Dir dir)](#count_added_orders)|Возвращает количество активных ордеров по направлению.|
+|[count_active_orders(Dir dir)](#count_active_orders)|Возвращает количество активных ордеров по направлению.|
 |[best_price(Dir dir, bool is_book_trade = true)](#best_price)|Возвращает лучшую цену по направлению.|
 |[get_saldo()](#get_saldo)|Возвращает текущее сальдо (текущий баланс без учета позы).|
 |[get_current_result()](#get_current_result)|Возвращает текущий результат (заработок).|
@@ -219,10 +219,10 @@ Amount total_active_amount(Dir dir);
 Возвращает текущий суммарный объем выставленных ордеров по направлению:
 - *dir* - направление ордеров.
 
-<a name="count_added_orders"></a>
-####count_added_orders()
+<a name="count_active_orders"></a>
+####count_active_orders()
 ```c++
-Amount count_added_orders(Dir dir);
+Amount count_active_orders(Dir dir);
 ```
 Возвращает количество активных ордеров по направлению:
 - *dir* - направление ордеров.
