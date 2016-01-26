@@ -1,6 +1,6 @@
 ##Требования на разных операционных системах
 ### [Linux](#linux)
-- gcc 4.9 и выше
+- GCC 4.9 и выше
 ```
 sudo apt-get install g++
 ```
@@ -14,11 +14,11 @@ sudo apt-get install python
 ```
 
 ### [Mac OS X](#macosx)
-- Apple clang 6.0 и выше
+- Компилятор с++ Apple clang 6.0 и выше
 ```
 xcode-select --install
 ```
-- brew
+- Менеджер пакетов Homebrew
 ```
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
