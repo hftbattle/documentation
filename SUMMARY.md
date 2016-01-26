@@ -6,7 +6,7 @@
    * [Просмотр результатов](docs/web-interface/results.md)
    * [Сравнение стратегий](docs/web-interface/comparator.md)
    * [Перебор параметров](docs/web-interface/params.md)
-* [Пакет для локальной разработки на C++](docs/local-pack/README.md)
+* [Пакет для локальной разработки](docs/local-pack/README.md)
    * [Установка зависимостей](docs/local-pack/requirements.md)
    * [Данные для симуляции](docs/local-pack/data.md)
    * [Запуск стратегии](docs/local-pack/run.md)
