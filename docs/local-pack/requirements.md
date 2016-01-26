@@ -1,6 +1,6 @@
 ##Установка зависимостей
 ### [Linux](#linux)
-Для установки зависимостей под Linux-ом можно запустить скрипт *packages_linux.sh*:
+Для установки зависимостей на Linux платформах можно запустить скрипт *packages_linux.sh*:
 ```
 ./packages_linux.sh
 ```
@@ -17,6 +17,12 @@ sudo apt-get install cmake
 ```
 
 ### [Mac OS X](#macosx)
+Для установки зависимостей на Mac OS X можно запустить скрипт *packages_mac.sh*:
+```
+./packages_mac.sh
+```
+
+Скрипт устанавливает следующие пакеты:
 - Компилятор Apple LLVM 6.0 и выше (подробное описание процедуру установки [здесь](http://osxdaily.com/2014/02/12/install-command-line-tools-mac-os-x/)):
 ```
 xcode-select --install
