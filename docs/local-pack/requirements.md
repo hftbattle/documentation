@@ -34,7 +34,7 @@ brew install python
 ### [Windows](#windows)
 - MinGW-w64 версии 4.9 и выше:
 
-Установить [MinGW-w64](http://sourceforge.net/projects/mingw-w64/)
+Установить [MinGW-w64]({{ book["mingw.download.url"] }})
 с настройками 
 ```
 --rev=0 --bootstrap --jobs=4 --threads=posix --exceptions=seh --arch=x86_64
