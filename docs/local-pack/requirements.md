@@ -1,8 +1,15 @@
 ##Установка зависимостей
 ### [Linux](#linux)
-- GCC 4.9 и выше:
+Для установки зависимостей под Linux-ом можно запустить скрипт *packages_linux.sh*:
 ```
-sudo apt-get install g++
+./packages_linux.sh
+```
+
+Скрипт устанавливает следующие пакеты:
+- Компилятор g++ 4.9 и выше:
+```
+sudo apt-get update
+sudo apt-get install g++-4.9
 ```
 - CMake 2.8.4 и выше:
 ```
@@ -10,7 +17,7 @@ sudo apt-get install cmake
 ```
 
 ### [Mac OS X](#macosx)
-- Компилятор с++ Apple clang 6.0 и выше:
+- Компилятор Apple clang 6.0 и выше:
 ```
 xcode-select --install
 ```
@@ -24,7 +31,7 @@ brew install cmake
 ```
 
 ### [Windows](#windows)
-- MinGW-w64 версии 4.9 и выше:
+- Компилятор MinGW-w64 версии 4.9 и выше:
 
 Установить [MinGW-w64](http://sourceforge.net/projects/mingw-w64/)
 с настройками 
