@@ -2,7 +2,7 @@
 
 Мы подготовили пакет для локальной разработки на C++. Он включает в себя набор библиотек и файлов, достаточный для разработки стратегий на вашем компьютере. 
 
-Пакет доступен для скачивания на [GitHub]({{ book["contest.local-pack.url"]}}). 
+Пакет доступен для скачивания на [GitHub](https://github.com/hftbattle/local_pack). 
 Скачать пакет можно следующей командой (должен быть установлен [Git](http://git-scm.com/download)):
 ```
 git clone https://github.com/hftbattle/local_pack.git
