@@ -4,11 +4,11 @@
 ```
 sudo apt-get install g++
 ```
-- cmake 2.8.4 и выше
+- CMake 2.8.4 и выше
 ```
 sudo apt-get install cmake
 ```
-- python 2.7 и выше
+- Python 2.7 и выше
 ```
 sudo apt-get install python
 ```
@@ -22,11 +22,11 @@ xcode-select --install
 ```
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
-- cmake 2.8.4 и выше
+- CMake 2.8.4 и выше
 ```
 brew install cmake
 ```
-- python 2.7 и выше
+- Python 2.7 и выше
 ```
 brew install python
 ```
@@ -44,10 +44,8 @@ brew install python
 setx path "%path%;YOUR_PATH_TO_MINGW\x86_64-4.9.2-posix-seh-rt_v3-rev0\mingw64\bin"
 ```
 
-- cmake 2.8.4 и выше
+- CMake 2.8.4 и выше
 
-Например, можно поставить [CLion]({{ book["clion.download.url"] }}), cmake будет в комплекте. Далее необходимо добавить путь до cmake.exe в PATH.
+Например, можно поставить [CLion]({{ book["clion.download.url"] }}), *CMake* будет в комплекте. Далее необходимо добавить путь до cmake.exe в PATH.
 
-- python
-
-опять же не забыть добавить путь до python.exe в PATH.
+- Python 2.7 и выше
