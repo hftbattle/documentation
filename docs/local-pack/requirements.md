@@ -8,10 +8,6 @@ sudo apt-get install g++
 ```
 sudo apt-get install cmake
 ```
-- Python 2.7 и выше:
-```
-sudo apt-get install python
-```
 
 ### [Mac OS X](#macosx)
 - Компилятор с++ Apple clang 6.0 и выше:
@@ -25,10 +21,6 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 - CMake 2.8.4 и выше:
 ```
 brew install cmake
-```
-- Python 2.7 и выше:
-```
-brew install python
 ```
 
 ### [Windows](#windows)
