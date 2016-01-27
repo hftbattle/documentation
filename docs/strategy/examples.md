@@ -1,6 +1,6 @@
 #Примеры стратегий
 
-* [Stay on best prices strategy](#stay_on_best_prices_strategy)
+* [Stay on each direction strategy](#stay_on_best_prices_strategy)
 
 
 <a name="stay_on_best_prices_strategy"></a>
@@ -21,17 +21,22 @@ void event_end_update() override {
 }
 ```
 
-Однако в тот момент, когда у нас вызывается функция [event_end_update](../../api/ParticipantStrategy.md#event_end_update), наши заявки, поставленные в прошлых вызовах этой функции, всё еще могут быть не реализованы. В итоге, у нас может скопиться огромное количество заявок и мы превысим лимит на количество заявок в день. К счастью, у нас есть возможность посмотреть все наши активные заявки. Для этого используем структуру [trade_book_info](../../api/ParticipantStrategy.md#trade_book_info) типа [ContestBookInfo](../../api/ContestBookInfo.md), у которого есть метод [active_orders](../../api/ContestBookInfo.md#active_orders), возвращающий ссылку на структуру типа [SecurityOrdersSnapshot](../../api/SecurityOrdersSnapshot.md#):
+Однако в тот момент, когда у нас вызывается функция [event_end_update](../../api/ParticipantStrategy.md#event_end_update), наши заявки, поставленные в прошлых вызовах этой функции, всё еще могут быть не реализованы. В итоге, у нас может скопиться огромное количество заявок и мы превысим лимит на количество заявок в день. К счастью, у нас есть возможность посмотреть все наши активные заявки. Для этого используем структуру [trading_book_info
+](../../api/ParticipantStrategy.md#trading_book_info
+) типа [ContestBookInfo](../../api/ContestBookInfo.md), у которого есть метод [active_orders](../../api/ContestBookInfo.md#active_orders), возвращающий ссылку на структуру типа [SecurityOrdersSnapshot](../../api/SecurityOrdersSnapshot.md#):
 ```cpp
-SecurityOrdersSnapshot& active_orders = trade_book_info.active_orders();
+SecurityOrdersSnapshot& active_orders = trading_book_info
+.active_orders();
 ```
 > Замечание 1: Определенная выше переменная `active_orders` содержит те заявки, которые мы уже отправили, но на которые еще не отправили запрос на удаление. Поэтому если для какой-то заявки будет вызван метод [delete_order](../../api/ParticipantStrategy.md#delete_order), то к следующему обновлению этой заявки в `active_orders` точно не будет (даже если она еще не успела удалиться). 
 
-> Замечание 2: Обновление структуры [trade_book_info.active_orders()](../../api/ContestBookInfo.md#active_orders) происходит только между апдейтами, внутри апдейта она не меняется.
+> Замечание 2: Обновление структуры [trading_book_info
+.active_orders()](../../api/ContestBookInfo.md#active_orders) происходит только между апдейтами, внутри апдейта она не меняется.
 
 Разделим активные заявки по направлениям, используя поле [orders_by_dir](../../api/SecurityOrdersSnapshot.md#orders_by_dir) класса [SecurityOrdersSnapshot](../../api/SecurityOrdersSnapshot.md#):
 ```cpp
-const std::array<std::vector<OrderSnapshot>, 2>& active_orders_by_dir = &trade_book_info.active_orders().orders_by_dir;
+const std::array<std::vector<OrderSnapshot>, 2>& active_orders_by_dir = &trading_book_info
+.active_orders().orders_by_dir;
 ```
 Для удобства в классе [ParticipantStrategy](../../api/ParticipantStrategy.md) уже реализован метод [active_orders_by_dir](../../api/ParticipantStrategy.md#active_orders_by_dir), выполняющий то же, что и конструкция выше.  
 
@@ -75,7 +80,8 @@ void event_end_update() override {
 }
 
 void go_quoting() {
-  const auto my_active_orders = trade_book_info.active_orders();
+  const auto my_active_orders = trading_book_info
+  .active_orders();
   for (Dir dir:{BID, ASK}) {
     if (my_active_orders.orders_by_dir[dir].size() == 0) {
       add_order(best_price(dir), 1, dir);
@@ -88,7 +94,8 @@ void go_quoting() {
 
 void simple_liquidate() {
   for (Dir dir: {BID, ASK}) {
-    for (auto order: trade_book_info.active_orders().orders_by_dir[dir]) {
+    for (auto order: trading_book_info
+    .active_orders().orders_by_dir[dir]) {
       delete_order(order);
     }
   }
