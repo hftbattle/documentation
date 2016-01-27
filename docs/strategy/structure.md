@@ -43,37 +43,39 @@ public:
     
   // Вызывается при получении нового стакана торгового инструмента:
   // @order_book – новый стакан.
-  virtual void trading_book_update(const OrderBook &order_book) {
-    /* написать свою реализацию здесь */
-  }
-
-  // Вызывается при получении нового стакана сигнального инструмента:
-  // @order_book – новый стакан.
-  virtual void signal_book_update(const OrderBook &order_book) {
+  virtual void trading_book_update(const OrderBook& order_book) {
     /* написать свою реализацию здесь */
   }
 
   // Вызывается при получении новых сделок торгового инструмента:
   // @deals - вектор новых сделок.
-  virtual void trading_deals_update(const std::vector<Deal> &deals) {
-    /* написать свою реализацию здесь */
-  }
-
-  // Вызывается при получении новых сделок сигнального инструмента:
-  // @deals - вектор новых сделок.
-  virtual void signal_deals_update(const std::vector<Deal> &deals) {
+  virtual void trading_deals_update(const std::vector<Deal>& deals) {
     /* написать свою реализацию здесь */
   }
 
   // Вызывается при получении отчета о сделке с участием вашего ордера:
   // @snapshot – структура-отчет о совершенной сделке.
-  virtual void execution_report_update(const ExecutionReportSnapshot &snapshot) {
+  virtual void execution_report_update(const ExecutionReportSnapshot& snapshot) {
     /* написать свою реализацию здесь */
   }
 
   // Вызывается, когда симуляция закончила обрабатывать все изменения,
   // соответствующие одному биржевому событию.
   virtual void event_end_update() {
+    /* написать свою реализацию здесь */
+  }
+  
+  /* Следующие 2 метода актуальны только при наличии сигнального инструмента.  */
+  
+  // Вызывается при получении новых сделок сигнального инструмента:
+  // @deals - вектор новых сделок.
+  virtual void signal_deals_update(const std::vector<Deal>& deals) {
+    /* написать свою реализацию здесь */
+  }
+  
+  // Вызывается при получении нового стакана сигнального инструмента:
+  // @order_book – новый стакан.
+  virtual void signal_book_update(const OrderBook& order_book) {
     /* написать свою реализацию здесь */
   }
 };
