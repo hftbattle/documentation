@@ -35,12 +35,11 @@ ParticipantStrategy - класс-интерфейс для написания п
 
 |Имя| Описание|
 |------------------|--------------------|
-|[trading_book_update(const OrderBook &order_book)](#trading_book_update)|Вызывается при получении нового стакана торгового инструмента.|
-|[signal_book_update(const OrderBook &order_book)](#signal_book_update)|Вызывается при получении нового стакана сигнального инструмента.|
-|[trading_deals_update(const std::vector<Deal> &deals)](#trading_deals_update)|Вызывается при получении новых сделок торгового инструмента.|
-|[signal_deals_update(const std::vector<Deal> &deals)](#signal_deals_update)|Вызывается при получении новых сделок сигнального инструмента.|
-|[execution_report_update(const ExecutionReportSnapshot &snapshot)](#execution_report_update)|Вызывается при получении отчета о сделке с участием вашего ордера.|
-|[event_end_update()](#event_end_update)|Вызывается, когда симуляция закончила обрабатывать все изменения, соответствующие одному биржевому событию.|
+|[trading_book_update(const OrderBook& order_book)](#trading_book_update)|Вызывается при получении нового стакана торгового инструмента.|
+|[trading_deals_update(const std::vector<Deal>& deals)](#trading_deals_update)|Вызывается при получении новых сделок торгового инструмента.|
+|[execution_report_update(const ExecutionReportSnapshot& snapshot)](#execution_report_update)|Вызывается при получении отчета о сделке с участием вашего ордера.|
+|[signal_book_update(const OrderBook& order_book)](#signal_book_update)|Вызывается при получении нового стакана сигнального инструмента.|
+|[signal_deals_update(const std::vector<Deal>& deals)](#signal_deals_update)|Вызывается при получении новых сделок сигнального инструмента.|
 |[add_order(Price price, Amount amount, Dir dir, Amount implied_amount = 0)](#add_order)|Выставляет нашу заявку.|
 |[add_ioc_order(Price price, Amount amount, Dir dir)](#add_ioc_order)|Выставляет нашу заявку по принципу Immediate-Or-Cancel.|
 |[add_ioc_order(Price price, Amount amount, Dir dir, Amount implied_amount)](#add_ioc_order)|Выставляет нашу заявку по принципу Immediate-Or-Cancel.|
@@ -62,14 +61,14 @@ ParticipantStrategy - класс-интерфейс для написания п
 <a name="trading_book"></a>
 ####trading_book
 ```c++
-const OrderBookL2* trading_book;
+const OrderBook* trading_book;
 ```
 Указатель на стакан торгового инструментов.
 
 <a name="signal_book"></a>
 ####signal_book
 ```c++
-const OrderBookL2* signal_book;
+const OrderBook* signal_book;
 ```
 Указатель на стакан сигнального инструментов.
 
@@ -106,49 +105,42 @@ ContestBookInfo signal_book_info;
 <a name="trading_book_update"></a>
 ####trading_book_update()
 ```c++
-virtual void trading_book_update(const OrderBook &order_book);
+virtual void trading_book_update(const OrderBook& order_book);
 ```
 Вызывается при получении нового стакана торгового инструмента:
-- *order_book* – новый стакан.
-
-<a name="signal_book_update"></a>
-####signal_book_update()
-```c++
-virtual void signal_book_update(const OrderBook &order_book);
-```
-Вызывается при получении нового стакана сигнального инструмента:
 - *order_book* – новый стакан.
 
 <a name="trading_deals_update"></a>
 ####trading_deals_update()
 ```c++
-virtual void trading_deals_update(const std::vector<Deal> &deals);
+virtual void trading_deals_update(const std::vector<Deal>& deals);
 ```
 Вызывается при получении новых сделок торгового инструмента:
-- *deals* - вектор новых сделок.
-
-<a name="signal_deals_update"></a>
-####signal_deals_update()
-```c++
-virtual void signal_deals_update(const std::vector<Deal> &deals);
-```
-Вызывается при получении новых сделок сигнального инструмента:
 - *deals* - вектор новых сделок.
 
 <a name="execution_report_update"></a>
 ####execution_report_update()
 ```c++
-virtual void execution_report_update(const ExecutionReportSnapshot &snapshot);
+virtual void execution_report_update(const ExecutionReportSnapshot& snapshot);
 ```
 Вызывается при получении отчета о сделке с участием вашего ордера:
 - *snapshot* – структура-отчет о совершенной сделке.
 
-<a name="event_end_update"></a>
-####event_end_update()
+<a name="signal_book_update"></a>
+####signal_book_update()
 ```c++
-virtual void event_end_update();
+virtual void signal_book_update(const OrderBook& order_book);
 ```
-Вызывается, когда симуляция закончила обрабатывать все изменения, соответствующие одному биржевому событию.
+Вызывается при получении нового стакана сигнального инструмента:
+- *order_book* – новый стакан.
+
+<a name="signal_deals_update"></a>
+####signal_deals_update()
+```c++
+virtual void signal_deals_update(const std::vector<Deal>& deals);
+```
+Вызывается при получении новых сделок сигнального инструмента:
+- *deals* - вектор новых сделок.
 
 <a name="add_order"></a>
 ####add_order()
