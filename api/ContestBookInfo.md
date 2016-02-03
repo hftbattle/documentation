@@ -14,7 +14,7 @@
 |[best_volume(Dir dir)](#best_volume)|Суммарный объем лотов на лучшей цене по направлению *dir*.|
 |[executed_amount()](#executed_amount)|Наша текущая позиция.|
 |[implied_amount()](#implied_amount)|Наша предполагаемая позиция, т.е. та, что мы ожидаем будет проторгована.|
-|[total_amount()](#total_amount)|Наша общая позиция: учитывается как реальная позиция на руках, так и предполагаемая.|
+|[statistics_.total_amount()](#statistics_.total_amount)|Наша общая позиция: учитывается как реальная позиция на руках, так и предполагаемая.|
 |[active_orders()](#active_orders)|Ссылка на структуру, содержащая наши активные заявки.|
 |[middle_price()](#middle_price)|Полусумма лучших цен.|
 |[min_step()](#min_step)|Минимальный шаг цены в стакане (минимальная возможная разница между ценами).|
@@ -35,7 +35,7 @@ const Price best_price(Dir dir) const;
 <a name="best_volume"></a>
 ####best_volume()
 ```c++
-const Amount& best_volume(Dir dir) const;
+const Amount best_volume(Dir dir) const;
 ```
 Суммарный объем лотов на лучшей цене по направлению *dir*.
 
@@ -53,8 +53,8 @@ Amount implied_amount() const;
 ```
 Наша предполагаемая позиция, т.е. та, что мы ожидаем будет проторгована.
 
-<a name="total_amount"></a>
-####total_amount()
+<a name="statistics_.total_amount"></a>
+####statistics_.total_amount()
 ```c++
 Amount total_amount() const;
 ```

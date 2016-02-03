@@ -20,6 +20,25 @@ ParticipantStrategy - класс-интерфейс для написания п
 
 Классы-стратегии участников должны наследовать от класса ParticipantStrategy.
 
+###Методы
+
+|Имя| Описание|
+|------------------|--------------------|
+|[trading_book_update(const OrderBook& order_book)](#trading_book_update)|Вызывается при получении нового стакана торгового инструмента.|
+|[trading_deals_update(const std::vector<Deal>& deals)](#trading_deals_update)|Вызывается при получении новых сделок торгового инструмента.|
+|[execution_report_update(const ExecutionReportSnapshot& snapshot)](#execution_report_update)|Вызывается при получении отчета о сделке с участием вашего ордера.|
+|[signal_book_update(const OrderBook& order_book)](#signal_book_update)|Вызывается при получении нового стакана сигнального инструмента.|
+|[signal_deals_update(const std::vector<Deal>& deals)](#signal_deals_update)|Вызывается при получении новых сделок сигнального инструмента.|
+|[add_limit_order(Dir dir, Price price, Amount amount)](#add_limit_order)|Выставляет нашу лимитную заявку.|
+|[add_ioc_order(Dir dir, Price price, Amount amount)](#add_ioc_order)|Выставляет нашу заявку типа Immediate-Or-Cancel (IOC).|
+|[delete_order(Order* order)](#delete_order)|Снимает нашу заявку с торгов.|
+|[get_current_result()](#get_current_result)|Возвращает текущий результат (заработок).|
+|[get_saldo()](#get_saldo)|Возвращает текущее сальдо, т.е. баланс без учета позы.|
+|[signal_security_exists()](#signal_security_exists)|Возвращает true, если есть сигнальный инструмент. Иначе false.|
+|[get_local_time()](#get_local_time)|Возвращает локальное время в микросекундах.|
+|[get_server_time()](#get_server_time)|Возвращает биржевое время с точностью до микросекунд.|
+|[get_server_time_tm()](#get_server_time_tm)|Возвращает биржевое время типа tm c точностью до секунды.|
+
 ###Поля
 
 |Имя| Описание|
@@ -31,25 +50,117 @@ ParticipantStrategy - класс-интерфейс для написания п
 |[trading_book_info](#trading_book_info)|Стуктура-аггрегатор основной информации о торговом стакане.|
 |[signal_book_info](#signal_book_info)|Стуктура-аггрегатор основной информации о сигнальном стакане.|
 
-###Методы
+###Описание методов
+<a name="trading_book_update"></a>
+####trading_book_update()
+```c++
+virtual void trading_book_update(const OrderBook& order_book);
+```
+Вызывается при получении нового стакана торгового инструмента:
+- *order_book* – новый стакан.
 
-|Имя| Описание|
-|------------------|--------------------|
-|[trading_book_update(const OrderBook& order_book)](#trading_book_update)|Вызывается при получении нового стакана торгового инструмента.|
-|[trading_deals_update(const std::vector<Deal>& deals)](#trading_deals_update)|Вызывается при получении новых сделок торгового инструмента.|
-|[execution_report_update(const ExecutionReportSnapshot& snapshot)](#execution_report_update)|Вызывается при получении отчета о сделке с участием вашего ордера.|
-|[signal_book_update(const OrderBook& order_book)](#signal_book_update)|Вызывается при получении нового стакана сигнального инструмента.|
-|[signal_deals_update(const std::vector<Deal>& deals)](#signal_deals_update)|Вызывается при получении новых сделок сигнального инструмента.|
-|[add_order(Price price, Amount amount, Dir dir, Amount implied_amount = 0)](#add_order)|Выставляет нашу заявку.|
-|[add_ioc_order(Price price, Amount amount, Dir dir)](#add_ioc_order)|Выставляет нашу заявку по принципу Immediate-Or-Cancel.|
-|[add_ioc_order(Price price, Amount amount, Dir dir, Amount implied_amount)](#add_ioc_order)|Выставляет нашу заявку по принципу Immediate-Or-Cancel.|
-|[delete_order(Order* order)](#delete_order)|Снимает наш ордер с торгов.|
-|[get_saldo()](#get_saldo)|Возвращает текущее сальдо (текущий баланс без учета позы).|
-|[get_current_result()](#get_current_result)|Возвращает текущий результат (заработок).|
-|[signal_security_exists()](#signal_security_exists)|Есть ли сигнальный инструмент.|
-|[get_local_time()](#get_local_time)|Возвращает локальное время в микросекундах.|
-|[get_server_time()](#get_server_time)|Возвращает биржевое время с точностью до микросекунд.|
-|[get_server_time_tm()](#get_server_time_tm)|Возвращает биржевое время типа tm c точностью до секунды.|
+<a name="trading_deals_update"></a>
+####trading_deals_update()
+```c++
+virtual void trading_deals_update(const std::vector<Deal>& deals);
+```
+Вызывается при получении новых сделок торгового инструмента:
+- *deals* - вектор новых сделок.
+
+<a name="execution_report_update"></a>
+####execution_report_update()
+```c++
+virtual void execution_report_update(const ExecutionReportSnapshot& snapshot);
+```
+Вызывается при получении отчета о сделке с участием вашего ордера:
+- *snapshot* – структура-отчет о совершенной сделке.
+
+<a name="signal_book_update"></a>
+####signal_book_update()
+```c++
+virtual void signal_book_update(const OrderBook& order_book);
+```
+Вызывается при получении нового стакана сигнального инструмента:
+- *order_book* – новый стакан.
+
+<a name="signal_deals_update"></a>
+####signal_deals_update()
+```c++
+virtual void signal_deals_update(const std::vector<Deal>& deals);
+```
+Вызывается при получении новых сделок сигнального инструмента:
+- *deals* - вектор новых сделок.
+
+<a name="add_limit_order"></a>
+####add_limit_order()
+```c++
+bool add_limit_order(Dir dir, Price price, Amount amount);
+```
+Выставляет нашу лимитную заявку:
+- *dir* - направление (BID = 0 - покупка, ASK = 1 - продажа),
+- *price* - цена, по которой заявка будет выставлена,
+- *amount* - размер заявки,
+
+<a name="add_ioc_order"></a>
+####add_ioc_order()
+```c++
+bool add_ioc_order(Dir dir, Price price, Amount amount);
+```
+Выставляет нашу заявку типа Immediate-Or-Cancel (IOC):
+- *dir* - направление (BID = 0 - покупка, ASK = 1 - продажа),
+- *price* - цена, по которой заявка будет выставлена,
+- *amount* - размер заявки,
+
+<a name="delete_order"></a>
+####delete_order()
+```c++
+void delete_order(Order* order);
+```
+Снимает нашу заявку с торгов:
+- *order* - заявка, которую мы хотим снять.
+
+<a name="get_current_result"></a>
+####get_current_result()
+```c++
+Price get_current_result() const;
+```
+Возвращает текущий результат (заработок).
+
+<a name="get_saldo"></a>
+####get_saldo()
+```c++
+Price get_saldo();
+```
+Возвращает текущее сальдо, т.е. баланс без учета позы.
+
+<a name="signal_security_exists"></a>
+####signal_security_exists()
+```c++
+bool signal_security_exists() const;
+```
+Возвращает true, если есть сигнальный инструмент. Иначе false.
+
+<a name="get_local_time"></a>
+####get_local_time()
+```c++
+Microseconds get_local_time() const;
+```
+Возвращает локальное время в микросекундах. Локальное время здесь – это время на машине, получающей биржевые данные.
+
+<a name="get_server_time"></a>
+####get_server_time()
+```c++
+Microseconds get_server_time() const;
+```
+Возвращает биржевое время с точностью до микросекунд.
+
+<a name="get_server_time_tm"></a>
+####get_server_time_tm()
+```c++
+tm get_server_time_tm() const;
+```
+Возвращает биржевое время типа tm c точностью до секунды.
+
 
 ###Описание полей
 <a name="trading_book"></a>
@@ -93,129 +204,5 @@ ContestBookInfo trading_book_info;
 ContestBookInfo signal_book_info;
 ```
 Стуктура-аггрегатор основной информации о сигнальном стакане.
-
-
-###Описание методов
-<a name="trading_book_update"></a>
-####trading_book_update()
-```c++
-virtual void trading_book_update(const OrderBook& order_book);
-```
-Вызывается при получении нового стакана торгового инструмента:
-- *order_book* – новый стакан.
-
-<a name="trading_deals_update"></a>
-####trading_deals_update()
-```c++
-virtual void trading_deals_update(const std::vector<Deal>& deals);
-```
-Вызывается при получении новых сделок торгового инструмента:
-- *deals* - вектор новых сделок.
-
-<a name="execution_report_update"></a>
-####execution_report_update()
-```c++
-virtual void execution_report_update(const ExecutionReportSnapshot& snapshot);
-```
-Вызывается при получении отчета о сделке с участием вашего ордера:
-- *snapshot* – структура-отчет о совершенной сделке.
-
-<a name="signal_book_update"></a>
-####signal_book_update()
-```c++
-virtual void signal_book_update(const OrderBook& order_book);
-```
-Вызывается при получении нового стакана сигнального инструмента:
-- *order_book* – новый стакан.
-
-<a name="signal_deals_update"></a>
-####signal_deals_update()
-```c++
-virtual void signal_deals_update(const std::vector<Deal>& deals);
-```
-Вызывается при получении новых сделок сигнального инструмента:
-- *deals* - вектор новых сделок.
-
-<a name="add_order"></a>
-####add_order()
-```c++
-bool add_order(Price price, Amount amount, Dir dir, Amount implied_amount = 0);
-```
-Выставляет нашу заявку:
-- *price* - цена, по которой заявка будет выставлена,
-- *amount* - размер заявки,
-- *dir* - направление (BID = 0 - покупка, ASK = 1 - продажа),
-- *implied_amount* - ожидаемое реализованное количество (по умолчанию 0).
-
-<a name="add_ioc_order"></a>
-####add_ioc_order()
-```c++
-bool add_ioc_order(Price price, Amount amount, Dir dir);
-```
-Выставляет нашу заявку по принципу Immediate-Or-Cancel:
-- *price* - цена, по которой заявка будет выставлена,
-- *amount* - размер заявки,
-- *dir* - направление (BID = 0 - покупка, ASK = 1 - продажа), ожидаемое реализованное количество совпадает с объемом заявки.
-
-<a name="add_ioc_order"></a>
-####add_ioc_order()
-```c++
-bool add_ioc_order(Price price, Amount amount, Dir dir, Amount implied_amount);
-```
-Выставляет нашу заявку по принципу Immediate-Or-Cancel:
-- *price* - цена, по которой заявка будет выставлена,
-- *amount* - размер заявки,
-- *dir* - направление (BID = 0 - покупка, ASK = 1 - продажа),
-- *implied_amount* – ожидаемое реализованное количество.
-
-<a name="delete_order"></a>
-####delete_order()
-```c++
-void delete_order(Order* order);
-```
-Снимает наш ордер с торгов:
-- *order* - ордер, который мы хотим снять.
-
-<a name="get_saldo"></a>
-####get_saldo()
-```c++
-Price get_saldo();
-```
-Возвращает текущее сальдо (текущий баланс без учета позы).
-
-<a name="get_current_result"></a>
-####get_current_result()
-```c++
-Price get_current_result();
-```
-Возвращает текущий результат (заработок).
-
-<a name="signal_security_exists"></a>
-####signal_security_exists()
-```c++
-bool signal_security_exists() const;
-```
-Есть ли сигнальный инструмент.
-
-<a name="get_local_time"></a>
-####get_local_time()
-```c++
-Microseconds get_local_time();
-```
-Возвращает локальное время в микросекундах. Локальное время здесь – это время на машине, получающей биржевые данные.
-
-<a name="get_server_time"></a>
-####get_server_time()
-```c++
-Microseconds get_server_time();
-```
-Возвращает биржевое время с точностью до микросекунд.
-
-<a name="get_server_time_tm"></a>
-####get_server_time_tm()
-```c++
-tm get_server_time_tm();
-```
-Возвращает биржевое время типа tm c точностью до секунды.
 
 

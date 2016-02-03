@@ -16,9 +16,8 @@
 
 |Имя| Описание|
 |------------------|--------------------|
-|[volume(Dir dir, Price price)](#volume)|Объем наших заявок на цене *price* и направлению *dir*.|
 |[active_orders_count(Dir dir)](#active_orders_count)|Количество наших активных заявок по направлению *dir*.|
-|[active_orders_amount(Dir dir)](#active_orders_amount)|Возвращает суммарный объем активных ордеров по направлению *dir*.|
+|[active_orders_volume(Dir dir)](#active_orders_volume)|Возвращает суммарный объем активных ордеров по направлению *dir*.|
 |[size()](#size)|Суммарное количество наших заявок по обоим направлениям.|
 
 ###Описание полей
@@ -38,13 +37,6 @@ std::array<Amount, 2> deleting_amount;
 
 
 ###Описание методов
-<a name="volume"></a>
-####volume()
-```c++
-Amount volume(Dir dir, Price price) const;
-```
-Объем наших заявок на цене *price* и направлению *dir*.
-
 <a name="active_orders_count"></a>
 ####active_orders_count()
 ```c++
@@ -52,10 +44,10 @@ size_t active_orders_count(Dir dir) const;
 ```
 Количество наших активных заявок по направлению *dir*.
 
-<a name="active_orders_amount"></a>
-####active_orders_amount()
+<a name="active_orders_volume"></a>
+####active_orders_volume()
 ```c++
-Amount active_orders_amount(Dir dir);
+Amount active_orders_volume(Dir dir);
 ```
 Возвращает суммарный объем активных ордеров по направлению *dir*.
 
