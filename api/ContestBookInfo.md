@@ -10,8 +10,8 @@
 
 |Имя| Описание|
 |------------------|--------------------|
-|[best_price_by_dir()](#best_price_by_dir)|Лучшие цены (минимальная цена продажи и максимальная цена покупки) в момент последнего обновления стакана.|
-|[best_volume_by_dir()](#best_volume_by_dir)|Объем лотов на лучших ценах.|
+|[best_price(Dir dir)](#best_price)|Лучшая цена в стакане по направлению *dir*.|
+|[best_volume(Dir dir)](#best_volume)|Суммарный объем лотов на лучшей цене по направлению *dir*.|
 |[executed_amount()](#executed_amount)|Наша текущая позиция.|
 |[implied_amount()](#implied_amount)|Наша предполагаемая позиция, т.е. та, что мы ожидаем будет проторгована.|
 |[total_amount()](#total_amount)|Наша общая позиция: учитывается как реальная позиция на руках, так и предполагаемая.|
@@ -25,19 +25,19 @@
 |[statistics()](#statistics)|Структура, содержащая статистику по нашей текущей позиции.|
 
 ###Описание методов
-<a name="best_price_by_dir"></a>
-####best_price_by_dir()
+<a name="best_price"></a>
+####best_price()
 ```c++
-const std::array<Price, 2>& best_price_by_dir() const;
+const Price best_price(Dir dir) const;
 ```
-Лучшие цены (минимальная цена продажи и максимальная цена покупки) в момент последнего обновления стакана.
+Лучшая цена в стакане по направлению *dir*.
 
-<a name="best_volume_by_dir"></a>
-####best_volume_by_dir()
+<a name="best_volume"></a>
+####best_volume()
 ```c++
-const std::array<int64_t, 2>& best_volume_by_dir() const;
+const Amount& best_volume(Dir dir) const;
 ```
-Объем лотов на лучших ценах.
+Суммарный объем лотов на лучшей цене по направлению *dir*.
 
 <a name="executed_amount"></a>
 ####executed_amount()

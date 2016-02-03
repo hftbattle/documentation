@@ -17,8 +17,9 @@
 |Имя| Описание|
 |------------------|--------------------|
 |[volume(Dir dir, Price price)](#volume)|Объем наших заявок на цене *price* и направлению *dir*.|
-|[size()](#size)|Суммарное количество наших заявок по обоим направлениям.|
 |[active_orders_count(Dir dir)](#active_orders_count)|Количество наших активных заявок по направлению *dir*.|
+|[active_orders_amount(Dir dir)](#active_orders_amount)|Возвращает суммарный объем активных ордеров по направлению *dir*.|
+|[size()](#size)|Суммарное количество наших заявок по обоим направлениям.|
 
 ###Описание полей
 <a name="orders_by_dir"></a>
@@ -44,18 +45,25 @@ Amount volume(Dir dir, Price price) const;
 ```
 Объем наших заявок на цене *price* и направлению *dir*.
 
-<a name="size"></a>
-####size()
-```c++
-size_t size() const;
-```
-Суммарное количество наших заявок по обоим направлениям.
-
 <a name="active_orders_count"></a>
 ####active_orders_count()
 ```c++
 size_t active_orders_count(Dir dir) const;
 ```
 Количество наших активных заявок по направлению *dir*.
+
+<a name="active_orders_amount"></a>
+####active_orders_amount()
+```c++
+Amount active_orders_amount(Dir dir);
+```
+Возвращает суммарный объем активных ордеров по направлению *dir*.
+
+<a name="size"></a>
+####size()
+```c++
+size_t size() const;
+```
+Суммарное количество наших заявок по обоим направлениям.
 
 

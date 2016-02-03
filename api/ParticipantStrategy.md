@@ -44,12 +44,6 @@ ParticipantStrategy - класс-интерфейс для написания п
 |[add_ioc_order(Price price, Amount amount, Dir dir)](#add_ioc_order)|Выставляет нашу заявку по принципу Immediate-Or-Cancel.|
 |[add_ioc_order(Price price, Amount amount, Dir dir, Amount implied_amount)](#add_ioc_order)|Выставляет нашу заявку по принципу Immediate-Or-Cancel.|
 |[delete_order(Order* order)](#delete_order)|Снимает наш ордер с торгов.|
-|[active_orders_by_dir()](#active_orders_by_dir)|Возвращает массив списков наших активных заявок, то есть заявок со статусом OrderStatus::Adding и OrderStatus::Active для бида и аска соответственно.|
-|[total_amount()](#total_amount)|Возвращает нашу текущую позу.|
-|[executed_amount()](#executed_amount)|Возвращает нашу текущую позу без учета implied-заявок.|
-|[total_active_amount(Dir dir)](#total_active_amount)|Возвращает текущий суммарный объем выставленных ордеров по направлению.|
-|[count_active_orders(Dir dir)](#count_active_orders)|Возвращает количество активных ордеров по направлению.|
-|[best_price(Dir dir, bool is_book_trade = true)](#best_price)|Возвращает лучшую цену по направлению.|
 |[get_saldo()](#get_saldo)|Возвращает текущее сальдо (текущий баланс без учета позы).|
 |[get_current_result()](#get_current_result)|Возвращает текущий результат (заработок).|
 |[signal_security_exists()](#signal_security_exists)|Есть ли сигнальный инструмент.|
@@ -181,53 +175,6 @@ void delete_order(Order* order);
 ```
 Снимает наш ордер с торгов:
 - *order* - ордер, который мы хотим снять.
-
-<a name="active_orders_by_dir"></a>
-####active_orders_by_dir()
-```c++
-const std::array<std::vector<OrderSnapshot>, 2>& active_orders_by_dir();
-```
-Возвращает массив списков наших активных заявок, то есть заявок со статусом OrderStatus::Adding и OrderStatus::Active для бида и аска соответственно.
-
-<a name="total_amount"></a>
-####total_amount()
-```c++
-Amount total_amount();
-```
-Возвращает нашу текущую позу.
-
-<a name="executed_amount"></a>
-####executed_amount()
-```c++
-Amount executed_amount();
-```
-Возвращает нашу текущую позу без учета implied-заявок.
-
-<a name="total_active_amount"></a>
-####total_active_amount()
-```c++
-Amount total_active_amount(Dir dir);
-```
-Возвращает текущий суммарный объем выставленных ордеров по направлению:
-- *dir* - направление ордеров.
-
-<a name="count_active_orders"></a>
-####count_active_orders()
-```c++
-Amount count_active_orders(Dir dir);
-```
-Возвращает количество активных ордеров по направлению:
-- *dir* - направление ордеров.
-
-<a name="best_price"></a>
-####best_price()
-```c++
-Price best_price(Dir dir, bool is_book_trade = true);
-```
-Возвращает лучшую цену по направлению:
-- *dir* - направление,
-- *is_book_trade* = true - торговый стакан (по умолчанию),
-- *is_book_trade* = false - сигнальный стакан.
 
 <a name="get_saldo"></a>
 ####get_saldo()
