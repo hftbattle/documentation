@@ -43,12 +43,12 @@ ParticipantStrategy - класс-интерфейс для написания п
 
 |Имя| Описание|
 |------------------|--------------------|
-|[trading_book](#trading_book)|Указатель на стакан торгового инструментов.|
-|[signal_book](#signal_book)|Указатель на стакан сигнального инструментов.|
-|[trading_book_snapshot](#trading_book_snapshot)|Умный указатель на текущий стакан торгового инструмента.|
-|[signal_book_snapshot](#signal_book_snapshot)|Аналогично trading_book_snapshot для сигнального инструмента.|
 |[trading_book_info](#trading_book_info)|Стуктура-аггрегатор основной информации о торговом стакане.|
 |[signal_book_info](#signal_book_info)|Стуктура-аггрегатор основной информации о сигнальном стакане.|
+|[trading_book_snapshot](#trading_book_snapshot)|Умный указатель на текущий стакан торгового инструмента.|
+|[signal_book_snapshot](#signal_book_snapshot)|Аналогично trading_book_snapshot для сигнального инструмента.|
+|[trading_book](#trading_book)|Указатель на стакан торгового инструментов.|
+|[signal_book](#signal_book)|Указатель на стакан сигнального инструментов.|
 
 ###Описание методов
 <a name="trading_book_update"></a>
@@ -163,19 +163,19 @@ tm get_server_time_tm() const;
 
 
 ###Описание полей
-<a name="trading_book"></a>
-####trading_book
+<a name="trading_book_info"></a>
+####trading_book_info
 ```c++
-const OrderBook* trading_book;
+ContestBookInfo trading_book_info;
 ```
-Указатель на стакан торгового инструментов.
+Стуктура-аггрегатор основной информации о торговом стакане.
 
-<a name="signal_book"></a>
-####signal_book
+<a name="signal_book_info"></a>
+####signal_book_info
 ```c++
-const OrderBook* signal_book;
+ContestBookInfo signal_book_info;
 ```
-Указатель на стакан сигнального инструментов.
+Стуктура-аггрегатор основной информации о сигнальном стакане.
 
 <a name="trading_book_snapshot"></a>
 ####trading_book_snapshot
@@ -191,18 +191,18 @@ SharedPtr<DataFeedSnapshot> signal_book_snapshot;
 ```
 Аналогично trading_book_snapshot для сигнального инструмента.
 
-<a name="trading_book_info"></a>
-####trading_book_info
+<a name="trading_book"></a>
+####trading_book
 ```c++
-ContestBookInfo trading_book_info;
+const OrderBook* trading_book;
 ```
-Стуктура-аггрегатор основной информации о торговом стакане.
+Указатель на стакан торгового инструментов.
 
-<a name="signal_book_info"></a>
-####signal_book_info
+<a name="signal_book"></a>
+####signal_book
 ```c++
-ContestBookInfo signal_book_info;
+const OrderBook* signal_book;
 ```
-Стуктура-аггрегатор основной информации о сигнальном стакане.
+Указатель на стакан сигнального инструментов.
 
 

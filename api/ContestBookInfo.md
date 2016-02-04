@@ -13,9 +13,8 @@
 |[best_price(Dir dir)](#best_price)|Лучшая цена в стакане по направлению *dir*.|
 |[best_volume(Dir dir)](#best_volume)|Суммарный объем лотов на лучшей цене по направлению *dir*.|
 |[executed_amount()](#executed_amount)|Наша текущая позиция.|
-|[implied_amount()](#implied_amount)|Наша предполагаемая позиция, т.е. та, что мы ожидаем будет проторгована.|
 |[statistics_.total_amount()](#statistics_.total_amount)|Наша общая позиция: учитывается как реальная позиция на руках, так и предполагаемая.|
-|[active_orders()](#active_orders)|Ссылка на структуру, содержащая наши активные заявки.|
+|[orders()](#orders)|Ссылка на структуру, содержащая наши текущие заявки.|
 |[middle_price()](#middle_price)|Полусумма лучших цен.|
 |[min_step()](#min_step)|Минимальный шаг цены в стакане (минимальная возможная разница между ценами).|
 |[spread_in_min_steps()](#spread_in_min_steps)|Расстояние между лучшим аском и лучшим бидом в минимальных шагах цены.|
@@ -46,13 +45,6 @@ Amount executed_amount() const;
 ```
 Наша текущая позиция.
 
-<a name="implied_amount"></a>
-####implied_amount()
-```c++
-Amount implied_amount() const;
-```
-Наша предполагаемая позиция, т.е. та, что мы ожидаем будет проторгована.
-
 <a name="statistics_.total_amount"></a>
 ####statistics_.total_amount()
 ```c++
@@ -60,12 +52,12 @@ Amount total_amount() const;
 ```
 Наша общая позиция: учитывается как реальная позиция на руках, так и предполагаемая.
 
-<a name="active_orders"></a>
-####active_orders()
+<a name="orders"></a>
+####orders()
 ```c++
-SecurityOrdersSnapshot& active_orders();
+SecurityOrdersSnapshot& orders();
 ```
-Ссылка на структуру, содержащая наши активные заявки.
+Ссылка на структуру, содержащая наши текущие заявки.
 
 <a name="middle_price"></a>
 ####middle_price()
