@@ -7,11 +7,10 @@
 ./build.py
 ```
 
-Она соберет все стратегии (файлы, имеющие название вида \*_strategy.cpp) в библиотеки в папку *build*.
+Она соберет все стратегии (файлы вида *strategies/[strategy_dir]/[strategy_name].cpp*) в библиотеки в папку *build*.
 
 Для запуска стратегии нужно выполнить команду
 ```
 ./run.py strategies/user_strategy/user_strategy.json
 ```
-
 
