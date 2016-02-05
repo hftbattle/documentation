@@ -1,6 +1,11 @@
 ## Компиляция и запуск стратегии
 
+* [Запуск из командной строки](#command_line)
+* [Запуск из CLion](#clion)
 
+
+<a name="command_line"></a>
+###Запуск из командной строки
 
 Ваша стратегия должна быть реализована в одном файле *user_strategy.cpp*.
 
@@ -15,4 +20,7 @@
 ```
 ./run.py strategies/user_strategy/user_strategy.json
 ```
+
+<a name="command_line"></a>
+###Запуск из CLion
 
