@@ -31,7 +31,7 @@ public:
 ```
 
 
-### [Stay on each direction strategy](#stay_on_each_dir_with_gap_strategy)
+### [Stay on each direction with gap strategy](#stay_on_each_dir_with_gap_strategy)
 ```
 #include "strategy/participant_strategy_layer.h"
 
