@@ -11,7 +11,7 @@
 
 Для запуска стратегии нужно выполнить команду
 ```
-./run.py strategies/user_strategy.json
+./run.py strategies/user_strategy/user_strategy.json
 ```
 
 
