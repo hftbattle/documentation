@@ -30,7 +30,7 @@
 
 using namespace contest_platform;
 
-/** 
+/**
  * UserStrategy - основной класс, в котором пользователь реализует свою стратегию.
  **/
 class UserStrategy : public ParticipantStrategy {
@@ -38,44 +38,25 @@ public:
   // В конструктор стратегии участника передается конфиг.
   // В конфиг из веб-интерфейса можно передать параметры стратегии.
   UserStrategy(JsonValue config) {}
-    
+
   // Вызывается при получении нового стакана торгового инструмента:
   // @order_book – новый стакан.
-  virtual void trading_book_update(const OrderBook& order_book) {
+  void trading_book_update(const OrderBook& order_book) override {
     /* написать свою реализацию здесь */
   }
 
   // Вызывается при получении новых сделок торгового инструмента:
   // @deals - вектор новых сделок.
-  virtual void trading_deals_update(const std::vector<Deal>& deals) {
+  void trading_deals_update(const std::vector<Deal>& deals) override {
     /* написать свою реализацию здесь */
   }
 
   // Вызывается при получении отчета о сделке с участием вашего ордера:
   // @snapshot – структура-отчет о совершенной сделке.
-  virtual void execution_report_update(const ExecutionReportSnapshot& snapshot) {
+  void execution_report_update(const ExecutionReportSnapshot& snapshot) override {
     /* написать свою реализацию здесь */
   }
 
-  // Вызывается, когда симуляция закончила обрабатывать все изменения,
-  // соответствующие одному биржевому событию.
-  virtual void event_end_update() {
-    /* написать свою реализацию здесь */
-  }
-  
-  /* Следующие 2 метода актуальны только при наличии сигнального инструмента.  */
-  
-  // Вызывается при получении новых сделок сигнального инструмента:
-  // @deals - вектор новых сделок.
-  virtual void signal_deals_update(const std::vector<Deal>& deals) {
-    /* написать свою реализацию здесь */
-  }
-  
-  // Вызывается при получении нового стакана сигнального инструмента:
-  // @order_book – новый стакан.
-  virtual void signal_book_update(const OrderBook& order_book) {
-    /* написать свою реализацию здесь */
-  }
 };
 ```
 
