@@ -1,16 +1,13 @@
 ##Установка зависимостей
-### [Linux](#linux)
-Для установки зависимостей на Linux платформах можно запустить скрипт *packages_linux.sh*:
+### [Ubuntu](#ubuntu)
+Для установки зависимостей на Ubuntu можно запустить скрипт *packages_ubuntu.sh*:
 ```
-./packages_linux.sh
+./packages_ubuntu.sh
 ```
 
 Скрипт устанавливает следующие пакеты:
-- Компилятор g++ 4.9 и выше:
-```
-sudo apt-get update
-sudo apt-get install g++-4.9
-```
+- Компилятор g++ 4.9,
+
 - [CMake](https://cmake.org/) 2.8.4 и выше:
 ```
 sudo apt-get install cmake
