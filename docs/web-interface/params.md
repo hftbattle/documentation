@@ -64,6 +64,8 @@ public:
 	int_param = config["int_param"].as<int>();
 	// Читаем вещественный параметр.
 	double_param = config["double_param"].as<double>();
+	// Читаем временной параметр.
+	time_param = config["time_param"].as<Microseconds>();
   }
   ...
 }
