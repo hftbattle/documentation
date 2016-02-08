@@ -13,13 +13,6 @@
 using namespace contest_platform;
 
 class UserStrategy : public ParticipantStrategy {
-private:
-  Microseconds last_reset_time_;
-  std::array<int, 2> deals_count_by_dir_;
-
-  int min_deals_count_diff_;
-  Milliseconds deals_reset_period_ms_;
-
 public:
   UserStrategy(JsonValue config)
   : last_reset_time_(0)
@@ -62,6 +55,13 @@ public:
       deals_count_by_dir_[ASK] = 0;
     }
   }
+  
+private:
+  Microseconds last_reset_time_;
+  std::array<int, 2> deals_count_by_dir_;
 
+  int min_deals_count_diff_;
+  Milliseconds deals_reset_period_ms_;
+  
 };
 ```
