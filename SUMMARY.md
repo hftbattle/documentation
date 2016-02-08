@@ -14,7 +14,6 @@
 * [Написание стратегий](docs/strategy/README.md)
    * [Общая структура стратегий](docs/strategy/structure.md)
    * [Примеры стратегий](docs/strategy/examples.md)
-       * [Stay on each direction](docs/strategy/examples/stay_on_each_dir.md)
        * [Deals count diff](docs/strategy/examples/deals_count_diff.md)
 * [Симулятор торгов](docs/simulator/README.md)
    * [Данные](docs/simulator/data.md)
