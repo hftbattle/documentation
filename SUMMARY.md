@@ -2,7 +2,7 @@
 
 * [Introduction](README.md)
 * [Интерфейс участника](docs/web-interface/README.md)
-   * Режимы посылок
+   * [Режимы посылок](./docs/web-interface/modes.md)
    * [Отправка стратегии](docs/web-interface/sending.md)
    * [Просмотр результатов](docs/web-interface/results.md)
    * [Сравнение стратегий](docs/web-interface/comparator.md)
