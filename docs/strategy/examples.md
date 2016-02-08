@@ -3,8 +3,8 @@
 Рассмотрим здесь несколько примеров торговых стратегий:
 
 * [Strategy template](#strategy_template)
-* [Stay on each direction strategy](#stay_on_each_dir)
-* [Deals count diff strategy](#deals_count_diff)
+* [Stay on each direction strategy](#stay_on_each_dir_strategy)
+* [Deals count diff strategy](#deals_count_diff_strategy)
 
 
 <a name="strategy_template"></a>
@@ -57,3 +57,6 @@ public:
     /* написать свою реализацию здесь */
   }
 ```
+
+<a name="stay_on_each_dir_strategy"></a>
+### Stay on each direction strategy
