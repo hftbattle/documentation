@@ -31,6 +31,7 @@ public:
 
 ### [Stay on each direction with gap strategy](#stay_on_each_dir_with_gap_strategy)
 Данная стратегия - модификация стратегии stay_on_each_dir_strategy. Здесь цена выставляемой заявки определяется как цена, отстоящая от лучшей цены на gap_from_best_price минимальных шагов цены. Параметр gap_from_best_price по умолчанию равен нулю, однако его значение можно поменять извне, передав в стратегию значение или список значений для gap_from_best_price (см. подробнее в разделе документации "Перебор параметров").
+
 ```cpp
 #include "strategy/participant_strategy_layer.h"
 
