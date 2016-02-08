@@ -38,9 +38,6 @@ public:
 using namespace contest_platform;
 
 class UserStrategy : public ParticipantStrategy {
-private:
-  int gap_from_best_price_;
-
 public:
   UserStrategy(JsonValue config) {
     gap_from_best_price_ = config["gap_from_best_price"].as<int>(0);
@@ -62,7 +59,10 @@ public:
       }
     }
   }
-
+  
+private:
+  int gap_from_best_price_;
+  
 };
 
 ```
