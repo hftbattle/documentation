@@ -8,7 +8,7 @@
     * [Gap version](#stay_on_each_dir_with_gap)
 * [Deals count diff](#deals_count_diff)
     * [Base version](#deals_count_diff_base)
-    * [With limit](#deals_count_diff_with_limit)
+    * [Limit version](#deals_count_diff_with_limit)
 
 <a name="strategy_template"></a>
 ### Strategy template
