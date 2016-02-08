@@ -2,6 +2,8 @@
 
 Рассмотрим здесь несколько примеров торговых стратегий:
 
-* [Strategy template](./examples/strategy_template.md)
-* [Stay on each direction strategy](./examples/stay_on_each_dir.md)
-* [Deals count diff strategy](./examples/deals_count_diff.md)
+* [Strategy template](#strategy_template)
+* [Stay on each direction strategy](#stay_on_each_dir)
+* [Deals count diff strategy](#deals_count_diff)
+
+
