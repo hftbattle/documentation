@@ -3,10 +3,10 @@
 Рассмотрим здесь несколько примеров торговых стратегий:
 
 * [Strategy template](#strategy_template)
-* [Stay on each direction](#stay_on_each_dir)
+* [Stay on each direction strategy](#stay_on_each_dir)
     * [Base](#stay_on_each_dir_base)
     * [Gap](#stay_on_each_dir_with_gap)
-* [Deals count diff](#deals_count_diff)
+* [Deals count diff strategy](#deals_count_diff)
     * [Base](#deals_count_diff_base)
     * [Limit](#deals_count_diff_with_limit)
 
@@ -61,7 +61,7 @@ public:
   }
 ```
 
-<a name="stay_on_each_dir_strategy"></a>
+<a name="stay_on_each_dir"></a>
 ### Stay on each direction strategy
 
 Данная стратегия состоит в том, чтобы поддерживать на каждом направлении (*BID* и *ASK*) по одной нашей заявке. В случае, если на направлении нет наших активных заявок, она ставит заявку объемом 1 на лучшую в данный момент цену по этому направлению.
