@@ -52,10 +52,12 @@
 ####Чтение параметров из стратегии
 Все переданные стратегии параметры можно извлечь из конфига, передаваемого в конструктор стратегии пользователя *UserStrategy*. Параметры конфига приводятся к нужному типу с помощью метода `as<type>()`. Пример:
 ```cpp
-struct UserStrategy : public ParticipantStrategy {
+class UserStrategy : public ParticipantStrategy {
+public:
   // Параметры стратегии, которые хочется подобрать.
   int int_param;
   double double_param;
+  Microseconds time_param;
   
   UserStrategy(JsonValue config) {
 	// Читаем целочисленный параметр.
