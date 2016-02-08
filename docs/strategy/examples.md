@@ -4,6 +4,7 @@
 
 * [Strategy template](#strategy_template)
 * [Stay on each direction strategy](#stay_on_each_dir_strategy)
+* [Stay on each direction with gap strategy](#stay_on_each_dir_strategy)
 * [Deals count diff strategy](#deals_count_diff_strategy)
 
 
