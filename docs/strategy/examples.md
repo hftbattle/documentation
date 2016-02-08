@@ -4,11 +4,11 @@
 
 * [Strategy template](#strategy_template)
 * [Stay on each direction](#stay_on_each_dir)
-    * [Base version](#stay_on_each_dir_base)
-    * [Gap version](#stay_on_each_dir_with_gap)
+    * [Base](#stay_on_each_dir_base)
+    * [Gap](#stay_on_each_dir_with_gap)
 * [Deals count diff](#deals_count_diff)
-    * [Base version](#deals_count_diff_base)
-    * [Limit version](#deals_count_diff_with_limit)
+    * [Base](#deals_count_diff_base)
+    * [Limit](#deals_count_diff_with_limit)
 
 <a name="strategy_template"></a>
 ### Strategy template
