@@ -3,11 +3,12 @@
 Рассмотрим здесь несколько примеров торговых стратегий:
 
 * [Strategy template](#strategy_template)
-* [Stay on each direction strategy](#stay_on_each_dir_strategy)
-    
-* [Stay on each direction with gap strategy](#stay_on_each_dir_strategy)
-* [Deals count diff strategy](#deals_count_diff_strategy)
-
+* [Stay on each direction](#stay_on_each_dir)
+    * [Base](#stay_on_each_dir_base)
+    * [With gap](#stay_on_each_dir_with_gap)
+* [Deals count diff](#deals_count_diff)
+    * [Base](#deals_count_diff_base)
+    * [With limit](#deals_count_diff_with_limit)
 
 <a name="strategy_template"></a>
 ### Strategy template
