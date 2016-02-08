@@ -3,7 +3,6 @@
 * [Introduction](README.md)
 * [Интерфейс участника](docs/web-interface/README.md)
    * [Отправка стратегии](docs/web-interface/sending.md)
-       * abc
    * [Просмотр результатов](docs/web-interface/results.md)
    * [Сравнение стратегий](docs/web-interface/comparator.md)
    * [Перебор параметров](docs/web-interface/params.md)
