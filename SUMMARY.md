@@ -2,11 +2,11 @@
 
 * [Introduction](README.md)
 * [Интерфейс участника](docs/web-interface/README.md)
+   * Режимы посылок
    * [Отправка стратегии](docs/web-interface/sending.md)
    * [Просмотр результатов](docs/web-interface/results.md)
    * [Сравнение стратегий](docs/web-interface/comparator.md)
    * [Перебор параметров](docs/web-interface/params.md)
-   * Режимы посылок
 * [Пакет для локальной разработки](docs/local-pack/README.md)
    * [Установка зависимостей](docs/local-pack/requirements.md)
    * [Данные для симуляции](docs/local-pack/data.md)
