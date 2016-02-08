@@ -208,6 +208,7 @@ private:
 #include "strategy/participant_strategy_layer.h"
 
 using namespace contest_platform;
+
 class UserStrategy : public ParticipantStrategy {
 public:
   UserStrategy(JsonValue config)
