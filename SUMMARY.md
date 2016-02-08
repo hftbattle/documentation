@@ -5,7 +5,7 @@
    * [Режимы посылок](docs/web-interface/modes.md)
    * [Отправка стратегии](docs/web-interface/sending.md)
    * [Просмотр результатов](docs/web-interface/results.md)
-   * Потоки вывода
+   * [Потоки вывода](./docs/web-interface/output.md)
    * [Перебор параметров](docs/web-interface/params.md)
 * [Пакет для локальной разработки](docs/local-pack/README.md)
    * [Установка зависимостей](docs/local-pack/requirements.md)
