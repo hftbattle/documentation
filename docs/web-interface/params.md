@@ -61,11 +61,11 @@ public:
   
   UserStrategy(JsonValue config) {
 	// Читаем целочисленный параметр.
-	int_param = config["int_param"].as<int>();
+	int_param = config["int_param"].as<int>(0);
 	// Читаем вещественный параметр.
-	double_param = config["double_param"].as<double>();
+	double_param = config["double_param"].as<double>(0.);
 	// Читаем временной параметр.
-	time_param = config["time_param"].as<Microseconds>();
+	time_param = config["time_param"].as<Microseconds>(0us);
   }
   ...
 }
