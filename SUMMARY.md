@@ -15,6 +15,7 @@
    * [Общая структура стратегий](docs/strategy/structure.md)
    * [Примеры стратегий](docs/strategy/examples.md)
        * [Stay on each direction](docs/strategy/examples/stay_on_each_dir_strategy.md)
+       * Strategy template
 * [Симулятор торгов](docs/simulator/README.md)
    * [Данные](docs/simulator/data.md)
    * [Особенности симулятора](docs/simulator/features.md)
