@@ -13,7 +13,6 @@
    * [Компиляция и запуск стратегии](local-pack/run.md)
 * [Написание стратегий](strategy/README.md)
    * [Общая структура стратегий](strategy/structure.md)
-   * [Примеры стратегий](strategy/examples.md)
 * [Симулятор торгов](simulator/README.md)
    * [Данные](simulator/data.md)
 * [Viewer](viewer/README.md)
