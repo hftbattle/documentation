@@ -5,8 +5,8 @@
         "contest.landing-page.url": "http://hftbattle.com",
         "contest.landing-page.name": "hftbattle.com",
         
-        "contest.docs.url": "https://hftbattle.com/reference",
-        "contest.docs.name": "hftbattle.com/reference",
+        "contest.docs.url": "http://docs.hftbattle.com",
+        "contest.docs.name": "docs.hftbattle.com",
         
         "contest.support.email": "help@hftbattle.com",
         "contest.support.slack.url": "https://slack.hftbattle.com",
@@ -14,8 +14,8 @@
         
         "contest.local-pack.name": "github.com/hftbattle/local_pack",
         "contest.local-pack.url": "https://github.com/hftbattle/local_pack",
-        "contest.local-pack.readme": "https://github.com/hftbattle/local_pack/blob/master/README.txt",
-        "contest.local-pack.data.url": "https://www.dropbox.com/s/v2u6r129hrit219/data.zip",
+        "contest.local-pack.readme": "https://github.com/hftbattle/local_pack/blob/master/README.md",
+        "contest.local-pack.data.url": "https://www.dropbox.com/s/s1uxgs3vj3tgvr7/data.zip",
         
         "viewer.url": "http://viewer.hftbattle.com",
         "viewer.name": "viewer.hftbattle.com",
