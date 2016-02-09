@@ -23,7 +23,7 @@
 
 <a name = "user_strategy"></a>
 #### Класс-шаблон UserStrategy
-Рассмотрим класс-шаблон **UserStrategy**, предназначенный для написания стратегий. Он наследует от класса-интерфейса [ParticipantStrategy](../ap/ParticipantStrategy.md), где объявлено 6 виртуальных функций, которые вы можете реализовать в своей стратегии.
+Рассмотрим класс-шаблон **UserStrategy**, предназначенный для написания стратегий. Он наследует от класса-интерфейса [ParticipantStrategy](../api/ParticipantStrategy.md), где объявлено 6 виртуальных функций, которые вы можете реализовать в своей стратегии.
 
 Для стратегий, торгующих на одном инструменте:
 ```cpp
@@ -77,7 +77,7 @@ public:
 
 <a name="book_update"></a>
 #### Обновление стаканов
-При торговле на бирже постоянно происходят какие-то события в [стаканах](../glossary.md#order_book) инструментов. Для информирования стратегии о произошедших изменениях используются функции [trading_book_update](../ap/ParticipantStrategy.md#trading_book_update) и [signal_book_update](../ap/ParticipantStrategy.md#signal_book_update). Они принимают на вход ссылку на элемент типа [OrderBook](../ap/OrderBook.md), который является новой версией стакана для торгового и сигнального инструментов соответственно.
+При торговле на бирже постоянно происходят какие-то события в [стаканах](../glossary.md#order_book) инструментов. Для информирования стратегии о произошедших изменениях используются функции [trading_book_update](../api/ParticipantStrategy.md#trading_book_update) и [signal_book_update](../api/ParticipantStrategy.md#signal_book_update). Они принимают на вход ссылку на элемент типа [OrderBook](../api/OrderBook.md), который является новой версией стакана для торгового и сигнального инструментов соответственно.
 
 >**Замечание 1**: в [ParticipantStrategy](../api/ParticipantStrategy.md) есть поле [trading_book](../api/ParticipantStrategy.md#trading_book) – указатель на актуальный торговый стакан, и поле [trading_book_snapshot](../api/ParticipantStrategy.md#trading_book_snapshot) – умный указатель на структуру, содержащую этот стакан. Если в вашей стратегии вы явно не сохраните копию [trading_book_snapshot](../api/ParticipantStrategy.md#trading_book_snapshot), то при следующем вызове [trading_book_update](../api/ParticipantStrategy.md#trading_book_update) поля [trading_book](../api/ParticipantStrategy.md#trading_book) и [trading_book_snapshot](../api/ParticipantStrategy.md#trading_book_snapshot) обновятся, и предыдущий актуальный стакан будет недоступен (потому что на предыдущий стакан останется 0 активных ссылок). Для [signal_book_snapshot](../api/ParticipantStrategy.md#signal_book_snapshot) все аналогично.
 
