@@ -5,7 +5,7 @@
 ./packages_ubuntu.sh
 ```
 
-Скрипт устанавливает следующие пакеты:
+Скрипт устанавливает:
 - Компилятор g++ 4.9,
 
 - [CMake](https://cmake.org/) 2.8.4 и выше:
@@ -19,7 +19,7 @@ sudo apt-get install cmake
 ./packages_mac.sh
 ```
 
-Скрипт устанавливает следующие пакеты:
+Скрипт устанавливает:
 - Компилятор Apple LLVM 6.0 и выше (подробное описание процедуру установки [здесь](http://osxdaily.com/2014/02/12/install-command-line-tools-mac-os-x/)):
 ```
 xcode-select --install
@@ -34,7 +34,8 @@ brew install cmake
 ```
 
 ### [Windows](#windows)
-- Компилятор [MinGW-w64](http://sourceforge.net/projects/mingw-w64/) версии 4.9 и выше:
+Для запуска под Windows необходимо иметь:
+- Компилятор [MinGW-w64 4.9](http://sourceforge.net/projects/mingw-w64/) и выше:
 
 Необходимо установить скачанный компилятор с настройками:
 ```
