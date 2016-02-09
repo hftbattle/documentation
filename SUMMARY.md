@@ -6,7 +6,7 @@
    * [Отправка стратегии](web-interface/sending.md)
    * [Анализ результатов](web-interface/results.md)
    * [Потоки вывода](web-interface/output.md)
-   * [Перебор параметров](web-interface/params.md)
+   * [Перебор параметров](interface/params.md)
 * [Пакет для локальной разработки](local-pack/README.md)
    * [Установка зависимостей](local-pack/requirements.md)
    * [Данные для симуляции](local-pack/data.md)
