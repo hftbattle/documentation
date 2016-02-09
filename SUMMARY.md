@@ -16,7 +16,7 @@
    * [Примеры стратегий](strategy/examples.md)
 * [Симулятор торгов](simulator/README.md)
 * [Viewer](viewer/README.md)
-* [Словарь терминов](glossary.md)
+* [Словарь терминов](terms.md)
 * [FAQ](FAQ.md)
 * [API](api/README.md)
    * [ContestBookInfo](api/ContestBookInfo.md)
