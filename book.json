@@ -20,6 +20,6 @@
         "viewer.url": "http://viewer.hftbattle.com",
         "viewer.name": "viewer.hftbattle.com",
         
-        "cme.wiki.url": "https://en.wikipedia.org/wiki/Чикагская_товарная_биржа"
+        "wiki.cme.url": "https://en.wikipedia.org/wiki/Чикагская_товарная_биржа"
     }
 }
