@@ -16,7 +16,6 @@
    * [Примеры стратегий](docs/strategy/examples.md)
 * [Симулятор торгов](docs/simulator/README.md)
    * [Данные](docs/simulator/data.md)
-   * [Особенности симулятора](docs/simulator/features.md)
 * [Viewer](docs/viewer/README.md)
 * [Словарь терминов](docs/glossary.md)
 * [FAQ](docs/FAQ.md)
