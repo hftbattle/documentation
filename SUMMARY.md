@@ -1,7 +1,7 @@
 # Summary
 
 * [Introduction](README.md)
-* [Интерфейс участника](web-interface/README.md)
+* [Интерфейс участника](interface/README.md)
    * [Режимы посылок](interface/modes.md)
    * [Отправка стратегии](interface/sending.md)
    * [Анализ результатов](interface/results.md)
