@@ -2,8 +2,8 @@
     "variables": {
         "contest.name": "HFT Battle 2016",
         
-        "contest.landing-page.url": "http://hftbattle.com",
-        "contest.landing-page.name": "hftbattle.com",
+        "contest.landing-page.url": "https://arena.hftbattle.com",
+        "contest.landing-page.name": "arena.hftbattle.com",
         
         "contest.docs.url": "http://docs.hftbattle.com",
         "contest.docs.name": "docs.hftbattle.com",
