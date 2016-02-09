@@ -15,7 +15,5 @@ git clone https://github.com/hftbattle/local_pack.git
 - Прочитайте документацию: вам помогут разделы [Написание стратегий](strategy/README.md), [Симулятор торгов](simulator/README.md), а также [Словарь терминов](glossary.md) и [FAQ](FAQ.md).
 - Можете приступать к написанию своей стратегии!
 
-{% include "./general/rules.md" %}
-
 # Вопросы и поддержка
 Свои вопросы вы можете задавать, написав нам на почту {{ book["contest.support.email"] }}.
