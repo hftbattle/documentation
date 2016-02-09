@@ -15,7 +15,6 @@
    * [Общая структура стратегий](strategy/structure.md)
    * [Примеры стратегий](strategy/examples.md)
 * [Симулятор торгов](simulator/README.md)
-   * [Данные](simulator/data.md)
 * [Viewer](viewer/README.md)
 * [Словарь терминов](glossary.md)
 * [FAQ](FAQ.md)
