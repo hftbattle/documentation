@@ -3,7 +3,7 @@
 * [Introduction](README.md)
 * [Интерфейс участника](web-interface/README.md)
    * [Режимы посылок](web-interface/modes.md)
-   * [Отправка стратегии](web-interface/sending.md)
+   * [Отправка стратегии](interface/sending.md)
    * [Анализ результатов](interface/results.md)
    * [Потоки вывода](interface/output.md)
    * [Перебор параметров](interface/params.md)
