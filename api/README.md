@@ -11,4 +11,4 @@
 * [Quote](Quote.md)
 * [SecurityOrdersSnapshot](SecurityOrdersSnapshot.md)
 
-{% import "./api/ContestBookInfo.md" %}
+{% include "./api/ContestBookInfo.md" %}
