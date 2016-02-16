@@ -16,7 +16,8 @@
 * [Price](#price)
 * [Amount](#amount)
 
--------
+Далее опишем каждый тип подробнее.
+
 <a name="dir"></a>
 #### Dir
 Enum, отвечающий за направление заявки:
@@ -29,20 +30,32 @@ enum Dir : uint8_t {
     UNKNOWN = 3
 };
 ```
-Пример использования:
+Пример:
 ```cpp
-for (Dir dir : { BID, ASK}) {
-    Dir opposite_dir = opposite_dir(dir);  // BID -> ASK, ASK -> BID
-    int32_t dir_sign = dir_sign(dir);  // BID = 1, ASK = -1.
+for (const auto& dir : { BID, ASK } ) {
+    Dir opposite_dir = twix::opposite_dir(dir);  // BID -> ASK, ASK -> BID
+    int32_t dir_sign = twix::dir_sign(dir);  // BID = 1, ASK = -1.
     // ...
 }
 ```
-----------
+
+
 <a name="price"></a>
 ####Price
 Класс, хранящий вещественные числа с точностью 7 знаков после запятой и отвечающий за цену заявок.
-----------
+> Замечание: цена в симуляторе традиционно хранится в пунктах. 1 пункт = 0.5$.
+
+
+Пример:
+```cpp
+for (const auto& dir : { BID, ASK } ) {
+    Price best_price = order_book.best_price(dir);
+    Price min_step = trading_book_info.min_step();
+    Price second_price = best_price - twix::dir_sign(dir) * min_step;
+    std::cout << dir << ": best = " << best_price << ", second = " << second_price << std::endl;
+}
+```
 
 <a name="Amount"></a>
-int32_t, отвечающий за объем заявок.
-----------
+#### Amount
+*int32_t*, отвечающий за объем заявок.
