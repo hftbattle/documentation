@@ -26,5 +26,5 @@
    * [Order](api/Order.md)
    * [OrderBook](api/OrderBook.md)
    * [ParticipantStrategy](api/ParticipantStrategy.md)
-   * Quote
+   * [Quote](api/Quote.md)
 
