@@ -22,7 +22,6 @@
 * [Словарь терминов](terms.md)
 * [FAQ](FAQ.md)
 * [API](api/README.md)
-   * [ContestBookInfo](api/ContestBookInfo.md)
    * [Deal](api/Deal.md)
    * [Order](api/Order.md)
    * [OrderBook](api/OrderBook.md)
