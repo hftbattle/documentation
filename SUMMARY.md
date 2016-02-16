@@ -9,7 +9,6 @@
        * [Графики](interface/analysis/charts.md)
        * [Viewer](interface/analysis/viewer.md)
        * [Потоки вывода](interface/analysis/output_streams.md)
-   * [Потоки вывода](interface/output.md)
    * [Перебор параметров](interface/params.md)
 * [Пакет для локальной разработки](local-pack/README.md)
    * [Установка зависимостей](local-pack/requirements.md)
