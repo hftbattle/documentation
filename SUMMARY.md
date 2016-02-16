@@ -22,5 +22,4 @@
 * [Словарь терминов](terms.md)
 * [FAQ](FAQ.md)
 * [API](api/README.md)
-   * [SecurityOrdersSnapshot](api/SecurityOrdersSnapshot.md)
 
