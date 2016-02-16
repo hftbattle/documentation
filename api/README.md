@@ -59,3 +59,13 @@ for (const auto& dir : { BID, ASK } ) {
 <a name="Amount"></a>
 #### Amount
 Объем заявок, выраженный в количестве лотов. По сути это *int32_t*.
+
+Пример:
+```cpp
+for (const auto& dir : { BID, ASK } ) {
+    Amount best_volume = order_book.best_volume(dir);
+    Amount second_volume = order_book.get_volume_by_index(dir, 1);
+    std::cout << "best_volume: " << best_volume << ", second_volume: " << second_volume << std::endl;
+    // ...
+}
+```
