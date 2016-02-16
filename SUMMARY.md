@@ -23,5 +23,5 @@
 * [API](api/README.md)
    * [ContestBookInfo](api/ContestBookInfo.md)
    * [Deal](api/Deal.md)
-   * Order
+   * [Order](api/Order.md)
 
