@@ -4,7 +4,7 @@
 void add_chart_point(const std::string& line_name, 
                      double value, 
                      ChartYAxisType y_axis_type, 
-                     int8_t chart_number)
+                     uint8_t chart_number)
 ```
 - *line_name* - имя оси, отображается в легенде,
 - *value* - вещественное значение,
