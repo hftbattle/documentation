@@ -1,7 +1,7 @@
-<a name="common_result"></a>
-
+## 
 * [Общий результат](#common_result)
-
+* [Результаты по дням](#results_by_day)
+* [Статистика по дням](#stats_by_day)
 
 <a name="common_result"></a>
 ####Общий результат
