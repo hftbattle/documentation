@@ -6,6 +6,7 @@
    * [Отправка стратегии](interface/sending.md)
    * [Анализ результатов](interface/results.md)
        * Общий результат
+       * Результаты по дням
    * [Потоки вывода](interface/output.md)
    * [Перебор параметров](interface/params.md)
 * [Пакет для локальной разработки](local-pack/README.md)
