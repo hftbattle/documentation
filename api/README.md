@@ -46,13 +46,15 @@ for (const auto& dir : { BID, ASK } ) {
 > Замечание: цена в симуляторе традиционно хранится в пунктах: 1 пункт = 0.5$. 
 Все операции с ценами производятся в пунктах, в то время как результат стратегии считается в долларах.
 
-Пример:
+Рассмотрим пример, получающий лучшую и вторую после лучшей цены по каждому направлению:
 ```cpp
-for (const auto& dir : { BID, ASK } ) {
-    Price best_price = order_book.best_price(dir);
-    Price min_step = trading_book_info.min_step();
-    Price second_price = best_price - twix::dir_sign(dir) * min_step;
-    std::cout << dir << ": best = " << best_price << ", second = " << second_price << std::endl;
+void trading_book_update(const OrderBook& order_book) override {
+    for (const auto& dir : { BID, ASK } ) {
+        Price best_price = order_book.best_price(dir);
+        Price min_step = trading_book_info.min_step();
+        Price second_price = best_price - twix::dir_sign(dir) * min_step;
+        std::cout << dir << ": best = " << best_price << ", second = " << second_price << std::endl;
+    }
 }
 ```
 
@@ -60,7 +62,7 @@ for (const auto& dir : { BID, ASK } ) {
 #### Amount
 Объем заявок, выраженный в количестве лотов. По сути это *int32_t*.
 
-Пример:
+Рассмотрим пример, получающий объем на лучшей и второй после лучшей цены по каждому направлению:
 ```cpp
 for (const auto& dir : { BID, ASK } ) {
     Amount best_volume = order_book.best_volume(dir);
