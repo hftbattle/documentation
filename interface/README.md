@@ -10,5 +10,4 @@
     - [Графики](analysis/charts.md)
     - [Viewer](analysis/viewer.md)
     - [Логи](analysis/logs.md)
-  - [Потоки вывода](output.md)
   - [Перебор параметров](params.md)
