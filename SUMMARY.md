@@ -27,5 +27,5 @@
    * [OrderBook](api/OrderBook.md)
    * [ParticipantStrategy](api/ParticipantStrategy.md)
    * [Quote](api/Quote.md)
-   * SecurityOrdersSnapshot
+   * [SecurityOrdersSnapshot](api/SecurityOrdersSnapshot.md)
 
