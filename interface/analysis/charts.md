@@ -38,7 +38,6 @@ public:
         best_price_by_dir[dir] = order_book.best_price(dir);
       }
     }
-
   }
 
 };
