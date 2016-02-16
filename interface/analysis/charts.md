@@ -7,7 +7,9 @@ void add_chart_point(const std::string& line_name,
                      int8_t chart_number)
 ```
 - *line_name* - имя оси, отображается в легенде,
-- 
+- *value* - вещественное значение,
+- *y_axis_type* - вертикальная ось: ChartYAxisType::Left или ChartYAxisType::Right,
+- *chart_number* - номер графика (0 - график по умолчанию с результатом и позой, 1 и более - ваши собственные графики).
 
 Например, стратегия, "рисующая" график лучшей цены выглядит так:
 ```c++
