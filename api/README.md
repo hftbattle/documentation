@@ -13,14 +13,24 @@
 
 ## Типы данных
 
-- *Dir* - направление заявки. 
-- Принимает значения: *BID* (или *BUY*) и *ASK* (или *SELL*). Пример:
+- *Dir* - enum, отвечающий за направление заявки:
+```cpp
+enum Dir : uint8_t {
+    BUY = 0,
+    BID = 0,
+    SELL = 1,
+    ASK = 1,
+    UNKNOWN = 3
+};
+```
+Пример использования:
 ```cpp
 for (Dir dir : { BID, ASK}) {
-    Dir opposite_dir = opposite_dir(dir);
+    Dir opposite_dir = opposite_dir(dir);  // BID -> ASK, ASK -> BID
+    int32_t dir_sign = dir_sign(dir);  // BID = 1, ASK = -1.
     // ...
 }
 ```
-- *Price* - цена
+- *Price* - класс, хранящий вещественные числа с точностью 7 знаков после запятой. Отвечает за цену заявок.
 - *Amount* - объем
 - 
