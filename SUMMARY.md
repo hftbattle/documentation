@@ -3,7 +3,7 @@
 * [Introduction](README.md)
 * [Интерфейс участника](interface/README.md)
    * [Режимы посылок](interface/modes.md)
-   * [Отправка стратегии](interface/sending.md)
+   * [Отправка стратегии](interface/submit.md)
    * [Анализ результатов](interface/results.md)
        * Общий результат
        * Результаты по дням
