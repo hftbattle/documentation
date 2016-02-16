@@ -13,7 +13,7 @@
 |[best_price(Dir dir)](#best_price)|Лучшая цена в стакане по направлению *dir*.|
 |[best_volume(Dir dir)](#best_volume)|Суммарный объем лотов на лучшей цене по направлению *dir*.|
 |[executed_amount()](#executed_amount)|Наша текущая позиция.|
-|[statistics_.total_amount()](#statistics_.total_amount)|Наша общая позиция: учитывается как реальная позиция на руках, так и предполагаемая.|
+|[total_amount()](#total_amount)|Наша общая позиция: учитывается как реальная позиция на руках, так и предполагаемая.|
 |[orders()](#orders)|Ссылка на структуру, содержащая наши текущие заявки.|
 |[middle_price()](#middle_price)|Полусумма лучших цен.|
 |[min_step()](#min_step)|Минимальный шаг цены в стакане (минимальная возможная разница между ценами).|
@@ -45,8 +45,8 @@ Amount executed_amount() const;
 ```
 Наша текущая позиция.
 
-<a name="statistics_.total_amount"></a>
-####statistics_.total_amount()
+<a name="total_amount"></a>
+####total_amount()
 ```c++
 Amount total_amount() const;
 ```
