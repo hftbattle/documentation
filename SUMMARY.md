@@ -7,7 +7,7 @@
    * [Анализ результатов](interface/results.md)
        * [Статистика](interface/analysis/stats.md)
        * [Графики](interface/analysis/charts.md)
-       * Viewer
+       * [Viewer](interface/analysis/viewer.md)
        * [Потоки вывода](interface/analysis/output_streams.md)
    * [Потоки вывода](interface/output.md)
    * [Перебор параметров](interface/params.md)
