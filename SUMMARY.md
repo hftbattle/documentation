@@ -22,5 +22,5 @@
 * [FAQ](FAQ.md)
 * [API](api/README.md)
    * [ContestBookInfo](api/ContestBookInfo.md)
-   * Deal
+   * [Deal](api/Deal.md)
 
