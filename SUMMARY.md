@@ -21,5 +21,5 @@
 * [Словарь терминов](terms.md)
 * [FAQ](FAQ.md)
 * [API](api/README.md)
-   * [ContestBookInfo](ContestBookInfo.md)
+   * [ContestBookInfo](api/ContestBookInfo.md)
 
