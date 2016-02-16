@@ -9,6 +9,6 @@
     - [Статистика](analysis/stats.md)
     - [Графики](analysis/charts.md)
     - [Viewer](analysis/viewer.md)
-    - [Логи]([Графики](analysis/charts.md))
+    - [Логи](analysis/logs.md)
   - [Потоки вывода](output.md)
   - [Перебор параметров](params.md)
