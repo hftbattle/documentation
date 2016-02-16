@@ -9,6 +9,7 @@
        * Результаты по дням
        * Потоки вывода
        * Графики
+       * Viewer
    * [Потоки вывода](interface/output.md)
    * [Перебор параметров](interface/params.md)
 * [Пакет для локальной разработки](local-pack/README.md)
