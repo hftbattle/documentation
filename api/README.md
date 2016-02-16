@@ -11,4 +11,4 @@
 * [Quote](Quote.md)
 * [SecurityOrdersSnapshot](SecurityOrdersSnapshot.md)
 
-{% include "api/ContestBookInfo.md" %}
+{% include "ContestBookInfo.md" %}
