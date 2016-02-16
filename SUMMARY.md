@@ -5,7 +5,7 @@
    * [Режимы посылок](interface/modes.md)
    * [Отправка стратегии](interface/submit.md)
    * [Анализ результатов](interface/results.md)
-       * Общий результат
+       * [Общий результат](interface/analysis/common_results.md)
        * Результаты по дням
        * Потоки вывода
        * Графики
