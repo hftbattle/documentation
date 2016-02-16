@@ -6,7 +6,6 @@
    * [Отправка стратегии](interface/submit.md)
    * [Анализ результатов](interface/results.md)
        * [Общий результат](interface/analysis/common_results.md)
-       * [Результаты по дням](interface/analysis/results_by_day.md)
        * Потоки вывода
        * Графики
        * Viewer
