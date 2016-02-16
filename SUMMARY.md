@@ -8,7 +8,7 @@
        * [Статистика](interface/analysis/stats.md)
        * [Графики](interface/analysis/charts.md)
        * Viewer
-       * Потоки вывода
+       * [Потоки вывода](interface/analysis/output_streams.md)
    * [Потоки вывода](interface/output.md)
    * [Перебор параметров](interface/params.md)
 * [Пакет для локальной разработки](local-pack/README.md)
