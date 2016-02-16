@@ -100,7 +100,7 @@ bool add_limit_order(Dir dir, Price price, Amount amount);
 Выставляет нашу лимитную заявку:
 - *dir* - направление (BID = 0 - покупка, ASK = 1 - продажа),
 - *price* - цена, по которой заявка будет выставлена,
-- *amount* - размер заявки,
+- *amount* - размер заявки.
 
 <a name="add_ioc_order"></a>
 ####add_ioc_order()
@@ -110,7 +110,7 @@ bool add_ioc_order(Dir dir, Price price, Amount amount);
 Выставляет нашу заявку типа Immediate-Or-Cancel (IOC):
 - *dir* - направление (BID = 0 - покупка, ASK = 1 - продажа),
 - *price* - цена, по которой заявка будет выставлена,
-- *amount* - размер заявки,
+- *amount* - размер заявки.
 
 <a name="delete_order"></a>
 ####delete_order()
