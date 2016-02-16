@@ -4,7 +4,7 @@
 void add_chart_point(const std::string& line_name, 
                      double value, 
                      ChartYAxisType y_axis_type, 
-                     int8_t chart_number) {
+                     int8_t chart_number)
 ```
 Например, стратегия, "рисующая" график лучшей цены выглядит так:
 ```c++
