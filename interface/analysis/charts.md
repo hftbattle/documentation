@@ -11,7 +11,7 @@ void add_chart_point(const std::string& line_name,
 - *y_axis_type* - вертикальная ось: *ChartYAxisType::Left* или *ChartYAxisType::Right*,
 - *chart_number* - номер графика (0 - график по умолчанию с результатом и позой, 1 и более - ваши собственные графики).
 
-Например, стратегия, "рисующая" график лучшей цены выглядит так:
+Например, стратегия, "рисующая" график лучшей цены для BID-а и ASK-а выглядит так:
 ```c++
 #include "strategy/participant_strategy_layer.h"
 
