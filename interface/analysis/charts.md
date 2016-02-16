@@ -6,6 +6,9 @@ void add_chart_point(const std::string& line_name,
                      ChartYAxisType y_axis_type, 
                      int8_t chart_number)
 ```
+- *line_name* - имя оси, отображается в легенде,
+- 
+
 Например, стратегия, "рисующая" график лучшей цены выглядит так:
 ```c++
 #include "strategy/participant_strategy_layer.h"
