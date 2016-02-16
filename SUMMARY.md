@@ -5,6 +5,7 @@
    * [Режимы посылок](interface/modes.md)
    * [Отправка стратегии](interface/sending.md)
    * [Анализ результатов](interface/results.md)
+       * Общий результат
    * [Потоки вывода](interface/output.md)
    * [Перебор параметров](interface/params.md)
 * [Пакет для локальной разработки](local-pack/README.md)
