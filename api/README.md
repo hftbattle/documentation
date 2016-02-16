@@ -72,17 +72,6 @@ for (const auto& dir : { BID, ASK } ) {
 }
 ```
 
-<a name="SecurityId"></a>
-#### SecurityId
-Класс, отвечающий за хранение финансового инструмента.
-
-Пример: получим в конструкторе стратегии имя торгового инструмента:
-```cpp
-UserStrategy(JsonValue config) {
-    std::string symbol = trading_book_info.security_id()->symbol;
-    std::cout << "symbol: " << symbol << std::endl;
-}
-```
 
 
 
