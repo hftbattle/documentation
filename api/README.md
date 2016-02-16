@@ -65,7 +65,7 @@ void trading_book_update(const OrderBook& order_book) override {
 Рассмотрим пример, получающий объем на лучшей и второй после лучшей цены по каждому направлению:
 ```cpp
 for (const auto& dir : { BID, ASK } ) {
-    Amount best_volume = order_book.best_volume(dir);
+    Amount best_volume = order_book.get_volume_by_index(dir, 0);  // == order_book.best_volume(dir)
     Amount second_volume = order_book.get_volume_by_index(dir, 1);
     std::cout << "best_volume: " << best_volume << ", second_volume: " << second_volume << std::endl;
     // ...
