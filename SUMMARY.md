@@ -6,7 +6,7 @@
    * [Отправка стратегии](interface/submit.md)
    * [Анализ результатов](interface/results.md)
        * [Статистика](interface/analysis/stats.md)
-       * Графики
+       * [Графики](interface/analysis/charts.md)
        * Viewer
        * Потоки вывода
    * [Потоки вывода](interface/output.md)
