@@ -32,6 +32,7 @@ ParticipantStrategy - класс-интерфейс для написания п
 |[add_limit_order(Dir dir, Price price, Amount amount)](#add_limit_order)|Выставляет нашу лимитную заявку.|
 |[add_ioc_order(Dir dir, Price price, Amount amount)](#add_ioc_order)|Выставляет нашу заявку типа Immediate-Or-Cancel (IOC).|
 |[delete_order(Order* order)](#delete_order)|Снимает нашу заявку с торгов.|
+|[delete_all_orders_by_dir(Dir dir)](#delete_all_orders_by_dir)|Снимает все наши заявки с торгов по направлению *dir*.|
 |[get_amount_before_order(Order* order)](#get_amount_before_order)|Возвращает количество лотов, стоящих в очереди перед нашей заявкой.|
 |[get_current_result()](#get_current_result)|Возвращает текущий результат (заработок).|
 |[get_saldo()](#get_saldo)|Возвращает текущее сальдо, т.е. баланс без учета позы.|
@@ -119,6 +120,14 @@ void delete_order(Order* order);
 ```
 Снимает нашу заявку с торгов:
 - *order* - заявка, которую мы хотим снять.
+
+<a name="delete_all_orders_by_dir"></a>
+####delete_all_orders_by_dir()
+```c++
+void delete_all_orders_by_dir(Dir dir);
+```
+Снимает все наши заявки с торгов по направлению *dir*.
+- *dir* - направление (BID = 0 - покупка, ASK = 1 - продажа).
 
 <a name="get_amount_before_order"></a>
 ####get_amount_before_order()
