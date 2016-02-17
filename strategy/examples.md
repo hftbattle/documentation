@@ -141,15 +141,12 @@ public:
       auto our_orders = trading_book_info.orders();
       bool no_our_orders = (our_orders.active_orders_count(dir) == 0);
       bool our_order_on_best_price = !no_our_orders && our_orders.orders_by_dir[dir][0]->price == price;
-      // если заявка стоит, но не на лучшей цене - то сначала удаляем ее
       if (!no_our_orders && !our_order_on_best_price) {
         delete_order(our_orders.orders_by_dir[dir][0]);
       }
-      // если заявка стоит на лучшей цене, но объем на лучшей цене меньше min_amount_to_stay_on_best_ - то удаляем ее
       if (our_order_on_best_price && trading_book_info.best_volume(dir) < min_amount_to_stay_on_best_) {
         delete_order(our_orders.orders_by_dir[dir][0]);
       }
-      // если заявки на лучшей нет, и объем не меньше чем min_amount_to_stay_on_best_ - то выставляем заявку на лучшую цену
       if (!our_order_on_best_price && trading_book_info.best_volume(dir) >= min_amount_to_stay_on_best_) {
         const Amount amount = 1;
         add_limit_order(dir, price, amount);
