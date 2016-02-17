@@ -20,19 +20,19 @@ void trading_book_update(const OrderBook& order_book) override {
 }
 ```
 
-Однако в тот момент, когда у нас вызывается функция [event_end_update](../../api/ParticipantStrategy.md#event_end_update), наши заявки, поставленные в прошлых вызовах этой функции, всё еще могут быть не реализованы. В итоге, у нас может скопиться огромное количество заявок и мы превысим лимит на количество заявок в день. К счастью, у нас есть возможность посмотреть все наши активные заявки. Для этого используем структуру [trading_book_info
+Однако в тот момент, когда у нас вызывается функция [trading_book_update](../../api/ParticipantStrategy.md#trading_book_update), наши заявки, поставленные в прошлых вызовах этой функции, всё еще могут быть не исполнены. В итоге, у нас может скопиться огромное количество заявок и мы превысим лимит на количество заявок в день. К счастью, у нас есть возможность посмотреть все наши активные заявки. Для этого используем структуру [trading_book_info
 ](../../api/ParticipantStrategy.md#trading_book_info
-) типа [ContestBookInfo](../../api/ContestBookInfo.md), у которого есть метод [active_orders](../../api/ContestBookInfo.md#active_orders), возвращающий ссылку на структуру типа [SecurityOrdersSnapshot](../../api/SecurityOrdersSnapshot.md#):
+) типа [ContestBookInfo](../../api/ContestBookInfo.md), у которого есть метод [orders](../../api/ContestBookInfo.mв#orders), возвращающий ссылку на структуру типа [SecurityOrdersSnapshot](../../api/SecurityOrdersSnapshot.md#):
 
 ```cpp
-SecurityOrdersSnapshot& active_orders = trading_book_info
-.active_orders();
+SecurityOrdersSnapshot& our_orders = trading_book_info
+.orders();
 ```
 
-> Замечание 1: Определенная выше переменная `active_orders` содержит те заявки, которые мы уже отправили, но на которые еще не отправили запрос на удаление. Поэтому если для какой-то заявки будет вызван метод [delete_order](../../api/ParticipantStrategy.md#delete_order), то к следующему обновлению этой заявки в `active_orders` точно не будет (даже если она еще не успела удалиться). 
+> Замечание 1: Определенная выше переменная `orders` содержит те заявки, которые мы уже отправили, но на которые еще не отправили запрос на удаление. Поэтому если для какой-то заявки будет вызван метод [delete_order](../../api/ParticipantStrategy.md#delete_order), то к следующему обновлению этой заявки в `orders` точно не будет (даже если она еще не успела удалиться). 
 
 > Замечание 2: Обновление структуры [trading_book_info
-.active_orders()](../../api/ContestBookInfo.md#active_orders) происходит только между апдейтами, внутри апдейта она не меняется.
+.active_orders()](../../api/ContestBookInfo.md#orders) происходит только между апдейтами, внутри апдейта она не меняется.
 
 Разделим активные заявки по направлениям, используя поле [orders_by_dir](../../api/SecurityOrdersSnapshot.md#orders_by_dir) класса [SecurityOrdersSnapshot](../../api/SecurityOrdersSnapshot.md#):
 
