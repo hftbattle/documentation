@@ -10,7 +10,7 @@
 
 Так как мы хотим поддерживать наши заявки на лучшей цене, нам нужно уметь узнавать лучшую цену по направлению. Для этого есть функция [best_price](../../api/ContestBookInfo.md#best_price), принимающая на вход направление. 
 
-Будем выполнять все действия внутри функции [trading_book_update](../../api/ParticipantStrategy.md#trading_book_update), гарантируя тем самым, что биржевое событие полностью обработано:
+Будем выполнять все действия внутри функции [trading_book_update](../../api/ParticipantStrategy.md#trading_book_update), когда нам приходит новый стак
 
 ```cpp
 void trading_book_update(const OrderBook& order_book) override {
@@ -20,7 +20,7 @@ void trading_book_update(const OrderBook& order_book) override {
 }
 ```
 
-Однако в тот момент, когда у нас вызывается функция [trading_book_update](../../api/ParticipantStrategy.md#trading_book_update), наши заявки, поставленные в прошлых вызовах этой функции, всё еще могут быть не исполнены. В итоге, у нас может скопиться огромное количество заявок и мы превысим лимит на количество заявок в день. К счастью, у нас есть возможность посмотреть все наши активные заявки. Для этого используем структуру [trading_book_info
+Однако в тот момент, когда у нас вызывается функция [trading_book_update](../../api/ParticipantStrategy.md#trading_book_update), наши заявки, поставленные в прошлых вызовах этой функции, всё еще могут быть не исполнены. В итоге, у нас может скопиться огромное количество заявок и мы превысим лимит на количество заявок в день. К счаан:стью, у нас есть возможность посмотреть все наши активные заявки. Для этого используем структуру [trading_book_info
 ](../../api/ParticipantStrategy.md#trading_book_info
 ) типа [ContestBookInfo](../../api/ContestBookInfo.md), у которого есть метод [orders](../../api/ContestBookInfo.mв#orders), возвращающий ссылку на структуру типа [SecurityOrdersSnapshot](../../api/SecurityOrdersSnapshot.md#):
 
