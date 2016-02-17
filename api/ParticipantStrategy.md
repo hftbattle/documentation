@@ -119,7 +119,7 @@ bool add_ioc_order(Dir dir, Price price, Amount amount);
 void delete_order(Order* order);
 ```
 Снимает нашу заявку с торгов:
-- *order* - заявка, которую мы хотим снять!
+- *order* - заявка, которую мы хотим снять.
 
 <a name="delete_all_orders_by_dir"></a>
 ####delete_all_orders_by_dir()
