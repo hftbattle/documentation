@@ -2,9 +2,6 @@
 
 Рассмотрим здесь несколько примеров торговых стратегий:
 
-* [Stay on each direction strategy](#stay_on_each_dir)
-    * [Base](#stay_on_each_dir_base)
-    * [Gap](#stay_on_each_dir_with_gap)
 * [Stay on best price strategy](#stay_on_each_dir)
     * [Base](#stay_on_best_price)
     * [Improved](#stay_on_best_price_improved) 
@@ -12,75 +9,6 @@
     * [Base](#deals_count_diff_base)
     * [Limit](#deals_count_diff_with_limit)
 
-<a name="stay_on_each_dir"></a>
-#### Stay on each direction strategy
-
-Идея стратегии состоит в том, чтобы поддерживать на каждом направлении (*BID* и *ASK*) по одной нашей заявке. В случае, если на направлении нет наших активных заявок, она ставит заявку объемом 1 на определенную цену. 
-
-<a name="stay_on_each_dir_base"></a>
-Рассмотрим базовый вариант стратегии, когда заявка ставится на лучшую цену по данному направлению:
-
-```cpp
-#include "strategy/participant_strategy_layer.h"
-
-using namespace contest_platform;
-
-class UserStrategy : public ParticipantStrategy {
-public:
-  UserStrategy(JsonValue config) {}
-
-  // Вызывается при получении нового стакана торгового инструмента:
-  // @order_book – новый стакан.
-  void trading_book_update(const OrderBook& order_book) override {
-    for (Dir dir : {BID, ASK}) {
-      if (trading_book_info.orders().active_orders_count(dir) == 0) {
-        const Price price = trading_book_info.best_price(dir);
-        const Amount amount = 1;
-        add_limit_order(dir, price, amount);
-      }
-    }
-  }
-  
-};
-```
-
-<a name="stay_on_each_dir_with_gap"></a>
-Модифицируем предыдущую стратегию. Пусть цена выставляемой заявки определяется как цена, отстоящая от лучшей цены на *gap_from_best_price* минимальных шагов цены. Параметр *gap_from_best_price* по умолчанию равен нулю, однако его значение можно поменять извне, передав в стратегию значение или список значений. Подробнее в разделе [Перебор параметров](../interface/params.md).
-
-```cpp
-#include "strategy/participant_strategy_layer.h"
-
-using namespace contest_platform;
-
-class UserStrategy : public ParticipantStrategy {
-public:
-  UserStrategy(JsonValue config) {
-    gap_from_best_price_ = config["gap_from_best_price"].as<int>(0);
-    std::cout << "cout: gap_from_best_price_ = " << gap_from_best_price_ << std::endl;
-    INFO() << "info: gap_from_best_price_ = " << gap_from_best_price_;
-  }
-
-  // Вызывается при получении нового стакана торгового инструмента:
-  // @order_book – новый стакан.
-  void trading_book_update(const OrderBook& order_book) override {
-    for (Dir dir : {BID, ASK}) {
-      if (trading_book_info.orders().active_orders_count(dir) == 0) {
-        Price price_shift = dir_sign(dir) *
-                            gap_from_best_price_ *
-                            trading_book_info.min_step();
-        const Price price = trading_book_info.best_price(dir) - price_shift;
-        const Amount amount = 1;
-        add_limit_order(dir, price, amount);
-      }
-    }
-  }
-  
-private:
-  int gap_from_best_price_;
-  
-};
-
-```
 
 <a name="stay_on_best_price"></a>
 #### Stay on best price strategy
