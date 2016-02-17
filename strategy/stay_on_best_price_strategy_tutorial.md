@@ -10,10 +10,10 @@
 
 Так как мы хотим поддерживать наши заявки на лучшей цене, нам нужно уметь узнавать лучшую цену по направлению. Для этого есть функция [best_price](../../api/ContestBookInfo.md#best_price), принимающая на вход направление. 
 
-Будем выполнять все действия внутри функции [event_end_update](../../api/ParticipantStrategy.md#event_end_update), гарантируя тем самым, что биржевое событие полностью обработано:
+Будем выполнять все действия внутри функции [trading_book_update](../../api/ParticipantStrategy.md#trading_book_update), гарантируя тем самым, что биржевое событие полностью обработано:
 
 ```cpp
-void event_end_update() override {
+void trading_book_update() override {
 	for (Dir dir: {BID, ASK}) {
 		add_order(best_price(dir), 1, dir);
 	}
