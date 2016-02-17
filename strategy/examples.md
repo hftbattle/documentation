@@ -104,8 +104,10 @@ public:
       const Price price = trading_book_info.best_price(dir);
       auto our_orders = trading_book_info.orders();
       bool no_our_orders_on_price = (our_orders.active_orders_count(dir) == 0);
-      bool our_order_on_another_price = !no_our_orders_on_price && our_orders.orders_by_dir[dir][0]->price != price;
-      bool need_new_order_on_price = no_our_orders_on_price || our_order_on_another_price;
+      bool our_order_on_another_price = !no_our_orders_on_price && 
+        our_orders.orders_by_dir[dir][0]->price != price;
+      bool need_new_order_on_price = no_our_orders_on_price ||
+        our_order_on_another_price;
       if (need_new_order_on_price) {
         // если заявка стоит, но не на лучшей цене - то сначала удаляем ее
         if (our_order_on_another_price) {
@@ -140,14 +142,17 @@ public:
       const Price price = trading_book_info.best_price(dir);
       auto our_orders = trading_book_info.orders();
       bool no_our_orders = (our_orders.active_orders_count(dir) == 0);
-      bool our_order_on_best_price = !no_our_orders && our_orders.orders_by_dir[dir][0]->price == price;
+      bool our_order_on_best_price = !no_our_orders &&
+        our_orders.orders_by_dir[dir][0]->price == price;
       if (!no_our_orders && !our_order_on_best_price) {
         delete_order(our_orders.orders_by_dir[dir][0]);
       }
-      if (our_order_on_best_price && trading_book_info.best_volume(dir) < min_amount_to_stay_on_best_) {
+      if (our_order_on_best_price &&
+        trading_book_info.best_volume(dir) < min_amount_to_stay_on_best_) {
         delete_order(our_orders.orders_by_dir[dir][0]);
       }
-      if (!our_order_on_best_price && trading_book_info.best_volume(dir) >= min_amount_to_stay_on_best_) {
+      if (!our_order_on_best_price &&
+        trading_book_info.best_volume(dir) >= min_amount_to_stay_on_best_) {
         const Amount amount = 1;
         add_limit_order(dir, price, amount);
       }
