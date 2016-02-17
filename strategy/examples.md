@@ -120,7 +120,9 @@ public:
 };
 ```
 <a name="stay_on_best_price_improved"></a>
-Модифицируем предыдущую стратегию. Поскольку стратегия поддерживает только 1 заявку размером в 1 лот по каждому направлению, то свою позицию она меняет очень медленно. Для hft-стратегий очень важна возможность быстро вернуться к нулевой позиции, поэтому мы попробуем ограничить максимально допустимую открытую позицию. Для этого достаточно в конфиге задать поле "max_executed_amount" (напомним, что согласно правилам оно не может быть больше 50). Оптимальное значение можно подобрать, перебрав разные варианты в системе. Подробнее в разделе [Перебор параметров](../interface/params.md).
+Модифицируем предыдущую стратегию. Поскольку стратегия поддерживает только 1 заявку размером в 1 лот по каждому направлению, то свою позицию она меняет очень медленно. Для hft-стратегий очень важна возможность быстро вернуться к нулевой позиции, поэтому мы попробуем ограничить максимально допустимую открытую позицию. Для этого достаточно в конфиге задать поле *max\_executed\_amount* (напомним, что согласно правилам оно не может быть больше 50). Оптимальное значение можно подобрать, перебрав разные варианты в системе. Подробнее в разделе [Перебор параметров](../interface/params.md). 
+
+Также применим следующую простую оптимизацию: если на лучшей цене стоит объем меньший чем *min\_amount\_to\_stay\_on\_best\_*, то мы на нее выставляться не будем (и снимем заявку если уже там стоим).
 
 ```cpp
 #include "strategy/participant_strategy_layer.h"
@@ -130,29 +132,33 @@ using namespace contest_platform;
 class UserStrategy : public ParticipantStrategy {
 public:
   UserStrategy(JsonValue config) {
-    gap_from_best_price_ = config["gap_from_best_price"].as<int>(0);
-    std::cout << "cout: gap_from_best_price_ = " << gap_from_best_price_ << std::endl;
-    INFO() << "info: gap_from_best_price_ = " << gap_from_best_price_;
+    min_amount_to_stay_on_best_ = config["min_amount_to_stay_on_best_"].as<int>(10);
   }
 
-  // Вызывается при получении нового стакана торгового инструмента:
-  // @order_book – новый стакан.
   void trading_book_update(const OrderBook& order_book) override {
     for (Dir dir : {BID, ASK}) {
-      if (trading_book_info.orders().active_orders_count(dir) == 0) {
-        Price price_shift = dir_sign(dir) *
-                            gap_from_best_price_ *
-                            trading_book_info.min_step();
-        const Price price = trading_book_info.best_price(dir) - price_shift;
+      const Price price = trading_book_info.best_price(dir);
+      auto our_orders = trading_book_info.orders();
+      bool no_our_orders = (our_orders.active_orders_count(dir) == 0);
+      bool our_order_on_best_price = !no_our_orders && our_orders.orders_by_dir[dir][0]->price == price;
+      // если заявка стоит, но не на лучшей цене - то сначала удаляем ее
+      if (!no_our_orders && !our_order_on_best_price) {
+        delete_order(our_orders.orders_by_dir[dir][0]);
+      }
+      // если заявка стоит на лучшей цене, но объем на лучшей цене меньше min_amount_to_stay_on_best_ - то удаляем ее
+      if (our_order_on_best_price && trading_book_info.best_volume(dir) < min_amount_to_stay_on_best_) {
+        delete_order(our_orders.orders_by_dir[dir][0]);
+      }
+      // если заявки на лучшей нет, и объем не меньше чем min_amount_to_stay_on_best_ - то выставляем заявку на лучшую цену
+      if (!our_order_on_best_price && trading_book_info.best_volume(dir) >= min_amount_to_stay_on_best_) {
         const Amount amount = 1;
         add_limit_order(dir, price, amount);
       }
     }
   }
-  
+
 private:
-  int gap_from_best_price_;
-  
+  Amount min_amount_to_stay_on_best_;
 };
 
 ```
