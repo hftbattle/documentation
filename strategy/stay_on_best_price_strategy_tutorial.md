@@ -37,15 +37,14 @@ SecurityOrdersSnapshot& our_orders = trading_book_info
 Разделим активные заявки по направлениям, используя поле [orders_by_dir](../../api/SecurityOrdersSnapshot.md#orders_by_dir) класса [SecurityOrdersSnapshot](../../api/SecurityOrdersSnapshot.md#):
 
 ```cpp
-const std::array<std::vector<OrderSnapshot>, 2>& active_orders_by_dir = &trading_book_info
-.active_orders().orders_by_dir;
+const std::array<std::vector<OrderSnapshot>, 2>& orders_by_dir = &trading_book_info
+.orders().orders_by_dir;
 ```
 
-Для удобства в классе [ParticipantStrategy](../../api/ParticipantStrategy.md) уже реализован метод [active_orders_by_dir](../../api/ParticipantStrategy.md#active_orders_by_dir), выполняющий то же, что и конструкция выше.  
 Будем ставить заявку, если не существует активной заявки по этому направлению:
 
 ```cpp
-void event_end_update() override {
+void trading_book_update(const OrderBook& order_book) override {
   for (Dir dir:{BID, ASK}) {
     if (active_orders_by_dir()[dir].size() == 0) {
       add_order(best_price(dir), 1, dir);
@@ -57,7 +56,7 @@ void event_end_update() override {
 В такой реализации есть минус - если лучшая цена изменится, то мы не реагируем на это, что может привести к тому, что мы очень долго не будем торговать по одному направлению. Исправим это:
 
 ```cpp
-void event_end_update() override {
+void trading_book_update(const OrderBook& order_book) override {
   for (Dir dir:{BID, ASK}) {
     if (active_orders_by_dir()[dir].size() == 0) {
       add_order(best_price(dir), 1, dir);
