@@ -50,7 +50,10 @@ A: Время, прошедшее от отправки заявки на бир
 -------------
 **Q: Как из trading_book_snapshot обратиться к стакану заявок?**
 
-A: -const OrderBook *new_book = reinterpret_cast<const BookSnapshot *>(snapshot.get())->book();
+A: Стакан заявок можно получить, используя следующую конструкцию:
+```c++
+const OrderBook *new_book = reinterpret_cast<const BookSnapshot *>(trading_book_snapshot.get())->book();
+```
 
 -------------
 
