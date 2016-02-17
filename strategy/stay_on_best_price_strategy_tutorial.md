@@ -13,9 +13,9 @@
 Будем выполнять все действия внутри функции [trading_book_update](../../api/ParticipantStrategy.md#trading_book_update), гарантируя тем самым, что биржевое событие полностью обработано:
 
 ```cpp
-void trading_book_update() override {
+void trading_book_update(const OrderBook& order_book) override {
 	for (Dir dir: {BID, ASK}) {
-		add_order(best_price(dir), 1, dir);
+		add_limit_order(dir, best_price(dir), 1);
 	}
 }
 ```
