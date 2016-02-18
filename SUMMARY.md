@@ -18,6 +18,7 @@
    * [Общая структура стратегий](strategy/structure.md)
    * [Примеры стратегий](strategy/examples.md)
    * [Как написать простую стратегию](strategy/stay_on_best_price_strategy_tutorial.md)
+   * Идеи для реализации
 * [Симулятор торгов](simulator/README.md)
 * [Словарь терминов](terms.md)
 * [FAQ](FAQ.md)
