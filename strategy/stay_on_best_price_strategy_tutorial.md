@@ -11,15 +11,7 @@ bool add_limit_order(Dir dir, Price price, Amount amount);
 - *price* - цена, по которой заявка будет выставлена,
 - *amount* - размер заявки.
 
-Будем выставлять нашу заявку внутри функции [trading_book_update](../api/ParticipantStrategy.md#trading_book_update), когда нам приходит новый стакан `order_book`.
-
-Так как мы хотим поддерживать наши заявки на лучшей цене, нам нужно уметь узнавать лучшую цену по направлению. Для этого вызовем метод [best_price](../api/OrderBook.md#best_price) у пришедшего нам стакана:
-```c++
-const Price best_price = order_book.best_price(dir);
-```
-
-
-
+Будем выставлять нашу заявку внутри функции [trading_book_update](../api/ParticipantStrategy.md#trading_book_update), когда нам приходит новый стакан `const OrderBook& order_book`:
 ```cpp
 void trading_book_update(const OrderBook& order_book) override {
 	for (Dir dir: {BID, ASK}) {
@@ -29,6 +21,13 @@ void trading_book_update(const OrderBook& order_book) override {
 	}
 }
 ```
+
+
+Так как мы хотим поддерживать наши заявки на лучшей цене, нам нужно уметь узнавать лучшую цену по направлению. Для этого вызовем метод [best_price](../api/OrderBook.md#best_price) у пришедшего нам стакана:
+```c++
+const Price best_price = order_book.best_price(dir);
+```
+
 
 Однако в тот момент, когда у нас вызывается функция [trading_book_update](../api/ParticipantStrategy.md#trading_book_update), наши заявки, поставленные в прошлых вызовах этой функции, всё еще могут быть не исполнены. В итоге, у нас может скопиться огромное количество заявок и мы превысим лимит на количество заявок в день. К счастью, у нас есть возможность посмотреть все наши активные заявки: 
 ```cpp
