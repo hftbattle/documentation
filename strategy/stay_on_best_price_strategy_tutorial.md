@@ -29,7 +29,7 @@ SecurityOrdersSnapshot& our_orders = trading_book_info.orders();
 
 Здесь мы используем структуру-аггрегатор информации о торговом стакане - [trading_book_info
 ](../api/ParticipantStrategy.md#trading_book_info
-) типа [ContestBookInfo](../api/ContestBookInfo.md), у которой есть метод [orders](../api/ContestBookInfo.mв#orders), возвращающий ссылку на структуру типа [SecurityOrdersSnapshot](../api/SecurityOrdersSnapshot.md#):
+) типа [ContestBookInfo](../api/ContestBookInfo.md), у которой есть метод [orders](../api/ContestBookInfo.mв#orders), возвращающий ссылку на структуру типа [SecurityOrdersSnapshot](../api/SecurityOrdersSnapshot.md#).
 
 
 > Замечание 1: Определенная выше переменная `orders` содержит те заявки, которые мы уже отправили, но на которые еще не отправили запрос на удаление. Поэтому если для какой-то заявки будет вызван метод [delete_order](../../api/ParticipantStrategy.md#delete_order), то к следующему обновлению этой заявки в `orders` точно не будет (даже если она еще не успела удалиться). 
