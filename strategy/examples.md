@@ -27,8 +27,8 @@ class UserStrategy : public ParticipantStrategy {
 public:
   UserStrategy(JsonValue config) {}
 
-    // Вызывается при получении нового стакана торгового инструмента:
-    // @order_book – новый стакан.
+  // Вызывается при получении нового стакана торгового инструмента:
+  // @order_book – новый стакан.
   void trading_book_update(const OrderBook& order_book) override {
     auto our_orders = trading_book_info.orders();
     for (Dir dir: {BID, ASK}) {
@@ -69,7 +69,9 @@ public:
   UserStrategy(JsonValue config) {
     min_volume_to_stay_on_best_ = config["min_volume_to_stay_on_best"].as<int>(10);
   }
-
+  
+  // Вызывается при получении нового стакана торгового инструмента:
+  // @order_book – новый стакан.
   void trading_book_update(const OrderBook& order_book) override {
     auto our_orders = trading_book_info.orders();
     for (Dir dir: {BID, ASK}) {
@@ -194,12 +196,6 @@ public:
     std::cout << "min_deals_count_diff_: " << min_deals_count_diff_ << std::endl;
     std::cout << "deals_reset_period_ms_: " << deals_reset_period_ms_.count() << std::endl;
     std::cout << "our_deals_max_total_amount_: " << our_deals_max_total_amount_ << std::endl;
-  }
-
-  // Вызывается при получении нового стакана торгового инструмента:
-  // @order_book – новый стакан.
-  void trading_book_update(const OrderBook& order_book) override {
-    /* написать свою реализацию здесь */
   }
 
   // Вызывается при получении новых сделок торгового инструмента:
