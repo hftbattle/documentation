@@ -36,7 +36,7 @@ SecurityOrdersSnapshot& our_orders = trading_book_info.orders();
 
 > Замечание 2: Обновление структуры [trading_book_info.orders()](../api/ContestBookInfo.md#orders) происходит только между апдейтами, внутри апдейта она не меняется.
 
-Разделим активные заявки по направлениям, используя поле [orders_by_dir](../../api/SecurityOrdersSnapshot.md#orders_by_dir) класса [SecurityOrdersSnapshot](../../api/SecurityOrdersSnapshot.md#):
+Разделим активные заявки по направлениям, используя поле [orders_by_dir](../api/SecurityOrdersSnapshot.md#orders_by_dir) класса [SecurityOrdersSnapshot](../../api/SecurityOrdersSnapshot.md#):
 
 ```cpp
 const std::array<std::vector<OrderSnapshot>, 2>& orders_by_dir = &trading_book_info
