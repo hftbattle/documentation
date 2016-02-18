@@ -21,3 +21,5 @@
 <p align="center">
 <img src="../img/charts_3_december_part.png" alt="График 3 декабря часть">
 </p>
+
+На втором графике видно, что 
