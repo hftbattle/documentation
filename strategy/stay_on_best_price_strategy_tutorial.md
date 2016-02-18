@@ -39,7 +39,7 @@ auto our_orders = trading_book_info.orders();
 > Замечание 3: Лучшую цену на направлению можно узнать, вызвав метод 
 [trading_book_info.best_price(Dir dir)](../api/ContestBookInfo.md#best_price). Такой вызов работает быстрее, чем соответствующий метод [OrderBook.best_price(Dir dir)](../api/OrderBook.md#best_price). 
 
-Будем ставить заявку, если не существует активной заявки по этому направлению:
+Будем ставить заявку, если не существует активной заявки по этому направлению. Используем для этого метод [active_orders_count(Dir dir)](../api/SecurityOrdersSnapshot.md#active_orders_count) класса [SecurityOrdersSnapshot](../api/SecurityOrdersSnapshot.md), возвращающий количество наших активных заявок по направлению:
 
 ```cpp
 void trading_book_update(const OrderBook& order_book) override {
@@ -54,9 +54,7 @@ void trading_book_update(const OrderBook& order_book) override {
 }
 ```
 
-
-
-В такой реализации есть минус - если лучшая цена изменится, то мы не реагируем на это, что может привести к тому, что мы очень долго не будем торговать по одному направлению. Исправим это, и заодно перепишем стратегию для наглядности:
+В такой реализации есть минус – если лучшая цена изменится, то мы не реагируем на это. Это может привести к тому, что мы долго не будем торговать по одному из направлений. Исправим это, и заодно перепишем стратегию для наглядности:
 
 ```cpp
 void trading_book_update(const OrderBook& order_book) override {
