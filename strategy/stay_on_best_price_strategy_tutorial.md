@@ -6,7 +6,7 @@
 ```c++
 bool add_limit_order(Dir dir, Price price, Amount amount);
 ```
-Выставляет нашу [лимитную](../terms.md@limit_ord) заявку:
+Выставляет нашу [лимитную](../terms.md@limit_order) заявку:
 - *dir* - направление (BID = 0 - покупка, ASK = 1 - продажа),
 - *price* - цена, по которой заявка будет выставлена,
 - *amount* - размер заявки.
