@@ -39,13 +39,19 @@ auto our_orders = trading_book_info.orders();
 Разделим активные заявки по направлениям, используя поле [orders_by_dir](../api/SecurityOrdersSnapshot.md#orders_by_dir) класса [SecurityOrdersSnapshot](../api/SecurityOrdersSnapshot.md#):
 
 ```cpp
-auto orders_by_dir = &trading_book_info.orders().orders_by_dir;
+auto orders_by_dir = &our_orders.orders_by_dir;
 ```
 
 Будем ставить заявку, если не существует активной заявки по этому направлению:
 
 ```cpp
 void trading_book_update(const OrderBook& order_book) override {
+	for (Dir dir: {BID, ASK}) {
+	    const Price best_price = order_book.best_price(dir);
+	    const Amount amount = 1;
+		add_limit_order(dir, best_price, amount);
+	}
+	
   for (Dir dir:{BID, ASK}) {
     if (active_orders_by_dir()[dir].size() == 0) {
       add_order(best_price(dir), 1, dir);
