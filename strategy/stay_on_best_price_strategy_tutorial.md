@@ -24,7 +24,7 @@ void trading_book_update(const OrderBook& order_book) override {
 
 В тот момент, когда у нас вызывается функция [trading_book_update](../api/ParticipantStrategy.md#trading_book_update), наши заявки, поставленные в прошлых вызовах этой функции, всё еще могут быть не исполнены. В итоге, у нас может скопиться огромное количество заявок и мы превысим лимит на количество заявок в день. К счастью, у нас есть возможность посмотреть все наши активные заявки: 
 ```cpp
-SecurityOrdersSnapshot& our_orders = trading_book_info.orders();
+auto our_orders = trading_book_info.orders();
 ```
 
 Здесь мы используем структуру-аггрегатор информации о торговом стакане - [trading_book_info
