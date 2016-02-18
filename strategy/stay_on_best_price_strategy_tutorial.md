@@ -36,27 +36,21 @@ auto our_orders = trading_book_info.orders();
 
 > Замечание 2: Обновление структуры [trading_book_info.orders()](../api/ContestBookInfo.md#orders) происходит только между апдейтами, внутри апдейта она не меняется.
 
-Разделим активные заявки по направлениям, используя поле [orders_by_dir](../api/SecurityOrdersSnapshot.md#orders_by_dir) класса [SecurityOrdersSnapshot](../api/SecurityOrdersSnapshot.md#):
-
-```cpp
-auto orders_by_dir = &our_orders.orders_by_dir;
-```
+> Замечание 3: Лучшую цену на направлению можно узнать вызвав метод 
+[trading_book_info.best_price(Dir dir)](../api/ContestBookInfo.md#best_price). Такой вызов работает быстрее, чем соответствующий метод [OrderBook.best_price(Dir dir)](../api/OrderBook.md#best_price). 
 
 Будем ставить заявку, если не существует активной заявки по этому направлению:
 
 ```cpp
 void trading_book_update(const OrderBook& order_book) override {
+    auto our_orders = trading_book_info.orders();
 	for (Dir dir: {BID, ASK}) {
-	    const Price best_price = order_book.best_price(dir);
-	    const Amount amount = 1;
-		add_limit_order(dir, best_price, amount);
+	    if (our_orders.active_orders_count(dir) == 0) {
+	        const Price best_price = order_book.best_price(dir);
+	        const Amount amount = 1;
+	        add_limit_order(dir, best_price, amount);
+	    }
 	}
-	
-  for (Dir dir:{BID, ASK}) {
-    if (active_orders_by_dir()[dir].size() == 0) {
-      add_order(best_price(dir), 1, dir);
-    }
-  }
 }
 ```
 
@@ -80,6 +74,12 @@ void trading_book_update(const OrderBook& order_book) override {
       }
     }
   }
+```
+
+Разделим активные заявки по направлениям, используя поле [orders_by_dir](../api/SecurityOrdersSnapshot.md#orders_by_dir) класса [SecurityOrdersSnapshot](../api/SecurityOrdersSnapshot.md#):
+
+```cpp
+auto orders_by_dir = &our_orders.orders_by_dir;
 ```
 
  Теперь вы можете писать простейшие стратегии. Для дальнейшего обучения смотрите примеры и документацию. 
