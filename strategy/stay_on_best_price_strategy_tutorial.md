@@ -22,8 +22,7 @@ void trading_book_update(const OrderBook& order_book) override {
 }
 ```
 
-
-Так как мы хотим поддерживать наши заявки на лучшей цене, нам нужно уметь узнавать лучшую цену по направлению. Для этого вызовем метод [best_price](../api/OrderBook.md#best_price) у пришедшего нам стакана:
+Выше для определения лучшей цены использован метод [best_price](../api/OrderBook.md#best_price) у пришедшего нам стакана:
 ```c++
 const Price best_price = order_book.best_price(dir);
 ```
