@@ -42,11 +42,7 @@
             "google": false,
             "weibo": false,
             "instapaper": false,
-            "vk": true,
-            "all": [
-                "facebook", "google", "twitter",
-                "weibo", "instapaper"
-            ]
+            "vk": true
         }
     }
 }
