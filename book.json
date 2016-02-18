@@ -25,13 +25,10 @@
         
         "wiki.cme.url": "https://en.wikipedia.org/wiki/Чикагская_товарная_биржа"
     },
-    "plugins": ["disqus", "ace", "-search", "search-pro"],
+    "plugins": ["disqus", "ace"],
     "pluginsConfig": {
         "disqus": {
             "shortName": "hftbattle"
-        },
-        "search-pro": {
-            "cutWordLib": "nodejieba"
         }
     }
 }
