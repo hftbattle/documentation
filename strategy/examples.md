@@ -27,6 +27,8 @@ class UserStrategy : public ParticipantStrategy {
 public:
   UserStrategy(JsonValue config) {}
 
+    // Вызывается при получении нового стакана торгового инструмента:
+    // @order_book – новый стакан.
   void trading_book_update(const OrderBook& order_book) override {
     auto our_orders = trading_book_info.orders();
     for (Dir dir: {BID, ASK}) {
@@ -36,8 +38,8 @@ public:
         add_limit_order(dir, best_price, amount);
       } else {  // есть хотя бы одна наша активная заявка
         auto first_order = our_orders.orders_by_dir[dir][0];
-        bool our_order_on_best_price = first_order->price == best_price;
-        if (!our_order_on_best_price) {  // наша заявка стоит, но не на текущей лучшей цене
+        const bool on_best_price = first_order->price == best_price;
+        if (!on_best_price) {  // наша заявка стоит, но не на текущей лучшей цене
           delete_order(first_order);
           add_limit_order(dir, best_price, amount);
         }
@@ -48,11 +50,16 @@ public:
 };
 ```
 <a name="stay_on_best_price_improved"></a>
-Модифицируем предыдущую стратегию. Поскольку стратегия поддерживает только 1 заявку размером в 1 лот по каждому направлению, то свою позицию она меняет очень медленно. Для HFT-стратегий очень важна возможность быстро вернуться к нулевой позиции, поэтому мы попробуем ограничить максимально допустимую открытую позицию. Для этого достаточно в конфиге задать параметр *max\_executed\_amount*. Согласно правилам [позиция](../terms.md#position) не может быть превышать 50, подробнее см. [Ограничения симулятора](../simulator.md#restrictions). Оптимальное значение можно подобрать, перебрав разные варианты в системе. Подробнее в разделе [Перебор параметров](../interface/params.md). 
+ 
+[//]: # (Модифицируем предыдущую стратегию. Поскольку стратегия поддерживает только 1 заявку размером в 1 лот по каждому направлению, то свою позицию она меняет очень медленно. Для HFT-стратегий очень важна возможность быстро вернуться к нулевой позиции, поэтому мы попробуем ограничить максимально допустимую открытую позицию. Для этого достаточно в параметрах передать *max\_executed\_amount*. Согласно правилам [позиция](../terms.md#position) не может быть превышать 50, подробнее см. [Ограничения симулятора](../simulator.md#restrictions). Оптимальное значение можно подобрать, перебрав разные варианты в системе. Подробнее в разделе [Перебор параметров](../interface/params.md).)
 
-Также применим следующую простую оптимизацию: если на лучшей цене стоит объем меньший чем *min\_amount\_to\_stay\_on\_best\_*, то мы на нее выставляться не будем (и снимем заявку если уже там стоим).
+Применим следующую простую оптимизацию: если на лучшей цене стоит объем меньший чем *min\_amount\_to\_stay\_on\_best\_*, то мы на нее выставляться не будем и снимем заявку если уже там стоим:
 
 ```cpp
+#include "strategy/participant_strategy_layer.h"
+
+using namespace contest_platform;
+
 #include "strategy/participant_strategy_layer.h"
 
 using namespace contest_platform;
@@ -60,33 +67,36 @@ using namespace contest_platform;
 class UserStrategy : public ParticipantStrategy {
 public:
   UserStrategy(JsonValue config) {
-    min_amount_to_stay_on_best_ = config["min_amount_to_stay_on_best_"].as<int>(10);
+    min_volume_to_stay_on_best_ = config["min_volume_to_stay_on_best"].as<int>(10);
   }
 
   void trading_book_update(const OrderBook& order_book) override {
-    for (Dir dir : {BID, ASK}) {
-      const Price price = trading_book_info.best_price(dir);
-      auto our_orders = trading_book_info.orders();
-      bool no_our_orders = (our_orders.active_orders_count(dir) == 0);
-      bool our_order_on_best_price = !no_our_orders &&
-        our_orders.orders_by_dir[dir][0]->price == price;
-      if (!no_our_orders && !our_order_on_best_price) {
-        delete_order(our_orders.orders_by_dir[dir][0]);
-      }
-      if (our_order_on_best_price &&
-        trading_book_info.best_volume(dir) < min_amount_to_stay_on_best_) {
-        delete_order(our_orders.orders_by_dir[dir][0]);
-      }
-      if (!our_order_on_best_price &&
-        trading_book_info.best_volume(dir) >= min_amount_to_stay_on_best_) {
-        const Amount amount = 1;
-        add_limit_order(dir, price, amount);
+    auto our_orders = trading_book_info.orders();
+    for (Dir dir: {BID, ASK}) {
+      const Price best_price = trading_book_info.best_price(dir);
+      const Amount best_volume = trading_book_info.best_volume(dir);
+      const bool can_stay_on_best = best_volume >= min_volume_to_stay_on_best_;
+      if (our_orders.active_orders_count(dir) == 0) {
+        add_limit_order_if(dir, best_price, 1, can_stay_on_best);
+      } else {  // есть хотя бы одна наша активная заявка
+        auto first_order = our_orders.orders_by_dir[dir][0];
+        const bool on_best_price = first_order->price == best_price;
+        if (!on_best_price || !can_stay_on_best) {
+          delete_order(first_order);
+          add_limit_order_if(dir, best_price, 1, can_stay_on_best);
+        }
       }
     }
   }
 
+  void add_limit_order_if(Dir dir, Price price, Amount amount, bool condition) {
+    if (condition) {
+      add_limit_order(dir, price, amount);
+    }
+  }
+
 private:
-  Amount min_amount_to_stay_on_best_;
+    Amount min_volume_to_stay_on_best_;
 };
 
 ```
