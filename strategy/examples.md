@@ -7,7 +7,7 @@
     * [Improved](#stay_on_best_price_improved) 
 * [Deals count diff strategy](#deals_count_diff)
     * [Base](#deals_count_diff_base)
-    * [Limited](#deals_count_diff_with_limited)
+    * [Limited](#deals_count_diff_limited)
 
 
 <a name="stay_on_best_price"></a>
