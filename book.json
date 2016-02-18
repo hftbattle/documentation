@@ -24,7 +24,7 @@
         "viewer.name": "viewer.hftbattle.com",
         
         "wiki.cme.url": "https://en.wikipedia.org/wiki/Чикагская_товарная_биржа"
-    }
+    },
     "plugins": ["disqus"],
     "pluginsConfig": {
         "disqus": {
