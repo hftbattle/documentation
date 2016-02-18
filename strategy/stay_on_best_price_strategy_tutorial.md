@@ -54,32 +54,25 @@ void trading_book_update(const OrderBook& order_book) override {
 }
 ```
 
-В такой реализации есть минус – если лучшая цена изменится, то мы не реагируем на это. Это может привести к тому, что мы долго не будем торговать по одному из направлений. Исправим это, и заодно перепишем стратегию для наглядности:
+В такой реализации есть минус – если лучшая цена изменится, то мы не реагируем на это. Это может привести к тому, что мы долго не будем торговать по одному из направлений. Чтобы получить цену нашей активной заявки используем поле [orders_by_dir](../api/SecurityOrdersSnapshot.md#orders_by_dir) класса [SecurityOrdersSnapshot](../api/SecurityOrdersSnapshot.md#):
 
 ```cpp
 void trading_book_update(const OrderBook& order_book) override {
-    for (Dir dir : {BID, ASK}) {
-      const Price price = trading_book_info.best_price(dir);
-      auto our_orders = trading_book_info.orders();
-      bool no_our_orders = (our_orders.active_orders_count(dir) == 0);
-      bool our_order_on_best_price = !no_our_orders && our_orders.orders_by_dir[dir][0]->price == price;
-      // если заявка стоит, но не на лучшей цене - то сначала удаляем ее
-      if (!no_our_orders && !our_order_on_best_price) {
-        delete_order(our_orders.orders_by_dir[dir][0]);
-      }
-      // нужна новая заявка на лучшей цене, если там ничего не стоит либо
-      if (!our_order_on_best_price) {
-        const Amount amount = 1;
-        add_limit_order(dir, price, amount);
-      }
+    auto our_orders = trading_book_info.orders();
+	for (Dir dir: {BID, ASK}) {
+		const Price best_price = trading_book_info.best_price(dir);
+	    const Amount amount = 1;
+	    if (our_orders.active_orders_count(dir) == 0) {
+	        add_limit_order(dir, best_price, amount);
+	    } else {  // есть хотя бы одна наша активная заявка
+	        bool our_order_on_best_price = our_orders.orders_by_dir[dir][0]->price == price;
+            if (!our_order_on_best_price) {  // наша заявка стоит, но не на текущей лучшей цене
+                delete_order(our_orders.orders_by_dir[dir][0]);
+                add_limit_order(dir, best_price, amount);
+            }
+	    }
     }
-  }
+}
 ```
 
-Разделим активные заявки по направлениям, используя поле [orders_by_dir](../api/SecurityOrdersSnapshot.md#orders_by_dir) класса [SecurityOrdersSnapshot](../api/SecurityOrdersSnapshot.md#):
-
-```cpp
-auto orders_by_dir = &our_orders.orders_by_dir;
-```
-
- Теперь вы можете писать простейшие стратегии. Для дальнейшего обучения смотрите примеры и документацию. 
+Теперь вы можете писать простейшие стратегии.
