@@ -41,7 +41,7 @@ auto our_orders = trading_book_info.orders();
 
 Будем ставить заявку, если не существует активной заявки по этому направлению. Используем для этого метод [active_orders_count(Dir dir)](../api/SecurityOrdersSnapshot.md#active_orders_count) класса [SecurityOrdersSnapshot](../api/SecurityOrdersSnapshot.md), возвращающий количество наших активных заявок по направлению:
 
-```cpp
+```c++
 void trading_book_update(const OrderBook& order_book) override {
     auto our_orders = trading_book_info.orders();
 	for (Dir dir: {BID, ASK}) {
@@ -56,7 +56,7 @@ void trading_book_update(const OrderBook& order_book) override {
 
 В такой реализации есть минус – если лучшая цена изменится, то мы не реагируем на это. Это может привести к тому, что мы долго не будем торговать по одному из направлений. Чтобы получить цену нашей активной заявки используем поле [orders_by_dir](../api/SecurityOrdersSnapshot.md#orders_by_dir) класса [SecurityOrdersSnapshot](../api/SecurityOrdersSnapshot.md#):
 
-```cpp
+```c++
 void trading_book_update(const OrderBook& order_book) override {
     auto our_orders = trading_book_info.orders();
 	for (Dir dir: {BID, ASK}) {
