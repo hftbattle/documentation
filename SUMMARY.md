@@ -16,7 +16,7 @@
    * [Компиляция и запуск стратегии](local-pack/run.md)
 * [Написание стратегий](strategy/README.md)
    * [Общая структура стратегий](strategy/structure.md)
-   * [Как написать простую стратегию](strategy/stay_on_best_price_strategy_tutorial.md)
+   * [Как написать стратегию](strategy/strategy_how_to.md)
    * [Примеры стратегий](strategy/examples.md)
    * [Идеи для реализации](strategy/ideas.md)
 * [Симулятор торгов](simulator/README.md)
