@@ -2,11 +2,11 @@
 
 Реализуем следующую стратегию: будем поддерживать наши заявки на лучшей цене в обоих направлениях. 
 
-Сначала научимся ставить заявку. Для этого предназначен метод [add_limit_order](../api/ParticipantStrategy.md#add_limit_order):
+Сначала научимся ставить заявку. Для этого предназначена функция [add_limit_order](../api/ParticipantStrategy.md#add_limit_order):
 ```c++
 bool add_limit_order(Dir dir, Price price, Amount amount);
 ```
-Выставляет нашу [лимитную](../terms.md@limit_order) заявку:
+Она выставляет нашу [лимитную](../terms.md@limit_order) заявку:
 - *dir* - направление (BID = 0 - покупка, ASK = 1 - продажа),
 - *price* - цена, по которой заявка будет выставлена,
 - *amount* - размер заявки.
