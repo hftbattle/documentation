@@ -32,10 +32,10 @@ SecurityOrdersSnapshot& our_orders = trading_book_info.orders();
 ) типа [ContestBookInfo](../api/ContestBookInfo.md), у которой есть метод [orders](../api/ContestBookInfo.mв#orders), возвращающий ссылку на структуру типа [SecurityOrdersSnapshot](../api/SecurityOrdersSnapshot.md#).
 
 
-> Замечание 1: Определенная выше переменная `orders` содержит те заявки, которые мы уже отправили, но на которые еще не отправили запрос на удаление. Поэтому если для какой-то заявки будет вызван метод [delete_order](../../api/ParticipantStrategy.md#delete_order), то к следующему обновлению этой заявки в `orders` точно не будет (даже если она еще не успела удалиться). 
+> Замечание 1: Определенная выше переменная `orders` содержит те заявки, которые мы уже отправили, но на которые еще не отправили запрос на удаление. Поэтому если для какой-то заявки будет вызван метод [delete_order](../api/ParticipantStrategy.md#delete_order), то к следующему обновлению этой заявки в `orders` точно не будет (даже если она еще не успела удалиться). 
 
 > Замечание 2: Обновление структуры [trading_book_info
-.orders()](../../api/ContestBookInfo.md#orders) происходит только между апдейтами, внутри апдейта она не меняется.
+.orders()](../api/ContestBookInfo.md#orders) происходит только между апдейтами, внутри апдейта она не меняется.
 
 Разделим активные заявки по направлениям, используя поле [orders_by_dir](../../api/SecurityOrdersSnapshot.md#orders_by_dir) класса [SecurityOrdersSnapshot](../../api/SecurityOrdersSnapshot.md#):
 
