@@ -2,11 +2,12 @@
 
 Реализуем следующую стратегию: будем поддерживать наши [заявки](../terms.md#order) на лучшей цене в обоих направлениях. 
 
-Сначала научимся ставить заявку. Для этого предназначена функция [add_limit_order](../api/ParticipantStrategy.md#add_limit_order):
+Сначала научимся ставить заявку. Для этого предназначена функция 
 ```c++
 bool add_limit_order(Dir dir, Price price, Amount amount);
 ```
-Она выставляет нашу [лимитную заявку](../terms.md#limit_order), где:
+
+Функция [add_limit_order](../api/ParticipantStrategy.md#add_limit_order) выставляет нашу [лимитную заявку](../terms.md#limit_order), где:
 - *dir* - направление (BID = 0 - покупка, ASK = 1 - продажа),
 - *price* - цена, по которой заявка будет выставлена,
 - *amount* - размер заявки.
@@ -32,7 +33,7 @@ auto our_orders = trading_book_info.orders();
 ) типа [ContestBookInfo](../api/ContestBookInfo.md), у которой есть метод [orders](../api/ContestBookInfo.mв#orders), возвращающий ссылку на структуру типа [SecurityOrdersSnapshot](../api/SecurityOrdersSnapshot.md#).
 
 
-> Замечание 1: Определенная выше переменная `orders` содержит те заявки, которые мы уже отправили, но на которые еще не отправили запрос на удаление. Поэтому если для какой-то заявки будет вызван метод [delete_order](../api/ParticipantStrategy.md#delete_order), то к следующему обновлению этой заявки в `orders` точно не будет, даже если в реальность она еще не успела удалиться. 
+>> Замечание 1: Определенная выше переменная `orders` содержит те заявки, которые мы уже отправили, но на которые еще не отправили запрос на удаление. Поэтому если для какой-то заявки будет вызван метод [delete_order](../api/ParticipantStrategy.md#delete_order), то к следующему обновлению этой заявки в `orders` точно не будет, даже если в реальность она еще не успела удалиться. 
 
 > Замечание 2: Обновление структуры [trading_book_info.orders()](../api/ContestBookInfo.md#orders) происходит только между апдейтами, внутри апдейта она не меняется.
 
