@@ -25,7 +25,7 @@ void trading_book_update(const OrderBook& order_book) override {
 SecurityOrdersSnapshot& our_orders = trading_book_info.orders();
 ```
 
-Здесь используем структуру-аггрегатор  [trading_book_info
+Здесь используем структуру-аггрегатор информации о торговой стакане - [trading_book_info
 ](../api/ParticipantStrategy.md#trading_book_info
 ) типа [ContestBookInfo](../api/ContestBookInfo.md), у которой есть метод [orders](../api/ContestBookInfo.mв#orders), возвращающий ссылку на структуру типа [SecurityOrdersSnapshot](../api/SecurityOrdersSnapshot.md#):
 
