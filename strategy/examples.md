@@ -28,21 +28,19 @@ public:
   UserStrategy(JsonValue config) {}
 
   void trading_book_update(const OrderBook& order_book) override {
-    for (Dir dir : {BID, ASK}) {
-      const Price price = trading_book_info.best_price(dir);
-      auto our_orders = trading_book_info.orders();
-      bool no_our_orders_on_price = (our_orders.active_orders_count(dir) == 0);
-      bool our_order_on_another_price = !no_our_orders_on_price && 
-        our_orders.orders_by_dir[dir][0]->price != price;
-      bool need_new_order_on_price = no_our_orders_on_price ||
-        our_order_on_another_price;
-      if (need_new_order_on_price) {
-        // если заявка стоит, но не на лучшей цене - то сначала удаляем ее
-        if (our_order_on_another_price) {
-          delete_order(our_orders.orders_by_dir[dir][0]);
+    auto our_orders = trading_book_info.orders();
+    for (Dir dir: {BID, ASK}) {
+      const Price best_price = trading_book_info.best_price(dir);
+      const Amount amount = 1;
+      if (our_orders.active_orders_count(dir) == 0) {
+        add_limit_order(dir, best_price, amount);
+      } else {  // есть хотя бы одна наша активная заявка
+        auto first_order = our_orders.orders_by_dir[dir][0];
+        bool our_order_on_best_price = first_order->price == best_price;
+        if (!our_order_on_best_price) {  // наша заявка стоит, но не на текущей лучшей цене
+          delete_order(first_order);
+          add_limit_order(dir, best_price, amount);
         }
-        const Amount amount = 1;
-        add_limit_order(dir, price, amount);
       }
     }
   }
@@ -50,7 +48,7 @@ public:
 };
 ```
 <a name="stay_on_best_price_improved"></a>
-Модифицируем предыдущую стратегию. Поскольку стратегия поддерживает только 1 заявку размером в 1 лот по каждому направлению, то свою позицию она меняет очень медленно. Для hft-стратегий очень важна возможность быстро вернуться к нулевой позиции, поэтому мы попробуем ограничить максимально допустимую открытую позицию. Для этого достаточно в конфиге задать поле *max\_executed\_amount* (напомним, что согласно правилам оно не может быть больше 50). Оптимальное значение можно подобрать, перебрав разные варианты в системе. Подробнее в разделе [Перебор параметров](../interface/params.md). 
+Модифицируем предыдущую стратегию. Поскольку стратегия поддерживает только 1 заявку размером в 1 лот по каждому направлению, то свою позицию она меняет очень медленно. Для HFT-стратегий очень важна возможность быстро вернуться к нулевой позиции, поэтому мы попробуем ограничить максимально допустимую открытую позицию. Для этого достаточно в конфиге задать поле *max\_executed\_amount* (согласно правилам оно не может быть больше 50). Оптимальное значение можно подобрать, перебрав разные варианты в системе. Подробнее в разделе [Перебор параметров](../interface/params.md). 
 
 Также применим следующую простую оптимизацию: если на лучшей цене стоит объем меньший чем *min\_amount\_to\_stay\_on\_best\_*, то мы на нее выставляться не будем (и снимем заявку если уже там стоим).
 
