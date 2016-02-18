@@ -18,14 +18,17 @@ void trading_book_update(const OrderBook& order_book) override {
 }
 ```
 
-Однако в тот момент, когда у нас вызывается функция [trading_book_update](../api/ParticipantStrategy.md#trading_book_update), наши заявки, поставленные в прошлых вызовах этой функции, всё еще могут быть не исполнены. В итоге, у нас может скопиться огромное количество заявок и мы превысим лимит на количество заявок в день. К счастью, у нас есть возможность посмотреть все наши активные заявки. Для этого используем структуру [trading_book_info
+Однако в тот момент, когда у нас вызывается функция [trading_book_update](../api/ParticipantStrategy.md#trading_book_update), наши заявки, поставленные в прошлых вызовах этой функции, всё еще могут быть не исполнены. В итоге, у нас может скопиться огромное количество заявок и мы превысим лимит на количество заявок в день. 
+
+К счастью, у нас есть возможность посмотреть все наши активные заявки: 
+```cpp
+SecurityOrdersSnapshot& our_orders = trading_book_info.orders();
+```
+
+Здесь используем структуру-аггрегатор  [trading_book_info
 ](../api/ParticipantStrategy.md#trading_book_info
 ) типа [ContestBookInfo](../api/ContestBookInfo.md), у которой есть метод [orders](../api/ContestBookInfo.mв#orders), возвращающий ссылку на структуру типа [SecurityOrdersSnapshot](../api/SecurityOrdersSnapshot.md#):
 
-```cpp
-SecurityOrdersSnapshot& our_orders = trading_book_info
-.orders();
-```
 
 > Замечание 1: Определенная выше переменная `orders` содержит те заявки, которые мы уже отправили, но на которые еще не отправили запрос на удаление. Поэтому если для какой-то заявки будет вызван метод [delete_order](../../api/ParticipantStrategy.md#delete_order), то к следующему обновлению этой заявки в `orders` точно не будет (даже если она еще не успела удалиться). 
 
