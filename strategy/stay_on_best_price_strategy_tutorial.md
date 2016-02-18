@@ -4,7 +4,10 @@
 
 Сначала научимся ставить заявку. Для этого предназначена функция [add_limit_order](../api/ParticipantStrategy.md#add_limit_order), принимающая на вход направление, цену заявки и количество лотов (объем заявки).
 
-Так как мы хотим поддерживать наши заявки на лучшей цене, нам нужно уметь узнавать лучшую цену по направлению. Для этого вызовем метод [best_price](../api/OrderBook.md#best_price) у пришедшего нам стакана.
+Так как мы хотим поддерживать наши заявки на лучшей цене, нам нужно уметь узнавать лучшую цену по направлению. Для этого вызовем метод [best_price](../api/OrderBook.md#best_price) у пришедшего нам стакана:
+```
+const Price best_price = order_book.best_price(dir);
+``
 
 Будем выполнять все действия внутри функции [trading_book_update](../api/ParticipantStrategy.md#trading_book_update), когда нам приходит новый стакан:
 
@@ -23,7 +26,7 @@ void trading_book_update(const OrderBook& order_book) override {
 SecurityOrdersSnapshot& our_orders = trading_book_info.orders();
 ```
 
-Здесь мыиспользуем структуру-аггрегатор информации о торговой стакане - [trading_book_info
+Здесь мы используем структуру-аггрегатор информации о торговой стакане - [trading_book_info
 ](../api/ParticipantStrategy.md#trading_book_info
 ) типа [ContestBookInfo](../api/ContestBookInfo.md), у которой есть метод [orders](../api/ContestBookInfo.mв#orders), возвращающий ссылку на структуру типа [SecurityOrdersSnapshot](../api/SecurityOrdersSnapshot.md#):
 
