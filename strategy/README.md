@@ -5,5 +5,5 @@
   - [Общая структура стратегий](structure.md)
   - [Как написать простую стратегию](stay_on_best_price_strategy_tutorial.md)
   - [Примеры стратегий](examples.md)
-
+  - [Идеи для реализации](ides.md)
   
