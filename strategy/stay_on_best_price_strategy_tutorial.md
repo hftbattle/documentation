@@ -1,16 +1,19 @@
 ##Как написать простую стратегию
 
 Реализуем следующую стратегию: будем поддерживать наши заявки на лучшей цене в обоих направлениях. 
-Сначала научимся ставить заявку. Для этого предназначена функция [add_limit_order](../../api/ParticipantStrategy.md#add_limit_order), принимающая на вход цену заявки, количество лотов (объем заявки) и направление.
 
-Так как мы хотим поддерживать наши заявки на лучшей цене, нам нужно уметь узнавать лучшую цену по направлению. Для этого есть функция [best_price](../../api/ContestBookInfo.md#best_price), принимающая на вход направление. 
+Сначала научимся ставить заявку. Для этого предназначена функция [add_limit_order](../api/ParticipantStrategy.md#add_limit_order), принимающая на вход цену заявки, количество лотов (объем заявки) и направление.
 
-Будем выполнять все действия внутри функции [trading_book_update](../../api/ParticipantStrategy.md#trading_book_update), когда нам приходит новый стак
+Так как мы хотим поддерживать наши заявки на лучшей цене, нам нужно уметь узнавать лучшую цену по направлению. Для этого вызовем метод [best_price](../api/OrderBook.md#best_price) у пришедшего нам стакана.
+
+Будем выполнять все действия внутри функции [trading_book_update](../api/ParticipantStrategy.md#trading_book_update), когда нам приходит новый стакан:
 
 ```cpp
 void trading_book_update(const OrderBook& order_book) override {
 	for (Dir dir: {BID, ASK}) {
-		add_limit_order(dir, best_price(dir), 1);
+	    const Price best_price = trading_book_info.best_price(dir);
+	    const Amount amount = 1;
+		add_limit_order(dir, best_price, amount);
 	}
 }
 ```
