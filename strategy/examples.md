@@ -19,6 +19,7 @@
 Рассмотрим базовый вариант стратегии:
 
 {%ace edit=false, lang='c_cpp'%}
+
 #include "strategy/participant_strategy_layer.h"
 
 using namespace contest_platform;
