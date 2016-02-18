@@ -36,7 +36,7 @@ auto our_orders = trading_book_info.orders();
 
 > Замечание 2: Обновление структуры [trading_book_info.orders()](../api/ContestBookInfo.md#orders) происходит только между апдейтами, внутри апдейта она не меняется.
 
-> Замечание 3: Лучшую цену на направлению можно узнать вызвав метод 
+> Замечание 3: Лучшую цену на направлению можно узнать, вызвав метод 
 [trading_book_info.best_price(Dir dir)](../api/ContestBookInfo.md#best_price). Такой вызов работает быстрее, чем соответствующий метод [OrderBook.best_price(Dir dir)](../api/OrderBook.md#best_price). 
 
 Будем ставить заявку, если не существует активной заявки по этому направлению:
