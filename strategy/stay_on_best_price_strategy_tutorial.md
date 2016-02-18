@@ -46,7 +46,7 @@ void trading_book_update(const OrderBook& order_book) override {
     auto our_orders = trading_book_info.orders();
 	for (Dir dir: {BID, ASK}) {
 	    if (our_orders.active_orders_count(dir) == 0) {
-	        const Price best_price = order_book.best_price(dir);
+	        const Price best_price = trading_book_info.best_price(dir);
 	        const Amount amount = 1;
 	        add_limit_order(dir, best_price, amount);
 	    }
