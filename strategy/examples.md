@@ -161,7 +161,7 @@ private:
 };
 ```
 
-<a name="deals_count_diff_with_limit"></a>
+<a name="deals_count_diff_limited"></a>
 Модифицируем предыдущую стратегию следующим образом: ограничим суммарный объем наших сделок, используя информацию, приходящую в функции [execution_report_update](../api/ParticipantStrategy.md#execution_report_update).
 
 
