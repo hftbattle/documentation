@@ -1,9 +1,4 @@
-#Примеры стратегий
-* [Stay on each direction strategy](#stay_on_best_prices_strategy)
-
-<a name="stay_on_best_prices_strategy"></a>
-
-## Stay on best prices strategy
+#Как написать простую стратегию
 
 Реализуем следующую стратегию: будем поддерживать наши заявки на лучшей цене в обоих направлениях. 
 Сначала научимся ставить заявку. Для этого предназначена функция [add_limit_order](../../api/ParticipantStrategy.md#add_limit_order), принимающая на вход цену заявки, количество лотов (объем заявки) и направление.
