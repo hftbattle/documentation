@@ -34,7 +34,15 @@
             "lang": "ru"
         },
         "yametrika": {
-            "number": 35257920
+            "number": 35257920,
+            "settings": {
+                "webvisor": true,
+                "clickmap": true,
+                "trackLinks": true,
+                "accurateTrackBounce": true,
+                "trackHash": true,
+                "ut": "noindex"
+            }
         }
     }
 }
