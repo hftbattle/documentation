@@ -11,7 +11,7 @@
 ```cpp
 void trading_book_update(const OrderBook& order_book) override {
 	for (Dir dir: {BID, ASK}) {
-	    const Price best_price = trading_book_info.best_price(dir);
+	    const Price best_price = order_book.best_price(dir);
 	    const Amount amount = 1;
 		add_limit_order(dir, best_price, amount);
 	}
