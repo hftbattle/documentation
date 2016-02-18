@@ -11,7 +11,7 @@ bool add_limit_order(Dir dir, Price price, Amount amount);
 - *price* - цена, по которой заявка будет выставлена,
 - *amount* - размер заявки.
 
-Будем выставлять нашу заявку внутри функции [trading_book_update](../api/ParticipantStrategy.md#trading_book_update), когда нам приходит новый стакан `const OrderBook& order_book`. Для определения лучшей цены используем метод [best_price](../api/OrderBook.md#best_price) у пришедшего нам стакана:
+Будем выставлять нашу заявку внутри функции [trading_book_update](../api/ParticipantStrategy.md#trading_book_update), когда нам приходит новый стакан `const OrderBook& order_book`. Для определения лучшей цены используем метод [best_price](../api/OrderBook.md#best_price) класса [OrderBook](../api/OrderBook.md):
 ```cpp
 void trading_book_update(const OrderBook& order_book) override {
 	for (Dir dir: {BID, ASK}) {
