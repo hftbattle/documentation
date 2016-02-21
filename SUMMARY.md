@@ -2,7 +2,7 @@
 
 * [Introduction](README.md)
 * [Интерфейс участника](interface/README.md)
-   * [Режимы тестирования](interface/test_modes.md)
+   * [Режимы тестирования](interface/modes.md)
    * [Отправка стратегии](interface/submit.md)
    * [Анализ результатов](interface/analysis/README.md)
        * [Статистика](interface/analysis/stats.md)
