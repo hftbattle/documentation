@@ -18,8 +18,7 @@
 <a name="stay_on_best_price"></a>
 Рассмотрим базовый вариант стратегии:
 
-{%ace edit=false, lang='c_cpp'%}
-
+```c++
 #include "strategy/participant_strategy_layer.h"
 
 using namespace contest_platform;
@@ -49,7 +48,7 @@ public:
   }
 
 };
-{%endace%}
+```
 
 <a name="stay_on_best_price_improved"></a>
  
@@ -57,7 +56,7 @@ public:
 
 Применим следующую простую оптимизацию: если на лучшей цене стоит объем меньший чем *min\_amount\_to\_stay\_on\_best\_*, то мы на нее выставляться не будем и снимем заявку если уже там стоим:
 
-{%ace edit=false, lang='c_cpp'%}
+```c++
 #include "strategy/participant_strategy_layer.h"
 
 using namespace contest_platform;
@@ -99,7 +98,7 @@ private:
     Amount min_volume_to_stay_on_best_;
 };
 
-{%endace%}
+```
 
 <a name="deals_count_diff"></a>
 #### Deals count diff strategy
@@ -110,7 +109,7 @@ private:
 > Замечание 2: заявка типа IOC сразу после выполнения всех возможный сведений автоматически удаляется из стакана, в отличие от лимитной заявки, которая остается в стакане после выполнения всех возможных сведений.
 
 <a name="deals_count_diff_base"></a>
-{%ace edit=false, lang='c_cpp'%}
+```c++
 
 #include "strategy/participant_strategy_layer.h"
 
@@ -168,13 +167,13 @@ private:
   Milliseconds deals_reset_period_ms_;
   
 };
-{%endace%}
+```
 
 <a name="deals_count_diff_limited"></a>
 Модифицируем предыдущую стратегию следующим образом: ограничим суммарный объем наших сделок, используя информацию, приходящую в функции [execution_report_update](../api/ParticipantStrategy.md#execution_report_update).
 
 
-{%ace edit=false, lang='c_cpp'%}
+```c++
 
 #include "strategy/participant_strategy_layer.h"
 
@@ -252,5 +251,4 @@ private:
   Amount our_deals_max_total_amount_;
   
 };
-{%endace%}
-    
+```
