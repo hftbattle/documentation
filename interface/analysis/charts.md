@@ -57,7 +57,7 @@ public:
 REGISTER_CONTEST_STRATEGY(UserStrategy, user_strategy)
 ```
 
-
+В результате на графике "Chart 1" получим следующую картинку:
 <p align="center">
 <img src="../../img/best_price_chart.png" alt="График лучшей цены">
 </p>
