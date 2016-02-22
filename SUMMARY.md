@@ -22,7 +22,7 @@
    * [Идеи для реализации](strategy/ideas.md)
 * [Симулятор торгов](simulator/README.md)
    * [Данные для симуляции](simulator/data.md)
-   * Ограничения симулятора
+   * [Ограничения симулятора](simulator/restrictions.md)
 * [Словарь терминов](terms.md)
 * [FAQ](FAQ.md)
 * [API](api/README.md)
