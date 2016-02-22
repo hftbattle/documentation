@@ -15,7 +15,7 @@
 ```cpp
 #include "strategy/participant_strategy_layer.h"
 
-using namespace contest_platform;
+using namespace ;
 
 class UserStrategy : public ParticipantStrategy {
 public:
