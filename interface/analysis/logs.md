@@ -12,9 +12,19 @@
 
 |поле|значение|описание|
 |--|--|--|
-| action | add | действие над заявкой |
-|server_time|2015-12-03 02:00:00.017824|биржевое время действия|
-
+| action | add | действие над заявкой (add, del) |
+|server_time|2015-12-03 02:00:00.017824|биржевое время действия UTC+3|
+| symbol | ESZ5 | название инструмента |
+| price | 208300 | цена в пунктах (1 пункт = 0.5$) |
+| amount |  | |
+| dir |  | |
+| comment |  | |
+| add_tsc |  | |
+| impl_tsc |  | |
+| order_type |  | |
+| status |  | |
+| reject_reason |  | |
+| order_id |  | |
 
 | action	| server_time |	symbol |	price |	amount |	dir |	comment| 
 |--|--|--|--|--|--|--|--|--|
