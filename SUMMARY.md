@@ -14,7 +14,7 @@
    * [Установка зависимостей](local-pack/requirements.md)
    * [Данные для симуляции](local-pack/data.md)
    * [Запуск user_strategy](local-pack/run.md)
-   * Добавление новой стратегии
+   * Добавление стратегии
 * [Написание стратегий](strategy/README.md)
    * [Общая структура стратегий](strategy/structure.md)
    * [Как написать стратегию](strategy/strategy_how_to.md)
