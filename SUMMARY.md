@@ -13,7 +13,7 @@
 * [Пакет для локальной разработки](local-pack/README.md)
    * [Установка зависимостей](local-pack/requirements.md)
    * [Данные для симуляции](local-pack/data.md)
-   * [Компиляция и запуск стратегии](local-pack/run.md)
+   * [Компиляция и запуск user_strategy](local-pack/run.md)
 * [Написание стратегий](strategy/README.md)
    * [Общая структура стратегий](strategy/structure.md)
    * [Как написать стратегию](strategy/strategy_how_to.md)
