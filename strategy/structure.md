@@ -15,7 +15,7 @@
 ```cpp
 #include "strategy/participant_strategy_layer.h"
 
-using namespace ;
+using namespace hftbattle;
 
 class UserStrategy : public ParticipantStrategy {
 public:
