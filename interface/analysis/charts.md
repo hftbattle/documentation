@@ -28,7 +28,7 @@ public:
   }
 
   void trading_book_update(const OrderBook& order_book) override {
-    for (const auto dir : { BID, ASK }) {
+    for (Dir dir : { BID, ASK }) {
       const Price best_price = order_book.best_price(dir);
       if (best_price != best_price_by_dir[dir]) {
         add_chart_point(axis_name[dir],           // имя оси, отображается в легенде
