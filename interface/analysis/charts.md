@@ -75,7 +75,6 @@ public:
   }
   
 };
-REGISTER_CONTEST_STRATEGY(UserStrategy, user_strategy)
 ```
 
 В результате на графике "Chart 1" получим следующую картинку:
