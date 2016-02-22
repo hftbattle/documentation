@@ -40,7 +40,7 @@ void add_chart_point(const std::string& line_name,
 ```c++
 #include "strategy/participant_strategy_layer.h"
 
-using namespace contest_platform;
+using namespace hftbattle;
 
 class UserStrategy : public ParticipantStrategy {
 private:
