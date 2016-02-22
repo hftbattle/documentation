@@ -11,7 +11,7 @@ void add_chart_point(const std::string& line_name,
 - *y_axis_type* - вертикальная ось: *ChartYAxisType::Left* или *ChartYAxisType::Right*,
 - *chart_number* - номер графика (0 - график по умолчанию с результатом и позой, 1 и более - ваши собственные графики).
 
-Например, стратегия, "рисующая" график лучшей цены для [BID](../../terms.md#bid)-а и [ASK](../../terms.md#ask)-а выглядит так:
+Модифицируем, например, стратегию, стоящую на каждом из направлений на лучшей цене так, чтобы она "рисовала" график лучшей цены:
 ```c++
 #include "strategy/participant_strategy_layer.h"
 
@@ -28,9 +28,22 @@ public:
   }
 
   void trading_book_update(const OrderBook& order_book) override {
-    for (Dir dir : { BID, ASK }) {
-      const Price best_price = order_book.best_price(dir);
-      if (best_price != best_price_by_dir[dir]) {
+    auto our_orders = trading_book_info.orders();
+    for (Dir dir: {BID, ASK}) {
+      const Price best_price = trading_book_info.best_price(dir);
+      const Amount amount = 1;
+      if (our_orders.active_orders_count(dir) == 0) {
+        add_limit_order(dir, best_price, amount);
+      } else {  // есть хотя бы одна наша активная заявка
+        auto first_order = our_orders.orders_by_dir[dir][0];
+        const bool on_best_price = first_order->price == best_price;
+        if (!on_best_price) {  // наша заявка стоит, но не на текущей лучшей цене
+          delete_order(first_order);
+          add_limit_order(dir, best_price, amount);
+        }
+      }
+      
+      if (best_price != best_price_by_dir[dir]) { // лучшая цена изменилась
         add_chart_point(axis_name[dir],           // имя оси, отображается в легенде
                         best_price.get_double(),  // переводим тип Price в double
                         ChartYAxisType::Left,     // используем левую вертикальную ось
@@ -39,6 +52,12 @@ public:
       }
     }
   }
-
+  
 };
+REGISTER_CONTEST_STRATEGY(UserStrategy, user_strategy)
 ```
+
+
+<p align="center">
+<img src="../../img/best_price_chart.png" alt="График лучшей цены">
+</p>
