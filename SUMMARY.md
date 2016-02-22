@@ -10,7 +10,7 @@
        * [Viewer](interface/analysis/viewer.md)
        * [Логи](interface/analysis/logs.md)
    * [Перебор параметров](interface/params.md)
-* [Добавление новой стратегии](local-pack/new_strategy.md)
+* [Пакет для локальной разработки](local-pack/README.md)
    * [Установка зависимостей](local-pack/requirements.md)
    * [Данные для симуляции](local-pack/data.md)
    * [Запуск user_strategy](local-pack/run.md)
