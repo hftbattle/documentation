@@ -16,7 +16,7 @@
    * [Запуск user_strategy](local-pack/run.md)
    * [Добавление стратегии](local-pack/new_strategy.md)
 * [Написание стратегий](strategy/README.md)
-   * [Общая структура стратегий](strategy/structure.md)
+   * [Структура стратегий](strategy/structure.md)
    * [Как написать стратегию](strategy/strategy_how_to.md)
    * [Примеры стратегий](strategy/examples.md)
    * [Идеи для реализации](strategy/ideas.md)
