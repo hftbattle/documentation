@@ -12,4 +12,4 @@ git clone https://github.com/hftbattle/local_pack.git
   - [Установка зависимостей](requirements.md)
   - [Данные для симуляции](data.md)
   - [Запуск user_strategy](run.md)
-  - [Добавление новой стратегии](new_strategy.md)
+  - [Добавление стратегии](new_strategy.md)
