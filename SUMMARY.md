@@ -33,5 +33,5 @@
    * [ParticipantStrategy](api/ParticipantStrategy.md)
    * [Quote](api/Quote.md)
    * [SecurityOrdersSnapshot](api/SecurityOrdersSnapshot.md)
-* Description
+* [Description](DESCRIPTION.md)
 
