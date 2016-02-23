@@ -18,7 +18,7 @@ ParticipantStrategy - класс-интерфейс для написания п
 |Имя| Описание|
 |------------------|--------------------|
 |[trading_book_update(const OrderBook& order_book)](#trading_book_update)|Вызывается при получении нового стакана торгового инструмента.|
-|[trading_deals_update(const std::vector<Deal>& deals)](#trading_deals_update)|Вызывается при получении новых сделок торгового инструмента.|
+|[trading_deals_update(const std::vector< Deal>& deals)](#trading_deals_update)|Вызывается при получении новых сделок торгового инструмента.|
 |[execution_report_update(const ExecutionReport& execution_report)](#execution_report_update)|Вызывается при получении отчета о сделке с участием вашего ордера.|
 |[signal_book_update(const OrderBook& order_book)](#signal_book_update)|Вызывается при получении нового стакана сигнального инструмента.|
 |[signal_deals_update(const std::vector<Deal>& deals)](#signal_deals_update)|Вызывается при получении новых сделок сигнального инструмента.|
