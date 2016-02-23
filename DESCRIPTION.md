@@ -23,7 +23,9 @@
 > ./run.py strategies/user_strategy/user_strategy.json
 ```
 - При создании новых стратегий в пакете для локальной разрадотки, нужно не менять строчку с регистрацией стратегии в окнце cpp-файла:
-
+```
+REGISTER_CONTEST_STRATEGY(UserStrategy, best_strategy_ever)
+```
 
 
 ## Биржевые данные
