@@ -1,6 +1,7 @@
 # Summary
 
 * [Introduction](README.md)
+* [Description](DESCRIPTION.md)
 * [Интерфейс участника](interface/README.md)
    * [Режимы тестирования](interface/modes.md)
    * [Отправка стратегии](interface/submit.md)
@@ -33,5 +34,4 @@
    * [ParticipantStrategy](api/ParticipantStrategy.md)
    * [Quote](api/Quote.md)
    * [SecurityOrdersSnapshot](api/SecurityOrdersSnapshot.md)
-* [Description](DESCRIPTION.md)
 
