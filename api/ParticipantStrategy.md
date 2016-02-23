@@ -5,9 +5,8 @@ ParticipantStrategy - класс-интерфейс для написания п
 Этот класс служит прослойкой между симуляционным ядром и стратегией.
 
 Он обеспечивает обработку входящих сигналов от симуляции:
-обновления торгового стакана, сделок,
-отчеты о наших сделках. Он же осуществляет передачу исходящих сигналов в симуляцию:
-постановка и снятие заявок.
+обновления торгового стакана, сделок, отчеты о наших сделках.
+Он же осуществляет передачу исходящих сигналов в симуляцию: постановка и снятие заявок.
 
 Помимо реализации методов для описанных выше действий,
 класс также предоставляет некоторые вспомогательные методы для удобства работы.
@@ -19,11 +18,12 @@ ParticipantStrategy - класс-интерфейс для написания п
 |Имя| Описание|
 |------------------|--------------------|
 |[trading_book_update(const OrderBook& order_book)](#trading_book_update)|Вызывается при получении нового стакана торгового инструмента.|
-
-|[trading_deals_update(const std::vector< Deal >& deals)](#trading_deals_update)|Вызывается при получении новых сделок торгового инструмента.|
-|[execution_report_update(const ExecutionReportSnapshot& snapshot)](#execution_report_update)|Вызывается при получении отчета о сделке с участием вашего ордера.|
-|[add_limit_order(Dir dir, Price price, Amount amount)](#add_limit_order)|Выставляет нашу лимитную заявку.|
-|[add_ioc_order(Dir dir, Price price, Amount amount)](#add_ioc_order)|Выставляет нашу заявку типа Immediate-Or-Cancel (IOC).|
+|[trading_deals_update(const std::vector<Deal>& deals)](#trading_deals_update)|Вызывается при получении новых сделок торгового инструмента.|
+|[execution_report_update(const ExecutionReport& execution_report)](#execution_report_update)|Вызывается при получении отчета о сделке с участием вашего ордера.|
+|[signal_book_update(const OrderBook& order_book)](#signal_book_update)|Вызывается при получении нового стакана сигнального инструмента.|
+|[signal_deals_update(const std::vector<Deal>& deals)](#signal_deals_update)|Вызывается при получении новых сделок сигнального инструмента.|
+|[add_limit_order(Dir dir, Price price, Amount amount, const std::string& comment = {})](#add_limit_order)|Выставляет нашу лимитную заявку.|
+|[add_ioc_order(Dir dir, Price price, Amount amount, const std::string& comment = {})](#add_ioc_order)|Выставляет нашу заявку типа Immediate-Or-Cancel (IOC).|
 |[delete_order(Order* order)](#delete_order)|Снимает нашу заявку с торгов.|
 |[delete_all_orders_by_dir(Dir dir)](#delete_all_orders_by_dir)|Снимает все наши заявки с торгов по направлению *dir*.|
 |[get_amount_before_order(Order* order)](#get_amount_before_order)|Возвращает количество лотов, стоящих в очереди перед нашей заявкой.|
@@ -42,9 +42,9 @@ ParticipantStrategy - класс-интерфейс для написания п
 |Имя| Описание|
 |------------------|--------------------|
 |[trading_book_info](#trading_book_info)|Стуктура-аггрегатор основной информации о торговом стакане.|
-|[trading_book_snapshot](#trading_book_snapshot)|Умный указатель на текущий стакан торгового инструмента.|
-|[trading_book](#trading_book)|Указатель на стакан торгового инструментов.|
-|[signal_book](#signal_book)|Указатель на стакан сигнального инструментов.|
+|[signal_book_info](#signal_book_info)|Стуктура-аггрегатор основной информации о сигнальном стакане.|
+|[trading_book](#trading_book)|Умный указатель на текущий стакан торгового инструмента.|
+|[signal_book](#signal_book)|Аналогично trading_book для сигнального инструмента.|
 
 ###Описание методов
 <a name="trading_book_update"></a>
@@ -70,6 +70,22 @@ virtual void execution_report_update(const ExecutionReport& execution_report);
 ```
 Вызывается при получении отчета о сделке с участием вашего ордера:
 - *snapshot* – структура-отчет о совершенной сделке.
+
+<a name="signal_book_update"></a>
+####signal_book_update()
+```c++
+virtual void signal_book_update(const OrderBook& order_book);
+```
+Вызывается при получении нового стакана сигнального инструмента:
+- *order_book* – новый стакан.
+
+<a name="signal_deals_update"></a>
+####signal_deals_update()
+```c++
+virtual void signal_deals_update(const std::vector<Deal>& deals);
+```
+Вызывается при получении новых сделок сигнального инструмента:
+- *deals* - вектор новых сделок.
 
 <a name="add_limit_order"></a>
 ####add_limit_order()
@@ -191,12 +207,12 @@ ContestBookInfo trading_book_info;
 ```
 Стуктура-аггрегатор основной информации о торговом стакане.
 
-<a name="trading_book_snapshot"></a>
-####trading_book_snapshot
+<a name="signal_book_info"></a>
+####signal_book_info
 ```c++
-SharedPtr<DataFeedSnapshot> trading_book_snapshot;
+ContestBookInfo signal_book_info;
 ```
-Умный указатель на текущий стакан торгового инструмента. Они обновляются каждый раз с приходом очередного апдейта торгового стакана. При этом объект внутри (стакан) разрушается. Чтобы сохранить старый стакан, нужно явно в стратегии сохранить этот указатель.
+Стуктура-аггрегатор основной информации о сигнальном стакане.
 
 <a name="trading_book"></a>
 ####trading_book
@@ -204,3 +220,12 @@ SharedPtr<DataFeedSnapshot> trading_book_snapshot;
 std::shared_ptr<const OrderBook> trading_book;
 ```
 Умный указатель на текущий стакан торгового инструмента. Они обновляются каждый раз с приходом очередного апдейта торгового стакана. При этом объект внутри (стакан) разрушается. Чтобы сохранить старый стакан, нужно явно в стратегии сохранить этот указатель.
+
+<a name="signal_book"></a>
+####signal_book
+```c++
+std::shared_ptr<const OrderBook> signal_book;
+```
+Аналогично trading_book для сигнального инструмента.
+
+
