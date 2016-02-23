@@ -25,7 +25,7 @@ ParticipantStrategy - класс-интерфейс для написания п
 |Имя| Описание|
 |------------------|--------------------|
 |[trading_book_update(const OrderBook& order_book)](#trading_book_update)|Вызывается при получении нового стакана торгового инструмента.|
-|[trading_deals_update(const std::vector<Deal>& deals)](#trading_deals_update)|Вызывается при получении новых сделок торгового инструмента.|
+|[trading_deals_update(const std::vector< Deal >& deals)](#trading_deals_update)|Вызывается при получении новых сделок торгового инструмента.|
 |[execution_report_update(const ExecutionReportSnapshot& snapshot)](#execution_report_update)|Вызывается при получении отчета о сделке с участием вашего ордера.|
 |[add_limit_order(Dir dir, Price price, Amount amount)](#add_limit_order)|Выставляет нашу лимитную заявку.|
 |[add_ioc_order(Dir dir, Price price, Amount amount)](#add_ioc_order)|Выставляет нашу заявку типа Immediate-Or-Cancel (IOC).|
