@@ -38,7 +38,7 @@ void add_chart_point(const std::string& line_name,
 
 Модифицируем, например, стратегию, стоящую на каждом из направлений на лучшей цене так, чтобы она "рисовала" график лучшей цены:
 ```c++
-#include "./participant_strategy_layer.h"
+#include "./participant_strategy.h"
 
 using namespace hftbattle;
 
