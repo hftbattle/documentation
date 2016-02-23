@@ -1,5 +1,5 @@
 #Deal
-Путь в Local Pack-е: `include/deal/deal.h`
+Путь в Local Pack-е: `include/deal.h`
 
 Сделка - это акт купли-продажи определенного инструмента.
 Класс Deal представляет собой реализацию биржевой сделки.
@@ -113,28 +113,28 @@ inline Amount get_amount() const;
 <a name="get_server_time"></a>
 ####get_server_time()
 ```c++
-inline int64_t get_server_time() const;
+inline Microseconds get_server_time() const;
 ```
 Биржевое время сделки.
 
 <a name="get_local_time"></a>
 ####get_local_time()
 ```c++
-inline int64_t get_local_time() const;
+inline Microseconds get_local_time() const;
 ```
 Локальное время сделки.
 
 <a name="get_comments"></a>
 ####get_comments()
 ```c++
-std::vector<std::string> const& get_comments() const;
+std::array<std::string, 2> const& get_comments() const;
 ```
 Комментарии к заявкам, участвующим в сделке.
 
 <a name="get_orders"></a>
 ####get_orders()
 ```c++
-std::vector<std::shared_ptr<Order>> const& get_orders() const;
+std::array<std::shared_ptr<Order>, 2> const& get_orders() const;
 ```
 Вектор заявок (на продажу и на покупку), участвующих в сделке.
 

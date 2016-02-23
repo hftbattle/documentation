@@ -1,5 +1,5 @@
 #OrderBook
-Путь в Local Pack-е: `include/orderbook/order_book.h`
+Путь в Local Pack-е: `include/order_book.h`
 
 Биржевой стакан - это агрегатор всех заявок по конкретному инструменту.
 Класс OrderBook представляет собой реализацию биржевого стакана.
@@ -23,6 +23,8 @@
 |[all_quotes(Dir dir)](#all_quotes)|Все котировки по направлению *dir*.|
 |[quotes_count(Dir dir)](#quotes_count)|Количество котировок по направлению *dir*.|
 |[depth()](#depth)|Максимальная по направлениям глубина отображаемого стакана.|
+|[get_server_time()](#get_server_time)|Биржевое время последнего изменения стакана, в микросекундах.|
+|[get_local_time()](#get_local_time)|Время последнего изменения стакана на машине, которая получала данные от биржи, в микросекундах.|
 
 ###Описание методов
 <a name="get_quote_by_index"></a>
@@ -122,5 +124,19 @@ virtual size_t quotes_count(Dir dir) const;
 size_t depth() const;
 ```
 Максимальная по направлениям глубина отображаемого стакана.
+
+<a name="get_server_time"></a>
+####get_server_time()
+```c++
+inline Microseconds get_server_time() const;
+```
+Биржевое время последнего изменения стакана, в микросекундах
+
+<a name="get_local_time"></a>
+####get_local_time()
+```c++
+inline Microseconds get_local_time() const;
+```
+Время последнего изменения стакана на машине, которая получала данные от биржи, в микросекундах
 
 

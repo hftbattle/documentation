@@ -1,5 +1,5 @@
 #Order
-Путь в Local Pack-е: `include/order/order.h`
+Путь в Local Pack-е: `include/order.h`
 
 Заявка - это пара <цена, количество лотов>.
 Класс Order представляет собой реализацию биржевой заявки.
@@ -13,8 +13,6 @@
 |[price](#price)|Цена заявки.|
 |[amount](#amount)|Объем заявки (количество лотов).|
 |[time_in_force](#time_in_force)|Тип заявки - Limit или IOC.|
-|[origin_server_time](#origin_server_time)|Биржевое время постановки заявки в стакан в тиках.|
-|[origin_time](#origin_time)|Локальное время постановки заявки в стакан в тиках.|
 |[market_id](#market_id)|ID биржи.|
 |[security](#security)|Инструмент, к которому относится заявка.|
 |[kMaxCommentLength](#kMaxCommentLength)|Максимальная длина комментария к заявке.|
@@ -24,9 +22,12 @@
 |Имя| Описание|
 |------------------|--------------------|
 |[amount_rest()](#amount_rest)|Текущий объем заявки. Может быть меньше начального, если были сделки с ее участием.|
+|[get_server_time()](#get_server_time)|Биржевое время последнего изменения (в сотнях наносекунд).|
 |[implied_amount()](#implied_amount)|Количество лотов, которое предположительно будет сведено.|
 |[status()](#status)|Статус заявки: в процессе добавления, активная, ждущая удаления, удаленная.|
 |[outer_id()](#outer_id)|Биржевой (внешний) ID заявки.|
+|[server_time](#server_time)|Биржевое время постановки заявки в стакан в тиках.|
+|[origin_time](#origin_time)|Локальное время постановки заявки в стакан в тиках.|
 
 ###Описание полей
 <a name="id"></a>
@@ -64,20 +65,6 @@ const OrderTimeInForce time_in_force;
 ```
 Тип заявки - Limit или IOC.
 
-<a name="origin_server_time"></a>
-####origin_server_time
-```c++
-int64_t origin_server_time;
-```
-Биржевое время постановки заявки в стакан в тиках.
-
-<a name="origin_time"></a>
-####origin_time
-```c++
-const Ticks origin_time;
-```
-Локальное время постановки заявки в стакан в тиках.
-
 <a name="market_id"></a>
 ####market_id
 ```c++
@@ -108,6 +95,13 @@ inline Amount amount_rest() const;
 ```
 Текущий объем заявки. Может быть меньше начального, если были сделки с ее участием.
 
+<a name="get_server_time"></a>
+####get_server_time()
+```c++
+Microseconds get_server_time() const;
+```
+Биржевое время последнего изменения (в сотнях наносекунд).
+
 <a name="implied_amount"></a>
 ####implied_amount()
 ```c++
@@ -128,5 +122,19 @@ inline OrderStatus status() const;
 inline Id outer_id() const;
 ```
 Биржевой (внешний) ID заявки.
+
+<a name="server_time"></a>
+####server_time
+```c++
+int64_t server_time;
+```
+Биржевое время постановки заявки в стакан в тиках.
+
+<a name="origin_time"></a>
+####origin_time
+```c++
+const Ticks origin_time;
+```
+Локальное время постановки заявки в стакан в тиках.
 
 

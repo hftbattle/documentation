@@ -1,5 +1,5 @@
 #SecurityOrdersSnapshot
-Путь в Local Pack-е: `include/sender/security_orders_snapshot.h`
+Путь в Local Pack-е: `include/security_orders_snapshot.h`
 
 Класс SecurityOrdersSnapshot хранит текущие заявки стратегии.
 Структура обновляется перед приходом каждого апдейта в стратегию.

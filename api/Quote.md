@@ -1,5 +1,5 @@
 #Quote
-Путь в Local Pack-е: `include/quote/quote.h`
+Путь в Local Pack-е: `include/quote.h`
 
 Котировка (или квота) - это термин для обозначения одного ценового уровня в стакане.
 Она характеризуется
@@ -16,8 +16,8 @@
 |[get_dir()](#get_dir)|Направление котировки.|
 |[get_price()](#get_price)|Цена котировки.|
 |[get_volume()](#get_volume)|Объем лотов котировки.|
-|[get_last_moment_ticks()](#get_last_moment_ticks)|Биржевое время последнего изменения (в сотнях наносекунд).|
-|[get_last_tsc()](#get_last_tsc)|Локальное время последнего изменения (в микросекундах).|
+|[get_server_time()](#get_server_time)|Биржевое время последнего изменения в микросекундах.|
+|[get_local_time()](#get_local_time)|Локальное время последнего изменения в микросекундах.|
 
 ###Описание методов
 <a name="get_dir"></a>
@@ -41,18 +41,18 @@ inline Amount get_volume() const;
 ```
 Объем лотов котировки.
 
-<a name="get_last_moment_ticks"></a>
-####get_last_moment_ticks()
+<a name="get_server_time"></a>
+####get_server_time()
 ```c++
-int64_t get_last_moment_ticks() const;
+Microseconds get_server_time() const;
 ```
-Биржевое время последнего изменения (в сотнях наносекунд).
+Биржевое время последнего изменения в микросекундах.
 
-<a name="get_last_tsc"></a>
-####get_last_tsc()
+<a name="get_local_time"></a>
+####get_local_time()
 ```c++
-int64_t get_last_tsc() const;
+Microseconds get_local_time() const;
 ```
-Локальное время последнего изменения (в микросекундах).
+Локальное время последнего изменения в микросекундах.
 
 
