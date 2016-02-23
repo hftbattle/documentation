@@ -12,7 +12,7 @@
    * [Перебор параметров](interface/params.md)
 * [Пакет для локальной разработки](local-pack/README.md)
    * [Установка зависимостей](local-pack/requirements.md)
-   * [Данные для симуляции](local-pack/data.md)
+   * [Биржевые данные](local-pack/data.md)
    * [Запуск стратегии](local-pack/run_strategy.md)
    * [Добавление стратегии](local-pack/add_strategy.md)
 * [Написание стратегий](strategy/README.md)
