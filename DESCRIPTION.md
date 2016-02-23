@@ -29,7 +29,7 @@ git clone https://github.com/hftbattle/local_pack.git
 ```
 REGISTER_CONTEST_STRATEGY(UserStrategy, best_strategy_ever)
 ```
-Подробнее в разделе [Симулятор торгов](simulator/README.md).
+Подробнее в разделе [Пакет для локальной разработки](local-pack/README.md).
 
 ## Биржевые данные
 - Для симуляции торгов используются данные фьючерса S&P Mini Чикагской товарной биржи [CME]({{ book["wiki.cme.url"] }}). 
