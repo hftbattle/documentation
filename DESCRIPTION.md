@@ -8,4 +8,5 @@
 
 ## Особенности симулятора торгов
 - События, приходящие в стратегию, бывают трех видов:  [обновление стакана](#api/ParticipantStrategy.md#trading_book_update), [сообщение о пачках сделок](#api/ParticipantStrategy.md#trading_deals_update) и [сообщение о вашей сделке](#api/ParticipantStrategy.md#execution_report_update). При этом, если случилась ваша сделка, то сначала придет апдейт о вашей сделке, потом - обновление с пачкой сделок и только после этого сообщение об изменении стакана. 
-- Реализованы жесткие ограничения на набираемую [позицию](api/
+- Реализованы жесткие ограничения на набираемую [позицию](api/ContestBookInfo.md#total_amount), поэтому не удивляйтесь, если методы [add_limit_order](api/ParticipantStrategy.md#add_limit_order) и [add_ioc_order](api/ParticipantStrategy.md#add_ioc_order) будут возвращать *false*. Внимательнее смотрите в логи, мы сообщим вам о таких случаях!
+- 
