@@ -44,9 +44,7 @@ ParticipantStrategy - класс-интерфейс для написания п
 |Имя| Описание|
 |------------------|--------------------|
 |[trading_book_info](#trading_book_info)|Стуктура-аггрегатор основной информации о торговом стакане.|
-|[signal_book_info](#signal_book_info)|Стуктура-аггрегатор основной информации о сигнальном стакане.|
 |[trading_book_snapshot](#trading_book_snapshot)|Умный указатель на текущий стакан торгового инструмента.|
-|[signal_book_snapshot](#signal_book_snapshot)|Аналогично trading_book_snapshot для сигнального инструмента.|
 |[trading_book](#trading_book)|Указатель на стакан торгового инструментов.|
 |[signal_book](#signal_book)|Указатель на стакан сигнального инструментов.|
 
@@ -74,22 +72,6 @@ virtual void execution_report_update(const ExecutionReportSnapshot& snapshot);
 ```
 Вызывается при получении отчета о сделке с участием вашего ордера:
 - *snapshot* – структура-отчет о совершенной сделке.
-
-<a name="signal_book_update"></a>
-####signal_book_update()
-```c++
-virtual void signal_book_update(const OrderBook& order_book);
-```
-Вызывается при получении нового стакана сигнального инструмента:
-- *order_book* – новый стакан.
-
-<a name="signal_deals_update"></a>
-####signal_deals_update()
-```c++
-virtual void signal_deals_update(const std::vector<Deal>& deals);
-```
-Вызывается при получении новых сделок сигнального инструмента:
-- *deals* - вектор новых сделок.
 
 <a name="add_limit_order"></a>
 ####add_limit_order()
@@ -186,26 +168,12 @@ ContestBookInfo trading_book_info;
 ```
 Стуктура-аггрегатор основной информации о торговом стакане.
 
-<a name="signal_book_info"></a>
-####signal_book_info
-```c++
-ContestBookInfo signal_book_info;
-```
-Стуктура-аггрегатор основной информации о сигнальном стакане.
-
 <a name="trading_book_snapshot"></a>
 ####trading_book_snapshot
 ```c++
 SharedPtr<DataFeedSnapshot> trading_book_snapshot;
 ```
 Умный указатель на текущий стакан торгового инструмента. Они обновляются каждый раз с приходом очередного апдейта торгового стакана. При этом объект внутри (стакан) разрушается. Чтобы сохранить старый стакан, нужно явно в стратегии сохранить этот указатель.
-
-<a name="signal_book_snapshot"></a>
-####signal_book_snapshot
-```c++
-SharedPtr<DataFeedSnapshot> signal_book_snapshot;
-```
-Аналогично trading_book_snapshot для сигнального инструмента.
 
 <a name="trading_book"></a>
 ####trading_book
@@ -214,11 +182,5 @@ const OrderBook* trading_book;
 ```
 Указатель на стакан торгового инструментов.
 
-<a name="signal_book"></a>
-####signal_book
-```c++
-const OrderBook* signal_book;
-```
-Указатель на стакан сигнального инструментов.
 
 
