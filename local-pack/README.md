@@ -10,6 +10,6 @@ git clone https://github.com/hftbattle/local_pack.git
 
 Подробнее об использовании пакета для локальной разработки:
   - [Установка зависимостей](requirements.md)
-  - [Данные для симуляции](data.md)
+  - [Биржевые данные](data.md)
   - [Запуск стратегии](run_strategy.md)
   - [Добавление стратегии](add_strategy.md)
