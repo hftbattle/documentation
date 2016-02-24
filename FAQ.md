@@ -53,11 +53,18 @@ A: Время, прошедшее от отправки заявки на бир
 
 <a name="api"></a>
 ### API симулятора
-**Q: Как из *trading_book_snapshot* обратиться к стакану заявок?**
+**Q: Как узнать текущую лучшую цену по направлению?**
 
-A: Стакан заявок можно получить, используя следующую конструкцию:
+A: Текущую лучшую цену можно узнать непосредственно у стакана, приходящего в функцию [trading_book_update](api/ParticipantStrategy.md#trading_book_update):
 ```c++
-const OrderBook* order_book = reinterpret_cast<const BookSnapshot*>(trading_book_snapshot.get())->book();
+void trading_book_update(const OrderBook& order_book) override {
+    Price best_price = order_book.best_price(dir);
+}
+```
+
+либо из любого места, используя структуру-агрегатор информации по стакану [trading_book_info](api/ParticipantStrategy.md#trading_book_info) типа [ContestBookInfo](api/ContestBookInfo.md):
+```c++
+Price best_price = trading_book_info.best_price(dir);
 ```
 
 ---
