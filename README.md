@@ -8,7 +8,7 @@
 - Скачайте пакет для локальной разработки на С++. Пакет опубликован на [GitHub](https://github.com/hftbattle/local_pack).
 Его можно скачать следующей командой (должен быть установлен [Git](http://git-scm.com/download)):
 ```
-git clone https://github.com/hftbattle/local_pack.git
+git clone https://github.com/hftbattle/hftbattle.git
 ```
 Подробнее в разделе [Пакет для локальной разработки](local-pack/README.md).
 - Прочитайте документацию: вам помогут разделы [Написание стратегий](strategy/README.md), [Симулятор торгов](simulator/README.md), а также [Словарь терминов](terms.md) и [FAQ](FAQ.md).
