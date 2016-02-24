@@ -174,11 +174,15 @@ private:
 
 
 ```c++
-
 #include "./participant_strategy.h"
 
 using namespace hftbattle;
 
+/**
+ * Данная стратегия - модификация стратегии deals_count_diff_strategy.
+ * Здесь мы хотим ограничить суммарный объем наших сделок,
+ * используя информацию, приходящую в функции execution_report_update.
+ **/
 class UserStrategy : public ParticipantStrategy {
 public:
   UserStrategy(JsonValue config)
@@ -194,6 +198,12 @@ public:
     std::cout << "min_deals_count_diff_: " << min_deals_count_diff_ << std::endl;
     std::cout << "deals_reset_period_ms_: " << deals_reset_period_ms_.count() << std::endl;
     std::cout << "our_deals_max_total_amount_: " << our_deals_max_total_amount_ << std::endl;
+  }
+
+  // Вызывается при получении нового стакана торгового инструмента:
+  // @order_book – новый стакан.
+  void trading_book_update(const OrderBook& order_book) override {
+    /* написать свою реализацию здесь */
   }
 
   // Вызывается при получении новых сделок торгового инструмента:
@@ -217,7 +227,6 @@ public:
       const Amount amount_to_beat = 1;
       add_ioc_order(dir_to_beat, price_to_beat, amount_to_beat);
     }
-
     const Microseconds current_time = get_server_time();
     const Microseconds time_diff_us = current_time - last_reset_time_;
     // Далее сравнивается величина time_diff_us в микросекундах
@@ -232,9 +241,9 @@ public:
   }
 
   // Вызывается при получении отчета о сделке с участием вашего ордера:
-  // @snapshot – структура-отчет о совершенной сделке.
-  void execution_report_update(const ExecutionReportSnapshot& snapshot) override {
-    our_deals_total_amount_ += snapshot.deal_amount();
+  // @execution_report – структура-отчет о совершенной сделке.
+  void execution_report_update(const ExecutionReport& execution_report) override {
+    our_deals_total_amount_ += execution_report.deal_amount();
     if (our_deals_total_amount_ > our_deals_max_total_amount_) {
       trading_finished_ = true;
     }
@@ -249,6 +258,6 @@ private:
   int min_deals_count_diff_;
   Milliseconds deals_reset_period_ms_;
   Amount our_deals_max_total_amount_;
-  
 };
+
 ```
