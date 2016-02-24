@@ -3,7 +3,7 @@
 
 
 #  Как начать участие
-- Зарегистрируйтесь на сайте [{{ book["contest.landing-page.name"] }}]({{ book["contest.landing-page.url"] }}).
+- Зарегистрируйтесь на сайте [{{ book["contest.arena.name"] }}]({{ book["contest.arena.url"] }}).
 - Отправьте одну из стратегий-примеров, находящихся в интерфейсе участника по умолчанию. Подробнее в разделе [Интерфейс участника](interface/README.md).
 - Скачайте пакет для локальной разработки на С++. Пакет опубликован на [GitHub](https://github.com/hftbattle/hftbattle).
 Его можно скачать следующей командой (должен быть установлен [Git](http://git-scm.com/download)):
