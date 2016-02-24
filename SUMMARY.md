@@ -1,7 +1,7 @@
 # Summary
 
-* [Введение](README.md)
-* [Особенности соревнования](DESCRIPTION.md)
+* [Как начать участие](README.md)
+* [Краткое описание контеста](DESCRIPTION.md)
 * [Интерфейс участника](interface/README.md)
    * [Режимы тестирования](interface/modes.md)
    * [Отправка стратегии](interface/submit.md)
