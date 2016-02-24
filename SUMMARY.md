@@ -1,6 +1,6 @@
 # Summary
 
-* [Introduction](README.md)
+* [Введение](README.md)
 * [Особенности соревнования](DESCRIPTION.md)
 * [Интерфейс участника](interface/README.md)
    * [Режимы тестирования](interface/modes.md)
