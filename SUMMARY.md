@@ -1,7 +1,7 @@
 # Summary
 
 * [Как начать участие](README.md)
-* [Краткое описание контеста](DESCRIPTION.md)
+* [Краткое описание контеста](quick_start.md)
 * [Интерфейс участника](interface/README.md)
    * [Режимы тестирования](interface/modes.md)
    * [Отправка стратегии](interface/submit.md)
