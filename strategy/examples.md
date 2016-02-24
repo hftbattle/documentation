@@ -19,7 +19,7 @@
 Рассмотрим базовый вариант стратегии:
 
 ```c++
-#include "strategy/participant_strategy_layer.h"
+#include "./participant_strategy.h"
 
 using namespace hftbattle;
 
@@ -57,7 +57,7 @@ public:
 Применим следующую простую оптимизацию: если на лучшей цене стоит объем меньший чем *min\_amount\_to\_stay\_on\_best\_*, то мы на нее выставляться не будем и снимем заявку если уже там стоим:
 
 ```c++
-#include "strategy/participant_strategy_layer.h"
+#include "./participant_strategy.h"
 
 using namespace hftbattle;
 
@@ -111,7 +111,7 @@ private:
 <a name="deals_count_diff_base"></a>
 ```c++
 
-#include "strategy/participant_strategy_layer.h"
+#include "./participant_strategy.h"
 
 using namespace hftbattle;
 
@@ -175,7 +175,7 @@ private:
 
 ```c++
 
-#include "strategy/participant_strategy_layer.h"
+#include "./participant_strategy.h"
 
 using namespace hftbattle;
 
