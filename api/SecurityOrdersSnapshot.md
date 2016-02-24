@@ -16,7 +16,7 @@
 
 |Имя| Описание|
 |------------------|--------------------|
-|[get_volume_by_price(Dir dir, Decimal price)](#get_volume_by_price)|Суммарный объём заявок с заданной ценой *price* по направлению *dir*.|
+|[get_volume_by_price(Dir dir, Decimal price)](#get_volume_by_price)|Суммарный объем заявок с заданной ценой *price* по направлению *dir*.|
 |[active_orders_count(Dir dir)](#active_orders_count)|Количество наших активных заявок по направлению *dir*.|
 |[active_orders_volume(Dir dir)](#active_orders_volume)|Возвращает суммарный объем активных ордеров по направлению *dir*.|
 |[size()](#size)|Суммарное количество наших заявок по обоим направлениям.|
@@ -43,7 +43,7 @@ std::array<Amount, 2> deleting_amount;
 ```c++
 Amount get_volume_by_price(Dir dir, Decimal price) const;
 ```
-Суммарный объём заявок с заданной ценой *price* по направлению *dir*.
+Суммарный объем заявок с заданной ценой *price* по направлению *dir*.
 
 <a name="active_orders_count"></a>
 ####active_orders_count()

@@ -18,7 +18,7 @@ ParticipantStrategy - класс-интерфейс для написания п
 |Имя| Описание|
 |------------------|--------------------|
 |[trading_book_update(const OrderBook& order_book)](#trading_book_update)|Вызывается при получении нового стакана торгового инструмента.|
-|[trading_deals_update(const std::vector< Deal>& deals)](#trading_deals_update)|Вызывается при получении новых сделок торгового инструмента.|
+|[trading_deals_update(const std::vector<Deal>& deals)](#trading_deals_update)|Вызывается при получении новых сделок торгового инструмента.|
 |[execution_report_update(const ExecutionReport& execution_report)](#execution_report_update)|Вызывается при получении отчета о сделке с участием вашего ордера.|
 |[signal_book_update(const OrderBook& order_book)](#signal_book_update)|Вызывается при получении нового стакана сигнального инструмента.|
 |[signal_deals_update(const std::vector<Deal>& deals)](#signal_deals_update)|Вызывается при получении новых сделок сигнального инструмента.|
@@ -41,8 +41,8 @@ ParticipantStrategy - класс-интерфейс для написания п
 
 |Имя| Описание|
 |------------------|--------------------|
-|[trading_book_info](#trading_book_info)|Стуктура-аггрегатор основной информации о торговом стакане.|
-|[signal_book_info](#signal_book_info)|Стуктура-аггрегатор основной информации о сигнальном стакане.|
+|[trading_book_info](#trading_book_info)|Структура-агрегатор основной информации о торговом стакане.|
+|[signal_book_info](#signal_book_info)|Структура-агрегатор основной информации о сигнальном стакане.|
 |[trading_book](#trading_book)|Умный указатель на текущий стакан торгового инструмента.|
 |[signal_book](#signal_book)|Аналогично trading_book для сигнального инструмента.|
 
@@ -205,14 +205,14 @@ void set_stop_loss_result(const Decimal stop_loss_result);
 ```c++
 ContestBookInfo trading_book_info;
 ```
-Стуктура-аггрегатор основной информации о торговом стакане.
+Структура-агрегатор основной информации о торговом стакане.
 
 <a name="signal_book_info"></a>
 ####signal_book_info
 ```c++
 ContestBookInfo signal_book_info;
 ```
-Стуктура-аггрегатор основной информации о сигнальном стакане.
+Структура-агрегатор основной информации о сигнальном стакане.
 
 <a name="trading_book"></a>
 ####trading_book
