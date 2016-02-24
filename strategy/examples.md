@@ -158,14 +158,12 @@ public:
       deals_count_by_dir_[ASK] = 0;
     }
   }
-  
 private:
   Microseconds last_reset_time_;
   std::array<int, 2> deals_count_by_dir_;
 
   int min_deals_count_diff_;
   Milliseconds deals_reset_period_ms_;
-  
 };
 ```
 
@@ -178,11 +176,6 @@ private:
 
 using namespace hftbattle;
 
-/**
- * Данная стратегия - модификация стратегии deals_count_diff_strategy.
- * Здесь мы хотим ограничить суммарный объем наших сделок,
- * используя информацию, приходящую в функции execution_report_update.
- **/
 class UserStrategy : public ParticipantStrategy {
 public:
   UserStrategy(JsonValue config)
