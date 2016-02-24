@@ -13,7 +13,7 @@
 
 Сам класс выглядит следующим образом:
 ```cpp
-#include "strategy/participant_strategy_layer.h"
+#include "./participant_strategy.h"
 
 using namespace hftbattle;
 
