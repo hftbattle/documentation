@@ -5,7 +5,7 @@
 #  Как начать участие
 - Зарегистрируйтесь на сайте [{{ book["contest.arena.name"] }}]({{ book["contest.arena.url"] }}).
 - Отправьте одну из стратегий-примеров, находящихся в интерфейсе участника по умолчанию. Подробнее в разделе [Интерфейс участника](interface/README.md).
-- Скачать пакет для локальной разработки на С++.  Для этого можно [скачать]({{ book["contest.local-pack.virtual.url"] }}) настроенный образ VirtualBox, либо склонировать пакет, опубликованный на [GitHub](https://github.com/hftbattle/hftbattle) (должен быть установлен [Git](http://git-scm.com/download)):
+- Скачать пакет для локальной разработки на С++.  Для этого можно [скачать]({{ book["contest.local-pack.virtual.url"] }}) настроенный образ [VirtualBox]({{book["virtualbox.url"]}}), либо склонировать пакет, опубликованный на [GitHub](https://github.com/hftbattle/hftbattle) (должен быть установлен [Git](http://git-scm.com/download)):
 ```
 git clone https://github.com/hftbattle/hftbattle.git
 ```
