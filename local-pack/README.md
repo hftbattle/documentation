@@ -8,7 +8,7 @@
 git clone https://github.com/hftbattle/hftbattle.git
 ```
 
-Также можно скачать образ виртуальной машины, на котором уже настроены необходимые зависимости: [{{ book["contest.local-pack.virtual.url"] }}]({{ book["contest.local-pack.virtual.url"] }}).
+Также можно [скачать]({{ book["contest.local-pack.virtual.url"] }}) образ виртуальной машины, на котором уже настроены необходимые зависимости.
 
 Подробнее об использовании пакета для локальной разработки:
   - [Настроенная виртуальная машина](virtual.md)
