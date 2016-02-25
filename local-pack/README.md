@@ -11,7 +11,7 @@ git clone https://github.com/hftbattle/hftbattle.git
 Также можно [скачать](https://s3.eu-central-1.amazonaws.com/hftbattle/vm-hftbattle.ova) образ виртуальной машины, на котором уже настроены необходимые зависимости и установлен CLion.
 
 Подробнее об использовании пакета для локальной разработки:
-  - [Настроенная виртуальная машина](virtual.md)
+  - [Виртуальная машина](virtual.md)
   - [Установка зависимостей](requirements.md)
   - [Биржевые данные](data.md)
   - [Запуск стратегии](run_strategy.md)
