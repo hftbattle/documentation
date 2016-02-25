@@ -9,6 +9,7 @@ git clone https://github.com/hftbattle/hftbattle.git
 ```
 
 Подробнее об использовании пакета для локальной разработки:
+  - [Настроенная виртуальная машина](virtual.md)
   - [Установка зависимостей](requirements.md)
   - [Биржевые данные](data.md)
   - [Запуск стратегии](run_strategy.md)
