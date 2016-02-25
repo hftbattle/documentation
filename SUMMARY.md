@@ -12,7 +12,7 @@
        * [Логи](interface/analysis/logs.md)
    * [Перебор параметров](interface/params.md)
 * [Пакет для локальной разработки](local-pack/README.md)
-   * Настроенная виртуальная машина
+   * [Настроенная виртуальная машина](local-pack/virtual.md)
    * [Установка зависимостей](local-pack/requirements.md)
    * [Биржевые данные](local-pack/data.md)
    * [Запуск стратегии](local-pack/run_strategy.md)
