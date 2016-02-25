@@ -12,11 +12,11 @@
        * [Логи](interface/analysis/logs.md)
    * [Перебор параметров](interface/params.md)
 * [Пакет для локальной разработки](local-pack/README.md)
+   * Настроенная виртуальная машина
    * [Установка зависимостей](local-pack/requirements.md)
    * [Биржевые данные](local-pack/data.md)
    * [Запуск стратегии](local-pack/run_strategy.md)
    * [Добавление стратегии](local-pack/add_strategy.md)
-   * Настроенная виртуальная машина
 * [Написание стратегий](strategy/README.md)
    * [Структура стратегий](strategy/structure.md)
    * [Как написать стратегию](strategy/strategy_how_to.md)
