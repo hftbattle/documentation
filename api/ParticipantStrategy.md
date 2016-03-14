@@ -69,7 +69,7 @@ virtual void trading_deals_update(const std::vector<Deal>& deals);
 virtual void execution_report_update(const ExecutionReport& execution_report);
 ```
 Вызывается при получении отчета о сделке с участием вашего ордера:
-- *snapshot* – структура-отчет о совершенной сделке.
+- *execution_report* – структура-отчет о совершенной сделке.
 
 <a name="signal_book_update"></a>
 ####signal_book_update()
