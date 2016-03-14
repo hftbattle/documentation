@@ -37,7 +37,7 @@ public:
 
   // Вызывается при получении отчета о сделке с участием вашего ордера:
   // @snapshot – структура-отчет о совершенной сделке.
-  void execution_report_update(const ExecutionReportSnapshot& snapshot) override {
+  void execution_report_update(const ExecutionReport& execution_report) override {
     /* написать свою реализацию здесь */
   }
 
