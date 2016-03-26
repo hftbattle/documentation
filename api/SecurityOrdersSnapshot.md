@@ -18,7 +18,8 @@
 |------------------|--------------------|
 |[get_volume_by_price(Dir dir, Decimal price)](#get_volume_by_price)|Суммарный объем заявок с заданной ценой *price* по направлению *dir*.|
 |[active_orders_count(Dir dir)](#active_orders_count)|Количество наших активных заявок по направлению *dir*.|
-|[active_orders_volume(Dir dir)](#active_orders_volume)|Возвращает суммарный объем активных ордеров по направлению *dir*.|
+|[active_orders_volume(Dir dir)](#active_orders_volume)|Суммарный объем активных ордеров по направлению *dir*.|
+|[get_orders_by_dir_to_map(Dir dir)](#get_orders_by_dir_to_map)|Возвращает std::map, в котором каждой цене соответствует std::vector заявок по направлению *dir*.|
 |[size()](#size)|Суммарное количество наших заявок по обоим направлениям.|
 
 ###Описание полей
@@ -57,7 +58,14 @@ size_t active_orders_count(Dir dir) const;
 ```c++
 Amount active_orders_volume(Dir dir) const;
 ```
-Возвращает суммарный объем активных ордеров по направлению *dir*.
+Суммарный объем активных ордеров по направлению *dir*.
+
+<a name="get_orders_by_dir_to_map"></a>
+####get_orders_by_dir_to_map()
+```c++
+OrdersMap get_orders_by_dir_to_map(Dir dir) const;
+```
+Возвращает std::map, в котором каждой цене соответствует std::vector заявок по направлению *dir*.
 
 <a name="size"></a>
 ####size()
