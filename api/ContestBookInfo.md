@@ -14,8 +14,7 @@
 |[best_volume(Dir dir)](#best_volume)|Суммарный объем лотов на лучшей цене по направлению *dir*.|
 |[executed_amount()](#executed_amount)|Наша текущая позиция.|
 |[total_amount()](#total_amount)|Наша общая позиция: учитывается как реальная позиция на руках, так и предполагаемая.|
-|[orders()](#orders)|Ссылка на структуру, содержащую наши текущие заявки.|
-|[orders_const()](#orders_const)|Константная ссылка на структуру, содержащую наши текущие заявки.|
+|[orders()](#orders)|Ссылка на структуру, содержащая наши текущие заявки.|
 |[middle_price()](#middle_price)|Полусумма лучших цен.|
 |[min_step()](#min_step)|Минимальный шаг цены в стакане (минимальная возможная разница между ценами).|
 |[spread_in_min_steps()](#spread_in_min_steps)|Расстояние между лучшим аском и лучшим бидом в минимальных шагах цены.|
@@ -58,14 +57,7 @@ Amount total_amount() const;
 ```c++
 SecurityOrdersSnapshot& orders();
 ```
-Ссылка на структуру, содержащую наши текущие заявки.
-
-<a name="orders_const"></a>
-####orders_const()
-```c++
-const SecurityOrdersSnapshot& orders_const() const;
-```
-Константная ссылка на структуру, содержащую наши текущие заявки.
+Ссылка на структуру, содержащая наши текущие заявки.
 
 <a name="middle_price"></a>
 ####middle_price()

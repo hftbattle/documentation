@@ -18,7 +18,7 @@ ParticipantStrategy - класс-интерфейс для написания п
 |Имя| Описание|
 |------------------|--------------------|
 |[trading_book_update(const OrderBook& order_book)](#trading_book_update)|Вызывается при получении нового стакана торгового инструмента.|
-|[trading_deals_update(const std::vector<Deal>& deals)](#trading_deals_update)|Вызывается при получении новых сделок торгового инструмента.|
+|[trading_deals_update(const std::vector< Deal>& deals)](#trading_deals_update)|Вызывается при получении новых сделок торгового инструмента.|
 |[execution_report_update(const ExecutionReport& execution_report)](#execution_report_update)|Вызывается при получении отчета о сделке с участием вашего ордера.|
 |[signal_book_update(const OrderBook& order_book)](#signal_book_update)|Вызывается при получении нового стакана сигнального инструмента.|
 |[signal_deals_update(const std::vector<Deal>& deals)](#signal_deals_update)|Вызывается при получении новых сделок сигнального инструмента.|
@@ -27,7 +27,6 @@ ParticipantStrategy - класс-интерфейс для написания п
 |[delete_order(Order* order)](#delete_order)|Снимает нашу заявку с торгов.|
 |[delete_all_orders_by_dir(Dir dir)](#delete_all_orders_by_dir)|Снимает все наши заявки с торгов по направлению *dir*.|
 |[get_amount_before_order(Order* order)](#get_amount_before_order)|Возвращает количество лотов, стоящих в очереди перед нашей заявкой.|
-|[get_volume_at_price(Dir dir, Price price)](#get_volume_at_price)|Возвращает суммарное количество лотов в наших активных заявках, стоящих на определённой цене.|
 |[add_chart_point(const std::string& line_name, double value, ChartYAxisType y_axis_type, uint8_t chart_number)](#add_chart_point)|Добавляет точку на график.|
 |[get_current_result()](#get_current_result)|Возвращает текущий результат (заработок).|
 |[get_saldo()](#get_saldo)|Возвращает текущее сальдо, т.е. баланс без учета позы.|
@@ -70,7 +69,7 @@ virtual void trading_deals_update(const std::vector<Deal>& deals);
 virtual void execution_report_update(const ExecutionReport& execution_report);
 ```
 Вызывается при получении отчета о сделке с участием вашего ордера:
-- *snapshot* – структура-отчет о совершенной сделке.
+- *execution_report* – структура-отчет о совершенной сделке.
 
 <a name="signal_book_update"></a>
 ####signal_book_update()
@@ -133,15 +132,6 @@ Amount get_amount_before_order(Order* order) const;
 ```
 Возвращает количество лотов, стоящих в очереди перед нашей заявкой.
 - *order* - заявка, для которой мы хотим узнать количество стоящих перед ней лотов.
-
-<a name="get_volume_at_price"></a>
-####get_volume_at_price()
-```c++
-Amount get_volume_at_price(Dir dir, Price price) const;
-```
-Возвращает суммарное количество лотов в наших активных заявках, стоящих на определённой цене.
-- *dir* - направление (BID = 0 - покупка, ASK = 1 - продажа).
-- *price* - цена, объём лотов на которой мы хотим узнать.
 
 <a name="add_chart_point"></a>
 ####add_chart_point()
