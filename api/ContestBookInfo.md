@@ -23,6 +23,8 @@
 |[server_time()](#server_time)|Биржевое время последнего обновления.|
 |[security_id()](#security_id)|Инструмент, которому соответствует данный класс.|
 |[statistics()](#statistics)|Структура, содержащая статистику по нашей текущей позиции.|
+|[get_added_volume_at_price(const Dir dir, const Price price)](#get_added_volume_at_price)|Объём добавленных заявок по направлению *dir* и цене *price*, по сравнению с предыдущим обновлением стакана.|
+|[get_deleted_volume_at_price(const Dir dir, const Price price)](#get_deleted_volume_at_price)|Объём снятых заявок по направлению *dir* и цене *price*, по сравнению с предыдущим обновлением стакана.|
 
 ###Описание методов
 <a name="best_price"></a>
@@ -115,5 +117,19 @@ SecurityId security_id() const;
 StatisticsSnapshot statistics();
 ```
 Структура, содержащая статистику по нашей текущей позиции.
+
+<a name="get_added_volume_at_price"></a>
+####get_added_volume_at_price()
+```c++
+Amount get_added_volume_at_price(const Dir dir, const Price price) const;
+```
+Объём добавленных заявок по направлению *dir* и цене *price*, по сравнению с предыдущим обновлением стакана.
+
+<a name="get_deleted_volume_at_price"></a>
+####get_deleted_volume_at_price()
+```c++
+Amount get_deleted_volume_at_price(const Dir dir, const Price price) const;
+```
+Объём снятых заявок по направлению *dir* и цене *price*, по сравнению с предыдущим обновлением стакана.
 
 

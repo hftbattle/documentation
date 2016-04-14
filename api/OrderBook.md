@@ -9,10 +9,10 @@
 
 |Имя| Описание|
 |------------------|--------------------|
-|[get_quote_by_index(Dir dir, int index)](#get_quote_by_index)|Котировка с индексом *index* в стакане по направлению *dir*.|
-|[get_price_by_index(Dir dir, int index)](#get_price_by_index)|Цена котировки с индексом *index* по направлению *dir*.|
-|[get_volume_by_index(Dir dir, int index)](#get_volume_by_index)|Суммарный объем лотов котировки с индексом *index* по направлению *dir*.|
-|[get_quote_server_time_by_index(Dir dir, int index)](#get_quote_server_time_by_index)|Биржевое время последнего изменения котировки с индексом *index* по направлению *dir*.|
+|[get_quote_by_index(Dir dir, size_t index)](#get_quote_by_index)|Котировка с индексом *index* в стакане по направлению *dir*.|
+|[get_price_by_index(Dir dir, size_t index)](#get_price_by_index)|Цена котировки с индексом *index* по направлению *dir*.|
+|[get_volume_by_index(Dir dir, size_t index)](#get_volume_by_index)|Суммарный объем лотов котировки с индексом *index* по направлению *dir*.|
+|[get_quote_server_time_by_index(Dir dir, size_t index)](#get_quote_server_time_by_index)|Биржевое время последнего изменения котировки с индексом *index* по направлению *dir*.|
 |[get_quote_by_price(Dir dir, Price price)](#get_quote_by_price)|Котировка по цене *price* по направлению *dir*.|
 |[get_index_by_price(Dir dir, Price price)](#get_index_by_price)|Индекс котировки с ценой *price* по направлению *dir*.|
 |[get_volume_by_price(Dir dir, Price price)](#get_volume_by_price)|Суммарный объем лотов на цене *price* по направлению *dir*.|
@@ -30,28 +30,28 @@
 <a name="get_quote_by_index"></a>
 ####get_quote_by_index()
 ```c++
-const Quote& get_quote_by_index(Dir dir, int index) const;
+const Quote& get_quote_by_index(Dir dir, size_t index) const;
 ```
 Котировка с индексом *index* в стакане по направлению *dir*.
 
 <a name="get_price_by_index"></a>
 ####get_price_by_index()
 ```c++
-inline Price get_price_by_index(Dir dir, int index) const;
+Price get_price_by_index(Dir dir, size_t index) const;
 ```
 Цена котировки с индексом *index* по направлению *dir*.
 
 <a name="get_volume_by_index"></a>
 ####get_volume_by_index()
 ```c++
-inline Amount get_volume_by_index(Dir dir, int index) const;
+Amount get_volume_by_index(Dir dir, size_t index) const;
 ```
 Суммарный объем лотов котировки с индексом *index* по направлению *dir*.
 
 <a name="get_quote_server_time_by_index"></a>
 ####get_quote_server_time_by_index()
 ```c++
-inline int64_t get_quote_server_time_by_index(Dir dir, int index) const;
+int64_t get_quote_server_time_by_index(Dir dir, size_t index) const;
 ```
 Биржевое время последнего изменения котировки с индексом *index* по направлению *dir*.
 
@@ -72,28 +72,28 @@ size_t get_index_by_price(Dir dir, Price price) const;
 <a name="get_volume_by_price"></a>
 ####get_volume_by_price()
 ```c++
-inline Amount get_volume_by_price(Dir dir, Price price) const;
+Amount get_volume_by_price(Dir dir, Price price) const;
 ```
 Суммарный объем лотов на цене *price* по направлению *dir*.
 
 <a name="get_quote_server_time_by_price"></a>
 ####get_quote_server_time_by_price()
 ```c++
-inline int64_t get_quote_server_time_by_price(Dir dir, Price price) const;
+int64_t get_quote_server_time_by_price(Dir dir, Price price) const;
 ```
 Биржевое время последнего изменения котировки по цене *price* по направлению *dir*.
 
 <a name="best_price"></a>
 ####best_price()
 ```c++
-inline Price best_price(Dir dir) const;
+Price best_price(Dir dir) const;
 ```
 Лучшая цена в стакане по направлению *dir*.
 
 <a name="best_volume"></a>
 ####best_volume()
 ```c++
-inline Amount best_volume(Dir dir) const;
+Amount best_volume(Dir dir) const;
 ```
 Суммарный объем лотов на лучшей цене по направлению *dir*.
 
@@ -128,14 +128,14 @@ size_t depth() const;
 <a name="get_server_time"></a>
 ####get_server_time()
 ```c++
-inline Microseconds get_server_time() const;
+Microseconds get_server_time() const;
 ```
 Биржевое время последнего изменения стакана, в микросекундах.
 
 <a name="get_local_time"></a>
 ####get_local_time()
 ```c++
-inline Microseconds get_local_time() const;
+Microseconds get_local_time() const;
 ```
 Время последнего изменения стакана на машине, которая получала данные от биржи, в микросекундах.
 

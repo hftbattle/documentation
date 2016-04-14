@@ -26,7 +26,7 @@ ParticipantStrategy - класс-интерфейс для написания п
 |[add_ioc_order(Dir dir, Price price, Amount amount, const std::string& comment = {})](#add_ioc_order)|Выставляет нашу заявку типа Immediate-Or-Cancel (IOC).|
 |[delete_order(Order* order)](#delete_order)|Снимает нашу заявку с торгов.|
 |[delete_all_orders_by_dir(Dir dir)](#delete_all_orders_by_dir)|Снимает все наши заявки с торгов по направлению *dir*.|
-|[get_amount_before_order(Order* order)](#get_amount_before_order)|Возвращает количество лотов, стоящих в очереди перед нашей заявкой.|
+|[get_amount_before_order(const Order* order)](#get_amount_before_order)|Возвращает количество лотов, стоящих в очереди перед нашей заявкой.|
 |[get_volume_at_price(Dir dir, Price price)](#get_volume_at_price)|Возвращает суммарное количество лотов в наших активных заявках, стоящих на определённой цене.|
 |[add_chart_point(const std::string& line_name, double value, ChartYAxisType y_axis_type, uint8_t chart_number)](#add_chart_point)|Добавляет точку на график.|
 |[get_current_result()](#get_current_result)|Возвращает текущий результат (заработок).|
@@ -129,7 +129,7 @@ void delete_all_orders_by_dir(Dir dir);
 <a name="get_amount_before_order"></a>
 ####get_amount_before_order()
 ```c++
-Amount get_amount_before_order(Order* order) const;
+Amount get_amount_before_order(const Order* order) const;
 ```
 Возвращает количество лотов, стоящих в очереди перед нашей заявкой.
 - *order* - заявка, для которой мы хотим узнать количество стоящих перед ней лотов.
