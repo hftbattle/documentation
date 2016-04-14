@@ -37,7 +37,7 @@ public:
   bool should_strategy_run_from_best_price(Dir dir) const {
     double dir_events = 1.0 * deletions_count(dir) + 1.0 * additions_count(opposite_dir(dir));
     // возможная оценка количества событий, которые могут сигнализировать о том, что скоро этой цены не станет
-    double opposite_dir_events = 1.0 * deletions_count(dir) + 1.0 * additions_count(opposite_dir(dir));
+    double opposite_dir_events = 1.0 * deletions_count(opposite_dir(dir)) + 1.0 * additions_count(dir);
     // возможная оценка количества событий, которые могут сигнализировать о том, что скоро противоположной цены не станет
     return false;
     // Предлагается вместо false возвращать значение некоторого критерия, который будет говорить
