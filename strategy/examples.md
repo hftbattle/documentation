@@ -57,6 +57,8 @@ public:
       // была проведена сделка, то, скорее всего, выставлять заявку на эту цену будет невыгодно.
       // Подробное описание идеи читайте в блоге!
       // Скажем лишь, что реализация этой идеи позволила нам увеличить результат на $4000.
+      // Мы уже сохранили за вас цену и время последней сделки в полях last_our_deal_price_
+      // и last_our_deal_moment_, так что вам осталось только написать правильное условие!
       manage_amount_on_price(dir, price, wanted_amount, current_orders);
       return;
     }
@@ -145,6 +147,12 @@ public:
     }
   }
 
+  void execution_report_update(const ExecutionReport& snapshot) override {
+    auto dir = snapshot.dir();
+    last_our_deal_price_[dir] = snapshot.deal_price();
+    last_our_deal_moment_[dir] = get_server_time();
+  }
+  
 private:
   using Events = std::set<Microseconds>;
 
@@ -158,7 +166,10 @@ private:
   std::array<Events, 2> deletions_by_dir_;
   std::array<Events, 2> additions_by_dir_;
   Microseconds last_reset_time_;
-
+  
+  std::array<Price, 2> last_our_deal_price_;
+  std::array<Microseconds, 2> last_our_deal_moment_;
+  
   // Возвращает количество снятых заявок с лучшей цены по направлению @dir за определённый промежуток времени.
   size_t deletions_count(const Dir dir) const {
     return deletions_by_dir_[dir].size();
