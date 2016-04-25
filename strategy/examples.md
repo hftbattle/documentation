@@ -2,233 +2,13 @@
 
 Рассмотрим здесь несколько примеров торговых стратегий:
 
-* [Improved ideas strategy](#improved_ideas)
 * [Stay on best price strategy](#stay_on_best_price)
     * [Base](#stay_on_best_price)
     * [Improved](#stay_on_best_price_improved) 
 * [Deals count diff strategy](#deals_count_diff)
     * [Base](#deals_count_diff_base)
     * [Limited](#deals_count_diff_limited)
-
-
-<a name="improved_ideas"></a>
-#### Improved ideas strategy
-
-Идея этой стратегии мы подробно описали в [блоге](http://blog.hftbattle.com). Стратегия даже в неизменённом виде позволяет набрать результат более $2000 на контрольной выборке. 
-
-```c++
-#include "./participant_strategy.h"
-#include <set>
-
-using namespace hftbattle;
-
-class UserStrategy : public ParticipantStrategy {
-public:
-
-  UserStrategy(JsonValue config) :
-      max_executed_amount_(config["max_executed_amount"].as<Amount>(50)),
-      max_amount_at_price_(config["max_amount_at_price"].as<Amount>(3)),
-      max_amount_to_run_from_best_(config["max_amount_to_run_from_best"].as<Amount>(20)),
-      max_soft_amount_to_run_from_best_(config["max_soft_amount_to_run_from_best"].as<Amount>(64)),
-      max_after_amount_to_run_(config["max_after_amount_to_run"].as<Amount>(42)) {
-    set_stop_loss_result(Decimal(-15000.0));
-  }
-
-  bool should_strategy_run_from_best_price(Dir dir) const {
-    double dir_events = 1.0 * deletions_count(dir) + 1.0 * additions_count(opposite_dir(dir));
-    // возможная оценка количества событий, которые могут сигнализировать о том, что скоро этой цены не станет
-    double opposite_dir_events = 1.0 * deletions_count(opposite_dir(dir)) + 1.0 * additions_count(dir);
-    // возможная оценка количества событий, которые могут сигнализировать о том, что скоро противоположной цены не станет
-    return false;
-    // Предлагается вместо false возвращать значение некоторого критерия, который будет говорить
-    // о том, что есть большая вероятность исчезновения этой цены из стакана, и с нее лучше сняться.
-    // Например, так: return (dir_events > 0.0); - если удалений + снятий больше 0, то стоит уходить с цены.
-    // Подробности у нас в блоге http://blog.hftbattle.com.
-    // Правильно реализовав это правило и подобрав параметры, мы получили результат
-    // более $10000 на контрольной выборке, чего желаем и всем участникам!
-  }
-
-  // Удаление заявки с лучшей цены с учётом её положения в очереди. Снимаем заявку только в том случае,
-  // когда она стоит в хвосте очереди.
-  void delete_soft_second_version(Dir dir, Price price, Amount current_amount, Amount wanted_amount,
-                                  const std::vector<OrderSnapshot>& current_orders) {
-    if (!should_strategy_run_from_best_price(dir)) {
-      // Сюда же можно добавить отсечение по нашим сделкам: если по текущей цене недавно
-      // была проведена сделка, то, скорее всего, выставлять заявку на эту цену будет невыгодно.
-      // Подробное описание идеи читайте в блоге!
-      // Скажем лишь, что реализация этой идеи позволила нам увеличить результат на $4000.
-      // Мы уже сохранили за вас цену и время последней сделки в полях last_our_deal_price_
-      // и last_our_deal_moment_, так что вам осталось только написать правильное условие!
-      manage_amount_on_price(dir, price, wanted_amount, current_orders);
-      return;
-    }
-    for (auto it = current_orders.begin(); it != current_orders.end(); ++it) {
-      auto order = *it;
-      if (order->status() != OrderStatus::Active) {
-        continue;
-      }
-      // считаем объем, стоящий после нашей заявки
-      const Amount amount_after_order = trading_book_info.best_volume(dir) - get_amount_before_order(order);
-      // если с цены хорошо бы сняться и мы не сильно теряем очередь - то снимаем заявку
-      if (should_strategy_run_from_best_price(dir) && amount_after_order < max_after_amount_to_run_) {
-        delete_order(order);
-      }
-    }
-  }
-
-  // В этой функции мы снимаем заявку с лучшей цены при выполнении определённых условий.
-  // В частности, если на котировке стоят заявки с малым суммарным объёмом или наши заявки находятся в конце очереди.
-  // В противном случае (то есть если мы считаем что стоять на лучшей сейчас выгодно) -
-  // мы просто обрабатываем ее как обычную цену.
-  void manage_amount_on_best_price(Dir dir, Price price, Amount wanted_amount, const std::vector<OrderSnapshot>& current_orders) {
-    auto current_amount = std::accumulate(current_orders.cbegin(), current_orders.cend(), 0,
-                                          [](Amount amount, const OrderSnapshot &order) {
-                                            return amount + order->amount;
-                                          });
-    // если объем на цене совсем маленький - то снимаемся с нее
-    if (trading_book_info.best_volume(dir) - current_amount < max_amount_to_run_from_best_) {
-      delete_all_at_price(dir, price);
-      return;
-    }
-    // если объем не превышает какого-то - то думаем, стоит ли сняться, или все же стоит держать заявки
-    if (trading_book_info.best_volume(dir) - current_amount < max_soft_amount_to_run_from_best_) {
-      delete_soft_second_version(dir, price, current_amount, wanted_amount, current_orders);
-      return;
-    }
-    // если объем достаточно большой - то просто обрабатываем цену как все другие
-    manage_amount_on_price(dir, price, wanted_amount, current_orders);
-  }
-
-  // В этой функции мы поддерживаем необходимый объём заявок на ценовом уровне.
-  void manage_amount_on_price(Dir dir, Price price, Amount wanted_amount, const std::vector<OrderSnapshot>& current_orders) {
-    auto current_amount = std::accumulate(current_orders.cbegin(), current_orders.cend(), 0,
-                                          [](Amount amount, const OrderSnapshot &order) {
-                                            return amount + order->amount;
-                                          });
-    for(auto it = current_orders.rbegin(); it != current_orders.rend() && current_amount > wanted_amount; ++it) {
-      auto order = *it;
-      current_amount -= order->amount_rest();
-      delete_order(order);
-    }
-    for(int i = 0; i < wanted_amount - current_amount; ++i) {
-      // Мы выставляем заявки объёмом 1 лот, чтобы мы могли снимать только часть объёма,
-      // выставленного на ценовом уровне, без потери места в очереди внутри котировки.
-      add_limit_order(dir, price, 1);
-    }
-  }
-
-  void trading_book_update(const OrderBook& order_book) override {
-    // Добавляем отсечение по времени, чтобы торговать только в определённый период дня.
-    if (get_server_time_tm().tm_hour < 12) {
-      return;
-    }
-    // Обновляем списки недавних постановок и снятий на лучшие цены
-    update_deletions_and_additions();
-    for (Dir dir : {BID, ASK}) {
-      // Удаляем заявки с далёких ценовых уровней, чтобы не попадать под ограничение на набираемую позу.
-      for(auto& order: trading_book_info.orders().orders_by_dir[dir]) {
-        if (trading_book->get_index_by_price(dir, order->price) > 9) {
-          delete_order(order);
-        }
-      }
-      // Выставляем заявки на все видимые котировки в стакане.
-      auto active_orders = trading_book_info.orders().get_orders_by_dir_to_map(dir);
-      for (const auto& quote : trading_book->all_quotes(dir)) {
-        Price quote_price = quote.get_price();
-        Amount amount = get_wanted_amount(dir, quote_price);
-        // По отдельности обрабатываем лучшие ценовые уровни и все остальные.
-        if (quote_price == trading_book_info.best_price(dir)) {
-          manage_amount_on_best_price(dir, quote_price, amount, active_orders[quote_price]);
-        }
-        else {
-          manage_amount_on_price(dir, quote_price, amount, active_orders[quote_price]);
-        }
-      }
-    }
-  }
-
-  void execution_report_update(const ExecutionReport& snapshot) override {
-    auto dir = snapshot.dir();
-    last_our_deal_price_[dir] = snapshot.deal_price();
-    last_our_deal_moment_[dir] = get_server_time();
-  }
-  
-private:
-  using Events = std::set<Microseconds>;
-
-  Amount max_executed_amount_;
-  Amount max_amount_at_price_;
-  Amount max_amount_to_run_from_best_;
-  Amount max_soft_amount_to_run_from_best_;
-  Amount max_after_amount_to_run_;
-
-  std::array<Price, 2> last_best_price_;
-  std::array<Events, 2> deletions_by_dir_;
-  std::array<Events, 2> additions_by_dir_;
-  Microseconds last_reset_time_;
-  
-  std::array<Price, 2> last_our_deal_price_;
-  std::array<Microseconds, 2> last_our_deal_moment_;
-  
-  // Возвращает количество снятых заявок с лучшей цены по направлению @dir за определённый промежуток времени.
-  size_t deletions_count(const Dir dir) const {
-    return deletions_by_dir_[dir].size();
-  }
-
-  // Возвращает количество добавленных заявок на лучшую цену по направлению @dir за определённый промежуток времени.
-  size_t additions_count(const Dir dir) const {
-    return additions_by_dir_[dir].size();
-  }
-
-  void delete_all_at_price(Dir dir, Price price) {
-    auto orders_map = trading_book_info.orders().get_orders_by_dir_to_map(dir);
-    auto it = orders_map.find(price);
-    if (it == orders_map.end()) {
-      return;
-    }
-    auto& active_orders = it->second;
-    for (auto& order : active_orders) {
-      delete_order(order);
-    }
-  }
-
-  // Возвращает объём, который нужно поддерживать на ценовом уровне.
-  // В этом примере представлена очень простая версия этой функции, но зависимость объёма
-  // от цены и направления может быть куда более сложной.
-  Amount get_wanted_amount(Dir dir, Price price) const {
-    Amount wanted_amount = std::min(max_executed_amount_ - dir_sign(dir) * trading_book_info.total_amount(), max_amount_at_price_);
-    return std::max(0, wanted_amount);
-  }
-
-  // Обновление объёмов снятых и добавленных заявок на лучших ценах.
-  void update_deletions_and_additions() {
-    for (Dir dir : {BID, ASK}) {
-      const Price best_price = trading_book_info.best_price(dir);
-      auto& deletions = deletions_by_dir_[dir];
-      auto& additions = additions_by_dir_[dir];
-      // Если лучшая цена изменилась, то сбросим объёмы.
-      if (best_price != last_best_price_[dir]) {
-        deletions.clear();
-        additions.clear();
-        last_best_price_[dir] = best_price;
-      }
-      update_events(deletions, trading_book_info.get_deleted_volume_at_price(dir, best_price));
-      update_events(additions, trading_book_info.get_added_volume_at_price(dir, best_price));
-    }
-  }
-
-  void update_events(Events& events, const Amount changed_volume) const {
-    Microseconds current_time = get_server_time();
-    // если событие было давно - то перестаем его учитывать
-    while (!events.empty() && current_time - *events.begin() > 20ms) {
-      events.erase(events.begin());
-    }
-    if (changed_volume > 0) {
-      events.emplace(current_time);
-    }
-  }
-};
-```
+* [Improved ideas strategy](#improved_ideas)
 
 <a name="stay_on_best_price"></a>
 #### Stay on best price strategy
@@ -473,4 +253,222 @@ private:
   Amount our_deals_max_total_amount_;
 };
 
+```
+<a name="improved_ideas"></a>
+#### Improved ideas strategy
+
+Идея этой стратегии мы подробно описали в [блоге](http://blog.hftbattle.com). Стратегия даже в неизменённом виде позволяет набрать результат более $2000 на контрольной выборке. 
+
+```c++
+#include "./participant_strategy.h"
+#include <set>
+
+using namespace hftbattle;
+
+class UserStrategy : public ParticipantStrategy {
+public:
+
+  UserStrategy(JsonValue config) :
+      max_executed_amount_(config["max_executed_amount"].as<Amount>(50)),
+      max_amount_at_price_(config["max_amount_at_price"].as<Amount>(3)),
+      max_amount_to_run_from_best_(config["max_amount_to_run_from_best"].as<Amount>(20)),
+      max_soft_amount_to_run_from_best_(config["max_soft_amount_to_run_from_best"].as<Amount>(64)),
+      max_after_amount_to_run_(config["max_after_amount_to_run"].as<Amount>(42)) {
+    set_stop_loss_result(Decimal(-15000.0));
+  }
+
+  bool should_strategy_run_from_best_price(Dir dir) const {
+    double dir_events = 1.0 * deletions_count(dir) + 1.0 * additions_count(opposite_dir(dir));
+    // возможная оценка количества событий, которые могут сигнализировать о том, что скоро этой цены не станет
+    double opposite_dir_events = 1.0 * deletions_count(opposite_dir(dir)) + 1.0 * additions_count(dir);
+    // возможная оценка количества событий, которые могут сигнализировать о том, что скоро противоположной цены не станет
+    return false;
+    // Предлагается вместо false возвращать значение некоторого критерия, который будет говорить
+    // о том, что есть большая вероятность исчезновения этой цены из стакана, и с нее лучше сняться.
+    // Например, так: return (dir_events > 0.0); - если удалений + снятий больше 0, то стоит уходить с цены.
+    // Подробности у нас в блоге http://blog.hftbattle.com.
+    // Правильно реализовав это правило и подобрав параметры, мы получили результат
+    // более $10000 на контрольной выборке, чего желаем и всем участникам!
+  }
+
+  // Удаление заявки с лучшей цены с учётом её положения в очереди. Снимаем заявку только в том случае,
+  // когда она стоит в хвосте очереди.
+  void delete_soft_second_version(Dir dir, Price price, Amount current_amount, Amount wanted_amount,
+                                  const std::vector<OrderSnapshot>& current_orders) {
+    if (!should_strategy_run_from_best_price(dir)) {
+      // Сюда же можно добавить отсечение по нашим сделкам: если по текущей цене недавно
+      // была проведена сделка, то, скорее всего, выставлять заявку на эту цену будет невыгодно.
+      // Подробное описание идеи читайте в блоге!
+      // Скажем лишь, что реализация этой идеи позволила нам увеличить результат на $4000.
+      // Мы уже сохранили за вас цену и время последней сделки в полях last_our_deal_price_
+      // и last_our_deal_moment_, так что вам осталось только написать правильное условие!
+      manage_amount_on_price(dir, price, wanted_amount, current_orders);
+      return;
+    }
+    for (auto it = current_orders.begin(); it != current_orders.end(); ++it) {
+      auto order = *it;
+      if (order->status() != OrderStatus::Active) {
+        continue;
+      }
+      // считаем объем, стоящий после нашей заявки
+      const Amount amount_after_order = trading_book_info.best_volume(dir) - get_amount_before_order(order);
+      // если с цены хорошо бы сняться и мы не сильно теряем очередь - то снимаем заявку
+      if (should_strategy_run_from_best_price(dir) && amount_after_order < max_after_amount_to_run_) {
+        delete_order(order);
+      }
+    }
+  }
+
+  // В этой функции мы снимаем заявку с лучшей цены при выполнении определённых условий.
+  // В частности, если на котировке стоят заявки с малым суммарным объёмом или наши заявки находятся в конце очереди.
+  // В противном случае (то есть если мы считаем что стоять на лучшей сейчас выгодно) -
+  // мы просто обрабатываем ее как обычную цену.
+  void manage_amount_on_best_price(Dir dir, Price price, Amount wanted_amount, const std::vector<OrderSnapshot>& current_orders) {
+    auto current_amount = std::accumulate(current_orders.cbegin(), current_orders.cend(), 0,
+                                          [](Amount amount, const OrderSnapshot &order) {
+                                            return amount + order->amount;
+                                          });
+    // если объем на цене совсем маленький - то снимаемся с нее
+    if (trading_book_info.best_volume(dir) - current_amount < max_amount_to_run_from_best_) {
+      delete_all_at_price(dir, price);
+      return;
+    }
+    // если объем не превышает какого-то - то думаем, стоит ли сняться, или все же стоит держать заявки
+    if (trading_book_info.best_volume(dir) - current_amount < max_soft_amount_to_run_from_best_) {
+      delete_soft_second_version(dir, price, current_amount, wanted_amount, current_orders);
+      return;
+    }
+    // если объем достаточно большой - то просто обрабатываем цену как все другие
+    manage_amount_on_price(dir, price, wanted_amount, current_orders);
+  }
+
+  // В этой функции мы поддерживаем необходимый объём заявок на ценовом уровне.
+  void manage_amount_on_price(Dir dir, Price price, Amount wanted_amount, const std::vector<OrderSnapshot>& current_orders) {
+    auto current_amount = std::accumulate(current_orders.cbegin(), current_orders.cend(), 0,
+                                          [](Amount amount, const OrderSnapshot &order) {
+                                            return amount + order->amount;
+                                          });
+    for(auto it = current_orders.rbegin(); it != current_orders.rend() && current_amount > wanted_amount; ++it) {
+      auto order = *it;
+      current_amount -= order->amount_rest();
+      delete_order(order);
+    }
+    for(int i = 0; i < wanted_amount - current_amount; ++i) {
+      // Мы выставляем заявки объёмом 1 лот, чтобы мы могли снимать только часть объёма,
+      // выставленного на ценовом уровне, без потери места в очереди внутри котировки.
+      add_limit_order(dir, price, 1);
+    }
+  }
+
+  void trading_book_update(const OrderBook& order_book) override {
+    // Добавляем отсечение по времени, чтобы торговать только в определённый период дня.
+    if (get_server_time_tm().tm_hour < 12) {
+      return;
+    }
+    // Обновляем списки недавних постановок и снятий на лучшие цены
+    update_deletions_and_additions();
+    for (Dir dir : {BID, ASK}) {
+      // Удаляем заявки с далёких ценовых уровней, чтобы не попадать под ограничение на набираемую позу.
+      for(auto& order: trading_book_info.orders().orders_by_dir[dir]) {
+        if (trading_book->get_index_by_price(dir, order->price) > 9) {
+          delete_order(order);
+        }
+      }
+      // Выставляем заявки на все видимые котировки в стакане.
+      auto active_orders = trading_book_info.orders().get_orders_by_dir_to_map(dir);
+      for (const auto& quote : trading_book->all_quotes(dir)) {
+        Price quote_price = quote.get_price();
+        Amount amount = get_wanted_amount(dir, quote_price);
+        // По отдельности обрабатываем лучшие ценовые уровни и все остальные.
+        if (quote_price == trading_book_info.best_price(dir)) {
+          manage_amount_on_best_price(dir, quote_price, amount, active_orders[quote_price]);
+        }
+        else {
+          manage_amount_on_price(dir, quote_price, amount, active_orders[quote_price]);
+        }
+      }
+    }
+  }
+
+  void execution_report_update(const ExecutionReport& snapshot) override {
+    auto dir = snapshot.dir();
+    last_our_deal_price_[dir] = snapshot.deal_price();
+    last_our_deal_moment_[dir] = get_server_time();
+  }
+  
+private:
+  using Events = std::set<Microseconds>;
+
+  Amount max_executed_amount_;
+  Amount max_amount_at_price_;
+  Amount max_amount_to_run_from_best_;
+  Amount max_soft_amount_to_run_from_best_;
+  Amount max_after_amount_to_run_;
+
+  std::array<Price, 2> last_best_price_;
+  std::array<Events, 2> deletions_by_dir_;
+  std::array<Events, 2> additions_by_dir_;
+  Microseconds last_reset_time_;
+  
+  std::array<Price, 2> last_our_deal_price_;
+  std::array<Microseconds, 2> last_our_deal_moment_;
+  
+  // Возвращает количество снятых заявок с лучшей цены по направлению @dir за определённый промежуток времени.
+  size_t deletions_count(const Dir dir) const {
+    return deletions_by_dir_[dir].size();
+  }
+
+  // Возвращает количество добавленных заявок на лучшую цену по направлению @dir за определённый промежуток времени.
+  size_t additions_count(const Dir dir) const {
+    return additions_by_dir_[dir].size();
+  }
+
+  void delete_all_at_price(Dir dir, Price price) {
+    auto orders_map = trading_book_info.orders().get_orders_by_dir_to_map(dir);
+    auto it = orders_map.find(price);
+    if (it == orders_map.end()) {
+      return;
+    }
+    auto& active_orders = it->second;
+    for (auto& order : active_orders) {
+      delete_order(order);
+    }
+  }
+
+  // Возвращает объём, который нужно поддерживать на ценовом уровне.
+  // В этом примере представлена очень простая версия этой функции, но зависимость объёма
+  // от цены и направления может быть куда более сложной.
+  Amount get_wanted_amount(Dir dir, Price price) const {
+    Amount wanted_amount = std::min(max_executed_amount_ - dir_sign(dir) * trading_book_info.total_amount(), max_amount_at_price_);
+    return std::max(0, wanted_amount);
+  }
+
+  // Обновление объёмов снятых и добавленных заявок на лучших ценах.
+  void update_deletions_and_additions() {
+    for (Dir dir : {BID, ASK}) {
+      const Price best_price = trading_book_info.best_price(dir);
+      auto& deletions = deletions_by_dir_[dir];
+      auto& additions = additions_by_dir_[dir];
+      // Если лучшая цена изменилась, то сбросим объёмы.
+      if (best_price != last_best_price_[dir]) {
+        deletions.clear();
+        additions.clear();
+        last_best_price_[dir] = best_price;
+      }
+      update_events(deletions, trading_book_info.get_deleted_volume_at_price(dir, best_price));
+      update_events(additions, trading_book_info.get_added_volume_at_price(dir, best_price));
+    }
+  }
+
+  void update_events(Events& events, const Amount changed_volume) const {
+    Microseconds current_time = get_server_time();
+    // если событие было давно - то перестаем его учитывать
+    while (!events.empty() && current_time - *events.begin() > 20ms) {
+      events.erase(events.begin());
+    }
+    if (changed_volume > 0) {
+      events.emplace(current_time);
+    }
+  }
+};
 ```
