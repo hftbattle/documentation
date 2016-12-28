@@ -1,31 +1,31 @@
 {
     "variables": {
         "contest.name": "HFT Battle 2016",
-        
+
         "contest.landing-page.url": "http://hftbattle.com",
         "contest.landing-page.name": "hftbattle.com",
-      
+
         "contest.arena.url": "https://arena.hftbattle.com",
         "contest.arena.name": "arena.hftbattle.com",
-        
+
         "contest.docs.url": "http://docs.hftbattle.com",
         "contest.docs.name": "docs.hftbattle.com",
-        
+
         "contest.support.email": "help@hftbattle.com",
         "contest.support.slack.url": "https://slack.hftbattle.com",
         "contest.support.slack.name": "slack.hftbattle.com",
-        
+
         "contest.local-pack.name": "github.com/hftbattle/hftbattle",
         "contest.local-pack.url": "https://github.com/hftbattle/hftbattle",
         "contest.local-pack.readme": "https://github.com/hftbattle/hftbattle/blob/master/README.md",
         "contest.local-pack.data.url": "https://www.dropbox.com/s/s1uxgs3vj3tgvr7/data.zip",
         "contest.local-pack.virtual.url": "https://s3.eu-central-1.amazonaws.com/hftbattle/vm-hftbattle.ova",
-        
+
         "virtualbox.url": "https://www.virtualbox.org",
-        
+
         "viewer.url": "http://viewer.hftbattle.com",
         "viewer.name": "viewer.hftbattle.com",
-        
+
         "wiki.cme.url": "https://en.wikipedia.org/wiki/Чикагская_товарная_биржа"
     },
     "plugins": ["disqus", "ace", "search-languages", "yametrika", "-anchors", "expandable-chapters"],
