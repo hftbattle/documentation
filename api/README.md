@@ -55,7 +55,7 @@ void trading_book_update(const OrderBook& order_book) override {
     for (const auto& dir : { BID, ASK } ) {
         Price best_price = order_book.best_price(dir);
         Price min_step = trading_book_info.min_step();
-        Price second_price = best_price - twix::dir_sign(dir) * min_step;
+        Price second_price = best_price - dir_sign(dir) * min_step;
         std::cout << dir << ": "
                   << "best = " << best_price << ", "
                   << "second = " << second_price << std::endl;
