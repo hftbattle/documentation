@@ -33,8 +33,8 @@ enum Dir : uint8_t {
 Пример:
 ```cpp
 for (const auto& dir : { BID, ASK } ) {
-    Dir opposite_dir = twix::opposite_dir(dir);  // BID -> ASK, ASK -> BID
-    int32_t dir_sign = twix::dir_sign(dir);  // BID = 1, ASK = -1.
+    Dir opposite_dir = opposite_dir(dir);  // BID -> ASK, ASK -> BID
+    int32_t dir_sign = dir_sign(dir);  // BID = 1, ASK = -1.
     // ...
 }
 ```
@@ -56,7 +56,7 @@ void trading_book_update(const OrderBook& order_book) override {
         Price best_price = order_book.best_price(dir);
         Price min_step = trading_book_info.min_step();
         Price second_price = best_price - twix::dir_sign(dir) * min_step;
-        std::cout << dir << ": " 
+        std::cout << dir << ": "
                   << "best = " << best_price << ", "
                   << "second = " << second_price << std::endl;
     }
@@ -77,11 +77,3 @@ for (const auto& dir : { BID, ASK } ) {
     // ...
 }
 ```
-
-
-
-
-
-
-
-

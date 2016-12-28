@@ -73,5 +73,3 @@ OrdersMap get_orders_by_dir_to_map(Dir dir) const;
 size_t size() const;
 ```
 Суммарное количество наших заявок по обоим направлениям.
-
-

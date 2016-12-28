@@ -4,7 +4,7 @@
 
 * [Stay on best price strategy](#stay_on_best_price)
     * [Base](#stay_on_best_price)
-    * [Improved](#stay_on_best_price_improved) 
+    * [Improved](#stay_on_best_price_improved)
 * [Deals count diff strategy](#deals_count_diff)
     * [Base](#deals_count_diff_base)
     * [Limited](#deals_count_diff_limited)
@@ -13,7 +13,7 @@
 <a name="stay_on_best_price"></a>
 #### Stay on best price strategy
 
-Идея стратегии состоит в том, чтобы поддерживать на каждом направлении (*BID* и *ASK*) по одной нашей заявке на лучшей цене. В случае, если на направлении нет наших активных заявок, она ставит заявку объемом 1 на лучшую цену. Если заявка уже есть, но она стоит не на лучшей - мы ее снимаем и ставим новую на лучшую цену. 
+Идея стратегии состоит в том, чтобы поддерживать на каждом направлении (*BID* и *ASK*) по одной нашей заявке на лучшей цене. В случае, если на направлении нет наших активных заявок, она ставит заявку объемом 1 на лучшую цену. Если заявка уже есть, но она стоит не на лучшей - мы ее снимаем и ставим новую на лучшую цену.
 
 <a name="stay_on_best_price"></a>
 Рассмотрим базовый вариант стратегии:
@@ -51,7 +51,7 @@ public:
 ```
 
 <a name="stay_on_best_price_improved"></a>
- 
+
 [//]: # (Модифицируем предыдущую стратегию. Поскольку стратегия поддерживает только 1 заявку размером в 1 лот по каждому направлению, то свою позицию она меняет очень медленно. Для HFT-стратегий очень важна возможность быстро вернуться к нулевой позиции, поэтому мы попробуем ограничить максимально допустимую открытую позицию. Для этого достаточно в параметрах передать *max\_executed\_amount*. Согласно правилам [позиция](../terms.md#position) не может быть превышать 50, подробнее см. [Ограничения симулятора](../simulator.md#restrictions). Оптимальное значение можно подобрать, перебрав разные варианты в системе. Подробнее в разделе [Перебор параметров](../interface/params.md).)
 
 Применим следующую простую оптимизацию: если на лучшей цене стоит объем меньший чем *min\_amount\_to\_stay\_on\_best\_*, то мы на нее выставляться не будем и снимем заявку если уже там стоим:
@@ -66,7 +66,7 @@ public:
   UserStrategy(JsonValue config) {
     min_volume_to_stay_on_best_ = config["min_volume_to_stay_on_best"].as<int>(10);
   }
-  
+
   // Вызывается при получении нового стакана торгового инструмента:
   // @order_book – новый стакан.
   void trading_book_update(const OrderBook& order_book) override {
@@ -257,7 +257,7 @@ private:
 <a name="improved_ideas"></a>
 #### Improved ideas strategy
 
-Идея этой стратегии мы подробно описали в [блоге](http://blog.hftbattle.com). Стратегия даже в неизменённом виде позволяет набрать результат более $2000 на контрольной выборке. 
+Идея этой стратегии мы подробно описали в [блоге](http://blog.hftbattle.com). Стратегия даже в неизменённом виде позволяет набрать результат более $2000 на контрольной выборке.
 
 ```c++
 #include "./participant_strategy.h"
@@ -395,7 +395,7 @@ public:
     last_our_deal_price_[dir] = snapshot.deal_price();
     last_our_deal_moment_[dir] = get_server_time();
   }
-  
+
 private:
   using Events = std::set<Microseconds>;
 
@@ -409,10 +409,10 @@ private:
   std::array<Events, 2> deletions_by_dir_;
   std::array<Events, 2> additions_by_dir_;
   Microseconds last_reset_time_;
-  
+
   std::array<Price, 2> last_our_deal_price_;
   std::array<Microseconds, 2> last_our_deal_moment_;
-  
+
   // Возвращает количество снятых заявок с лучшей цены по направлению @dir за определённый промежуток времени.
   size_t deletions_count(const Dir dir) const {
     return deletions_by_dir_[dir].size();

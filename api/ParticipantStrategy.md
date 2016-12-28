@@ -2,7 +2,7 @@
 Путь в Local Pack-е: `include/participant_strategy.h`
 
 ParticipantStrategy - класс-интерфейс для написания пользовательских стратегий.
-Этот класс служит прослойкой между симуляционным ядром и стратегией.
+Этот класс служит прослойкой между ядром симуляции и стратегией.
 
 Он обеспечивает обработку входящих сигналов от симуляции:
 обновления торгового стакана, сделок, отчеты о наших сделках.
@@ -34,7 +34,7 @@ ParticipantStrategy - класс-интерфейс для написания п
 |[signal_security_exists()](#signal_security_exists)|Возвращает true, если есть сигнальный инструмент. Иначе false.|
 |[get_local_time()](#get_local_time)|Возвращает локальное время в микросекундах.|
 |[get_server_time()](#get_server_time)|Возвращает биржевое время с точностью до микросекунд.|
-|[get_server_time_tm()](#get_server_time_tm)|Возвращает биржевое время типа tm c точностью до секунды.|
+|[get_server_time_tm()](#get_server_time_tm)|Возвращает биржевое время типа tm с точностью до секунды.|
 |[set_max_total_amount(const uint32_t max_total_amount)](#set_max_total_amount)|Устанавливает максимальное разрешённое значение позиции (не более 50).|
 |[set_stop_loss_result(const Decimal stop_loss_result)](#set_stop_loss_result)|Устанавливает минимально допустимое значение, при достижении которого позиция закрывается, и стратегия перестаёт торговать.|
 
@@ -150,7 +150,7 @@ void add_chart_point(const std::string& line_name, double value, ChartYAxisType 
 ```
 Добавляет точку на график.
 - *line_name* - название графика, *value* - значение, *y_axis_type* - ось (левая или правая),
-- *chart_number* - номер картинки на которой будет отрисован график.
+- *chart_number* - номер картинки на которой будет нарисован график.
 
 <a name="get_current_result"></a>
 ####get_current_result()
@@ -237,5 +237,3 @@ std::shared_ptr<const OrderBook> trading_book;
 std::shared_ptr<const OrderBook> signal_book;
 ```
 Аналогично trading_book для сигнального инструмента.
-
-

@@ -131,5 +131,3 @@ Amount get_added_volume_at_price(const Dir dir, const Price price) const;
 Amount get_deleted_volume_at_price(const Dir dir, const Price price) const;
 ```
 Объём снятых заявок по направлению *dir* и цене *price*, по сравнению с предыдущим обновлением стакана.
-
-

@@ -144,5 +144,3 @@ std::array<std::shared_ptr<Order>, 2> const& get_orders() const;
 bool is_our() const;
 ```
 Является ли данная сделка нашей.
-
-

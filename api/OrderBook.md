@@ -138,5 +138,3 @@ Microseconds get_server_time() const;
 Microseconds get_local_time() const;
 ```
 Время последнего изменения стакана на машине, которая получала данные от биржи, в микросекундах.
-
-

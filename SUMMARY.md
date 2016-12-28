@@ -35,4 +35,3 @@
    * [ParticipantStrategy](api/ParticipantStrategy.md)
    * [Quote](api/Quote.md)
    * [SecurityOrdersSnapshot](api/SecurityOrdersSnapshot.md)
-

@@ -136,5 +136,3 @@ int64_t server_time;
 const Ticks origin_time;
 ```
 Локальное время постановки заявки в стакан в тиках.
-
-

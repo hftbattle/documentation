@@ -1,6 +1,6 @@
 ## Общая структура стратегий
 
-Торговая стратегия получает на вход информацию об изменениях, произошедших с [торговым инструментом](../terms.md#instrument) на [бирже](../terms.md#exchange). В зависимости от этой информации стратегия совершает какие-то действия. Это может быть постановка новых [заявок](../terms.md#order) и/или запрос на удаление старых. 
+Торговая стратегия получает на вход информацию об изменениях, произошедших с [торговым инструментом](../terms.md#instrument) на [бирже](../terms.md#exchange). В зависимости от этой информации стратегия совершает какие-то действия. Это может быть постановка новых [заявок](../terms.md#order) и/или запрос на удаление старых.
 
 [//]: # (Инструменты, на которых стратегия осуществляет торговлю, будем называть торговыми. Названия полей и методов, относящихся к торговым инструментам, будут содержать слово *trade*. По каким-то инструментам стратегия только получает информацию, чтобы использовать ее для торговли на других. Соответствующие инструменты – сигнальные, а названия полей и методов будут содержать слово *signal*.)
 
@@ -19,8 +19,8 @@ using namespace hftbattle;
 
 class UserStrategy : public ParticipantStrategy {
 public:
-  // В конструктор стратегии участника передается конфиг.
-  // В конфиг из веб-интерфейса можно передать параметры стратегии.
+  // В конструктор стратегии участника передается файл конфигурации.
+  // В файл конфигурации из веб-интерфейса можно передать параметры стратегии.
   UserStrategy(JsonValue config) {}
 
   // Вызывается при получении нового стакана торгового инструмента:
@@ -52,10 +52,10 @@ public:
 
 **Замечание 1:**
 В классе [ParticipantStrategy](../api/ParticipantStrategy.md) есть 2 поля, отвечающие торговому стакану:
-- [trading_book](../api/ParticipantStrategy.md#trading_book) – указатель на актуальный торговый стакан, 
-- [trading_book_snapshot](../api/ParticipantStrategy.md#trading_book_snapshot) – умный указатель на структуру, содержащую этот стакан. 
+- [trading_book](../api/ParticipantStrategy.md#trading_book) – указатель на актуальный торговый стакан,
+- [trading_book_snapshot](../api/ParticipantStrategy.md#trading_book_snapshot) – умный указатель на структуру, содержащую этот стакан.
 
-Если в вашей стратегии вы явно не сохраните копию [trading_book_snapshot](../api/ParticipantStrategy.md#trading_book_snapshot), то при следующем вызове [trading_book_update](../api/ParticipantStrategy.md#trading_book_update) поля [trading_book](../api/ParticipantStrategy.md#trading_book) и [trading_book_snapshot](../api/ParticipantStrategy.md#trading_book_snapshot) обновятся, и предыдущий актуальный стакан будет недоступен, потому что на предыдущий стакан останется 0 активных ссылок. 
+Если в вашей стратегии вы явно не сохраните копию [trading_book_snapshot](../api/ParticipantStrategy.md#trading_book_snapshot), то при следующем вызове [trading_book_update](../api/ParticipantStrategy.md#trading_book_update) поля [trading_book](../api/ParticipantStrategy.md#trading_book) и [trading_book_snapshot](../api/ParticipantStrategy.md#trading_book_snapshot) обновятся, и предыдущий актуальный стакан будет недоступен, потому что на предыдущий стакан останется 0 активных ссылок.
 [//]: # (Для [signal_book_snapshot](../api/ParticipantStrategy.md#signal_book_snapshot) все аналогично.)
 
 **Замечание 2:**
@@ -68,6 +68,3 @@ public:
 <a name="execution_report"></a>
 #### Отчет о наших сделках
 Функция [execution_report_update](../api/ParticipantStrategy.md#execution_report_update) предназначена для того, чтобы получать информацию о сделках, с участием наших заявок. На каждую такую сделку приходит отдельный *execution_report_update*.
-
-
-
