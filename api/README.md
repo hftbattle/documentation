@@ -1,6 +1,6 @@
-# API
+#API
 
-## Классы
+##Классы
 Здесь содержится описание программного интерфейса основных классов симулятора:
 
 * [ContestBookInfo](ContestBookInfo.md)
@@ -11,7 +11,7 @@
 * [Quote](Quote.md)
 * [SecurityOrdersSnapshot](SecurityOrdersSnapshot.md)
 
-## Типы данных
+##Типы данных
 * [Dir](#dir)
 * [Price](#price)
 * [Amount](#amount)
@@ -19,7 +19,7 @@
 Далее опишем каждый тип подробнее.
 
 <a id="dir"></a>
-#### Dir
+####Dir
 Enum, отвечающий за направление заявки:
 ```cpp
 enum Dir : uint8_t {
@@ -64,7 +64,7 @@ void trading_book_update(const OrderBook& order_book) override {
 ```
 
 <a id="Amount"></a>
-#### Amount
+####Amount
 Объем заявок, выраженный в количестве лотов. Это псевдоним для *int32_t*.
 
 Рассмотрим пример, получающий объем на лучшей и второй после лучшей цены по каждому направлению:

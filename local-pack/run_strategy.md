@@ -1,6 +1,6 @@
-## Запуск стратегии
+##Запуск стратегии
 
-### [Запуск из командной строки](#command_line)
+###[Запуск из командной строки](#command_line)
 
 Для создания стратегии создайте папку с названием вашей стратегии в папке strategies. Далее, мы будем использовать название *user_strategy*. Конечно, название стратегии можно менять.
 
@@ -18,7 +18,7 @@
 ./run.py strategies/user_strategy/user_strategy.json
 ```
 
-### [Запуск из CLion](#clion)
+###[Запуск из CLion](#clion)
 Для запуска из [CLion](https://www.jetbrains.com/clion/download/) необходимо
 - **задать исполняемый файл**:
 для этого заходим в *Run > Edit configurations*, там задаем в качестве *Executable* исполняемый файл в корне директории, соответствующий вашей платформе (*mac_launcher* для MacOS, *windows_launcher* для Windows и *linux_launcher* для Linux).

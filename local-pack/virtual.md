@@ -1,4 +1,4 @@
-## Виртуальная машина
+##Виртуальная машина
 
 Самый простой способ начать разрабатывать в локальном пакете – [скачать](https://s3.eu-central-1.amazonaws.com/hftbattle/vm-hftbattle.ova) подготовленный образ Ubuntu 14.04 для [VirtualBox](https://www.virtualbox.org).
 

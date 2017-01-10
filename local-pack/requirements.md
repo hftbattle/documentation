@@ -1,5 +1,5 @@
 ##Установка зависимостей
-### [Ubuntu](#ubuntu)
+###[Ubuntu](#ubuntu)
 Для установки зависимостей на Ubuntu можно запустить скрипт *packages_ubuntu.sh*, находящийся в корне репозитория:
 ```
 ./packages_ubuntu.sh
@@ -13,7 +13,7 @@
 sudo apt-get install cmake
 ```
 
-### [Mac OS X](#macosx)
+###[Mac OS X](#macosx)
 Для установки зависимостей на Mac OS X можно запустить скрипт *packages_mac.sh*, находящийся в корне репозитория:
 ```
 ./packages_mac.sh
@@ -33,7 +33,7 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 brew install cmake
 ```
 
-### [Windows](#windows)
+###[Windows](#windows)
 Для запуска под Windows необходимо иметь:
 - Компилятор [MinGW-w64 4.9](http://sourceforge.net/projects/mingw-w64/) и выше:
 
