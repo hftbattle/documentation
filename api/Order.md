@@ -30,56 +30,56 @@
 |[outer_id()](#outer_id)|Биржевой (внешний) ID заявки.|
 
 ###Описание полей
-<a name="id"></a>
+<a id="id"></a>
 ####id
 ```c++
 const Id id;
 ```
 Наш (внутренний) ID заявки.
 
-<a name="dir"></a>
+<a id="dir"></a>
 ####dir
 ```c++
 const Dir dir;
 ```
 Направление заявки.
 
-<a name="price"></a>
+<a id="price"></a>
 ####price
 ```c++
 const Price price;
 ```
 Цена заявки.
 
-<a name="amount"></a>
+<a id="amount"></a>
 ####amount
 ```c++
 const Amount amount;
 ```
 Объем заявки (количество лотов).
 
-<a name="time_in_force"></a>
+<a id="time_in_force"></a>
 ####time_in_force
 ```c++
 const OrderTimeInForce time_in_force;
 ```
 Тип заявки - Limit или IOC.
 
-<a name="market_id"></a>
+<a id="market_id"></a>
 ####market_id
 ```c++
 const MarketId market_id;
 ```
 ID биржи.
 
-<a name="security"></a>
+<a id="security"></a>
 ####security
 ```c++
 const Security* security;
 ```
 Инструмент, к которому относится заявка.
 
-<a name="kMaxCommentLength"></a>
+<a id="kMaxCommentLength"></a>
 ####kMaxCommentLength
 ```c++
 static const size_t kMaxCommentLength = 20;
@@ -88,49 +88,49 @@ static const size_t kMaxCommentLength = 20;
 
 
 ###Описание методов
-<a name="amount_rest"></a>
+<a id="amount_rest"></a>
 ####amount_rest()
 ```c++
 inline Amount amount_rest() const;
 ```
 Текущий объем заявки. Может быть меньше начального, если были сделки с ее участием.
 
-<a name="get_server_time"></a>
+<a id="get_server_time"></a>
 ####get_server_time()
 ```c++
 Microseconds get_server_time() const;
 ```
 Биржевое время последнего изменения (в микросекундах).
 
-<a name="implied_amount"></a>
+<a id="implied_amount"></a>
 ####implied_amount()
 ```c++
 inline Amount implied_amount() const;
 ```
 Количество лотов, которое предположительно будет сведено.
 
-<a name="status"></a>
+<a id="status"></a>
 ####status()
 ```c++
 inline OrderStatus status() const;
 ```
 Статус заявки: в процессе добавления, активная, ждущая удаления, удаленная.
 
-<a name="outer_id"></a>
+<a id="outer_id"></a>
 ####outer_id()
 ```c++
 inline Id outer_id() const;
 ```
 Биржевой (внешний) ID заявки.
 
-<a name="server_time"></a>
+<a id="server_time"></a>
 ####server_time
 ```c++
 int64_t server_time;
 ```
 Биржевое время постановки заявки в стакан в тиках.
 
-<a name="origin_time"></a>
+<a id="origin_time"></a>
 ####origin_time
 ```c++
 const Ticks origin_time;

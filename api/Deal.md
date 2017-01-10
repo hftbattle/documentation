@@ -31,56 +31,56 @@
 |[is_our()](#is_our)|Является ли данная сделка нашей.|
 
 ###Описание полей
-<a name="dir"></a>
+<a id="dir"></a>
 ####dir
 ```c++
 Dir dir;
 ```
 Направление сделки (покупка или продажа).
 
-<a name="price"></a>
+<a id="price"></a>
 ####price
 ```c++
 Price price;
 ```
 Цена по которой произошла сделка.
 
-<a name="amount"></a>
+<a id="amount"></a>
 ####amount
 ```c++
 Amount amount;
 ```
 Количество лотов в сделке.
 
-<a name="implied_amount"></a>
+<a id="implied_amount"></a>
 ####implied_amount
 ```c++
 Amount implied_amount;
 ```
 Количество лотов, которые предположительно должны были свестись в случае, когда налетающая заявка была нашей.
 
-<a name="server_time"></a>
+<a id="server_time"></a>
 ####server_time
 ```c++
 Microseconds server_time;
 ```
 Биржевое время совершения сделки.
 
-<a name="passive_order_server_time"></a>
+<a id="passive_order_server_time"></a>
 ####passive_order_server_time
 ```c++
 Microseconds passive_order_server_time;
 ```
 Время постановки "пассивного" ордера, если оно известно.
 
-<a name="origin_time"></a>
+<a id="origin_time"></a>
 ####origin_time
 ```c++
 Ticks origin_time;
 ```
 Локальное время в тиках.
 
-<a name="outer_id"></a>
+<a id="outer_id"></a>
 ####outer_id
 ```c++
 int64_t outer_id;
@@ -89,56 +89,56 @@ int64_t outer_id;
 
 
 ###Описание методов
-<a name="get_agressor_side"></a>
+<a id="get_agressor_side"></a>
 ####get_agressor_side()
 ```c++
 inline Dir get_agressor_side() const;
 ```
 Направление налетающей заявки.
 
-<a name="get_price"></a>
+<a id="get_price"></a>
 ####get_price()
 ```c++
 inline Price get_price() const;
 ```
 Цена, по которой произошла сделка.
 
-<a name="get_amount"></a>
+<a id="get_amount"></a>
 ####get_amount()
 ```c++
 inline Amount get_amount() const;
 ```
 Объем сделки.
 
-<a name="get_server_time"></a>
+<a id="get_server_time"></a>
 ####get_server_time()
 ```c++
 inline Microseconds get_server_time() const;
 ```
 Биржевое время сделки.
 
-<a name="get_local_time"></a>
+<a id="get_local_time"></a>
 ####get_local_time()
 ```c++
 inline Microseconds get_local_time() const;
 ```
 Локальное время сделки.
 
-<a name="get_comments"></a>
+<a id="get_comments"></a>
 ####get_comments()
 ```c++
 std::array<std::string, 2> const& get_comments() const;
 ```
 Комментарии к заявкам, участвующим в сделке.
 
-<a name="get_orders"></a>
+<a id="get_orders"></a>
 ####get_orders()
 ```c++
 std::array<std::shared_ptr<Order>, 2> const& get_orders() const;
 ```
 Массив заявок (на продажу и на покупку), участвующих в сделке.
 
-<a name="is_our"></a>
+<a id="is_our"></a>
 ####is_our()
 ```c++
 bool is_our() const;

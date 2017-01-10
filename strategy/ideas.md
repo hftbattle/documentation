@@ -10,7 +10,7 @@
 
 Рассмотрим некоторые из этих идей подробнее, а также посмотрим, как мы можем к ним прийти.
 
-<a name="max_executed_amount"></a>
+<a id="max_executed_amount"></a>
 Запустим стратегию, которая [стоит на лучшей цене](examples.md#stay_on_best_price), на 3 декабря и посмотрим на график торгов:
 <p align="center">
 <img src="../img/charts_3_december.png" alt="График 3 декабря">

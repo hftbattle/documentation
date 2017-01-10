@@ -20,35 +20,35 @@
 |[get_local_time()](#get_local_time)|Локальное время последнего изменения в микросекундах.|
 
 ###Описание методов
-<a name="get_dir"></a>
+<a id="get_dir"></a>
 ####get_dir()
 ```c++
 inline Dir get_dir() const;
 ```
 Направление котировки.
 
-<a name="get_price"></a>
+<a id="get_price"></a>
 ####get_price()
 ```c++
 inline Price get_price() const;
 ```
 Цена котировки.
 
-<a name="get_volume"></a>
+<a id="get_volume"></a>
 ####get_volume()
 ```c++
 inline Amount get_volume() const;
 ```
 Объем лотов котировки.
 
-<a name="get_server_time"></a>
+<a id="get_server_time"></a>
 ####get_server_time()
 ```c++
 Microseconds get_server_time() const;
 ```
 Биржевое время последнего изменения в микросекундах.
 
-<a name="get_local_time"></a>
+<a id="get_local_time"></a>
 ####get_local_time()
 ```c++
 Microseconds get_local_time() const;
