@@ -57,7 +57,7 @@ void trading_book_update(const OrderBook& order_book) override {
 
 В такой реализации есть минус – если лучшая цена изменится, то мы не реагируем на это. Это может привести к тому, что мы долго не будем торговать по одному из направлений. Чтобы получить цену нашей активной заявки используем поле [orders_by_dir](../api/SecurityOrdersSnapshot.md#orders_by_dir) класса [SecurityOrdersSnapshot](../api/SecurityOrdersSnapshot.md#). Полный код стратегии будет выглядеть так:
 
-```cpp
+```c++
 #include "./participant_strategy.h"
 
 using namespace hftbattle;

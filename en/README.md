@@ -2,7 +2,7 @@
 This is the documentation for [{{ book["contest.name"] }}]({{ book["contest.landing-page.url"] }}), HFT strategies competition.
 
 
-# How to start
+#How to start
 - Register here: [{{ book["contest.arena.name"] }}]({{ book["contest.arena.url"] }}).
 - Please, send one of example strategies, which are available to you in web interface by default. Read more here: [User interface](interface/README.md).
 - Download local pack. For this you can [download]({{ book["contest.local-pack.virtual.url"] }}) [VirtualBox]({{book["virtualbox.url"]}}) image, or you can clone local-package from [GitHub](https://github.com/hftbattle/hftbattle) ([Git](http://git-scm.com/download) is required):

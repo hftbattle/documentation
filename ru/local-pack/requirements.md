@@ -1,53 +1,62 @@
 ##Установка зависимостей
-###[Ubuntu](#ubuntu)
+
+В данном разделе описаны зависимости, необходимые для следующих операционных систем:
+- [Ubuntu](#ubuntu)
+- [MacOS](#macos)
+- [Windows](#windows)
+
+<a id="ubuntu"></a>
+###Ubuntu
 Для установки зависимостей на Ubuntu можно запустить скрипт *packages_ubuntu.sh*, находящийся в корне репозитория:
-```
+```bash
 ./packages_ubuntu.sh
 ```
 
 Скрипт устанавливает:
-- Компилятор g++ 4.9,
+- Компилятор g++,
 
-- [CMake](https://cmake.org/) 2.8.4 и выше:
-```
+- [CMake]({{ book["cmake.url"] }}):
+```bash
 sudo apt-get install cmake
 ```
 
-###[Mac OS X](#macosx)
-Для установки зависимостей на Mac OS X можно запустить скрипт *packages_mac.sh*, находящийся в корне репозитория:
-```
+<a id="macos"></a>
+###MacOS
+Для установки зависимостей на MacOS можно запустить скрипт *packages_mac.sh*, находящийся в корне репозитория:
+```bash
 ./packages_mac.sh
 ```
 
 Скрипт устанавливает:
-- Компилятор Apple LLVM 6.0 и выше (подробное описание процедуру установки [здесь](http://osxdaily.com/2014/02/12/install-command-line-tools-mac-os-x/)):
-```
+- Компилятор Apple LLVM (подробное описание процедуру установки [здесь](http://osxdaily.com/2014/02/12/install-command-line-tools-mac-os-x/)):
+```bash
 xcode-select --install
 ```
-- Менеджер пакетов [Homebrew](http://brew.sh/):
+- Менеджер пакетов [Homebrew]({{ book["brew.url"] }}):
+```bash
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-```
-- [CMake](https://cmake.org/) 2.8.4 и выше:
-```
+- [CMake]({{ book["cmake.url"] }}):
+```bash
 brew install cmake
 ```
 
-###[Windows](#windows)
+<a id="windows"></a>
+###Windows
 Для запуска под Windows необходимо иметь:
-- Компилятор [MinGW-w64 4.9](http://sourceforge.net/projects/mingw-w64/) и выше:
+- Компилятор [MinGW-w64](http://sourceforge.net/projects/mingw-w64/) версии `4.9` и выше:
 
 Необходимо установить скачанный компилятор с настройками:
-```
+```bash
 --rev=0 --bootstrap --jobs=4 --threads=posix --exceptions=seh --arch=x86_64
 ```
-Затем следует добавить файл с бинарниками в переменную окружения *path*:
+Затем следует добавить файл с бинарниками в переменную окружения *path*. Не забудьте поменять версию компилятора:
 ```
 setx path "%path%;YOUR_PATH_TO_MINGW\x86_64-4.9.2-posix-seh-rt_v3-rev0\mingw64\bin"
 ```
 
-- [CMake](https://cmake.org/) 2.8.4 и выше:
+- [CMake]({{ book["cmake.url"] }}) версии 2.8.4 и выше:
 
-Например, можно поставить [CLion](https://www.jetbrains.com/clion/download/), *CMake* будет в комплекте. Далее необходимо добавить путь до *cmake.exe* в переменную окружения *PATH*.
+Например, можно поставить [CLion]({{ book["clion.url"] }}), *CMake* при этом будет в комплекте. Далее необходимо добавить путь до *cmake.exe* в переменную окружения *PATH*.
 
-- Python 2.7 и выше. Можно скачать [здесь](https://www.python.org/downloads/).
+- Python 2.7 и выше. Можно скачать [здесь]({{ book["python.url"] }}).

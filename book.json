@@ -21,14 +21,25 @@
         "contest.local-pack.data.url": "https://www.dropbox.com/s/s1uxgs3vj3tgvr7/data.zip",
         "contest.local-pack.virtual.url": "https://s3.eu-central-1.amazonaws.com/hftbattle/vm-hftbattle.ova",
 
+        "contest.instrument": "ES",
+
+        "data.small_day": "2015.09.29",
+        "data.full_day": "2015.12.23",
+        "git.url": "http://git-scm.com/download",
         "virtualbox.url": "https://www.virtualbox.org",
+
+        "brew.url": "http://brew.sh/",
+        "cmake.url": "https://cmake.org/",
+        "clion.url": "https://www.jetbrains.com/clion/download/",
+        "python.url": "https://www.python.org/downloads/",
 
         "viewer.url": "http://viewer.hftbattle.com",
         "viewer.name": "viewer.hftbattle.com",
 
+
         "wiki.cme.url": "https://en.wikipedia.org/wiki/Чикагская_товарная_биржа"
     },
-    "plugins": ["disqus", "ace", "-lunr", "search-languages", "yametrika", "-anchors", "expandable-chapters", "codetabs", "language-picker"],
+    "plugins": ["disqus", "ace", "-lunr", "search-languages", "yametrika", "-anchors", "expandable-chapters", "codetabs", "language-picker", "copy-code-button"],
     "pluginsConfig": {
         "language-picker": {
             "grid-columns": 3

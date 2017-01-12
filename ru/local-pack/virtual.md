@@ -1,6 +1,6 @@
 ##Виртуальная машина
 
-Самый простой способ начать разрабатывать в локальном пакете – [скачать](https://s3.eu-central-1.amazonaws.com/hftbattle/vm-hftbattle.ova) подготовленный образ Ubuntu 14.04 для [VirtualBox](https://www.virtualbox.org).
+Самый простой способ начать разрабатывать в локальном пакете – [скачать]({{ book["contest.local-pack.virtual.url"] }}) подготовленный образ Ubuntu 16.04 для [VirtualBox]({{ book["virtualbox.url"] }}).
 
 На нем уже имеется пакет для локальной разработки и установлены необходимые зависимости. Пользователь: `user`,  пароль: `hftbattle`.
 
