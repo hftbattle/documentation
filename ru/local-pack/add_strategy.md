@@ -51,4 +51,6 @@ REGISTER_CONTEST_STRATEGY(UserStrategy, best_strategy_ever)
 
 **Внимание**: не изменяйте имена других файлов.
 
+Код стратегии при этом находится в файле *python_strategy.py*.
+
 Далее вы можете [запустить](run_strategy) новую стратегию.
