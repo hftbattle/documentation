@@ -1,4 +1,5 @@
 #ContestBookInfo
+
 Путь в Local Pack-е: `include/contest_book_info.h`
 
 Класс ContestBookInfo служит агрегатором информации по текущему состоянию стакана.

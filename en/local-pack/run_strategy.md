@@ -1,4 +1,4 @@
-##Running your strategy
+#Running your strategy
 
 ###[Running in command line](#command_line)
 

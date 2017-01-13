@@ -1,4 +1,5 @@
 #ParticipantStrategy
+
 Путь в Local Pack-е: `include/participant_strategy.h`
 
 ParticipantStrategy - класс-интерфейс для написания пользовательских стратегий.

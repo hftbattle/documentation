@@ -1,4 +1,5 @@
 #{{ book["contest.name"] }}'s documentation
+
 This is the documentation for [{{ book["contest.name"] }}]({{ book["contest.landing-page.url"] }}), HFT strategies competition.
 
 

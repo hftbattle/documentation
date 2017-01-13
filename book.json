@@ -39,7 +39,7 @@
 
         "wiki.cme.url": "https://en.wikipedia.org/wiki/Чикагская_товарная_биржа"
     },
-    "plugins": ["disqus", "ace", "-lunr", "search-languages", "yametrika", "-anchors", "expandable-chapters", "codetabs", "language-picker", "copy-code-button"],
+    "plugins": ["disqus", "anchorjs", "search-languages", "yametrika", "expandable-chapters", "codetabs", "language-picker", "copy-code-button"],
     "pluginsConfig": {
         "language-picker": {
             "grid-columns": 3
@@ -61,5 +61,10 @@
                 "ut": "noindex"
             }
         }
+    },
+    "theme-default": {
+      "styles": {
+        "website": "build/gitbook.css"
+      }
     }
 }
