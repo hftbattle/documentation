@@ -1,6 +1,11 @@
-#Running your strategy
+##Execution of your strategy
 
-###[Running in command line](#command_line)
+This chapter describes execution of your strategy:
+* [Execution in command line](#command_line)
+* [CLion usage](#clion)
+
+<a id="command_line"></a>
+###Execution in command line
 
 To create a strategy, create a folder with the name of your strategy in the strategies folder. We will use the name *user strategy* further. Your strategy can have different name.
 
@@ -18,7 +23,8 @@ To *run a simulation*, press:
 ./run.py strategies/user_strategy/user_strategy.json
 ```
 
-###[CLion usage](#clion)
+<a id="clion"></a>
+###CLion usage
 To launch simulation in [CLion](https://www.jetbrains.com/clion/download/) you need to:
 - **specify executable file**:
 open *Run > Edit configurations*, specify executable file in the root of directory as *Executable* (*mac_launcher* for MacOS, *windows_launcher* for Windows and *linux_launcher* for Linux).

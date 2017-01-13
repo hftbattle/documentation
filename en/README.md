@@ -2,7 +2,6 @@
 
 This is the documentation for [{{ book["contest.name"] }}]({{ book["contest.landing-page.url"] }}), HFT strategies competition.
 
-
 #How to start
 - Register here: [{{ book["contest.arena.name"] }}]({{ book["contest.arena.url"] }}).
 - Please, send one of example strategies, which are available to you in web interface by default. Read more here: [User interface](interface/README.md).
@@ -10,7 +9,7 @@ This is the documentation for [{{ book["contest.name"] }}]({{ book["contest.land
 ```
 git clone https://github.com/hftbattle/hftbattle.git
 ```
-Read more here: [Local Pack](local-pack/README.md).
+Read more about local pack [here](local-pack/README.md).
 - Please, read the documentation: [Writing a strategy](strategy/README.md), [Market simulator](simulator/README.md), [Glossary](terms.md), [FAQ](FAQ.md) will be helpful.
 - You can start writing your own strategy!
 
