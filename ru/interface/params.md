@@ -14,36 +14,43 @@
 
 Рассмотрим способы задания параметров:
 
-[//]: <> (TODO: переделать на локальные изображения ![Screenshot](img/screenshot.png))
-
 1. Постоянная:
-![param_const_double_set](https://lh3.googleusercontent.com/-JVRLRYRSSKQ/VnA6C_4IrWI/AAAAAAAAAFA/SbOoXN2JeaQ/s0/param_const_double_set.png "Константный вещественный параметр")
-2. Список значений через запятую:
-![list_int](https://lh3.googleusercontent.com/-_4dkBZBEkGg/VnA2I27c88I/AAAAAAAAADE/CCnaD-bfp10/s0/param_list_int_set.png "Список целых значений")
-3. Диапазон значений с шагом: (start, end, step)
-![param_range_int_set](https://lh3.googleusercontent.com/-xcBtI-CIZBM/VnA3L-BOX3I/AAAAAAAAADw/rLAUPLcjoSo/s0/param_range_int_set.png "Диапазон значений от 0 до 10 с шагом 2")
 
+<img src="/img/param_const_double_set.png" alt="Константный вещественный параметр">
+
+2. Список значений через запятую:
+
+<img src="/img/param_list_int_set.png" alt="Список целых значений">
+
+3. Диапазон значений с шагом: (start, end, step)
+
+<img src="/img/param_range_int_set.png" alt="Диапазон значений от 0 до 10 с шагом 2">
 
 После ввода поля значений параметра нужно добавить эти значения, нажав на кнопку *Add*. В таком случае параметры, заданные способами 1 и 2 передадутся как есть, а параметры, заданные диапазоном значений с шагом раскроются в список параметров автоматически и отобразятся в таблице параметров. После добавления параметров для перебора под таблицей параметров отобразится поле *Total combinations*,  означающее общее число комбинаций параметров, то есть декартово произведение всех наборов параметров.
 
 В результате получим:
 
- 1. Добавили постоянную double_param = 3.14. Всего комбинаций – 1.
-![param_const_double_res](https://lh3.googleusercontent.com/-QF4NPJo_0Xk/VnA54K82etI/AAAAAAAAAE0/ye-PdSfb3FA/s0/param_const_double_res.png "Добавили постоянную double_param = 3.14]")
+1. Добавили постоянную double_param = 3.14. Всего комбинаций – 1.
 
- 2. Добавили список целых значений от 1 до 4. Всего комбинаций – 4.
-![param_list_int_res](https://lh3.googleusercontent.com/-spMSUklQz5Q/VnA3wLSDzPI/AAAAAAAAAEA/jWbtGY7Vgq8/s0/param_list_int_res.png "Добавили список целых значений от 1 до 4")
+<img src="/img/param_const_double_res.png" alt="Добавили постоянную double_param = 3.14">
 
- 3. Добавили диапазон значений от 0 до 10 с шагом 2. Всего комбинаций – 6.
-![param_range_int_res](https://lh3.googleusercontent.com/-LjXXdMWBtlc/VnA336r4n2I/AAAAAAAAAEM/ILgG_Q_l5k8/s0/param_range_int_res.png "Добавили диапазон значений от 0 до 10 с шагом 2")
+2. Добавили список целых значений от 1 до 4. Всего комбинаций – 4.
+
+<img src="/img/param_list_int_res.png" alt="Добавили список целых значений от 1 до 4">
+
+3. Добавили диапазон значений от 0 до 10 с шагом 2. Всего комбинаций – 6.
+
+<img src="/img/param_range_int_res.png" alt="Добавили диапазон значений от 0 до 10 с шагом 2">
 
 Интерфейс перебора параметров позволяет добавлять несколько различных параметров, а также отключать перебор, задавая значение по умолчанию (*default value*):
 
- - Пример задания нескольких серий параметров. 2 значения для *double_param* и 4 значения для *int_param* дают 4 * 2 = 8 комбинаций.
-![param_double_int_combo](https://lh3.googleusercontent.com/-sdQu4WaHgMk/VnA8SjdGwnI/AAAAAAAAAF0/P8sD8D_9u9A/s0/param_double_int_combo.png "Пример задания нескольких серий параметров")
+- Пример задания нескольких серий параметров. 2 значения для *double_param* и 4 значения для *int_param* дают 4 * 2 = 8 комбинаций.
 
- - Пример отключения перебора параметра double_param, значение по умолчанию = 0:
-![param_double_int_turn_off_double](https://lh3.googleusercontent.com/-cf2RTnPdqKY/VnE5LydbgoI/AAAAAAAAAGk/Y1ZhCTFsE1o/s0/Screen+Shot+2015-12-16+at+13.11.52.png "Пример отключения перебора параметра double_param  ")
+<img src="/img/param_double_int_combo.png" alt="Пример задания нескольких серий параметров">
+
+- Пример отключения перебора параметра double_param, значение по умолчанию = 0:
+
+<img src="/img/param_double_int_turn_off_double.png" alt="Пример отключения перебора параметра double_param">
 
 
 <a id="from_strategy"></a>
