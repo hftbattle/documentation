@@ -18,4 +18,4 @@ Read more about local pack [here](local-pack/README.md).
 
 #Questions and help
 
-You can ask your questions right here, or by writing us an email {{ book["contest.support.email"] }}.
+You can ask your questions right here, or by writing us an email <{{ book["contest.support.email"] }}>.
