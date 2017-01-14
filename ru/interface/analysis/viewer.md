@@ -28,7 +28,7 @@ Viewer доступен по адресу [{{ book["viewer.name"] }}]({{ book["v
 
 Иллюстрация работы с графиком выглядит следующим образом.
 
-![Viewer chart](viewer-chart.gif)](viewer-chart.gif)
+![](viewer-chart.gif)
 
 ##Управление<a id="control"></a>
 
