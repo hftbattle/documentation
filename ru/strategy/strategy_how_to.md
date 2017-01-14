@@ -8,7 +8,7 @@
 bool add_limit_order(Dir dir, Price price, Amount amount);
 ```
 
-Функция [add_limit_order](/api/ParticipantStrategy.md#add_limit_order) выставляет нашу [лимитную заявку](../terms.md#limit_order), где:
+Функция [add_limit_order](/api/ParticipantStrategy.md#add_limit_order) выставляет нашу [лимитную заявку](/terms.md#limit_order), где:
 
 - *dir* - направление (BID = 0 - покупка, ASK = 1 - продажа),
 - *price* - цена, по которой заявка будет выставлена,
