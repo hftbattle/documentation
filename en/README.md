@@ -3,6 +3,7 @@
 This is the documentation for [{{ book["contest.name"] }}]({{ book["contest.landing-page.url"] }}), HFT strategies competition.
 
 #How to start
+
 - Register here: [{{ book["contest.arena.name"] }}]({{ book["contest.arena.url"] }}).
 - Please, send one of example strategies, which are available to you in web interface by default.
 Read more here: [User interface](interface/README.md).
