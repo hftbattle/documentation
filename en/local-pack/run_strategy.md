@@ -4,34 +4,39 @@ This chapter describes execution of your strategy:
 * [Execution in command line](#command_line)
 * [CLion usage](#clion)
 
+We will assume, that your strategy and folder are called **user_strategy**.
+Read [here](add_strategy.md) about creating new strategies.
+
 <a id="command_line"></a>
 ###Execution in command line
 
-To create a strategy, create a folder with the name of your strategy in the strategies folder. We will use the name *user strategy* further. Your strategy can have different name.
-
-Your strategy must be implemented in one file, in our case *user.strategy.cpp*. Corresponding configuration file must have the same name, so, in our case, *user_strategy.json*.
-
-After that you need you need to **compile all the strategies you have**:
-```
+You need to:
+- **compile all the strategies you have**:
+```bash
 ./build.py
 ```
 
-This will create a library for your strategy in *build* folder.
+This will create libraries for your strategies in *build* folder.
 
-To *run a simulation*, press:
+- *run a simulation**.
+Attention: your strategy may have another name:
 ```
-./run.py strategies/user_strategy/user_strategy.json
+./run.py user_strategy
 ```
 
 <a id="clion"></a>
 ###CLion usage
-To launch simulation in [CLion](https://www.jetbrains.com/clion/download/) you need to:
+
+To launch simulation in [CLion](({{ book["clion.url"] }}) you need to:
+
 - **specify executable file**:
 open *Run > Edit configurations*, specify executable file in the root of directory as *Executable* (*mac_launcher* for MacOS, *windows_launcher* for Windows and *linux_launcher* for Linux).
 
-- **specify path to your configuration file in the arguments of command line**:
-in the same tab *Run > Edit configurations* you need to fill *Program arguments* with relative path to configuration file of your strategy. For example:
+- **specify path to your configuration file** in the arguments of command line:
+in the same tab *Run > Edit configurations* you need to fill *Program arguments* with relative path to configuration file of your strategy.
+For example:
 ```
 strategies/user_strategy/user_strategy.json
 ```
+
 - **to start the project build and simulation**, by pressing *Run* button.

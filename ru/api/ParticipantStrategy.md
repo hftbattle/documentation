@@ -209,7 +209,6 @@ void set_stop_loss_result(const Decimal stop_loss_result);
 ```
 Устанавливает минимально допустимое значение, при достижении которого позиция закрывается, и стратегия перестаёт торговать.
 
-
 ###Описание полей
 <a id="trading_book_info"></a>
 ####trading_book_info

@@ -37,8 +37,6 @@ REGISTER_CONTEST_STRATEGY(UserStrategy, best_strategy_ever)
 Если вы работаете из CLion, то вам нужно выполнить *Tools > CMake > Reload CMake Project*.
 Это перезагрузит CMake.
 
-
-
 <a id="python"></a>
 ###Создание новой Python стратегии
 

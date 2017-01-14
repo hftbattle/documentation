@@ -38,7 +38,6 @@ std::array<Amount, 2> deleting_amount;
 ```
 Суммарный объем заявок по направлению, отправленных на удаление, но еще не удаленных.
 
-
 ###Описание методов
 <a id="get_volume_by_price"></a>
 ####get_volume_by_price()

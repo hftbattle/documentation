@@ -39,7 +39,6 @@
 
 Подробнее в разделе [Интерфейс участника](interface/README.md).
 
-
 <a id="local-pack"></a>
 ##Пакет для локальной разработки
 - Самый простой способ начать разрабатывать в локальном пакете – [скачать]({{book["contest.local-pack.virtual.url"]}}) подготовленный образ Ubuntu 16.04 для [VirtualBox]({{book["virtualbox.url"]}}).

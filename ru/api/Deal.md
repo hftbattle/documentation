@@ -88,7 +88,6 @@ int64_t outer_id;
 ```
 Биржевой (внешний) ID сделки.
 
-
 ###Описание методов
 <a id="get_agressor_side"></a>
 ####get_agressor_side()

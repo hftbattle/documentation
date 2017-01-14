@@ -87,7 +87,6 @@ static const size_t kMaxCommentLength = 20;
 ```
 Максимальная длина комментария к заявке.
 
-
 ###Описание методов
 <a id="amount_rest"></a>
 ####amount_rest()
