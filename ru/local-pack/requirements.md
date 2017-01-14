@@ -5,8 +5,8 @@
 - [MacOS](#macos)
 - [Windows](#windows)
 
-<a id="ubuntu"></a>
-###Ubuntu
+###Ubuntu<a id="ubuntu"></a>
+
 Для установки зависимостей на Ubuntu можно запустить скрипт *packages_ubuntu.sh*, находящийся в корне репозитория:
 ```bash
 ./packages_ubuntu.sh
@@ -20,8 +20,8 @@
 sudo apt-get install cmake
 ```
 
-<a id="macos"></a>
-###MacOS
+###MacOS<a id="macos"></a>
+
 Для установки зависимостей на MacOS можно запустить скрипт *packages_mac.sh*, находящийся в корне репозитория:
 ```bash
 ./packages_mac.sh
@@ -41,8 +41,8 @@ xcode-select --install
 brew install cmake
 ```
 
-<a id="windows"></a>
-###Windows
+###Windows<a id="windows"></a>
+
 Для запуска под Windows необходимо иметь:
 - Компилятор [MinGW-w64](http://sourceforge.net/projects/mingw-w64/) версии `4.9` и выше:
 
@@ -50,13 +50,16 @@ brew install cmake
 ```bash
 --rev=0 --bootstrap --jobs=4 --threads=posix --exceptions=seh --arch=x86_64
 ```
-Затем следует добавить файл с бинарниками в переменную окружения *path*. Не забудьте поменять версию компилятора:
+Затем следует добавить файл с бинарниками в переменную окружения *path*.
+Не забудьте поменять версию компилятора:
 ```
 setx path "%path%;YOUR_PATH_TO_MINGW\x86_64-4.9.2-posix-seh-rt_v3-rev0\mingw64\bin"
 ```
 
 - [CMake]({{ book["cmake.url"] }}) версии 2.8.4 и выше:
 
-Например, можно поставить [CLion]({{ book["clion.url"] }}), *CMake* при этом будет в комплекте. Далее необходимо добавить путь до *cmake.exe* в переменную окружения *PATH*.
+Например, можно поставить [CLion]({{ book["clion.url"] }}), *CMake* при этом будет в комплекте.
+Далее необходимо добавить путь до *cmake.exe* в переменную окружения *PATH*.
 
-- Python 2.7 и выше. Можно скачать [здесь]({{ book["python.url"] }}).
+- Python 2.7 и выше.
+Можно скачать [здесь]({{ book["python.url"] }}).

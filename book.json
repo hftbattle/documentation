@@ -6,6 +6,7 @@
         "contest.landing-page.name": "hftbattle.com",
 
         "contest.arena.url": "https://arena.hftbattle.com",
+        "contest.arena.leaderboard.url": "https://arena.hftbattle.com/leaderboard",
         "contest.arena.name": "arena.hftbattle.com",
 
         "contest.docs.url": "https://docs.hftbattle.com",
@@ -23,6 +24,8 @@
 
         "contest.instrument": "ES",
 
+        "blog.url": "http://blog.hftbattle.com",
+
         "data.small_day": "2015.09.29",
         "data.full_day": "2015.12.23",
         "git.url": "http://git-scm.com/download",
@@ -36,7 +39,12 @@
         "viewer.url": "http://viewer.hftbattle.com",
         "viewer.name": "viewer.hftbattle.com",
 
-        "wiki.cme.url": "https://en.wikipedia.org/wiki/Чикагская_товарная_биржа"
+        "wiki.cme.url": "https://en.wikipedia.org/wiki/Чикагская_товарная_биржа",
+
+        "constraint.symbol": "10^6",
+        "constraint.string": "10^3",
+        "constraint.symbol_in_string": "10^3",
+        "constraint.logs_size": "100"
     },
     "plugins": ["disqus", "anchorjs", "search-languages", "-lunr", "yametrika", "expandable-chapters", "codetabs", "language-picker", "copy-code-button"],
     "pluginsConfig": {

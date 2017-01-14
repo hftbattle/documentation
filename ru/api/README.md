@@ -3,23 +3,22 @@
 ##Классы
 Здесь содержится описание программного интерфейса основных классов симулятора:
 
-* [ContestBookInfo](ContestBookInfo.md)
-* [Deal](Deal.md)
-* [Order](Order.md)
-* [OrderBook](OrderBook.md)
-* [ParticipantStrategy](ParticipantStrategy.md)
-* [Quote](Quote.md)
-* [SecurityOrdersSnapshot](SecurityOrdersSnapshot.md)
+- [ContestBookInfo](ContestBookInfo.md)
+- [Deal](Deal.md)
+- [Order](Order.md)
+- [OrderBook](OrderBook.md)
+- [ParticipantStrategy](ParticipantStrategy.md)
+- [Quote](Quote.md)
+- [SecurityOrdersSnapshot](SecurityOrdersSnapshot.md)
 
 ##Типы данных
-* [Dir](#dir)
-* [Price](#price)
-* [Amount](#amount)
+- [Dir](#dir)
+- [Price](#price)
+- [Amount](#amount)
 
 Далее опишем каждый тип подробнее.
 
-<a id="dir"></a>
-####Dir
+####Dir<a id="dir"></a>
 Enum, отвечающий за направление заявки:
 ```c++
 enum Dir : uint8_t {
@@ -39,8 +38,7 @@ for (const auto& dir : { BID, ASK } ) {
 }
 ```
 
-<a id="price"></a>
-####Price
+####Price<a id="price"></a>
 Класс, хранящий вещественные числа с точностью 7 знаков после запятой и отвечающий за цену заявок.
 > Замечание: цена в симуляторе традиционно хранится в пунктах, причем
 ```
@@ -62,8 +60,7 @@ void trading_book_update(const OrderBook& order_book) override {
 }
 ```
 
-<a id="Amount"></a>
-####Amount
+####Amount<a id="Amount"></a>
 Объем заявок, выраженный в количестве лотов. Это псевдоним для *int32_t*.
 
 Рассмотрим пример, получающий объем на лучшей и второй после лучшей цены по каждому направлению:

@@ -1,14 +1,13 @@
 ##Execution of your strategy
 
 This chapter describes execution of your strategy:
-* [Execution in command line](#command_line)
-* [CLion usage](#clion)
+- [Execution in command line](#command_line)
+- [CLion usage](#clion)
 
 We will assume, that your strategy and folder are called **user_strategy**.
 Read [here](add_strategy.md) about creating new strategies.
 
-<a id="command_line"></a>
-###Execution in command line
+###Execution in command line<a id="command_line"></a>
 
 You need to:
 - **compile all the strategies you have**:
@@ -24,8 +23,7 @@ Attention: your strategy may have another name:
 ./run.py user_strategy
 ```
 
-<a id="clion"></a>
-###CLion usage
+###CLion usage<a id="clion"></a>
 
 To launch simulation in [CLion](({{ book["clion.url"] }}) you need to:
 
