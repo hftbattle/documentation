@@ -69,19 +69,19 @@ public:
   Microseconds time_param;
 
   UserStrategy(JsonValue config) {
-	// Читаем целочисленный параметр.
-	int_param = config["int_param"].as<int>(42);
-	// Читаем вещественный параметр.
-	double_param = config["double_param"].as<double>(3.14);
-	// Читаем временной параметр.
-	// ! Временной параметр по умолчанию необходимо указывать с единицей измерения (литералом).
-	// Возможные литералы:
-	// h - часы,
-	// min - минуты,
-	// s - секунда,
-	// ms - миллисекунды,
-	// us - микросекунды.
-	time_param = config["time_param"].as<Microseconds>(3s);
+    // Читаем целочисленный параметр.
+    int_param = config["int_param"].as<int>(42);
+    // Читаем вещественный параметр.
+    double_param = config["double_param"].as<double>(3.14);
+    // Читаем временной параметр.
+    // ! Временной параметр по умолчанию необходимо указывать с единицей измерения (литералом).
+    // Возможные литералы:
+    // h - часы,
+    // min - минуты,
+    // s - секунда,
+    // ms - миллисекунды,
+    // us - микросекунды.
+    time_param = config["time_param"].as<Microseconds>(3s);
   }
 
 }

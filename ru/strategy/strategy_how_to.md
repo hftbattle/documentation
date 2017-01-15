@@ -21,7 +21,7 @@ bool add_limit_order(Dir dir, Price price, Amount amount);
 void trading_book_update(const OrderBook& order_book) override {
   for (Dir dir: {BID, ASK}) {
     const Price best_price = order_book.best_price(dir);
-	const Amount amount = 1;
+    const Amount amount = 1;
     add_limit_order(dir, best_price, amount);
   }
 }
