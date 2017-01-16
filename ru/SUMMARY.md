@@ -14,7 +14,7 @@
 - [Дуэли](duels/README.md)
   - [Основные положения](duels/fundamentals.md)
   - [Автоматическое тестирование](duels/automatic_mode.md)
-  - [Ручной тестирование](duels/manual_mode.md)
+  - [Ручное тестирование](duels/manual_mode.md)
   - [Локальный запуск](duels/local_mode.md)
   - [Как ускорить стратегию](duels/fast_strategy.md)
 - [Пакет для локальной разработки](local-pack/README.md)

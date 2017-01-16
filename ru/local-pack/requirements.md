@@ -60,7 +60,7 @@
 
 Для запуска под Windows необходимо иметь:
 
-- Компилятор [MinGW-w64](http://sourceforge.net/projects/mingw-w64/) версии `4.9` и выше:
+- Компилятор [MinGW-w64](http://sourceforge.net/projects/mingw-w64/) версии `5.0` и выше:
 
   Необходимо установить скачанный компилятор с настройками:
 
@@ -72,7 +72,7 @@
   Не забудьте поменять версию компилятора:
 
   ```bash
-  setx path "%path%;YOUR_PATH_TO_MINGW\x86_64-4.9.2-posix-seh-rt_v3-rev0\mingw64\bin"
+  setx path "%path%;YOUR_PATH_TO_MINGW\x86_64-5.0.1-posix-seh-rt_v3-rev0\mingw64\bin"
   ```
 
 - [CMake]({{ book["cmake.url"] }}) версии 2.8.4 и выше:

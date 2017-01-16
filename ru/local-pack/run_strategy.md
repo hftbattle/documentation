@@ -41,7 +41,7 @@
   для этого в той же вкладке *Run > Edit configurations* в строчке *Program arguments* пишем относительный путь до файла конфигурации вашей стратегии от корня репозитория, например:
 
   ```bash
-  strategies/user_strategy/user_strategy.json
+  user_strategy
   ```
 
 - **запустить сборку проекта и симуляцию**, нажав кнопку *Run*.

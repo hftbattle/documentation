@@ -1,75 +1,93 @@
 {
-    "variables": {
-        "contest.name": "HFT Battle 2016",
+  "variables": {
+    "contest.name": "HFT Battle 2016",
 
-        "contest.landing-page.url": "https://www.hftbattle.com",
-        "contest.landing-page.name": "hftbattle.com",
+    "contest.landing-page.url": "https://www.hftbattle.com",
+    "contest.landing-page.name": "hftbattle.com",
 
-        "contest.arena.url": "https://arena.hftbattle.com",
-        "contest.arena.leaderboard.url": "https://arena.hftbattle.com/leaderboard",
-        "contest.arena.name": "arena.hftbattle.com",
+    "contest.arena.url": "https://arena.hftbattle.com",
+    "contest.arena.leaderboard.url": "https://arena.hftbattle.com/leaderboard",
+    "contest.arena.name": "arena.hftbattle.com",
 
-        "contest.docs.url": "https://docs.hftbattle.com",
-        "contest.docs.name": "docs.hftbattle.com",
+    "contest.docs.url": "https://docs.hftbattle.com",
+    "contest.docs.name": "docs.hftbattle.com",
 
-        "contest.instrument": "ES",
+    "contest.instrument": "ES",
 
-        "contest.support.email": "help@hftbattle.com",
-        "contest.support.slack.url": "https://slack.hftbattle.com",
-        "contest.support.slack.name": "slack.hftbattle.com",
+    "contest.support.email": "help@hftbattle.com",
+    "contest.support.slack.url": "https://slack.hftbattle.com",
+    "contest.support.slack.name": "slack.hftbattle.com",
 
-        "contest.local-pack.name": "github.com/hftbattle/hftbattle",
-        "contest.local-pack.url": "https://github.com/hftbattle/hftbattle",
-        "contest.local-pack.readme": "https://github.com/hftbattle/hftbattle/blob/master/README.md",
-        "contest.local-pack.data.url": "https://www.dropbox.com/s/s1uxgs3vj3tgvr7/data.zip?dl=1",
-        "contest.local-pack.virtual.url": "https://s3.eu-central-1.amazonaws.com/hftbattle/vm-hftbattle.ova",
+    "contest.local-pack.name": "github.com/hftbattle/hftbattle",
+    "contest.local-pack.url": "https://github.com/hftbattle/hftbattle",
+    "contest.local-pack.readme": "https://github.com/hftbattle/hftbattle/blob/master/README.md",
+    "contest.local-pack.data.url": "https://www.dropbox.com/s/s1uxgs3vj3tgvr7/data.zip?dl=1",
+    "contest.local-pack.virtual.url": "https://s3.eu-central-1.amazonaws.com/hftbattle/vm-hftbattle.ova",
 
-        "blog.url": "http://blog.hftbattle.com",
+    "blog.url": "http://blog.hftbattle.com",
 
-        "data.small_day": "2015.09.29",
-        "data.full_day": "2015.12.23",
-        "git.url": "http://git-scm.com/download",
-        "virtualbox.url": "https://www.virtualbox.org",
+    "data.training_days": "40",
+    "data.control_days": "20",
+    "data.final_days": "20",
+    "data.small_day": "2015.09.29",
+    "data.full_day": "2015.12.23",
+    "git.url": "http://git-scm.com/download",
+    "virtualbox.url": "https://www.virtualbox.org",
 
-        "brew.url": "http://brew.sh/",
-        "cmake.url": "https://cmake.org/",
-        "clion.url": "https://www.jetbrains.com/clion/download/",
-        "python.url": "https://www.python.org/downloads/",
+    "final_testing_duration": 4,
 
-        "viewer.url": "http://viewer.hftbattle.com",
-        "viewer.name": "viewer.hftbattle.com",
+    "brew.url": "http://brew.sh/",
+    "cmake.url": "https://cmake.org/",
+    "clion.url": "https://www.jetbrains.com/clion/download/",
+    "python.url": "https://www.python.org/downloads/",
 
-        "trading.begin_time": "02:00:00",
-        "trading.end_time": "23:45:00",
+    "viewer.url": "http://viewer.hftbattle.com",
+    "viewer.name": "viewer.hftbattle.com",
 
-        "constraint.symbol": "10^6",
-        "constraint.string": "10^3",
-        "constraint.symbol_in_string": "10^3",
-        "constraint.logs_size": "100"
+    "virtual.system": "Ubuntu 16.04",
+
+    "trading.begin_time": "02:00:00",
+    "trading.end_time": "23:45:00",
+    "trading.daily_deals": "5-10",
+    "trading.min_step": "25",
+    "trading.lot_cost": "0.5",
+    "trading.min_cost": "12.5",
+
+    "constraint.symbol": "10^6",
+    "constraint.string": "10^3",
+    "constraint.symbol_in_string": "10^3",
+    "constraint.logs_size": "100",
+    "constraint.simulation_time": "10",
+
+    "constraint.daily_control_submissions": "2",
+    "constraint.position": "50",
+    "constraint.stop_loss": "-50000$",
+    "constraint.comission": "0.2",
+    "constraint.roundtrip": "10"
+  },
+  "plugins": ["disqus", "anchorjs", "search-languages", "-lunr", "yametrika", "expandable-chapters", "codetabs", "copy-code-button"],
+  "pluginsConfig": {
+    "disqus": {
+      "shortName": "hftbattle"
     },
-    "plugins": ["disqus", "anchorjs", "search-languages", "-lunr", "yametrika", "expandable-chapters", "codetabs", "copy-code-button"],
-    "pluginsConfig": {
-        "disqus": {
-            "shortName": "hftbattle"
-        },
-        "search_languages": {
-            "lang": "ru"
-        },
-        "yametrika": {
-            "number": 35257920,
-            "settings": {
-                "webvisor": true,
-                "clickmap": true,
-                "trackLinks": true,
-                "accurateTrackBounce": true,
-                "trackHash": true,
-                "ut": "noindex"
-            }
-        }
+    "search_languages": {
+      "lang": "ru"
     },
-    "theme-default": {
-      "styles": {
-        "website": "build/gitbook.css"
+    "yametrika": {
+      "number": 35257920,
+      "settings": {
+        "webvisor": true,
+        "clickmap": true,
+        "trackLinks": true,
+        "accurateTrackBounce": true,
+        "trackHash": true,
+        "ut": "noindex"
       }
     }
+  },
+  "theme-default": {
+    "styles": {
+      "website": "build/gitbook.css"
+    }
+  }
 }
