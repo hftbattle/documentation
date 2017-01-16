@@ -3,11 +3,11 @@
 Рассмотрим здесь несколько примеров торговых стратегий:
 
 - [Stay on best price strategy](#stay_on_best_price)
-    - [Base](#stay_on_best_price)
-    - [Improved](#stay_on_best_price_improved)
+  - [Base](#stay_on_best_price)
+  - [Improved](#stay_on_best_price_improved)
 - [Deals count diff strategy](#deals_count_diff)
-    - [Base](#deals_count_diff_base)
-    - [Limited](#deals_count_diff_limited)
+  - [Base](#deals_count_diff_base)
+  - [Limited](#deals_count_diff_limited)
 - [Improved ideas strategy](#improved_ideas)
 
 #### Stay on best price strategy<a id="stay_on_best_price"></a>
