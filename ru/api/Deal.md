@@ -1,4 +1,4 @@
-# Deal
+## Deal
 
 Путь в Local Pack-е: `include/deal.h`
 

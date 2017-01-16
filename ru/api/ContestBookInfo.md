@@ -1,4 +1,4 @@
-# ContestBookInfo
+## ContestBookInfo
 
 Путь в Local Pack-е: `include/contest_book_info.h`
 

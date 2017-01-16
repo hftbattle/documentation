@@ -1,4 +1,4 @@
-# ParticipantStrategy
+## ParticipantStrategy
 
 Путь в Local Pack-е: `include/participant_strategy.h`
 
