@@ -18,7 +18,7 @@
 - В папке `strategies` создайте копию папки `sample_strategy`
 - Выберите имя для вашей стратегии.
 
-Далее, мы будем обозначать его *strategy_name*.
+  Далее, мы будем обозначать его *strategy_name*.
 
 - Назовите новую папку, а также json и cpp файлы в ней *strategy_name*, *strategy_name.json*, *strategy_name.cpp* соответственно.
 

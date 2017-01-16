@@ -14,19 +14,19 @@ You need to:
 
 - **compile all the strategies you have**:
 
-```bash
-./build.py
-```
+  ```bash
+  ./build.py
+  ```
 
-This will create libraries for your strategies in *build* folder.
+  This will create libraries for your strategies in *build* folder.
 
 - **run a simulation**.
 
-Attention: your strategy may have another name:
+  Attention: your strategy may have another name:
 
-```bash
-./run.py user_strategy
-```
+  ```bash
+  ./run.py user_strategy
+  ```
 
 ### CLion usage<a id="clion"></a>
 
@@ -34,15 +34,15 @@ To launch simulation in [CLion](({{ book["clion.url"] }}) you need to:
 
 - **specify executable file**:
 
-open *Run > Edit configurations*, specify executable file in the root of directory as *Executable* (*mac_launcher* for MacOS, *windows_launcher* for Windows and *linux_launcher* for Linux).
+  open *Run > Edit configurations*, specify executable file in the root of directory as *Executable* (*mac_launcher* for MacOS, *windows_launcher* for Windows and *linux_launcher* for Linux).
 
 - **specify path to your configuration file** in the arguments of command line:
 
-in the same tab *Run > Edit configurations* you need to fill *Program arguments* with relative path to configuration file of your strategy.
-For example:
+  in the same tab *Run > Edit configurations* you need to fill *Program arguments* with relative path to configuration file of your strategy.
+  For example:
 
-```bash
-strategies/user_strategy/user_strategy.json
-```
+  ```bash
+  strategies/user_strategy/user_strategy.json
+  ```
 
 - **to start the project build and simulation**, by pressing *Run* button.
