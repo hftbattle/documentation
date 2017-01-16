@@ -46,7 +46,7 @@
         "constraint.symbol_in_string": "10^3",
         "constraint.logs_size": "100"
     },
-    "plugins": ["disqus", "anchorjs", "search-languages", "-lunr", "yametrika", "expandable-chapters", "codetabs", "language-picker", "copy-code-button"],
+    "plugins": ["disqus", "anchorjs", "search-languages", "-lunr", "yametrika", "expandable-chapters", "codetabs", "copy-code-button"],
     "pluginsConfig": {
         "disqus": {
             "shortName": "hftbattle"
