@@ -1,4 +1,4 @@
-#ParticipantStrategy
+# ParticipantStrategy
 
 Путь в Local Pack-е: `include/participant_strategy.h`
 
@@ -14,7 +14,7 @@ ParticipantStrategy - класс-интерфейс для написания п
 
 Классы-стратегии участников должны наследовать от класса ParticipantStrategy.
 
-###Методы
+### Методы
 
 |Имя| Описание|
 |------------------|--------------------|
@@ -39,7 +39,7 @@ ParticipantStrategy - класс-интерфейс для написания п
 |[set_max_total_amount(const uint32_t max_total_amount)](#set_max_total_amount)|Устанавливает максимальное разрешённое значение позиции (не более 50).|
 |[set_stop_loss_result(const Decimal stop_loss_result)](#set_stop_loss_result)|Устанавливает минимально допустимое значение, при достижении которого позиция закрывается, и стратегия перестаёт торговать.|
 
-###Поля
+### Поля
 
 |Имя| Описание|
 |------------------|--------------------|
@@ -48,9 +48,9 @@ ParticipantStrategy - класс-интерфейс для написания п
 |[trading_book](#trading_book)|Умный указатель на текущий стакан торгового инструмента.|
 |[signal_book](#signal_book)|Аналогично trading_book для сигнального инструмента.|
 
-###Описание методов
+### Описание методов
 <a id="trading_book_update"></a>
-####trading_book_update()
+#### trading_book_update()
 ```c++
 virtual void trading_book_update(const OrderBook& order_book);
 ```
@@ -58,7 +58,7 @@ virtual void trading_book_update(const OrderBook& order_book);
 - *order_book* – новый стакан.
 
 <a id="trading_deals_update"></a>
-####trading_deals_update()
+#### trading_deals_update()
 ```c++
 virtual void trading_deals_update(const std::vector<Deal>& deals);
 ```
@@ -66,7 +66,7 @@ virtual void trading_deals_update(const std::vector<Deal>& deals);
 - *deals* - вектор новых сделок.
 
 <a id="execution_report_update"></a>
-####execution_report_update()
+#### execution_report_update()
 ```c++
 virtual void execution_report_update(const ExecutionReport& execution_report);
 ```
@@ -74,7 +74,7 @@ virtual void execution_report_update(const ExecutionReport& execution_report);
 - *snapshot* – структура-отчет о совершенной сделке.
 
 <a id="signal_book_update"></a>
-####signal_book_update()
+#### signal_book_update()
 ```c++
 virtual void signal_book_update(const OrderBook& order_book);
 ```
@@ -82,7 +82,7 @@ virtual void signal_book_update(const OrderBook& order_book);
 - *order_book* – новый стакан.
 
 <a id="signal_deals_update"></a>
-####signal_deals_update()
+#### signal_deals_update()
 ```c++
 virtual void signal_deals_update(const std::vector<Deal>& deals);
 ```
@@ -90,7 +90,7 @@ virtual void signal_deals_update(const std::vector<Deal>& deals);
 - *deals* - вектор новых сделок.
 
 <a id="add_limit_order"></a>
-####add_limit_order()
+#### add_limit_order()
 ```c++
 bool add_limit_order(Dir dir, Price price, Amount amount, const std::string& comment =;
 ```
@@ -101,7 +101,7 @@ bool add_limit_order(Dir dir, Price price, Amount amount, const std::string& com
 - *comment* - комментарий к заявке.
 
 <a id="add_ioc_order"></a>
-####add_ioc_order()
+#### add_ioc_order()
 ```c++
 bool add_ioc_order(Dir dir, Price price, Amount amount, const std::string& comment =;
 ```
@@ -112,7 +112,7 @@ bool add_ioc_order(Dir dir, Price price, Amount amount, const std::string& comme
 - *comment* - комментарий к заявке.
 
 <a id="delete_order"></a>
-####delete_order()
+#### delete_order()
 ```c++
 void delete_order(Order* order);
 ```
@@ -120,7 +120,7 @@ void delete_order(Order* order);
 - *order* - заявка, которую мы хотим снять.
 
 <a id="delete_all_orders_by_dir"></a>
-####delete_all_orders_by_dir()
+#### delete_all_orders_by_dir()
 ```c++
 void delete_all_orders_by_dir(Dir dir);
 ```
@@ -128,7 +128,7 @@ void delete_all_orders_by_dir(Dir dir);
 - *dir* - направление (BID = 0 - покупка, ASK = 1 - продажа).
 
 <a id="get_amount_before_order"></a>
-####get_amount_before_order()
+#### get_amount_before_order()
 ```c++
 Amount get_amount_before_order(const Order* order) const;
 ```
@@ -136,7 +136,7 @@ Amount get_amount_before_order(const Order* order) const;
 - *order* - заявка, для которой мы хотим узнать количество стоящих перед ней лотов.
 
 <a id="get_volume_at_price"></a>
-####get_volume_at_price()
+#### get_volume_at_price()
 ```c++
 Amount get_volume_at_price(Dir dir, Price price) const;
 ```
@@ -145,7 +145,7 @@ Amount get_volume_at_price(Dir dir, Price price) const;
 - *price* - цена, объём лотов на которой мы хотим узнать.
 
 <a id="add_chart_point"></a>
-####add_chart_point()
+#### add_chart_point()
 ```c++
 void add_chart_point(const std::string& line_name, double value, ChartYAxisType y_axis_type, uint8_t chart_number);
 ```
@@ -154,85 +154,85 @@ void add_chart_point(const std::string& line_name, double value, ChartYAxisType 
 - *chart_number* - номер картинки на которой будет нарисован график.
 
 <a id="get_current_result"></a>
-####get_current_result()
+#### get_current_result()
 ```c++
 Price get_current_result() const;
 ```
 Возвращает текущий результат (заработок).
 
 <a id="get_saldo"></a>
-####get_saldo()
+#### get_saldo()
 ```c++
 Price get_saldo();
 ```
 Возвращает текущее сальдо, т.е. баланс без учета позы.
 
 <a id="signal_security_exists"></a>
-####signal_security_exists()
+#### signal_security_exists()
 ```c++
 bool signal_security_exists() const;
 ```
 Возвращает true, если есть сигнальный инструмент. Иначе false.
 
 <a id="get_local_time"></a>
-####get_local_time()
+#### get_local_time()
 ```c++
 Microseconds get_local_time() const;
 ```
 Возвращает локальное время в микросекундах. Локальное время здесь – это время на машине, получающей биржевые данные.
 
 <a id="get_server_time"></a>
-####get_server_time()
+#### get_server_time()
 ```c++
 Microseconds get_server_time() const;
 ```
 Возвращает биржевое время с точностью до микросекунд.
 
 <a id="get_server_time_tm"></a>
-####get_server_time_tm()
+#### get_server_time_tm()
 ```c++
 tm get_server_time_tm() const;
 ```
 Возвращает биржевое время типа tm c точностью до секунды.
 
 <a id="set_max_total_amount"></a>
-####set_max_total_amount()
+#### set_max_total_amount()
 ```c++
 void set_max_total_amount(const uint32_t max_total_amount);
 ```
 Устанавливает максимальное разрешённое значение позиции (не более 50).
 
 <a id="set_stop_loss_result"></a>
-####set_stop_loss_result()
+#### set_stop_loss_result()
 ```c++
 void set_stop_loss_result(const Decimal stop_loss_result);
 ```
 Устанавливает минимально допустимое значение, при достижении которого позиция закрывается, и стратегия перестаёт торговать.
 
-###Описание полей
+### Описание полей
 <a id="trading_book_info"></a>
-####trading_book_info
+#### trading_book_info
 ```c++
 ContestBookInfo trading_book_info;
 ```
 Структура-агрегатор основной информации о торговом стакане.
 
 <a id="signal_book_info"></a>
-####signal_book_info
+#### signal_book_info
 ```c++
 ContestBookInfo signal_book_info;
 ```
 Структура-агрегатор основной информации о сигнальном стакане.
 
 <a id="trading_book"></a>
-####trading_book
+#### trading_book
 ```c++
 std::shared_ptr<const OrderBook> trading_book;
 ```
 Умный указатель на текущий стакан торгового инструмента. Они обновляются каждый раз с приходом очередного апдейта торгового стакана. При этом объект внутри (стакан) разрушается. Чтобы сохранить старый стакан, нужно явно в стратегии сохранить этот указатель.
 
 <a id="signal_book"></a>
-####signal_book
+#### signal_book
 ```c++
 std::shared_ptr<const OrderBook> signal_book;
 ```

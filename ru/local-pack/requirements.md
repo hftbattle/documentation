@@ -1,11 +1,11 @@
-##Установка зависимостей
+## Установка зависимостей
 
 В данном разделе описаны зависимости, необходимые для следующих операционных систем:
 - [Ubuntu](#ubuntu)
 - [MacOS](#macos)
 - [Windows](#windows)
 
-###Ubuntu<a id="ubuntu"></a>
+### Ubuntu<a id="ubuntu"></a>
 
 Для установки зависимостей на Ubuntu можно запустить скрипт *packages_ubuntu.sh*, находящийся в корне репозитория:
 ```bash
@@ -20,7 +20,7 @@
 sudo apt-get install cmake
 ```
 
-###MacOS<a id="macos"></a>
+### MacOS<a id="macos"></a>
 
 Для установки зависимостей на MacOS можно запустить скрипт *packages_mac.sh*, находящийся в корне репозитория:
 ```bash
@@ -41,7 +41,7 @@ xcode-select --install
 brew install cmake
 ```
 
-###Windows<a id="windows"></a>
+### Windows<a id="windows"></a>
 
 Для запуска под Windows необходимо иметь:
 - Компилятор [MinGW-w64](http://sourceforge.net/projects/mingw-w64/) версии `4.9` и выше:

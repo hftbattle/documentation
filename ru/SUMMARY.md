@@ -1,4 +1,4 @@
-#Summary
+# Summary
 
 - [Как начать участие](README.md)
 - [Краткое описание контеста](quick_start.md)

@@ -1,4 +1,4 @@
-#Glossary
+# Glossary
 
 <a id="exchange"></a>
 - **Exchange** is a highly organized market where (especially) tradable securities, commodities, foreign exchange, futures, and options contracts are sold and bought.
