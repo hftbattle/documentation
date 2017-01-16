@@ -65,6 +65,7 @@ public:
 **Замечание 1:**
 
 В классе [ParticipantStrategy](/api/ParticipantStrategy.md) есть 2 поля, отвечающие торговому стакану:
+
 - [trading_book](/api/ParticipantStrategy.md#trading_book) – указатель на актуальный торговый стакан,
 - [trading_book_snapshot](/api/ParticipantStrategy.md#trading_book_snapshot) – умный указатель на структуру, содержащую этот стакан.
 

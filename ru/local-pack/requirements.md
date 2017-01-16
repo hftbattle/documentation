@@ -1,6 +1,7 @@
 ## Установка зависимостей
 
 В данном разделе описаны зависимости, необходимые для следующих операционных систем:
+
 - [Ubuntu](#ubuntu)
 - [MacOS](#macos)
 - [Windows](#windows)
@@ -14,6 +15,7 @@
 ```
 
 Скрипт устанавливает:
+
 - Компилятор g++:
 
 ```bash
@@ -35,6 +37,7 @@ sudo apt-get install cmake
 ```
 
 Скрипт устанавливает:
+
 - Компилятор Apple LLVM (подробное описание процедуру установки [здесь](http://osxdaily.com/2014/02/12/install-command-line-tools-mac-os-x/)):
 
 ```bash
@@ -56,6 +59,7 @@ brew install cmake
 ### Windows<a id="windows"></a>
 
 Для запуска под Windows необходимо иметь:
+
 - Компилятор [MinGW-w64](http://sourceforge.net/projects/mingw-w64/) версии `4.9` и выше:
 
 Необходимо установить скачанный компилятор с настройками:
@@ -77,4 +81,5 @@ setx path "%path%;YOUR_PATH_TO_MINGW\x86_64-4.9.2-posix-seh-rt_v3-rev0\mingw64\b
 Далее необходимо добавить путь до *cmake.exe* в переменную окружения *PATH*.
 
 - Python 2.7 и выше.
+
 Можно скачать [здесь]({{ book["python.url"] }}).

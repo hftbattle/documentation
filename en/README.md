@@ -6,8 +6,11 @@ This is the documentation for [{{ book["contest.name"] }}]({{ book["contest.land
 
 - Register here: [{{ book["contest.arena.name"] }}]({{ book["contest.arena.url"] }}).
 - Please, send one of example strategies, which are available to you in web interface by default.
+
 Read more here: [User interface](interface/README.md).
+
 - Download local pack.
+
 For this you can [download]({{ book["contest.local-pack.virtual.url"] }}) [VirtualBox]({{book["virtualbox.url"]}}) image, or you can clone local-package from [GitHub]({{ book["contest.local-pack.url"] }}) ([Git]({{ book["git.url"] }}) is required):
 
 ```bash
@@ -15,6 +18,7 @@ git clone https://github.com/hftbattle/hftbattle.git
 ```
 
 Read more about local pack [here](local-pack/README.md).
+
 - Please, read the documentation: [Writing a strategy](strategy/README.md), [Market simulator](simulator/README.md), [Glossary](terms.md), [FAQ](FAQ.md) will be helpful.
 - You can start writing your own strategy!
 

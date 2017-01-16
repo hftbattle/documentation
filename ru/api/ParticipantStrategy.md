@@ -57,6 +57,7 @@ virtual void trading_book_update(const OrderBook& order_book);
 ```
 
 Вызывается при получении нового стакана торгового инструмента:
+
 - *order_book* – новый стакан.
 
 #### trading_deals_update()<a id="trading_deals_update"></a>
@@ -66,6 +67,7 @@ virtual void trading_deals_update(const std::vector<Deal>& deals);
 ```
 
 Вызывается при получении новых сделок торгового инструмента:
+
 - *deals* - вектор новых сделок.
 
 #### execution_report_update()<a id="execution_report_update"></a>
@@ -75,6 +77,7 @@ virtual void execution_report_update(const ExecutionReport& execution_report);
 ```
 
 Вызывается при получении отчета о сделке с участием вашего ордера:
+
 - *snapshot* – структура-отчет о совершенной сделке.
 
 #### signal_book_update()<a id="signal_book_update"></a>
@@ -84,6 +87,7 @@ virtual void signal_book_update(const OrderBook& order_book);
 ```
 
 Вызывается при получении нового стакана сигнального инструмента:
+
 - *order_book* – новый стакан.
 
 #### signal_deals_update()<a id="signal_deals_update"></a>
@@ -93,6 +97,7 @@ virtual void signal_deals_update(const std::vector<Deal>& deals);
 ```
 
 Вызывается при получении новых сделок сигнального инструмента:
+
 - *deals* - вектор новых сделок.
 
 #### add_limit_order()<a id="add_limit_order"></a>
@@ -102,6 +107,7 @@ bool add_limit_order(Dir dir, Price price, Amount amount, const std::string& com
 ```
 
 Выставляет нашу лимитную заявку:
+
 - *dir* - направление (BID = 0 - покупка, ASK = 1 - продажа),
 - *price* - цена, по которой заявка будет выставлена,
 - *amount* - размер заявки.
@@ -114,6 +120,7 @@ bool add_ioc_order(Dir dir, Price price, Amount amount, const std::string& comme
 ```
 
 Выставляет нашу заявку типа Immediate-Or-Cancel (IOC):
+
 - *dir* - направление (BID = 0 - покупка, ASK = 1 - продажа),
 - *price* - цена, по которой заявка будет выставлена,
 - *amount* - размер заявки.
@@ -126,6 +133,7 @@ void delete_order(Order* order);
 ```
 
 Снимает нашу заявку с торгов:
+
 - *order* - заявка, которую мы хотим снять.
 
 #### delete_all_orders_by_dir()<a id="delete_all_orders_by_dir"></a>
@@ -135,6 +143,7 @@ void delete_all_orders_by_dir(Dir dir);
 ```
 
 Снимает все наши заявки с торгов по направлению *dir*.
+
 - *dir* - направление (BID = 0 - покупка, ASK = 1 - продажа).
 
 #### get_amount_before_order()<a id="get_amount_before_order"></a>
@@ -144,6 +153,7 @@ Amount get_amount_before_order(const Order* order) const;
 ```
 
 Возвращает количество лотов, стоящих в очереди перед нашей заявкой.
+
 - *order* - заявка, для которой мы хотим узнать количество стоящих перед ней лотов.
 
 #### get_volume_at_price()<a id="get_volume_at_price"></a>
@@ -153,6 +163,7 @@ Amount get_volume_at_price(Dir dir, Price price) const;
 ```
 
 Возвращает суммарное количество лотов в наших активных заявках, стоящих на определённой цене.
+
 - *dir* - направление (BID = 0 - покупка, ASK = 1 - продажа).
 - *price* - цена, объём лотов на которой мы хотим узнать.
 
@@ -163,6 +174,7 @@ void add_chart_point(const std::string& line_name, double value, ChartYAxisType 
 ```
 
 Добавляет точку на график.
+
 - *line_name* - название графика, *value* - значение, *y_axis_type* - ось (левая или правая),
 - *chart_number* - номер картинки на которой будет нарисован график.
 
