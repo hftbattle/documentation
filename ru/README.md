@@ -1,6 +1,6 @@
-# Документация {{ book["contest.name"] }}
+# Как начать участие в {{ book["contest.name"] }}
 
-Документация для [{{ book["contest.name"] }}]({{ book["contest.landing-page.url"] }}), соревнования по HFT стратегиям.
+Здесь представлена документация для [{{ book["contest.name"] }}]({{ book["contest.landing-page.url"] }}), соревнования по HFT стратегиям.
 
 ## Как начать участие
 

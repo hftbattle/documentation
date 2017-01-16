@@ -1,4 +1,4 @@
-# {{ book["contest.name"] }}'s documentation
+# How to start participance in {{ book["contest.name"] }}
 
 This is the documentation for [{{ book["contest.name"] }}]({{ book["contest.landing-page.url"] }}), HFT strategies competition.
 
