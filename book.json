@@ -12,6 +12,8 @@
         "contest.docs.url": "https://docs.hftbattle.com",
         "contest.docs.name": "docs.hftbattle.com",
 
+        "contest.instrument": "ES",
+
         "contest.support.email": "help@hftbattle.com",
         "contest.support.slack.url": "https://slack.hftbattle.com",
         "contest.support.slack.name": "slack.hftbattle.com",
