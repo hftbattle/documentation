@@ -11,15 +11,17 @@ Read [here](add_strategy.md) about creating new strategies.
 
 You need to:
 - **compile all the strategies you have**:
+
 ```bash
 ./build.py
 ```
 
 This will create libraries for your strategies in *build* folder.
 
-- *run a simulation**.
+- **run a simulation**.
 Attention: your strategy may have another name:
-```
+
+```bash
 ./run.py user_strategy
 ```
 
@@ -33,7 +35,8 @@ open *Run > Edit configurations*, specify executable file in the root of directo
 - **specify path to your configuration file** in the arguments of command line:
 in the same tab *Run > Edit configurations* you need to fill *Program arguments* with relative path to configuration file of your strategy.
 For example:
-```
+
+```bash
 strategies/user_strategy/user_strategy.json
 ```
 

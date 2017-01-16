@@ -22,11 +22,13 @@
 
 После копирования файлов стратегии необходимо немного изменить *cpp* файл стратегии.
 А именно, нужно **зарегистрировать** свою новую стратегию следующей командой в конце cpp-файла:
+
 ```c++
 REGISTER_CONTEST_STRATEGY(UserStrategy, [strategy_name])
 ```
 
 Например, если ваша папка, .json-файл и стратегия называются *best_strategy_ever*, то вам необходимо добавить следующую строку в конец файла *best_strategy_ever.cpp*:
+
 ```c++
 REGISTER_CONTEST_STRATEGY(UserStrategy, best_strategy_ever)
 ```

@@ -102,7 +102,6 @@ public:
 private:
     Amount min_volume_to_stay_on_best_;
 };
-
 ```
 
 #### Deals count diff strategy<a id="deals_count_diff"></a>
@@ -115,7 +114,6 @@ private:
 ##### Рассмотрим базовый вариант стратегии:<a id="deals_count_diff_base"></a>
 
 ```c++
-
 #include "./participant_strategy.h"
 
 using namespace hftbattle;
@@ -257,7 +255,6 @@ private:
   Milliseconds deals_reset_period_ms_;
   Amount our_deals_max_total_amount_;
 };
-
 ```
 
 #### Improved ideas strategy<a id="improved_ideas"></a>

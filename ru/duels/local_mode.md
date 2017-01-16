@@ -15,11 +15,13 @@
 О том, как создавать новые стратегии, читайте [здесь](/local-pack/add_strategy.md).
 
 В случае командной строки, нужно запустить скрипт:
+
 ```bash
 ./run.py first_strategy second_strategy
 ```
 
 В случае CLion нужно прописать во вкладке *Run > Edit configurations* в строчке *Program arguments*:
-```
+
+```bash
 strategies/first_strategy/first_strategy.json strategies/second_strategy/second_strategy.json
 ```

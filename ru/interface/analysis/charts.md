@@ -31,18 +31,21 @@
 #### Добавление собственных графиков<a id="custom"></a>
 
 Также имеется возможность добавлять свои графики из стратегии с помощью функции *add_chart_point*:
+
 ```c++
 void add_chart_point(const std::string& line_name,
                      double value,
                      ChartYAxisType y_axis_type,
                      uint8_t chart_number)
 ```
+
 - *line_name* - имя оси, отображается в легенде,
 - *value* - вещественное значение,
 - *y_axis_type* - вертикальная ось: *ChartYAxisType::Left* или *ChartYAxisType::Right*,
 - *chart_number* - номер графика (0 - график по умолчанию с результатом и позой, 1 и более - ваши собственные графики).
 
 Модифицируем, например, стратегию, стоящую на каждом из направлений на лучшей цене так, чтобы она "рисовала" график лучшей цены:
+
 ```c++
 #include "./participant_strategy.h"
 

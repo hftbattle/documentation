@@ -31,108 +31,125 @@
 |[outer_id()](#outer_id)|Биржевой (внешний) ID заявки.|
 
 ### Описание полей
-<a id="id"></a>
-#### id
+
+#### id<a id="id"></a>
+
 ```c++
 const Id id;
 ```
+
 Наш (внутренний) ID заявки.
 
-<a id="dir"></a>
-#### dir
+#### dir<a id="dir"></a>
+
 ```c++
 const Dir dir;
 ```
+
 Направление заявки.
 
-<a id="price"></a>
-#### price
+#### price<a id="price"></a>
+
 ```c++
 const Price price;
 ```
+
 Цена заявки.
 
-<a id="amount"></a>
-#### amount
+#### amount<a id="amount"></a>
+
 ```c++
 const Amount amount;
 ```
+
 Объем заявки (количество лотов).
 
-<a id="time_in_force"></a>
-#### time_in_force
+#### time_in_force<a id="time_in_force"></a>
+
 ```c++
 const OrderTimeInForce time_in_force;
 ```
+
 Тип заявки - Limit или IOC.
 
-<a id="market_id"></a>
-#### market_id
+#### market_id<a id="market_id"></a>
+
 ```c++
 const MarketId market_id;
 ```
+
 ID биржи.
 
-<a id="security"></a>
-#### security
+#### security<a id="security"></a>
+
 ```c++
 const Security* security;
 ```
+
 Инструмент, к которому относится заявка.
 
-<a id="kMaxCommentLength"></a>
-#### kMaxCommentLength
+#### kMaxCommentLength<a id="kMaxCommentLength"></a>
+
 ```c++
 static const size_t kMaxCommentLength = 20;
 ```
+
 Максимальная длина комментария к заявке.
 
 ### Описание методов
-<a id="amount_rest"></a>
-#### amount_rest()
+
+#### amount_rest()<a id="amount_rest"></a>
+
 ```c++
 inline Amount amount_rest() const;
 ```
+
 Текущий объем заявки. Может быть меньше начального, если были сделки с ее участием.
 
-<a id="get_server_time"></a>
-#### get_server_time()
+#### get_server_time()<a id="get_server_time"></a>
+
 ```c++
 Microseconds get_server_time() const;
 ```
+
 Биржевое время последнего изменения (в микросекундах).
 
-<a id="implied_amount"></a>
-#### implied_amount()
+#### implied_amount()<a id="implied_amount"></a>
+
 ```c++
 inline Amount implied_amount() const;
 ```
+
 Количество лотов, которое предположительно будет сведено.
 
-<a id="status"></a>
-#### status()
+#### status()<a id="status"></a>
+
 ```c++
 inline OrderStatus status() const;
 ```
+
 Статус заявки: в процессе добавления, активная, ждущая удаления, удаленная.
 
-<a id="outer_id"></a>
-#### outer_id()
+#### outer_id()<a id="outer_id"></a>
+
 ```c++
 inline Id outer_id() const;
 ```
+
 Биржевой (внешний) ID заявки.
 
-<a id="server_time"></a>
-#### server_time
+#### server_time<a id="server_time"></a>
+
 ```c++
 int64_t server_time;
 ```
+
 Биржевое время постановки заявки в стакан в тиках.
 
-<a id="origin_time"></a>
-#### origin_time
+#### origin_time<a id="origin_time"></a>
+
 ```c++
 const Ticks origin_time;
 ```
+
 Локальное время постановки заявки в стакан в тиках.

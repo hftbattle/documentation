@@ -5,6 +5,7 @@
 
 Пакет опубликован на [GitHub]({{ book["contest.local-pack.url"] }}).
 Его можно скачать следующей командой (должен быть установлен [Git]({{ book["git.url"] }})):
+
 ```bash
 git clone https://github.com/hftbattle/hftbattle.git
 ```

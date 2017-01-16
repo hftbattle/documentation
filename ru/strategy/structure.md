@@ -19,6 +19,7 @@
 - [execution_report_update](/api/ParticipantStrategy.md#execution_report_update).
 
 Сам класс выглядит следующим образом:
+
 ```c++
 #include "./participant_strategy.h"
 

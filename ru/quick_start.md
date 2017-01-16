@@ -64,6 +64,7 @@
 О том, как запустить симулятор из CLion читайте в разделе [Запуск стратегии](local-pack/run_strategy.md).
 
 - Мы опубликовали на [GitHub]({{contest.local-pack.url}}) набор библиотек и файлов, достаточный для разработки и тестирования стратегий на вашем компьютере:
+
 ```bash
 git clone https://github.com/hftbattle/hftbattle.git
 ```
@@ -74,19 +75,23 @@ git clone https://github.com/hftbattle/hftbattle.git
 Каждой стратегии соответствует одноименный json-файл.
 
 - Чтобы собрать все имеющиеся в папке *strategies* стратегии, нужно запустить python-скрипт *build.py*, находящийся в корне репозитория:
+
 ```bash
 ./build.py
 ```
 
 - Чтобы запустить нужную вам стратегию, нужно запустить python-скрипт *run.py*, передав ему в качестве аргумента путь до файла конфигурации стратегии:
+
 ```bash
 ./run.py strategies/user_strategy/user_strategy.json
 ```
 
 - При создании новых стратегий в пакете для локальной разработки, нужно менять строчку с регистрацией стратегии в конце cpp-файла:
-```
+
+```c++
 REGISTER_CONTEST_STRATEGY(UserStrategy, best_strategy_ever)
 ```
+
 Подробнее в разделе [Пакет для локальной разработки](local-pack/README.md).
 
 ## Биржевые данные<a id="exchange"></a>

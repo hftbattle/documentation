@@ -4,6 +4,7 @@
 
 Сначала научимся ставить заявку.
 Для этого предназначена функция
+
 ```c++
 bool add_limit_order(Dir dir, Price price, Amount amount);
 ```
