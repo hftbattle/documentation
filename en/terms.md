@@ -66,4 +66,4 @@ It is positive if the customer sold more lots than bought and negative otherwise
 <a id="saldo"></a>
 
 - **Saldo** is the outstanding balance is the amount of money owed, (or due), that remains in a deposit account.
- > For example: if user bought 10 lots of instrument for the price of 1$, and then sold 3 lots for the price of 2$, then his current position is equal to 10 - 3 = 7, and his current saldo is -10 \* 1 + 3 \* 2 = -4.
+ > For example: if user bought 10 lots of instrument for the price of 1$, and then sold 3 lots for the price of 2$, then his current position is equal to 10 - 3 = 7, and his current saldo is `-10 * 1 + 3 * 2 = -4`.
