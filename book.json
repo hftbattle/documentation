@@ -33,6 +33,7 @@
     "data.full_day": "2015.12.23",
     "git.url": "http://git-scm.com/download",
     "virtualbox.url": "https://www.virtualbox.org",
+    "mingw.url": "http://sourceforge.net/projects/mingw-w64/",
 
     "final_testing_duration": 4,
 
