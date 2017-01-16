@@ -20,11 +20,9 @@
 1. Постоянная:
 
   <img src="/img/param_const_double_set.png" alt="Константный вещественный параметр">
-
 2. Список значений через запятую:
 
   <img src="/img/param_list_int_set.png" alt="Список целых значений">
-
 3. Диапазон значений с шагом: (start, end, step):
 
   <img src="/img/param_range_int_set.png" alt="Диапазон значений от 0 до 10 с шагом 2">
@@ -39,12 +37,10 @@
   Всего комбинаций – 1.
 
   <img src="/img/param_const_double_res.png" alt="Добавили постоянную double_param = 3.14">
-
 2. Добавили список целых значений от 1 до 4.
   Всего комбинаций – 4.
 
   <img src="/img/param_list_int_res.png" alt="Добавили список целых значений от 1 до 4">
-
 3. Добавили диапазон значений от 0 до 10 с шагом 2.
   Всего комбинаций – 6.
 
@@ -56,7 +52,6 @@
   2 значения для *double_param* и 4 значения для *int_param* дают 4 * 2 = 8 комбинаций.
 
   <img src="/img/param_double_int_combo.png" alt="Пример задания нескольких серий параметров">
-
 - Пример отключения перебора параметра double_param, значение по умолчанию = 0:
 
   <img src="/img/param_double_int_turn_off_double.png" alt="Пример отключения перебора параметра double_param">
