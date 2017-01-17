@@ -14,14 +14,14 @@
 Рассмотрим класс-шаблон **UserStrategy**, предназначенный для написания стратегий.
 Он наследует от класса-интерфейса [ParticipantStrategy](/api/ParticipantStrategy.md), где объявлено 3 виртуальных функции, которые вы можете реализовать в своей стратегии:
 
-- [trading_book_update](/api/ParticipantStrategy.md#trading_book_update),
-- [trading_deals_update](/api/ParticipantStrategy.md#trading_deals_update),
-- [execution_report_update](/api/ParticipantStrategy.md#execution_report_update).
+- [trading_book_update](/api/ParticipantStrategy.md#trading_book_update)
+- [trading_deals_update](/api/ParticipantStrategy.md#trading_deals_update)
+- [execution_report_update](/api/ParticipantStrategy.md#execution_report_update)
 
 Сам класс выглядит следующим образом:
 
 ```c++
-#include "./participant_strategy.h"
+#include "participant_strategy.h"
 
 using namespace hftbattle;
 
@@ -66,8 +66,8 @@ public:
 
 В классе [ParticipantStrategy](/api/ParticipantStrategy.md) есть 2 поля, отвечающие торговому стакану:
 
-- [trading_book](/api/ParticipantStrategy.md#trading_book) – указатель на актуальный торговый стакан,
-- [trading_book_snapshot](/api/ParticipantStrategy.md#trading_book_snapshot) – умный указатель на структуру, содержащую этот стакан.
+- [trading_book](/api/ParticipantStrategy.md#trading_book) – указатель на актуальный торговый стакан
+- [trading_book_snapshot](/api/ParticipantStrategy.md#trading_book_snapshot) – умный указатель на структуру, содержащую этот стакан
 
 Если в вашей стратегии вы явно не сохраните копию [trading_book_snapshot](/api/ParticipantStrategy.md#trading_book_snapshot), то при следующем вызове [trading_book_update](/api/ParticipantStrategy.md#trading_book_update) поля [trading_book](/api/ParticipantStrategy.md#trading_book) и [trading_book_snapshot](/api/ParticipantStrategy.md#trading_book_snapshot) обновятся, и предыдущий актуальный стакан будет недоступен, потому что на предыдущий стакан останется 0 активных ссылок.
 > Для [signal_book_snapshot](/api/ParticipantStrategy.md#signal_book_snapshot) всё аналогично.

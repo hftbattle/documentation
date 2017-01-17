@@ -108,10 +108,10 @@ bool add_limit_order(Dir dir, Price price, Amount amount, const std::string& com
 
 Выставляет нашу лимитную заявку:
 
-- *dir* - направление (BID = 0 - покупка, ASK = 1 - продажа),
-- *price* - цена, по которой заявка будет выставлена,
-- *amount* - размер заявки.
-- *comment* - комментарий к заявке.
+- *dir* - направление (BID = 0 - покупка, ASK = 1 - продажа)
+- *price* - цена, по которой заявка будет выставлена
+- *amount* - размер заявки
+- *comment* - комментарий к заявке
 
 #### add_ioc_order()<a id="add_ioc_order"></a>
 
@@ -121,10 +121,10 @@ bool add_ioc_order(Dir dir, Price price, Amount amount, const std::string& comme
 
 Выставляет нашу заявку типа Immediate-Or-Cancel (IOC):
 
-- *dir* - направление (BID = 0 - покупка, ASK = 1 - продажа),
-- *price* - цена, по которой заявка будет выставлена,
-- *amount* - размер заявки.
-- *comment* - комментарий к заявке.
+- *dir* - направление (BID = 0 - покупка, ASK = 1 - продажа)
+- *price* - цена, по которой заявка будет выставлена
+- *amount* - размер заявки
+- *comment* - комментарий к заявке
 
 #### delete_order()<a id="delete_order"></a>
 
@@ -175,8 +175,8 @@ void add_chart_point(const std::string& line_name, double value, ChartYAxisType 
 
 Добавляет точку на график.
 
-- *line_name* - название графика, *value* - значение, *y_axis_type* - ось (левая или правая),
-- *chart_number* - номер картинки на которой будет нарисован график.
+- *line_name* - название графика, *value* - значение, *y_axis_type* - ось (левая или правая)
+- *chart_number* - номер картинки на которой будет нарисован график
 
 #### get_current_result()<a id="get_current_result"></a>
 

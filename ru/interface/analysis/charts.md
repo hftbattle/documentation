@@ -12,8 +12,8 @@
 
 По умолчанию для каждой тренировочной посылки строится график "Chart 0", на котором изображены 2 линии:
 
-- *sum* – ваша прибыль в долларах в течение торговой сессии, ее значения отмечены на левой вертикальной оси,
-- *[symbol_name]-pos* – ваша позиция, то есть разность числа купленных и проданных вами лотов.
+- *sum* – ваша прибыль в долларах в течение торговой сессии, её значения отмечены на левой вертикальной оси
+- *[symbol_name]-pos* – ваша позиция, то есть разность числа купленных и проданных вами лотов
 
 Значениям позиции соответствует правая вертикальная ось.
 
@@ -40,15 +40,16 @@ void add_chart_point(const std::string& line_name,
                      uint8_t chart_number)
 ```
 
-- *line_name* - имя оси, отображается в легенде,
-- *value* - вещественное значение,
-- *y_axis_type* - с какой стороны изображать вертикальную ось: *ChartYAxisType::Left* или *ChartYAxisType::Right*,
-- *chart_number* - номер графика (0 - график по умолчанию с результатом и позой, 1 и более - ваши собственные графики).
+- *line_name* - имя оси, отображается в легенде
+- *value* - вещественное значение
+- *y_axis_type* - с какой стороны изображать вертикальную ось: *ChartYAxisType::Left* или *ChartYAxisType::Right*
+- *chart_number* - номер графика (0 - график по умолчанию с результатом и позой, 1 и более - ваши собственные графики)
 
 Модифицируем, например, стратегию, стоящую на каждом из направлений на лучшей цене так, чтобы она "рисовала" график лучшей цены:
 
 ```c++
-#include "./participant_strategy.h"
+#include "participant_strategy.h"
+#include <string>
 
 using namespace hftbattle;
 
@@ -63,15 +64,15 @@ public:
   }
 
   void trading_book_update(const OrderBook& order_book) override {
-    auto our_orders = trading_book_info.orders();
+    auto our_orders = trading_book->orders();
     for (Dir dir: {BID, ASK}) {
-      const Price best_price = trading_book_info.best_price(dir);
+      const Price best_price = trading_book->best_price(dir);
       const Amount amount = 1;
       if (our_orders.active_orders_count(dir) == 0) {
         add_limit_order(dir, best_price, amount);
       } else {  // есть хотя бы одна наша активная заявка
-        auto first_order = our_orders.orders_by_dir[dir][0];
-        const bool on_best_price = first_order->price == best_price;
+        auto first_order = our_orders.orders_by_dir(dir)[0];
+        const bool on_best_price = (first_order.price() == best_price);
         if (!on_best_price) {  // наша заявка стоит, но не на текущей лучшей цене
           delete_order(first_order);
           add_limit_order(dir, best_price, amount);
@@ -83,12 +84,14 @@ public:
                         best_price.get_double(),  // переводим тип Price в double
                         ChartYAxisType::Left,     // используем левую вертикальную ось
                         1);                       // 1 - номер графика
-        best_price_by_dir[dir] = order_book.best_price(dir);
+        best_price_by_dir[dir] = order_book->best_price(dir);
       }
     }
   }
 
 };
+
+REGISTER_CONTEST_STRATEGY(UserStrategy, user_strategy)
 ```
 
 В результате на графике "Chart 1" получим следующую картинку:

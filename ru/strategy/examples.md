@@ -19,7 +19,7 @@
 ##### Рассмотрим базовый вариант стратегии:<a id="stay_on_best_price_base"></a>
 
 ```c++
-#include "./participant_strategy.h"
+#include "participant_strategy.h"
 
 using namespace hftbattle;
 
@@ -62,7 +62,7 @@ public:
 Применим следующую простую оптимизацию: если на лучшей цене стоит объем меньший чем *`min_amount_to_stay_on_best_*`, то мы на нее выставляться не будем и снимем заявку если уже там стоим:
 
 ```c++
-#include "./participant_strategy.h"
+#include "participant_strategy.h"
 
 using namespace hftbattle;
 
@@ -115,7 +115,7 @@ private:
 ##### Рассмотрим базовый вариант стратегии:<a id="deals_count_diff_base"></a>
 
 ```c++
-#include "./participant_strategy.h"
+#include "participant_strategy.h"
 
 using namespace hftbattle;
 
@@ -176,7 +176,7 @@ private:
 Модифицируем предыдущую стратегию следующим образом: ограничим суммарный объем наших сделок, используя информацию, приходящую в функции [execution_report_update](/api/ParticipantStrategy.md#execution_report_update).
 
 ```c++
-#include "./participant_strategy.h"
+#include "participant_strategy.h"
 
 using namespace hftbattle;
 
@@ -264,7 +264,7 @@ private:
 Стратегия даже в неизменённом виде позволяет набрать результат более $2000 на контрольной выборке.
 
 ```c++
-#include "./participant_strategy.h"
+#include "participant_strategy.h"
 #include <set>
 
 using namespace hftbattle;

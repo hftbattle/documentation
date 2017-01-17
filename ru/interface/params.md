@@ -70,7 +70,7 @@ public:
   double double_param;
   Microseconds time_param;
 
-  UserStrategy(JsonValue config) {
+  UserStrategy(const JsonValue& config) {
     // Читаем целочисленный параметр.
     int_param = config["int_param"].as<int>(42);
     // Читаем вещественный параметр.
