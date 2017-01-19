@@ -42,7 +42,7 @@ for (const auto& dir : { BID, ASK } ) {
     int32_t dir_sign = dir_sign(dir);  // BID = 1, ASK = -1.
     // ...
 }
-``
+```
 
 #### Price<a id="price"></a>
 
