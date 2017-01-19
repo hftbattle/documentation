@@ -8,7 +8,7 @@ This chapter describes execution of your strategy:
 We will assume, that your strategy and folder are called **user_strategy**.
 Read [here](add_strategy.md) about creating new strategies.
 
-### Execution in command line<a id="command_line"></a>
+### Execution in command line {#command_line}
 
 You need to:
 
@@ -28,7 +28,7 @@ You need to:
   ./run.py user_strategy
   ```
 
-### CLion usage<a id="clion"></a>
+### CLion usage {#clion}
 
 To launch simulation in [CLion](({{ book["clion.url"] }}) you need to:
 

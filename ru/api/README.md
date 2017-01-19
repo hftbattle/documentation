@@ -20,7 +20,7 @@
 
 Далее опишем каждый тип подробнее.
 
-#### Dir<a id="dir"></a>
+#### Dir {#dir}
 
 Enum, отвечающий за направление заявки:
 
@@ -44,7 +44,7 @@ for (const auto& dir : { BID, ASK } ) {
 }
 ```
 
-#### Price<a id="price"></a>
+#### Price {#price}
 
 Класс, хранящий вещественные числа с точностью 7 знаков после запятой и отвечающий за цену заявок.
 
@@ -67,7 +67,7 @@ void trading_book_update(const OrderBook& order_book) override {
 }
 ```
 
-#### Amount<a id="Amount"></a>
+#### Amount {#Amount}
 
 Объем заявок, выраженный в количестве лотов. Это псевдоним для *int32_t*.
 

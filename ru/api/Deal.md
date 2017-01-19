@@ -33,7 +33,7 @@
 
 ### Описание полей
 
-#### dir<a id="dir"></a>
+#### dir {#dir}
 
 ```c++
 Dir dir;
@@ -41,7 +41,7 @@ Dir dir;
 
 Направление сделки (покупка или продажа).
 
-#### price<a id="price"></a>
+#### price {#price}
 
 ```c++
 Price price;
@@ -49,7 +49,7 @@ Price price;
 
 Цена по которой произошла сделка.
 
-#### amount<a id="amount"></a>
+#### amount {#amount}
 
 ```c++
 Amount amount;
@@ -57,7 +57,7 @@ Amount amount;
 
 Количество лотов в сделке.
 
-#### implied_amount<a id="implied_amount"></a>
+#### implied_amount {#implied_amount}
 
 ```c++
 Amount implied_amount;
@@ -65,7 +65,7 @@ Amount implied_amount;
 
 Количество лотов, которые предположительно должны были свестись в случае, когда налетающая заявка была нашей.
 
-#### server_time<a id="server_time"></a>
+#### server_time {#server_time}
 
 ```c++
 Microseconds server_time;
@@ -73,7 +73,7 @@ Microseconds server_time;
 
 Биржевое время совершения сделки.
 
-#### passive_order_server_time<a id="passive_order_server_time"></a>
+#### passive_order_server_time {#passive_order_server_time}
 
 ```c++
 Microseconds passive_order_server_time;
@@ -81,7 +81,7 @@ Microseconds passive_order_server_time;
 
 Время постановки "пассивного" ордера, если оно известно.
 
-#### origin_time<a id="origin_time"></a>
+#### origin_time {#origin_time}
 
 ```c++
 Ticks origin_time;
@@ -89,7 +89,7 @@ Ticks origin_time;
 
 Локальное время в тиках.
 
-#### outer_id<a id="outer_id"></a>
+#### outer_id {#outer_id}
 
 ```c++
 int64_t outer_id;
@@ -99,7 +99,7 @@ int64_t outer_id;
 
 ### Описание методов
 
-#### get_agressor_side()<a id="get_agressor_side"></a>
+#### get_agressor_side() {#get_agressor_side}
 
 ```c++
 inline Dir get_agressor_side() const;
@@ -107,7 +107,7 @@ inline Dir get_agressor_side() const;
 
 Направление налетающей заявки.
 
-#### get_price()<a id="get_price"></a>
+#### get_price() {#get_price}
 
 ```c++
 inline Price get_price() const;
@@ -115,7 +115,7 @@ inline Price get_price() const;
 
 Цена, по которой произошла сделка.
 
-#### get_amount()<a id="get_amount"></a>
+#### get_amount() {#get_amount}
 
 ```c++
 inline Amount get_amount() const;
@@ -123,7 +123,7 @@ inline Amount get_amount() const;
 
 Объем сделки.
 
-#### get_server_time()<a id="get_server_time"></a>
+#### get_server_time() {#get_server_time}
 
 ```c++
 inline Microseconds get_server_time() const;
@@ -131,7 +131,7 @@ inline Microseconds get_server_time() const;
 
 Биржевое время сделки.
 
-#### get_local_time()<a id="get_local_time"></a>
+#### get_local_time() {#get_local_time}
 
 ```c++
 inline Microseconds get_local_time() const;
@@ -139,7 +139,7 @@ inline Microseconds get_local_time() const;
 
 Локальное время сделки.
 
-#### get_comments()<a id="get_comments"></a>
+#### get_comments() {#get_comments}
 
 ```c++
 std::array<std::string, 2> const& get_comments() const;
@@ -147,7 +147,7 @@ std::array<std::string, 2> const& get_comments() const;
 
 Комментарии к заявкам, участвующим в сделке.
 
-#### get_orders()<a id="get_orders"></a>
+#### get_orders() {#get_orders}
 
 ```c++
 std::array<std::shared_ptr<Order>, 2> const& get_orders() const;
@@ -155,7 +155,7 @@ std::array<std::shared_ptr<Order>, 2> const& get_orders() const;
 
 Массив заявок (на продажу и на покупку), участвующих в сделке.
 
-#### is_our()<a id="is_our"></a>
+#### is_our() {#is_our}
 
 ```c++
 bool is_our() const;

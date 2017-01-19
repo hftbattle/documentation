@@ -32,7 +32,7 @@
 
 ### Описание полей
 
-#### id<a id="id"></a>
+#### id {#id}
 
 ```c++
 const Id id;
@@ -40,7 +40,7 @@ const Id id;
 
 Наш (внутренний) ID заявки.
 
-#### dir<a id="dir"></a>
+#### dir {#dir}
 
 ```c++
 const Dir dir;
@@ -48,7 +48,7 @@ const Dir dir;
 
 Направление заявки.
 
-#### price<a id="price"></a>
+#### price {#price}
 
 ```c++
 const Price price;
@@ -56,7 +56,7 @@ const Price price;
 
 Цена заявки.
 
-#### amount<a id="amount"></a>
+#### amount {#amount}
 
 ```c++
 const Amount amount;
@@ -64,7 +64,7 @@ const Amount amount;
 
 Объем заявки (количество лотов).
 
-#### time_in_force<a id="time_in_force"></a>
+#### time_in_force {#time_in_force}
 
 ```c++
 const OrderTimeInForce time_in_force;
@@ -72,7 +72,7 @@ const OrderTimeInForce time_in_force;
 
 Тип заявки - Limit или IOC.
 
-#### market_id<a id="market_id"></a>
+#### market_id {#market_id}
 
 ```c++
 const MarketId market_id;
@@ -80,7 +80,7 @@ const MarketId market_id;
 
 ID биржи.
 
-#### security<a id="security"></a>
+#### security {#security}
 
 ```c++
 const Security* security;
@@ -88,7 +88,7 @@ const Security* security;
 
 Инструмент, к которому относится заявка.
 
-#### kMaxCommentLength<a id="kMaxCommentLength"></a>
+#### kMaxCommentLength {#kMaxCommentLength}
 
 ```c++
 static const size_t kMaxCommentLength = 20;
@@ -98,7 +98,7 @@ static const size_t kMaxCommentLength = 20;
 
 ### Описание методов
 
-#### amount_rest()<a id="amount_rest"></a>
+#### amount_rest() {#amount_rest}
 
 ```c++
 inline Amount amount_rest() const;
@@ -106,7 +106,7 @@ inline Amount amount_rest() const;
 
 Текущий объем заявки. Может быть меньше начального, если были сделки с ее участием.
 
-#### get_server_time()<a id="get_server_time"></a>
+#### get_server_time() {#get_server_time}
 
 ```c++
 Microseconds get_server_time() const;
@@ -114,7 +114,7 @@ Microseconds get_server_time() const;
 
 Биржевое время последнего изменения (в микросекундах).
 
-#### implied_amount()<a id="implied_amount"></a>
+#### implied_amount() {#implied_amount}
 
 ```c++
 inline Amount implied_amount() const;
@@ -122,7 +122,7 @@ inline Amount implied_amount() const;
 
 Количество лотов, которое предположительно будет сведено.
 
-#### status()<a id="status"></a>
+#### status() {#status}
 
 ```c++
 inline OrderStatus status() const;
@@ -130,7 +130,7 @@ inline OrderStatus status() const;
 
 Статус заявки: в процессе добавления, активная, ждущая удаления, удаленная.
 
-#### outer_id()<a id="outer_id"></a>
+#### outer_id() {#outer_id}
 
 ```c++
 inline Id outer_id() const;
@@ -138,7 +138,7 @@ inline Id outer_id() const;
 
 Биржевой (внешний) ID заявки.
 
-#### server_time<a id="server_time"></a>
+#### server_time {#server_time}
 
 ```c++
 int64_t server_time;
@@ -146,7 +146,7 @@ int64_t server_time;
 
 Биржевое время постановки заявки в стакан в тиках.
 
-#### origin_time<a id="origin_time"></a>
+#### origin_time {#origin_time}
 
 ```c++
 const Ticks origin_time;

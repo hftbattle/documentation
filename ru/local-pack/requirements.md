@@ -6,7 +6,7 @@
 - [MacOS](#macos)
 - [Windows](#windows)
 
-### Ubuntu<a id="ubuntu"></a>
+### Ubuntu {#ubuntu}
 
 Для установки зависимостей на Ubuntu можно запустить скрипт *packages_ubuntu.sh*, находящийся в корне репозитория:
 
@@ -28,7 +28,7 @@
   sudo apt-get install cmake
   ```
 
-### MacOS<a id="macos"></a>
+### MacOS {#macos}
 
 Для установки зависимостей на MacOS можно запустить скрипт *packages_mac.sh*, находящийся в корне репозитория:
 
@@ -56,7 +56,7 @@
   brew install cmake
   ```
 
-### Windows<a id="windows"></a>
+### Windows {#windows}
 
 Для запуска под Windows необходимо иметь:
 

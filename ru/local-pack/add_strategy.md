@@ -7,7 +7,7 @@
 - [На языке C++](#cpp)
 - [На языке Python](#python)
 
-### Создание новой C++ стратегии<a id="cpp"></a>
+### Создание новой C++ стратегии {#cpp}
 
 Для создания новой стратегии на языке C++:
 
@@ -43,7 +43,7 @@ REGISTER_CONTEST_STRATEGY(UserStrategy, best_strategy_ever)
 Если вы работаете из CLion, то вам нужно выполнить *Tools > CMake > Reload CMake Project*.
 Это перезагрузит CMake.
 
-### Создание новой Python стратегии<a id="python"></a>
+### Создание новой Python стратегии {#python}
 
 Для создания новой стратегии на языке Python:
 

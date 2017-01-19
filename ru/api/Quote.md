@@ -24,7 +24,7 @@
 
 ### Описание методов
 
-#### get_dir()<a id="get_dir"></a>
+#### get_dir() {#get_dir}
 
 ```c++
 inline Dir get_dir() const;
@@ -32,7 +32,7 @@ inline Dir get_dir() const;
 
 Направление котировки.
 
-#### get_price()<a id="get_price"></a>
+#### get_price() {#get_price}
 
 ```c++
 inline Price get_price() const;
@@ -40,7 +40,7 @@ inline Price get_price() const;
 
 Цена котировки.
 
-#### get_volume()<a id="get_volume"></a>
+#### get_volume() {#get_volume}
 
 ```c++
 inline Amount get_volume() const;
@@ -48,7 +48,7 @@ inline Amount get_volume() const;
 
 Объем лотов котировки.
 
-#### get_server_time()<a id="get_server_time"></a>
+#### get_server_time() {#get_server_time}
 
 ```c++
 Microseconds get_server_time() const;
@@ -56,7 +56,7 @@ Microseconds get_server_time() const;
 
 Биржевое время последнего изменения в микросекундах.
 
-#### get_local_time()<a id="get_local_time"></a>
+#### get_local_time() {#get_local_time}
 
 ```c++
 Microseconds get_local_time() const;

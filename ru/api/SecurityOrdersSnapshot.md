@@ -25,7 +25,7 @@
 
 ### Описание полей
 
-#### orders_by_dir<a id="orders_by_dir"></a>
+#### orders_by_dir {#orders_by_dir}
 
 ```c++
 std::array<std::vector<OrderSnapshot>, 2> orders_by_dir;
@@ -33,7 +33,7 @@ std::array<std::vector<OrderSnapshot>, 2> orders_by_dir;
 
 Списки наших текущих заявок по направлению.
 
-#### deleting_amount<a id="deleting_amount"></a>
+#### deleting_amount {#deleting_amount}
 
 ```c++
 std::array<Amount, 2> deleting_amount;
@@ -43,7 +43,7 @@ std::array<Amount, 2> deleting_amount;
 
 ### Описание методов
 
-#### get_volume_by_price()<a id="get_volume_by_price"></a>
+#### get_volume_by_price() {#get_volume_by_price}
 
 ```c++
 Amount get_volume_by_price(Dir dir, Decimal price) const;
@@ -51,7 +51,7 @@ Amount get_volume_by_price(Dir dir, Decimal price) const;
 
 Суммарный объем заявок с заданной ценой *price* по направлению *dir*.
 
-#### active_orders_count()<a id="active_orders_count"></a>
+#### active_orders_count() {#active_orders_count}
 
 ```c++
 size_t active_orders_count(Dir dir) const;
@@ -59,7 +59,7 @@ size_t active_orders_count(Dir dir) const;
 
 Количество наших активных заявок по направлению *dir*.
 
-#### active_orders_volume()<a id="active_orders_volume"></a>
+#### active_orders_volume() {#active_orders_volume}
 
 ```c++
 Amount active_orders_volume(Dir dir) const;
@@ -67,7 +67,7 @@ Amount active_orders_volume(Dir dir) const;
 
 Суммарный объем активных ордеров по направлению *dir*.
 
-#### get_orders_by_dir_to_map()<a id="get_orders_by_dir_to_map"></a>
+#### get_orders_by_dir_to_map() {#get_orders_by_dir_to_map}
 
 ```c++
 OrdersMap get_orders_by_dir_to_map(Dir dir) const;
@@ -75,7 +75,7 @@ OrdersMap get_orders_by_dir_to_map(Dir dir) const;
 
 Возвращает std::map, в котором каждой цене соответствует std::vector заявок по направлению *dir*.
 
-#### size()<a id="size"></a>
+#### size() {#size}
 
 ```c++
 size_t size() const;
