@@ -35,7 +35,7 @@
     "virtualbox.url": "https://www.virtualbox.org",
     "mingw.url": "http://sourceforge.net/projects/mingw-w64/",
 
-    "final_testing_duration": 4,
+    "final_testing_duration": "4",
 
     "brew.url": "http://brew.sh/",
     "cmake.url": "https://cmake.org/",
