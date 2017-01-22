@@ -87,10 +87,5 @@
         "ut": "noindex"
       }
     }
-  },
-  "theme-default": {
-    "styles": {
-      "website": "build/gitbook.css"
-    }
   }
 }
