@@ -35,7 +35,7 @@
 
 - An **order book** is the list of orders (manual or electronic) that a trading venue (in particular stock exchanges) uses to record the interest of buyers and sellers in a particular financial instrument.
   <p align="center">
-  <img src="img/order_book_example.png" alt="An order book example">
+  <img src="{{ book["gitbook.img"] }}/order_book_example.png" title="An order book example">
   </p>
 
 <a id="bid"></a>

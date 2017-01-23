@@ -4,6 +4,8 @@
   "variables": {
     "contest.name": "HFT Battle 2016",
 
+    "gitbook.img": "http://localhost:4000/img",
+
     "contest.landing-page.url": "https://www.hftbattle.com",
     "contest.landing-page.name": "hftbattle.com",
 

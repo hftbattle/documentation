@@ -12,7 +12,7 @@
 
 Запустим стратегию, которая [стоит на лучшей цене](examples.md#stay_on_best_price), на 3 декабря и посмотрим на график торгов:
 
-<img src="/img/charts_3_december.png" alt="График 3 декабря" align="center">
+<img src="{{ book["gitbook.img"] }}/charts_3_december.png" title="График 3 декабря" align="center">
 
 На графике выше:
 
@@ -24,7 +24,7 @@
 Видно, что если мы закупились, то распродаем все очень нескоро, и наоборот.
 Посмотрим на кусочек дня поближе:
 
-<img src="/img/charts_3_december_part.png" alt="График 3 декабря часть" align="center">
+<img src="{{ book["gitbook.img"] }}/charts_3_december_part.png" title="График 3 декабря часть" align="center">
 
 На этом графике видно, что цена уменьшалась.
 Суммарно за выбранный период цена упала примерно на 400 долларов.

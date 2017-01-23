@@ -17,7 +17,7 @@
 
 Значениям позиции соответствует правая вертикальная ось.
 
-<img src="/img/base_chart.png" alt="График лучшей цены" align="center">
+<img src="{{ book["gitbook.img"] }}/base_chart.png" title="График лучшей цены" align="center">
 
 > Замечание: данные графики отображают линии со сглаживанием.
 Поэтому при наведении курсора на конкретную точку, вы можете получить как конкретное значение величины в данный момент времени, так и её среднее (сглаженное) значение за указанный промежуток.
@@ -96,4 +96,4 @@ REGISTER_CONTEST_STRATEGY(UserStrategy, user_strategy)
 
 В результате на графике "Chart 1" получим следующую картинку:
 
-<img src="/img/best_price_chart.png" alt="График лучшей цены" align="center">
+<img src="{{ book["gitbook.img"] }}/best_price_chart.png" title="График лучшей цены" align="center">
