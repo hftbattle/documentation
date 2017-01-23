@@ -76,7 +76,7 @@
   "pluginsConfig": {
     "edit-link": {
       "base": "https://github.com/hftbattle/documentation/tree/asalikhov/new_version",
-      "label": "Edit This Page"
+      "label": "Suggest an improvement"
     },
     "disqus": {
       "shortName": "hftbattle"
