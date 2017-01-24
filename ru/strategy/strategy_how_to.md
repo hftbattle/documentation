@@ -41,10 +41,9 @@ auto our_orders = trading_book_info.orders();
 > Замечание 1: Определенная выше переменная `orders` содержит те заявки, которые мы уже отправили, но на которые еще не отправили запрос на удаление.
 > Поэтому если для какой-то заявки будет вызван метод [delete_order](/api/ParticipantStrategy.md#delete_order), то к следующему обновлению этой заявки в `orders` точно не будет, даже если в реальность она еще не успела удалиться.
 >
-> Замечание 2: Обновление структуры [trading_book_info.orders()](/api/ContestBookInfo.md#orders) происходит только между апдейтами, внутри апдейта она не меняется.
+> Замечание 2: Обновление объекта [trading_book->orders()](/api/ContestBookInfo.md#orders) происходит только между апдейтами, внутри апдейта она не меняется.
 >
-> Замечание 3: Лучшую цену на направлению можно узнать, вызвав метод [trading_book_info.best_price(Dir dir)](/api/ContestBookInfo.md#best_price).
-> Такой вызов работает быстрее, чем соответствующий метод [OrderBook.best_price(Dir dir)](/api/OrderBook.md#best_price).
+> Замечание 3: Лучшую цену на направлению можно узнать, вызвав метод [OrderBook.best_price(Dir dir)](/api/OrderBook.md#best_price).
 
 Будем ставить заявку, если не существует активной заявки по этому направлению.
 Используем для этого метод [active_orders_count(Dir dir)](/api/SecurityOrdersSnapshot.md#active_orders_count) класса [SecurityOrdersSnapshot](/api/SecurityOrdersSnapshot.md), возвращающий количество наших активных заявок по направлению:
