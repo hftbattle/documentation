@@ -37,13 +37,15 @@
     "data.full_day": "2015.12.23",
     "git.url": "http://git-scm.com/download",
     "virtualbox.url": "https://www.virtualbox.org",
-    "mingw.url": "http://sourceforge.net/projects/mingw-w64/",
+    "tdm-gcc.url": "http://tdm-gcc.tdragon.net",
+    "tdm-gcc-download.url": "http://tdm-gcc.tdragon.net/download",
 
     "final_testing_duration": "4",
 
     "brew.url": "http://brew.sh/",
     "cmake.url": "https://cmake.org/",
-    "clion.url": "https://www.jetbrains.com/clion/download/",
+    "cmake-download.url": "https://cmake.org/download/",
+    "clion-download.url": "https://www.jetbrains.com/clion/download/",
     "python.url": "https://www.python.org/downloads/",
     "std_deviation.ru_url": "https://ru.wikipedia.org/wiki/Среднеквадратическое_отклонение",
     "std_deviation.en_url": "https://en.wikipedia.org/wiki/Standard_deviation",

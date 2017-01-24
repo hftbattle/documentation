@@ -36,12 +36,12 @@ A: Чтобы послать стратегию на контрольное те
 
 A: Прежде всего, убедитесь, что на вашей системе установлен:
 
-- python 2.7.x или 3.x (`python --version`)
-- cmake 2.8.4 и выше (`cmake --version`)
+- python `2.7.x` или `3.x` (`python --version`)
+- cmake `2.8.4` и выше (`cmake --version`)
 - компилятор C++:
-  - для Linux – компилятор g++ 5.0 и выше (`g++ --version`)
-  - для MacOS – Apple LLVM version 6.0 и выше, (`c++ --version`)
-  - для Windows - MinGW-w64 5.0 и выше
+  - для Linux – компилятор g++ `5.0` и выше (`g++ --version`)
+  - для MacOS – Apple LLVM version `6.0` и выше, (`c++ --version`)
+  - для Windows - TDM64-GCC `5.1.0` и выше
 
 Подробнее в разделе [Установка зависимостей](/local-pack/requirements.md).
 

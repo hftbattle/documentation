@@ -60,26 +60,18 @@
 
 Для запуска под Windows необходимо иметь:
 
-- Компилятор [MinGW-w64]({{ book["mingw.url"] }}) версии `5.0` и выше:
+- Компилятор [TDM64-GCC]({{ book["tdm-gcc.url"] }}) версии `5.1.0` и выше:
 
-  Необходимо установить скачанный компилятор с настройками:
+  Скачать можно [здесь]({{ book["tdm-gcc-download.url"] }}).
 
-  ```bash
-  --rev=0 --bootstrap --jobs=4 --threads=posix --exceptions=seh --arch=x86_64
-  ```
+- [CMake]({{ book["cmake.url"] }}) версии `2.8.4` и выше:
 
-  Затем следует добавить файл с бинарниками в переменную окружения *path*.
-  Не забудьте поменять версию компилятора:
+  Например, можно поставить [CLion]({{ book["clion-download.url"] }}), *CMake* при этом будет в комплекте.
 
-  ```bash
-  setx path "%path%;YOUR_PATH_TO_MINGW\x86_64-5.0.1-posix-seh-rt_v3-rev0\mingw64\bin"
-  ```
+  Или же [скачать CMake]({{ book["cmake.url"] }}) с официального сайта.
 
-- [CMake]({{ book["cmake.url"] }}) версии 2.8.4 и выше:
+- Python `2.7` и выше.
 
-  Например, можно поставить [CLion]({{ book["clion.url"] }}), *CMake* при этом будет в комплекте.
-  Далее необходимо добавить путь до *cmake.exe* в переменную окружения *PATH*.
+  Скачать можно [здесь]({{ book["python.url"] }}).
 
-- Python 2.7 и выше.
-
-  Можно скачать [здесь]({{ book["python.url"] }}).
+Убедитесь, что пути до *cmake.exe*, *python.exe*, *g++.exe* и *mingw32-make.exe*/*make.exe* добавлены в переменную окружения *PATH*.
