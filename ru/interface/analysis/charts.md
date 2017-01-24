@@ -57,8 +57,9 @@ class UserStrategy : public ParticipantStrategy {
 private:
   std::array<Price, 2> best_price_by_dir;
   std::array<std::string, 2> axis_name;
+
 public:
-  UserStrategy(JsonValue config) {
+  UserStrategy(const JsonValue& config) {
     axis_name[BID] = "best_bid";
     axis_name[ASK] = "best_ask";
   }
@@ -88,7 +89,6 @@ public:
       }
     }
   }
-
 };
 
 REGISTER_CONTEST_STRATEGY(UserStrategy, user_strategy)
