@@ -1,277 +1,285 @@
-## ParticipantStrategy
+# ParticipantStrategy
 
-Путь в Local Pack-е: `include/participant_strategy.h`
+Путь в Local Pack `include/participant_strategy.h`
 
-ParticipantStrategy - класс-интерфейс для написания пользовательских стратегий.
-Этот класс служит прослойкой между ядром симуляции и стратегией.
-
-Он обеспечивает обработку входящих сигналов от симуляции:
-обновления торгового стакана, сделок, отчеты о наших сделках.
-Он же осуществляет передачу исходящих сигналов в симуляцию: постановка и снятие заявок.
-
-Помимо реализации методов для описанных выше действий,
-класс также предоставляет некоторые вспомогательные методы для удобства работы.
-
-Классы-стратегии участников должны наследовать от класса ParticipantStrategy.
+Класс-обёртка для стратегий участников для взаимодействия с торговым симулятором.
 
 ### Методы
 
-|Имя| Описание|
-|------------------|--------------------|
-|[trading_book_update(const OrderBook& order_book)](#trading_book_update)|Вызывается при получении нового стакана торгового инструмента.|
-|[trading_deals_update(const std::vector<Deal>& deals)](#trading_deals_update)|Вызывается при получении новых сделок торгового инструмента.|
-|[execution_report_update(const ExecutionReport& execution_report)](#execution_report_update)|Вызывается при получении отчета о сделке с участием вашего ордера.|
-|[signal_book_update(const OrderBook& order_book)](#signal_book_update)|Вызывается при получении нового стакана сигнального инструмента.|
-|[signal_deals_update(const std::vector<Deal>& deals)](#signal_deals_update)|Вызывается при получении новых сделок сигнального инструмента.|
-|[add_limit_order(Dir dir, Price price, Amount amount, const std::string& comment = {})](#add_limit_order)|Выставляет нашу лимитную заявку.|
-|[add_ioc_order(Dir dir, Price price, Amount amount, const std::string& comment = {})](#add_ioc_order)|Выставляет нашу заявку типа Immediate-Or-Cancel (IOC).|
-|[delete_order(Order* order)](#delete_order)|Снимает нашу заявку с торгов.|
-|[delete_all_orders_by_dir(Dir dir)](#delete_all_orders_by_dir)|Снимает все наши заявки с торгов по направлению *dir*.|
-|[get_amount_before_order(const Order* order)](#get_amount_before_order)|Возвращает количество лотов, стоящих в очереди перед нашей заявкой.|
-|[get_volume_at_price(Dir dir, Price price)](#get_volume_at_price)|Возвращает суммарное количество лотов в наших активных заявках, стоящих на определённой цене.|
-|[add_chart_point(const std::string& line_name, double value, ChartYAxisType y_axis_type, uint8_t chart_number)](#add_chart_point)|Добавляет точку на график.|
-|[get_current_result()](#get_current_result)|Возвращает текущий результат (заработок).|
-|[get_saldo()](#get_saldo)|Возвращает текущее сальдо, т.е. баланс без учета позы.|
-|[signal_security_exists()](#signal_security_exists)|Возвращает true, если есть сигнальный инструмент. Иначе false.|
-|[get_local_time()](#get_local_time)|Возвращает локальное время в микросекундах.|
-|[get_server_time()](#get_server_time)|Возвращает биржевое время с точностью до микросекунд.|
-|[get_server_time_tm()](#get_server_time_tm)|Возвращает биржевое время типа tm с точностью до секунды.|
-|[set_max_total_amount(const uint32_t max_total_amount)](#set_max_total_amount)|Устанавливает максимальное разрешённое значение позиции (не более 50).|
-|[set_stop_loss_result(const Decimal stop_loss_result)](#set_stop_loss_result)|Устанавливает минимально допустимое значение, при достижении которого позиция закрывается, и стратегия перестаёт торговать.|
-
-### Поля
-
-|Имя| Описание|
-|------------------|--------------------|
-|[trading_book_info](#trading_book_info)|Структура-агрегатор основной информации о торговом стакане.|
-|[signal_book_info](#signal_book_info)|Структура-агрегатор основной информации о сигнальном стакане.|
-|[trading_book](#trading_book)|Умный указатель на текущий стакан торгового инструмента.|
-|[signal_book](#signal_book)|Аналогично trading_book для сигнального инструмента.|
+| Имя | Описание |
+| --- | --- |
+| [trading_book_update()](#trading_book_update) | Вызывается симулятором при получении нового стакана торгового инструмента. |
+| [trading_deals_update()](#trading_deals_update) | Вызывается симулятором при получении новых сделок торгового инструмента. |
+| [execution_report_update()](#execution_report_update) | Вызывается симулятором при получении отчёта о сделке с участием вашей заявки. |
+| [signal_book_update()](#signal_book_update) | Вызывается симулятором при получении нового стакана сигнального инструмента. |
+| [signal_deals_update()](#signal_deals_update) | Вызывается симулятором при получении новых сделок сигнального инструмента. |
+| [add_limit_order()](#add_limit_order) | Выставляет нашу лимитную заявку. |
+| [add_ioc_order()](#add_ioc_order) | Выставляет нашу заявку типа IOC (Immediate-Or-Cancel). |
+| [delete_order()](#delete_order) | Снимает нашу заявку с торгов. |
+| [delete_all_orders_at_dir()](#delete_all_orders_at_dir) | Удаляет все ваши заявки в данном направлении. |
+| [delete_all_orders_at_price()](#delete_all_orders_at_price) | Удаляет все ваши заявки с заданной ценой и направлением. |
+| [amount_before_order()](#amount_before_order) | Объём заявок в очереди перед вашей заявкой. |
+| [volume_by_price()](#volume_by_price) | Объём активных заявок с заданной ценой и направлением. |
+| [add_chart_point()](#add_chart_point) | Добавляет точку на график. |
+| [current_result()](#current_result) | Текущий заработок стратегии, учитывающий все заявки. |
+| [saldo()](#saldo) | Текущий заработок стратегии, учитывающий только исполненные заявки. |
+| [signal_security_exists()](#signal_security_exists) | Существует ли сигнальный инструмент |
+| [local_time()](#local_time) | Текущее локальное время. |
+| [server_time()](#server_time) | Текущее биржевое время. |
+| [server_time_tm()](#server_time_tm) | Биржевое время типа tm. |
+| [set_max_total_amount()](#set_max_total_amount) | Устанавливает желаемое значение максимальной позы. |
+| [set_stop_loss_result()](#set_stop_loss_result) | Устанавливает желаемое значение минимального результата. |
+| [executed_amount()](#executed_amount) | Наша текущая позиция, учитывающая только исполненные лоты. |
+| [total_amount()](#total_amount) | Наша текущая позиция, учитывающая все лоты. |
+| [is_our()](#is_our) | Является ли заявка нашей. |
+| [is_our()](#is_our) | Является ли сделка нашей. |
+| [trading_book()](#trading_book) | Умный указатель на текущий стакан торгового инструмента. |
+| [signal_book()](#signal_book) | Умный указатель на текущий стакан сигнального инструмента. |
 
 ### Описание методов
 
 #### trading_book_update() {#trading_book_update}
 
+Вызывается симулятором при получении нового стакана торгового инструмента.
+
 ```c++
-virtual void trading_book_update(const OrderBook& order_book);
+virtual void trading_book_update(const OrderBook& /*order_book*/);
 ```
-
-Вызывается при получении нового стакана торгового инструмента:
-
-- *order_book* – новый стакан.
 
 #### trading_deals_update() {#trading_deals_update}
 
+Вызывается симулятором при получении новых сделок торгового инструмента.
+
 ```c++
-virtual void trading_deals_update(const std::vector<Deal>& deals);
+virtual void trading_deals_update(std::vector<Deal>&& /*deals*/);
 ```
-
-Вызывается при получении новых сделок торгового инструмента:
-
-- *deals* - вектор новых сделок.
 
 #### execution_report_update() {#execution_report_update}
 
+Вызывается симулятором при получении отчёта о сделке с участием вашей заявки.
+
 ```c++
-virtual void execution_report_update(const ExecutionReport& execution_report);
+virtual void execution_report_update(const ExecutionReport& /*execution_report*/);
 ```
-
-Вызывается при получении отчета о сделке с участием вашего ордера:
-
-- *snapshot* – структура-отчет о совершенной сделке.
 
 #### signal_book_update() {#signal_book_update}
 
+Вызывается симулятором при получении нового стакана сигнального инструмента.
+
 ```c++
-virtual void signal_book_update(const OrderBook& order_book);
+virtual void signal_book_update(const OrderBook& /*order_book*/);
 ```
-
-Вызывается при получении нового стакана сигнального инструмента:
-
-- *order_book* – новый стакан.
 
 #### signal_deals_update() {#signal_deals_update}
 
+Вызывается симулятором при получении новых сделок сигнального инструмента.
+
 ```c++
-virtual void signal_deals_update(const std::vector<Deal>& deals);
+virtual void signal_deals_update(std::vector<Deal>&& /*deals*/);
 ```
-
-Вызывается при получении новых сделок сигнального инструмента:
-
-- *deals* - вектор новых сделок.
 
 #### add_limit_order() {#add_limit_order}
 
+Принимает направление dir (BID (покупка) или ASK (продажа)), цену price и размер заявки amount.
+Выставляет нашу лимитную заявку.
+Возвращает значение типа bool — была ли наша заявка принята торговой системой.
+Внимание: заявка может быть не принята по нескольким причинам.
+Подробнее читайте в документации.
+TODO(asalikhov): add links to docs.
+
 ```c++
-bool add_limit_order(Dir dir, Price price, Amount amount, const std::string& comment =;
+bool add_limit_order(Dir dir, Price price, Amount amount);
 ```
-
-Выставляет нашу лимитную заявку:
-
-- *dir* - направление (BID = 0 - покупка, ASK = 1 - продажа)
-- *price* - цена, по которой заявка будет выставлена
-- *amount* - размер заявки
-- *comment* - комментарий к заявке
 
 #### add_ioc_order() {#add_ioc_order}
 
+Принимает направление dir (BID (покупка) или ASK (продажа)), цену price и размер заявки amount.
+Выставляет нашу заявку типа IOC (Immediate-Or-Cancel).
+Возвращает значение типа bool — была ли принята наша заявка.
+Внимание: заявка может быть не принята по нескольким причинам.
+Подробнее читайте в документации.
+TODO(asalikhov): add links to docs.
+
 ```c++
-bool add_ioc_order(Dir dir, Price price, Amount amount, const std::string& comment =;
+bool add_ioc_order(Dir dir, Price price, Amount amount);
 ```
 
-Выставляет нашу заявку типа Immediate-Or-Cancel (IOC):
-
-- *dir* - направление (BID = 0 - покупка, ASK = 1 - продажа)
-- *price* - цена, по которой заявка будет выставлена
-- *amount* - размер заявки
-- *comment* - комментарий к заявке
-
 #### delete_order() {#delete_order}
+
+Принимает указатель на вашу заявку, т.е. указатель на объект класса Order.
+Снимает эту заявку с торгов.
+Внимание: удаление происходит немоментально.
+Подробнее читайте в документации.
+TODO(asalikhov): add links to docs.
 
 ```c++
 void delete_order(Order* order);
 ```
 
-Снимает нашу заявку с торгов:
+#### delete_all_orders_at_dir() {#delete_all_orders_at_dir}
 
-- *order* - заявка, которую мы хотим снять.
-
-#### delete_all_orders_by_dir() {#delete_all_orders_by_dir}
-
-```c++
-void delete_all_orders_by_dir(Dir dir);
-```
-
-Снимает все наши заявки с торгов по направлению *dir*.
-
-- *dir* - направление (BID = 0 - покупка, ASK = 1 - продажа).
-
-#### get_amount_before_order() {#get_amount_before_order}
+Принимает направление dir (BID (покупка) или ASK (продажа)).
+Удаляет все ваши заявки по направлению dir.
 
 ```c++
-Amount get_amount_before_order(const Order* order) const;
+void delete_all_orders_at_dir(Dir dir);
 ```
 
-Возвращает количество лотов, стоящих в очереди перед нашей заявкой.
+#### delete_all_orders_at_price() {#delete_all_orders_at_price}
 
-- *order* - заявка, для которой мы хотим узнать количество стоящих перед ней лотов.
-
-#### get_volume_at_price() {#get_volume_at_price}
+Принимает направление dir (BID (покупка) или ASK (продажа)) и цену price.
+Удаляет все ваши заявки по направлению dir по данной цене.
 
 ```c++
-Amount get_volume_at_price(Dir dir, Price price) const;
+void delete_all_orders_at_price(Dir dir, Price price);
 ```
 
+#### amount_before_order() {#amount_before_order}
+
+Принимает указатель на вашу заявку, т.е. указатель на объект класса Order.
+Возвращает суммарное количество лотов, стоящих в очереди перед вашей заявкой в котировке данного ценового уровня.
+
+```c++
+Amount amount_before_order(const Order* order) const;
+```
+
+#### volume_by_price() {#volume_by_price}
+
+Принимает направление dir (BID (покупка) или ASK (продажа)) и цену price.
 Возвращает суммарное количество лотов в наших активных заявках, стоящих на определённой цене.
 
-- *dir* - направление (BID = 0 - покупка, ASK = 1 - продажа).
-- *price* - цена, объём лотов на которой мы хотим узнать.
+```c++
+Amount volume_by_price(Dir dir, Price price) const;
+```
 
 #### add_chart_point() {#add_chart_point}
 
-```c++
-void add_chart_point(const std::string& line_name, double value, ChartYAxisType y_axis_type, uint8_t chart_number);
-```
-
-Добавляет точку на график.
-
-- *line_name* - название графика, *value* - значение, *y_axis_type* - ось (левая или правая)
-- *chart_number* - номер картинки на которой будет нарисован график
-
-#### get_current_result() {#get_current_result}
+Принимает строку line_name (название графика), value типа double — значение, которое хочется добавить, y_axis_type — с какой стороны будет нарисована ось y и chart_number — номер графика.
+Добавляет точку на график в данный момент времени с желаемым значением value.
+Соседние точки на графике соединяются отрезком.
+В итоге получаем ломаную, которая и является графиком.
+Внимание: благодаря параметру chart_number можно создавать несколько графиков, а с помощью line_name — можно рисовать несколько графиков на одном изображении.
 
 ```c++
-Price get_current_result() const;
+void add_chart_point(const std::string& line_name, double value, ChartYAxisType y_axis_type,
 ```
 
-Возвращает текущий результат (заработок).
+#### current_result() {#current_result}
 
-#### get_saldo() {#get_saldo}
+Возвращает текущий результат стратегии (заработок).
+Учитываются как исполненные, так и просто поставленные заявки.
 
 ```c++
-Price get_saldo();
+Price current_result() const;
 ```
 
-Возвращает текущее сальдо, т.е. баланс без учета позы.
+#### saldo() {#saldo}
+
+Возвращает текущий результат стратегии (заработок).
+Учитываются только исполненные заявки.
+
+```c++
+Price saldo();
+```
 
 #### signal_security_exists() {#signal_security_exists}
+
+Возвращает значение типа bool — существует ли сигнальный инструмент.
 
 ```c++
 bool signal_security_exists() const;
 ```
 
-Возвращает true, если есть сигнальный инструмент. Иначе false.
+#### local_time() {#local_time}
 
-#### get_local_time() {#get_local_time}
-
-```c++
-Microseconds get_local_time() const;
-```
-
-Возвращает локальное время в микросекундах. Локальное время здесь – это время на машине, получающей биржевые данные.
-
-#### get_server_time() {#get_server_time}
+Возвращает текущее локальное время в микросекундах.
 
 ```c++
-Microseconds get_server_time() const;
+Microseconds local_time() const;
 ```
 
-Возвращает биржевое время с точностью до микросекунд.
+#### server_time() {#server_time}
 
-#### get_server_time_tm() {#get_server_time_tm}
+Возвращает текущее биржевое время в микросекундах.
 
 ```c++
-tm get_server_time_tm() const;
+Microseconds server_time() const;
 ```
 
-Возвращает биржевое время типа tm c точностью до секунды.
+#### server_time_tm() {#server_time_tm}
+
+Возвращает биржевое время типа tm с точностью до секунды.
+Примечание: биржевое время в таком формате может быть использовано для определения времени суток.
+
+```c++
+tm server_time_tm() const;
+```
 
 #### set_max_total_amount() {#set_max_total_amount}
 
+Принимает желаемое значение максимальной позы — неотрицательное число не более 50.
+Устанавливает данное значение позы максимальным и не разрешает стратегии превышать его по модулю.
+
 ```c++
-void set_max_total_amount(const uint32_t max_total_amount);
+void set_max_total_amount(const Amount max_total_amount);
 ```
 
-Устанавливает максимальное разрешённое значение позиции (не более 50).
-
 #### set_stop_loss_result() {#set_stop_loss_result}
+
+Принимает желаемое значение минимального результата.
+Устанавливает это значение, при достижении которого позиция закрывается, и стратегия перестаёт торговать.
 
 ```c++
 void set_stop_loss_result(const Decimal stop_loss_result);
 ```
 
-Устанавливает минимально допустимое значение, при достижении которого позиция закрывается, и стратегия перестаёт торговать.
+#### executed_amount() {#executed_amount}
 
-### Описание полей
-
-#### trading_book_info {#trading_book_info}
-
-```c++
-ContestBookInfo trading_book_info;
-```
-
-Структура-агрегатор основной информации о торговом стакане.
-
-#### signal_book_info {#signal_book_info}
+Возвращает нашу текущую позицию.
+Учитываются только исполненные лоты.
 
 ```c++
-ContestBookInfo signal_book_info;
+Amount executed_amount() const;
 ```
 
-Структура-агрегатор основной информации о сигнальном стакане.
+#### total_amount() {#total_amount}
 
-#### trading_book {#trading_book}
+Возвращает нашу общую позицию: учитывается как исполненные, так и просто поставленные заявки.
 
 ```c++
-std::shared_ptr<const OrderBook> trading_book;
+Amount total_amount() const;
 ```
 
-Умный указатель на текущий стакан торгового инструмента. Они обновляются каждый раз с приходом очередного апдейта торгового стакана. При этом объект внутри (стакан) разрушается. Чтобы сохранить старый стакан, нужно явно в стратегии сохранить этот указатель.
+#### is_our() {#is_our}
 
-#### signal_book {#signal_book}
+Принимает указатель на заявку, т.е. указатель на объект класса Order.
+Возвращает значение типа bool — является ли данная заявка нашей.
 
 ```c++
-std::shared_ptr<const OrderBook> signal_book;
+bool is_our(const Order* order) const;
 ```
 
-Аналогично trading_book для сигнального инструмента.
+#### is_our() {#is_our}
+
+Принимает ссылку на сделку, т.е. ссылку на объект класса Deal.
+Возвращает значение типа bool — участвует ли в сделке наша заявка.
+
+```c++
+bool is_our(const Deal& deal) const;
+```
+
+#### trading_book() {#trading_book}
+
+Умный указатель на текущий стакан торгового инструмента.
+
+```c++
+std::shared_ptr<OrderBook>& trading_book();
+```
+
+#### signal_book() {#signal_book}
+
+Умный указатель на текущий стакан сигнального инструмента.
+
+```c++
+std::shared_ptr<OrderBook>& signal_book();
+```

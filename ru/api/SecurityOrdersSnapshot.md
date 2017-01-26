@@ -1,84 +1,86 @@
-## SecurityOrdersSnapshot
+# SecurityOrdersSnapshot
 
-Путь в Local Pack-е: `include/security_orders_snapshot.h`
+Путь в Local Pack `include/security_orders_snapshot.h`
 
-Класс SecurityOrdersSnapshot хранит текущие заявки стратегии.
-Структура обновляется перед приходом каждого апдейта в стратегию.
-В процессе обработки одного апдейта структура гарантированно не меняется.
-
-### Поля
-
-|Имя| Описание|
-|------------------|--------------------|
-|[orders_by_dir](#orders_by_dir)|Списки наших текущих заявок по направлению.|
-|[deleting_amount](#deleting_amount)|Суммарный объем заявок по направлению, отправленных на удаление, но еще не удаленных.|
+Описание текущих заявок стратегии.
+Учитываются только ваши заявки со статусом Adding и Active.
+Данные обновляются перед приходом каждого апдейта в стратегию.
+В процессе обработки одного апдейта данные гарантированно не меняются.
 
 ### Методы
 
-|Имя| Описание|
-|------------------|--------------------|
-|[get_volume_by_price(Dir dir, Decimal price)](#get_volume_by_price)|Суммарный объем заявок с заданной ценой *price* по направлению *dir*.|
-|[active_orders_count(Dir dir)](#active_orders_count)|Количество наших активных заявок по направлению *dir*.|
-|[active_orders_volume(Dir dir)](#active_orders_volume)|Суммарный объем активных ордеров по направлению *dir*.|
-|[get_orders_by_dir_to_map(Dir dir)](#get_orders_by_dir_to_map)|Возвращает std::map, в котором каждой цене соответствует std::vector заявок по направлению *dir*.|
-|[size()](#size)|Суммарное количество наших заявок по обоим направлениям.|
-
-### Описание полей
-
-#### orders_by_dir {#orders_by_dir}
-
-```c++
-std::array<std::vector<OrderSnapshot>, 2> orders_by_dir;
-```
-
-Списки наших текущих заявок по направлению.
-
-#### deleting_amount {#deleting_amount}
-
-```c++
-std::array<Amount, 2> deleting_amount;
-```
-
-Суммарный объем заявок по направлению, отправленных на удаление, но еще не удаленных.
+| Имя | Описание |
+| --- | --- |
+| [amount()](#amount) | Объём заявок с заданной ценой и направлением. |
+| [size_by_dir()](#size_by_dir) | Количество текущих заявок в данном направлении. |
+| [active_orders_count()](#active_orders_count) | Количество активных заявок в данном направлении. |
+| [active_orders_volume()](#active_orders_volume) | Объём активных заявок в данном направлении. |
+| [orders_by_dir()](#orders_by_dir) | Вектор наших заявок. |
+| [orders_by_dir_as_map()](#orders_by_dir_as_map) | Наши заявки в виде map. |
+| [deleting_amount_by_dir()](#deleting_amount_by_dir) | Объём заявок отправленных на удаление. |
 
 ### Описание методов
 
-#### get_volume_by_price() {#get_volume_by_price}
+#### amount() {#amount}
+
+Принимает направление dir (BID (покупка) или ASK (продажа)) и цену price.
+Возвращает суммарный объём ваших заявок с заданной ценой price по направлению dir.
 
 ```c++
-Amount get_volume_by_price(Dir dir, Decimal price) const;
+Amount amount(Dir dir, Price price) const;
 ```
 
-Суммарный объем заявок с заданной ценой *price* по направлению *dir*.
+#### size_by_dir() {#size_by_dir}
+
+Принимает направление dir (BID (покупка) или ASK (продажа)).
+Возвращает количество всех ваших текущих заявок по направлению dir.
+
+```c++
+size_t size_by_dir(Dir dir) const;
+```
 
 #### active_orders_count() {#active_orders_count}
+
+Принимает направление dir (BID (покупка) или ASK (продажа)).
+Возвращает количество ваших активных заявок по направлению dir, т.е. заявок со статусом Active.
 
 ```c++
 size_t active_orders_count(Dir dir) const;
 ```
 
-Количество наших активных заявок по направлению *dir*.
-
 #### active_orders_volume() {#active_orders_volume}
+
+Принимает направление dir (BID (покупка) или ASK (продажа)).
+Возвращает суммарный объём ваших активных заявок по направлению dir, т.е. заявок со статусом Active.
 
 ```c++
 Amount active_orders_volume(Dir dir) const;
 ```
 
-Суммарный объем активных ордеров по направлению *dir*.
+#### orders_by_dir() {#orders_by_dir}
 
-#### get_orders_by_dir_to_map() {#get_orders_by_dir_to_map}
-
-```c++
-OrdersMap get_orders_by_dir_to_map(Dir dir) const;
-```
-
-Возвращает std::map, в котором каждой цене соответствует std::vector заявок по направлению *dir*.
-
-#### size() {#size}
+Принимает направление dir (BID (покупка) или ASK (продажа)).
+Возвращает vector указателей на ваши заявки, т.е. vector указателей на объекты класса Order, по направлению dir.
 
 ```c++
-size_t size() const;
+const Orders& orders_by_dir(Dir dir) const;
 ```
 
-Суммарное количество наших заявок по обоим направлениям.
+#### orders_by_dir_as_map() {#orders_by_dir_as_map}
+
+Принимает направление dir (BID (покупка) или ASK (продажа)).
+Возвращает map, в котором каждой цене соответствует vector заявок по направлению dir.
+Внимание: map всегда упорядочен по возрастанию цены в независимости от dir.
+
+```c++
+OrdersMap orders_by_dir_as_map(Dir dir) const;
+```
+
+#### deleting_amount_by_dir() {#deleting_amount_by_dir}
+
+Принимает направление dir (BID (покупка) или ASK (продажа)).
+Возвращает суммарный объём заявок по направлению dir, отправленных на удаление, но еще не удалённых, т.е. со статусом Deleting.
+
+```c++
+Amount deleting_amount_by_dir(Dir dir) const;
+```

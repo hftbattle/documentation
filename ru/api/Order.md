@@ -1,155 +1,97 @@
-## Order
+# Order
 
-Путь в Local Pack-е: `include/order.h`
+Путь в Local Pack `include/order.h`
 
-Заявка - это пара <цена, количество лотов>.
-Класс Order представляет собой реализацию биржевой заявки.
-
-### Поля
-
-|Имя| Описание|
-|------------------|--------------------|
-|[id](#id)|Наш (внутренний) ID заявки.|
-|[dir](#dir)|Направление заявки.|
-|[price](#price)|Цена заявки.|
-|[amount](#amount)|Объем заявки (количество лотов).|
-|[time_in_force](#time_in_force)|Тип заявки - Limit или IOC.|
-|[market_id](#market_id)|ID биржи.|
-|[security](#security)|Инструмент, к которому относится заявка.|
-|[kMaxCommentLength](#kMaxCommentLength)|Максимальная длина комментария к заявке.|
-|[server_time](#server_time)|Биржевое время постановки заявки в стакан в тиках.|
-|[origin_time](#origin_time)|Локальное время постановки заявки в стакан в тиках.|
+Описание биржевой заявки.
 
 ### Методы
 
-|Имя| Описание|
-|------------------|--------------------|
-|[amount_rest()](#amount_rest)|Текущий объем заявки. Может быть меньше начального, если были сделки с ее участием.|
-|[get_server_time()](#get_server_time)|Биржевое время последнего изменения (в микросекундах).|
-|[implied_amount()](#implied_amount)|Количество лотов, которое предположительно будет сведено.|
-|[status()](#status)|Статус заявки: в процессе добавления, активная, ждущая удаления, удаленная.|
-|[outer_id()](#outer_id)|Биржевой (внешний) ID заявки.|
-
-### Описание полей
-
-#### id {#id}
-
-```c++
-const Id id;
-```
-
-Наш (внутренний) ID заявки.
-
-#### dir {#dir}
-
-```c++
-const Dir dir;
-```
-
-Направление заявки.
-
-#### price {#price}
-
-```c++
-const Price price;
-```
-
-Цена заявки.
-
-#### amount {#amount}
-
-```c++
-const Amount amount;
-```
-
-Объем заявки (количество лотов).
-
-#### time_in_force {#time_in_force}
-
-```c++
-const OrderTimeInForce time_in_force;
-```
-
-Тип заявки - Limit или IOC.
-
-#### market_id {#market_id}
-
-```c++
-const MarketId market_id;
-```
-
-ID биржи.
-
-#### security {#security}
-
-```c++
-const Security* security;
-```
-
-Инструмент, к которому относится заявка.
-
-#### kMaxCommentLength {#kMaxCommentLength}
-
-```c++
-static const size_t kMaxCommentLength = 20;
-```
-
-Максимальная длина комментария к заявке.
+| Имя | Описание |
+| --- | --- |
+| [id()](#id) | Уникальный идентификатор заявки. |
+| [dir()](#dir) | Направление заявки. |
+| [price()](#price) | Цена заявки. |
+| [amount()](#amount) | Изначальный объём заявки. |
+| [amount_rest()](#amount_rest) | Текущий объём заявки. |
+| [security_id()](#security_id) | Указатель на инструмент соответствующий заявке. |
+| [status()](#status) | Статус заявки. |
+| [origin_server_time()](#origin_server_time) | Биржевое время постановки заявки в стакан. |
+| [local_time()](#local_time) | Локальное время постановки заявки в стакан. |
 
 ### Описание методов
 
+#### id() {#id}
+
+Возвращает уникальный числовой идентификатор заявки, полученный во время симуляции.
+Он может быть использован для сохранения какой-либо информации о заявке.
+
+```c++
+Id id() const;
+```
+
+#### dir() {#dir}
+
+Возвращает направление заявки (BID (покупка) или ASK (продажа)).
+
+```c++
+Dir dir() const;
+```
+
+#### price() {#price}
+
+Возвращает цену заявки.
+
+```c++
+Price price() const;
+```
+
+#### amount() {#amount}
+
+Возвращает изначальный объём заявки (количество лотов).
+
+```c++
+Amount amount() const;
+```
+
 #### amount_rest() {#amount_rest}
 
-```c++
-inline Amount amount_rest() const;
-```
-
-Текущий объем заявки. Может быть меньше начального, если были сделки с ее участием.
-
-#### get_server_time() {#get_server_time}
+Возвращает текущий объём заявки (количество лотов этой заявки, которые ещё не "свелись").
 
 ```c++
-Microseconds get_server_time() const;
+Amount amount_rest() const;
 ```
 
-Биржевое время последнего изменения (в микросекундах).
+#### security_id() {#security_id}
 
-#### implied_amount() {#implied_amount}
+Возвращает указатель на инструмент, к которому относится заявка (нужен для того, чтобы понимать, по какому из инструментов была поставлена заявка).
 
 ```c++
-inline Amount implied_amount() const;
+SecurityId security_id() const;
 ```
-
-Количество лотов, которое предположительно будет сведено.
 
 #### status() {#status}
 
-```c++
-inline OrderStatus status() const;
-```
-
-Статус заявки: в процессе добавления, активная, ждущая удаления, удаленная.
-
-#### outer_id() {#outer_id}
+Возвращает enum class, статус заявки.
+Возможные статусы: в процессе добавления (Adding), активная (Active), поставленная на удаление, но ещё не удалённая (Deleting) и удалённая (Deleted).
+Подробнее читайте в описании класса OrderStatus.
+TODO(asalikhov): add links to docs.
 
 ```c++
-inline Id outer_id() const;
+OrderStatus status() const;
 ```
 
-Биржевой (внешний) ID заявки.
+#### origin_server_time() {#origin_server_time}
 
-#### server_time {#server_time}
+Возвращает биржевое время постановки заявки в стакан в микросекундах.
 
 ```c++
-int64_t server_time;
+Microseconds origin_server_time() const;
 ```
 
-Биржевое время постановки заявки в стакан в тиках.
+#### local_time() {#local_time}
 
-#### origin_time {#origin_time}
+Возвращает локальное время постановки заявки в стакан в микросекундах.
 
 ```c++
-const Ticks origin_time;
+Microseconds local_time() const;
 ```
-
-Локальное время постановки заявки в стакан в тиках.
