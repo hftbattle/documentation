@@ -374,13 +374,13 @@ public:
     for (Dir dir : {BID, ASK}) {
       // Удаляем заявки с далёких ценовых уровней, чтобы не попадать под ограничение на набираемую позу.
       for(auto& order: trading_book_info.orders().orders_by_dir[dir]) {
-        if (trading_book->get_index_by_price(dir, order->price) > 9) {
+        if (trading_book().get_index_by_price(dir, order->price) > 9) {
           delete_order(order);
         }
       }
       // Выставляем заявки на все видимые котировки в стакане.
       auto active_orders = trading_book_info.orders().get_orders_by_dir_to_map(dir);
-      for (const auto& quote : trading_book->all_quotes(dir)) {
+      for (const auto& quote : trading_book().all_quotes(dir)) {
         Price quote_price = quote.get_price();
         Amount amount = get_wanted_amount(dir, quote_price);
         // По отдельности обрабатываем лучшие ценовые уровни и все остальные.

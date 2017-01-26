@@ -64,7 +64,7 @@ A: Время, прошедшее от отправки заявки на бир
 A: Текущую лучшую цену можно узнать непосредственно у стакана [trading_book](api/ParticipantStrategy.md#trading_book) c помощью метода OrderBook [best_price](api/OrderBook.md#best_price):
 
 ```c++
-Price best_price = trading_book->best_price(dir);
+Price best_price = trading_book().best_price(dir);
 ```
 
 ---
