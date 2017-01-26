@@ -45,7 +45,12 @@ REGISTER_CONTEST_STRATEGY(UserStrategy, best_strategy_ever)
 
 ### Создание новой Python стратегии {#python}
 
-Для создания новой стратегии на языке Python:
+К сожалению, пока нет возможности создавать новые папки для `Python` стратегий. Пожалуйста, пишите свою стратегию в файле `strategies/python_strategy/python_strategy.py`.
+О запуске стратегии вы можете почитать [здесь](run_strategy.md).
+
+При этом название вашей стратегии будет `python_strategy`.
+
+<!-- Для создания новой стратегии на языке Python:
 
 #### 1. Создайте папку стратегии
 
@@ -57,4 +62,4 @@ REGISTER_CONTEST_STRATEGY(UserStrategy, best_strategy_ever)
 
 Код стратегии при этом находится в файле *python_strategy.py*.
 
-Далее вы можете [запустить](run_strategy.md) новую стратегию.
+Далее вы можете [запустить](run_strategy.md) новую стратегию. -->
