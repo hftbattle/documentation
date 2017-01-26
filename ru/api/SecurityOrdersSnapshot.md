@@ -15,7 +15,7 @@
 | [size_by_dir()](#size_by_dir) | Количество текущих заявок в данном направлении. |
 | [active_orders_count()](#active_orders_count) | Количество активных заявок в данном направлении. |
 | [active_orders_volume()](#active_orders_volume) | Объём активных заявок в данном направлении. |
-| [orders_by_dir()](#orders_by_dir) | Вектор наших заявок. |
+| [orders_by_dir()](#orders_by_dir) | Вектор ваших заявок. |
 | [orders_by_dir_as_map()](#orders_by_dir_as_map) | Наши заявки в виде map. |
 | [deleting_amount_by_dir()](#deleting_amount_by_dir) | Объём заявок отправленных на удаление. |
 

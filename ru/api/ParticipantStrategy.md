@@ -13,9 +13,9 @@
 | [execution_report_update()](#execution_report_update) | Вызывается симулятором при получении отчёта о сделке с участием вашей заявки. |
 | [signal_book_update()](#signal_book_update) | Вызывается симулятором при получении нового стакана сигнального инструмента. |
 | [signal_deals_update()](#signal_deals_update) | Вызывается симулятором при получении новых сделок сигнального инструмента. |
-| [add_limit_order()](#add_limit_order) | Выставляет нашу лимитную заявку. |
-| [add_ioc_order()](#add_ioc_order) | Выставляет нашу заявку типа IOC (Immediate-Or-Cancel). |
-| [delete_order()](#delete_order) | Снимает нашу заявку с торгов. |
+| [add_limit_order()](#add_limit_order) | Выставляет лимитную заявку. |
+| [add_ioc_order()](#add_ioc_order) | Выставляет заявку типа IOC (Immediate-Or-Cancel). |
+| [delete_order()](#delete_order) | Снимает вашу заявку с торгов. |
 | [delete_all_orders_at_dir()](#delete_all_orders_at_dir) | Удаляет все ваши заявки в данном направлении. |
 | [delete_all_orders_at_price()](#delete_all_orders_at_price) | Удаляет все ваши заявки с заданной ценой и направлением. |
 | [amount_before_order()](#amount_before_order) | Объём заявок в очереди перед вашей заявкой. |
@@ -31,10 +31,10 @@
 | [set_stop_loss_result()](#set_stop_loss_result) | Устанавливает желаемое значение минимального результата. |
 | [executed_amount()](#executed_amount) | Наша текущая позиция, учитывающая только исполненные лоты. |
 | [total_amount()](#total_amount) | Наша текущая позиция, учитывающая все лоты. |
-| [is_our()](#is_our) | Является ли заявка нашей. |
-| [is_our()](#is_our) | Является ли сделка нашей. |
-| [trading_book()](#trading_book) | Умный указатель на текущий стакан торгового инструмента. |
-| [signal_book()](#signal_book) | Умный указатель на текущий стакан сигнального инструмента. |
+| [is_our()](#is_our) | Является ли заявка вашей. |
+| [is_our()](#is_our) | Является ли сделка вашей. |
+| [trading_book()](#trading_book) | Ссылка на текущий стакан торгового инструмента. |
+| [signal_book()](#signal_book) | Ссылка на текущий стакан сигнального инструмента. |
 
 ### Описание методов
 
@@ -81,8 +81,8 @@ virtual void signal_deals_update(std::vector<Deal>&& /*deals*/);
 #### add_limit_order() {#add_limit_order}
 
 Принимает направление dir (BID (покупка) или ASK (продажа)), цену price и размер заявки amount.
-Выставляет нашу лимитную заявку.
-Возвращает значение типа bool — была ли наша заявка принята торговой системой.
+Выставляет лимитную заявку.
+Возвращает значение типа bool — была ли ваша заявка принята торговой системой.
 Внимание: заявка может быть не принята по нескольким причинам.
 Подробнее читайте в документации.
 TODO(asalikhov): add links to docs.
@@ -94,8 +94,8 @@ bool add_limit_order(Dir dir, Price price, Amount amount);
 #### add_ioc_order() {#add_ioc_order}
 
 Принимает направление dir (BID (покупка) или ASK (продажа)), цену price и размер заявки amount.
-Выставляет нашу заявку типа IOC (Immediate-Or-Cancel).
-Возвращает значение типа bool — была ли принята наша заявка.
+Выставляет заявку типа IOC (Immediate-Or-Cancel).
+Возвращает значение типа bool — была ли принята ваша заявка.
 Внимание: заявка может быть не принята по нескольким причинам.
 Подробнее читайте в документации.
 TODO(asalikhov): add links to docs.
@@ -146,7 +146,7 @@ Amount amount_before_order(const Order* order) const;
 #### volume_by_price() {#volume_by_price}
 
 Принимает направление dir (BID (покупка) или ASK (продажа)) и цену price.
-Возвращает суммарное количество лотов в наших активных заявках, стоящих на определённой цене.
+Возвращает суммарное количество лотов в ваших активных заявках, стоящих на определённой цене.
 
 ```c++
 Amount volume_by_price(Dir dir, Price price) const;
@@ -235,7 +235,7 @@ void set_stop_loss_result(const Decimal stop_loss_result);
 
 #### executed_amount() {#executed_amount}
 
-Возвращает нашу текущую позицию.
+Возвращает вашу текущую позицию.
 Учитываются только исполненные лоты.
 
 ```c++
@@ -244,7 +244,7 @@ Amount executed_amount() const;
 
 #### total_amount() {#total_amount}
 
-Возвращает нашу общую позицию: учитывается как исполненные, так и просто поставленные заявки.
+Возвращает вашу общую позицию: учитывается как исполненные, так и просто поставленные заявки.
 
 ```c++
 Amount total_amount() const;
@@ -253,7 +253,7 @@ Amount total_amount() const;
 #### is_our() {#is_our}
 
 Принимает указатель на заявку, т.е. указатель на объект класса Order.
-Возвращает значение типа bool — является ли данная заявка нашей.
+Возвращает значение типа bool — является ли данная заявка вашей.
 
 ```c++
 bool is_our(const Order* order) const;
@@ -262,7 +262,7 @@ bool is_our(const Order* order) const;
 #### is_our() {#is_our}
 
 Принимает ссылку на сделку, т.е. ссылку на объект класса Deal.
-Возвращает значение типа bool — участвует ли в сделке наша заявка.
+Возвращает значение типа bool — участвует ли в сделке ваша заявка.
 
 ```c++
 bool is_our(const Deal& deal) const;
@@ -270,7 +270,7 @@ bool is_our(const Deal& deal) const;
 
 #### trading_book() {#trading_book}
 
-Умный указатель на текущий стакан торгового инструмента.
+Ссылка на текущий стакан торгового инструмента.
 
 ```c++
 std::shared_ptr<OrderBook>& trading_book();
@@ -278,7 +278,7 @@ std::shared_ptr<OrderBook>& trading_book();
 
 #### signal_book() {#signal_book}
 
-Умный указатель на текущий стакан сигнального инструмента.
+Ссылка на текущий стакан сигнального инструмента.
 
 ```c++
 std::shared_ptr<OrderBook>& signal_book();

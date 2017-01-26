@@ -23,7 +23,7 @@
 | [depth()](#depth) | Количество ценовых уровней, отображаемых в стакане. |
 | [server_time()](#server_time) | Биржевое время последнего изменения стакана. |
 | [local_time()](#local_time) | Локальное время последнего изменения стакана. |
-| [orders()](#orders) | Ссылка на наши текущие заявки в виде SecurityOrdersSnapshot. |
+| [orders()](#orders) | Ссылка на ваши текущие заявки в виде SecurityOrdersSnapshot. |
 | [middle_price()](#middle_price) | Полусумма лучших цен. |
 | [min_step()](#min_step) | Минимальный шаг цены. |
 | [spread_in_min_steps()](#spread_in_min_steps) | Расстояние между лучшими ценами в минимальных шагах цены. |
@@ -153,7 +153,7 @@ Microseconds local_time() const;
 
 #### orders() {#orders}
 
-Возвращает ссылку на объект типа SecurityOrdersSnapshot, содержащую наши текущие заявки.
+Возвращает ссылку на объект типа SecurityOrdersSnapshot, содержащую ваши текущие заявки.
 TODO(asalikhov): add links to docs.
 
 ```c++
