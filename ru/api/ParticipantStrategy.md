@@ -273,7 +273,7 @@ bool is_our(const Deal& deal) const;
 Ссылка на текущий стакан торгового инструмента.
 
 ```c++
-std::shared_ptr<OrderBook>& trading_book();
+OrderBook& trading_book();
 ```
 
 #### signal_book() {#signal_book}
@@ -281,5 +281,5 @@ std::shared_ptr<OrderBook>& trading_book();
 Ссылка на текущий стакан сигнального инструмента.
 
 ```c++
-std::shared_ptr<OrderBook>& signal_book();
+OrderBook& signal_book();
 ```
