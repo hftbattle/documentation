@@ -42,7 +42,7 @@ def trading_book_update(strat, order_book):
 К счастью, у нас есть возможность посмотреть все наши активные заявки:
 
 {% codetabs name="C++", type="c++" -%}
-auto our_orders = order_book.orders();
+const auto& our_orders = order_book.orders();
 {%- language name="Python", type="py" -%}
 our_orders = order_book.orders()
 {%- endcodetabs %}
