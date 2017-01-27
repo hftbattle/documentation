@@ -59,15 +59,15 @@ private:
   std::array<std::string, 2> axis_name;
 
 public:
-  UserStrategy(const JsonValue& config) {
+  explicit UserStrategy(const JsonValue& config) {
     axis_name[BID] = "best_bid";
     axis_name[ASK] = "best_ask";
   }
 
   void trading_book_update(const OrderBook& order_book) override {
-    auto our_orders = trading_book().orders();
-    for (Dir dir: {BID, ASK}) {
-      const Price best_price = trading_book().best_price(dir);
+    const auto& our_orders = order_book.orders();
+    for (Dir dir : {BID, ASK}) {
+      const Price best_price = order_book.best_price(dir);
       const Amount amount = 1;
       if (our_orders.active_orders_count(dir) == 0) {
         add_limit_order(dir, best_price, amount);
@@ -85,7 +85,7 @@ public:
                         best_price.get_double(),  // переводим тип Price в double
                         ChartYAxisType::Left,     // используем левую вертикальную ось
                         1);                       // 1 - номер графика
-        best_price_by_dir[dir] = order_book->best_price(dir);
+        best_price_by_dir[dir] = order_book.best_price(dir);
       }
     }
   }

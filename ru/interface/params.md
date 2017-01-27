@@ -70,10 +70,10 @@ public:
   double double_param;
   Microseconds time_param;
 
-  UserStrategy(const JsonValue& config) {
-    // Читаем целочисленный параметр.
-    int_param = config["int_param"].as<int>(42);
-    // Читаем вещественный параметр.
+  explicit UserStrategy(const JsonValue& config) {
+    // Читаем целочисленный параметр, который обязательно должен быть указан в JSON файле.
+    int_param = config["int_param"].as<int>();
+    // Читаем вещественный параметр. Если его нет в JSON файле, то он будет равен по умолчанию равен 3.14.
     double_param = config["double_param"].as<double>(3.14);
     // Читаем временной параметр.
     // ! Временной параметр по умолчанию необходимо указывать с единицей измерения (литералом).

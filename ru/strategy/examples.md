@@ -25,13 +25,13 @@ using namespace hftbattle;
 
 class UserStrategy : public ParticipantStrategy {
 public:
-  UserStrategy(JsonValue config) {}
+  explicit UserStrategy(const JsonValue& config) { }
 
   // Вызывается при получении нового стакана торгового инструмента:
   // @order_book – новый стакан.
   void trading_book_update(const OrderBook& order_book) override {
     auto our_orders = trading_book_info.orders();
-    for (Dir dir: {BID, ASK}) {
+    for (Dir dir : {BID, ASK}) {
       const Price best_price = trading_book_info.best_price(dir);
       const Amount amount = 1;
       if (our_orders.active_orders_count(dir) == 0) {
@@ -76,7 +76,7 @@ public:
   // @order_book – новый стакан.
   void trading_book_update(const OrderBook& order_book) override {
     auto our_orders = trading_book_info.orders();
-    for (Dir dir: {BID, ASK}) {
+    for (Dir dir : {BID, ASK}) {
       const Price best_price = trading_book_info.best_price(dir);
       const Amount best_volume = trading_book_info.best_volume(dir);
       const bool can_stay_on_best = best_volume >= min_volume_to_stay_on_best_;
@@ -121,9 +121,7 @@ using namespace hftbattle;
 
 class UserStrategy : public ParticipantStrategy {
 public:
-  UserStrategy(JsonValue config)
-  : last_reset_time_(0)
-  {
+  explicit UserStrategy(const JsonValue& config) : last_reset_time_(0) {
     deals_count_by_dir_.fill(0);
     min_deals_count_diff_ = config["min_deals_count_diff"].as<int>(100);
     deals_reset_period_ms_ = config["deals_reset_period_ms"].as<Milliseconds>(10ms);
@@ -182,11 +180,10 @@ using namespace hftbattle;
 
 class UserStrategy : public ParticipantStrategy {
 public:
-  UserStrategy(JsonValue config)
-  : last_reset_time_(0)
-  , our_deals_total_amount_(0)
-  , trading_finished_(false)
-  {
+  explicit UserStrategy(const JsonValue& config) :
+      last_reset_time_(0),
+      our_deals_total_amount_(0),
+      trading_finished_(false) {
     deals_count_by_dir_.fill(0);
     min_deals_count_diff_ = config["min_deals_count_diff"].as<int>(100);
     deals_reset_period_ms_ = config["deals_reset_period_ms"].as<Milliseconds>(10ms);
@@ -272,7 +269,7 @@ using namespace hftbattle;
 class UserStrategy : public ParticipantStrategy {
 public:
 
-  UserStrategy(JsonValue config) :
+  explicit UserStrategy(const JsonValue& config) :
       max_executed_amount_(config["max_executed_amount"].as<Amount>(50)),
       max_amount_at_price_(config["max_amount_at_price"].as<Amount>(3)),
       max_amount_to_run_from_best_(config["max_amount_to_run_from_best"].as<Amount>(20)),
