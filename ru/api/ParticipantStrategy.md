@@ -86,8 +86,7 @@ virtual void signal_deals_update(std::vector<Deal>&& /*deals*/);
 
 Возвращает значение типа bool — была ли ваша заявка принята торговой системой.
 Внимание: заявка может быть не принята по нескольким причинам.
-Подробнее читайте в документации.
-TODO(asalikhov): add links to docs.
+Подробнее читайте в документации: <https://docs.hftbattle.com/ru/FAQ.html#simulator>
 
 ```c++
 bool add_limit_order(Dir dir, Price price, Amount amount);
@@ -101,8 +100,7 @@ bool add_limit_order(Dir dir, Price price, Amount amount);
 
 Возвращает значение типа bool — была ли принята ваша заявка.
 Внимание: заявка может быть не принята по нескольким причинам.
-Подробнее читайте в документации.
-TODO(asalikhov): add links to docs.
+Подробнее читайте в документации: <https://docs.hftbattle.com/ru/FAQ.html#simulator>
 
 ```c++
 bool add_ioc_order(Dir dir, Price price, Amount amount);
