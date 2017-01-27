@@ -43,7 +43,9 @@ class JsonView;
 Пример использования для получения объекта типа string — `config["имя_поля_в_json"].as<std::string>()`.
 
 Есть возможность задавать значение по умолчанию в скобках (оно будет использовано, если в JSON нет такого поля):
-`config["имя_поля_в_json"].as<string>("строка_по_умолчанию")`.
+
+- `config["имя_поля_в_json"].as<string>("строка_по_умолчанию")`.
+- `config["time"].as<Microseconds>(Microseconds(10))`
 
 ```c++
 template<typename T>
