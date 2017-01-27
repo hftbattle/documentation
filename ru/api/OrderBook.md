@@ -121,7 +121,7 @@ QuotesHolder all_quotes(Dir dir) const;
 #### quotes_count() {#quotes_count}
 
 Принимает направление dir (BID (покупка) или ASK (продажа)).
-Количество котировок по направлению dir.
+Возвращает количество котировок по направлению dir.
 
 ```c++
 size_t quotes_count(Dir dir) const;
