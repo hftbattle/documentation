@@ -57,11 +57,17 @@ A: Время, прошедшее от отправки заявки на бир
 
 ---
 
+##### Q: Я установил *stop_loss* c помощью метода [set_stop_loss_result](api/ParticipantStrategy.html#set_stop_loss_result). Почему я получил меньший результат?
+
+A: Закрытие позиции позиции происходит немоментально и в момент закрытия цена может сильно измениться и поэтому ваш итоговый результат может оказаться как меньше, так и больше того, который вы установили как *stop_loss*.
+
+---
+
 ## API симулятора {#api}
 
 ##### Q: Как узнать текущую лучшую цену по направлению?
 
-A: Текущую лучшую цену можно узнать непосредственно у стакана [trading_book](api/ParticipantStrategy.md#trading_book) c помощью метода OrderBook [best_price](api/OrderBook.md#best_price):
+A: Текущую лучшую цену можно узнать непосредственно у стакана [trading_book](api/ParticipantStrategy.md#trading_book) c помощью метода [best_price](api/OrderBook.md#best_price) у объекта OrderBook :
 
 ```c++
 Price best_price = trading_book().best_price(dir);
