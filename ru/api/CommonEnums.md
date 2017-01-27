@@ -5,6 +5,7 @@
 Путь в Local Pack `include/base/common_enums.h`
 
 Enum, описывающий направление сделок, котировок.
+
 - BID, BUY, 0 означают покупку.
 - ASK, SELL, 1 означают продажу.
 
@@ -17,6 +18,7 @@ enum Dir : uint8_t;
 Путь в Local Pack `include/base/common_enums.h`
 
 Enum class, описывающий возможное состояние заявки:
+
 - Adding — заявка была послана на добавление, но ещё не была добавлена.
   Такое происходит из-за того, что есть задержка между тем, как заявка была послана и тем, как она действительно появилась на бирже.
 - Active — заявка добавлена.
@@ -33,6 +35,7 @@ enum class OrderStatus : uint8_t;
 Путь в Local Pack `include/base/common_enums.h`
 
 Enum class, описывающий с какой стороны рисовать ось y для графика (слева или справа).
+
 - Left - слева.
 - Right - справа.
 
@@ -45,6 +48,7 @@ enum class ChartYAxisType : int8_t;
 Путь в Local Pack `include/base/common_enums.h`
 
 Принимает направление dir (BID (покупка) или ASK (продажа)).
+
 Возвращает противоположное направление.
 
 ```c++
@@ -56,6 +60,7 @@ inline Dir opposite_dir(Dir dir);
 Путь в Local Pack `include/base/common_enums.h`
 
 Принимает направление dir (BID (покупка) или ASK (продажа)).
+
 Возвращает знак этого направления (1 для BID и -1 для ASK).
 
 ```c++

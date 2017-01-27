@@ -72,6 +72,7 @@ SecurityId security_id() const;
 #### status() {#status}
 
 Возвращает значение enum class, статус заявки.
+
 Возможные статусы: в процессе добавления (Adding), активная (Active), в процессе удаления, но ещё не удалённая (Deleting) и удалённая (Deleted).
 Подробнее читайте в описании класса OrderStatus.
 TODO(asalikhov): add links to docs.

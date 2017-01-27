@@ -37,6 +37,7 @@
 #### quote_by_index() {#quote_by_index}
 
 Принимает направление dir (BID (покупка) или ASK (продажа)) и порядковый номер index.
+
 Возвращает котировку по направлению dir с порядковым номером index.
 
 ```c++
@@ -46,6 +47,7 @@ const Quote& quote_by_index(Dir dir, size_t index) const;
 #### price_by_index() {#price_by_index}
 
 Принимает направление dir (BID (покупка) или ASK (продажа)) и порядковый номер index.
+
 Возвращает цену котировки по направлению dir с порядковым номером index.
 
 ```c++
@@ -55,6 +57,7 @@ Price price_by_index(Dir dir, size_t index) const;
 #### volume_by_index() {#volume_by_index}
 
 Принимает направление dir (BID (покупка) или ASK (продажа)) и порядковый номер index.
+
 Возвращает суммарный объём лотов по направлению dir с порядковым номером index.
 
 ```c++
@@ -64,6 +67,7 @@ Amount volume_by_index(Dir dir, size_t index) const;
 #### quote_by_price() {#quote_by_price}
 
 Принимает направление dir (BID (покупка) или ASK (продажа)) и цену price.
+
 Возвращает котировку по направлению dir с ценой price.
 
 ```c++
@@ -73,6 +77,7 @@ const Quote& quote_by_price(Dir dir, Price price) const;
 #### index_by_price() {#index_by_price}
 
 Принимает направление dir (BID (покупка) или ASK (продажа)) и цену price.
+
 Возвращает порядковый номер котировки по направлению dir с ценой price.
 
 ```c++
@@ -82,6 +87,7 @@ size_t index_by_price(Dir dir, Price price) const;
 #### volume_by_price() {#volume_by_price}
 
 Принимает направление dir (BID (покупка) или ASK (продажа)) и цену price.
+
 Возвращает суммарный объём лотов по направлению dir с ценой price.
 
 ```c++
@@ -91,6 +97,7 @@ Amount volume_by_price(Dir dir, Price price) const;
 #### best_price() {#best_price}
 
 Принимает направление dir (BID (покупка) или ASK (продажа)).
+
 Возвращает лучшую цену в стакане по направлению dir.
 
 ```c++
@@ -100,6 +107,7 @@ Price best_price(Dir dir) const;
 #### best_volume() {#best_volume}
 
 Принимает направление dir (BID (покупка) или ASK (продажа)).
+
 Возвращает суммарный объём лотов на лучшей цене по направлению dir.
 
 ```c++
@@ -109,6 +117,7 @@ Amount best_volume(Dir dir) const;
 #### all_quotes() {#all_quotes}
 
 Принимает направление dir (BID (покупка) или ASK (продажа)).
+
 Возвращает все котировки по направлению dir в виде объекта QuotesHolder.
 Внимание: QuotesHolder — контейнер, по которому можно итерироваться.
 Подробнее читайте в документации.
@@ -121,6 +130,7 @@ QuotesHolder all_quotes(Dir dir) const;
 #### quotes_count() {#quotes_count}
 
 Принимает направление dir (BID (покупка) или ASK (продажа)).
+
 Возвращает количество котировок по направлению dir.
 
 ```c++
@@ -204,6 +214,7 @@ SecurityId security_id() const;
 #### added_volume_at_price() {#added_volume_at_price}
 
 Принимает направление dir (BID (покупка) или ASK (продажа)) и цену price.
+
 Возвращает объём добавленных заявок по направлению dir и цене price, по сравнению с предыдущим обновлением стакана.
 
 ```c++
@@ -213,6 +224,7 @@ SecurityId security_id() const;
 #### deleted_volume_at_price() {#deleted_volume_at_price}
 
 Принимает направление dir (BID (покупка) или ASK (продажа)) и цену price.
+
 Возвращает объём удалённых заявок по направлению dir и цене price, по сравнению с предыдущим обновлением стакана.
 
 ```c++
