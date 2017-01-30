@@ -31,7 +31,7 @@
 {% codetabs name="C++", type="c++" -%}
 Amount amount(Dir dir, Price price) const;
 {%- language name="Python", type="py" -%}
-def amount(self, dir, Price price)
+def amount(self, dir, price)
 {%- endcodetabs %}
 
 #### size_by_dir() {#size_by_dir}

@@ -38,7 +38,7 @@
 {% codetabs name="C++", type="c++" -%}
 Dir dir() const;
 {%- language name="Python", type="py" -%}
-def dir(self, )
+def dir(self)
 {%- endcodetabs %}
 
 #### price() {#price}
@@ -48,7 +48,7 @@ def dir(self, )
 {% codetabs name="C++", type="c++" -%}
 Price price() const;
 {%- language name="Python", type="py" -%}
-def price(self, )
+def price(self)
 {%- endcodetabs %}
 
 #### volume() {#volume}
@@ -58,7 +58,7 @@ def price(self, )
 {% codetabs name="C++", type="c++" -%}
 Amount volume() const;
 {%- language name="Python", type="py" -%}
-def volume(self, )
+def volume(self)
 {%- endcodetabs %}
 
 #### server_time() {#server_time}
@@ -68,7 +68,7 @@ def volume(self, )
 {% codetabs name="C++", type="c++" -%}
 Microseconds server_time() const;
 {%- language name="Python", type="py" -%}
-def server_time(self, )
+def server_time(self)
 {%- endcodetabs %}
 
 #### local_time() {#local_time}
@@ -78,5 +78,5 @@ def server_time(self, )
 {% codetabs name="C++", type="c++" -%}
 Microseconds local_time() const;
 {%- language name="Python", type="py" -%}
-def local_time(self, )
+def local_time(self)
 {%- endcodetabs %}

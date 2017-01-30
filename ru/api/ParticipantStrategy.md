@@ -97,7 +97,7 @@ virtual void signal_deals_update(std::vector<Deal>&& /*deals*/);
 {% codetabs name="C++", type="c++" -%}
 bool add_limit_order(Dir dir, Price price, Amount amount);
 {%- language name="Python", type="py" -%}
-def add_limit_order(self, dir, Price price, Amount amount)
+def add_limit_order(self, dir, price, amount)
 {%- endcodetabs %}
 
 #### add_ioc_order() {#add_ioc_order}
@@ -113,7 +113,7 @@ def add_limit_order(self, dir, Price price, Amount amount)
 {% codetabs name="C++", type="c++" -%}
 bool add_ioc_order(Dir dir, Price price, Amount amount);
 {%- language name="Python", type="py" -%}
-def add_ioc_order(self, dir, Price price, Amount amount)
+def add_ioc_order(self, dir, price, amount)
 {%- endcodetabs %}
 
 #### delete_order() {#delete_order}
@@ -128,7 +128,7 @@ TODO(asalikhov): add links to docs.
 {% codetabs name="C++", type="c++" -%}
 void delete_order(Order* order);
 {%- language name="Python", type="py" -%}
-def delete_order(self, Order order)
+def delete_order(self, order)
 {%- endcodetabs %}
 
 #### delete_all_orders_at_dir() {#delete_all_orders_at_dir}
@@ -152,7 +152,7 @@ def delete_all_orders_at_dir(self, dir)
 {% codetabs name="C++", type="c++" -%}
 void delete_all_orders_at_price(Dir dir, Price price);
 {%- language name="Python", type="py" -%}
-def delete_all_orders_at_price(self, dir, Price price)
+def delete_all_orders_at_price(self, dir, price)
 {%- endcodetabs %}
 
 #### amount_before_order() {#amount_before_order}
@@ -164,7 +164,7 @@ def delete_all_orders_at_price(self, dir, Price price)
 {% codetabs name="C++", type="c++" -%}
 Amount amount_before_order(const Order* order) const;
 {%- language name="Python", type="py" -%}
-def amount_before_order(self, Order order)
+def amount_before_order(self, order)
 {%- endcodetabs %}
 
 #### volume_by_price() {#volume_by_price}
@@ -176,7 +176,7 @@ def amount_before_order(self, Order order)
 {% codetabs name="C++", type="c++" -%}
 Amount volume_by_price(Dir dir, Price price) const;
 {%- language name="Python", type="py" -%}
-def volume_by_price(self, dir, Price price)
+def volume_by_price(self, dir, price)
 {%- endcodetabs %}
 
 #### add_chart_point() {#add_chart_point}
@@ -191,7 +191,7 @@ def volume_by_price(self, dir, Price price)
 {% codetabs name="C++", type="c++" -%}
 void add_chart_point(const std::string& line_name, double value, ChartYAxisType y_axis_type,
 {%- language name="Python", type="py" -%}
-def add_chart_point(self, str line_name, double value, int y_axis_type, uint8_t chart_number)
+def add_chart_point(self, line_name, value, y_axis_type, chart_number)
 {%- endcodetabs %}
 
 #### current_result() {#current_result}
@@ -202,7 +202,7 @@ def add_chart_point(self, str line_name, double value, int y_axis_type, uint8_t 
 {% codetabs name="C++", type="c++" -%}
 Price current_result() const;
 {%- language name="Python", type="py" -%}
-def current_result(self, )
+def current_result(self)
 {%- endcodetabs %}
 
 #### saldo() {#saldo}
@@ -213,7 +213,7 @@ def current_result(self, )
 {% codetabs name="C++", type="c++" -%}
 Price saldo();
 {%- language name="Python", type="py" -%}
-def saldo(self, )
+def saldo(self)
 {%- endcodetabs %}
 
 #### signal_security_exists() {#signal_security_exists}
@@ -223,7 +223,7 @@ def saldo(self, )
 {% codetabs name="C++", type="c++" -%}
 bool signal_security_exists() const;
 {%- language name="Python", type="py" -%}
-def signal_security_exists(self, )
+def signal_security_exists(self)
 {%- endcodetabs %}
 
 #### local_time() {#local_time}
@@ -233,7 +233,7 @@ def signal_security_exists(self, )
 {% codetabs name="C++", type="c++" -%}
 Microseconds local_time() const;
 {%- language name="Python", type="py" -%}
-def local_time(self, )
+def local_time(self)
 {%- endcodetabs %}
 
 #### server_time() {#server_time}
@@ -243,7 +243,7 @@ def local_time(self, )
 {% codetabs name="C++", type="c++" -%}
 Microseconds server_time() const;
 {%- language name="Python", type="py" -%}
-def server_time(self, )
+def server_time(self)
 {%- endcodetabs %}
 
 #### server_time_tm() {#server_time_tm}
@@ -254,7 +254,7 @@ def server_time(self, )
 {% codetabs name="C++", type="c++" -%}
 tm server_time_tm() const;
 {%- language name="Python", type="py" -%}
-def server_time_tm(self, )
+def server_time_tm(self)
 {%- endcodetabs %}
 
 #### set_max_total_amount() {#set_max_total_amount}
@@ -266,7 +266,7 @@ def server_time_tm(self, )
 {% codetabs name="C++", type="c++" -%}
 void set_max_total_amount(const Amount max_total_amount);
 {%- language name="Python", type="py" -%}
-def set_max_total_amount(self, uint32_t max_total_amount)
+def set_max_total_amount(self, max_total_amount)
 {%- endcodetabs %}
 
 #### set_stop_loss_result() {#set_stop_loss_result}
@@ -280,7 +280,7 @@ def set_max_total_amount(self, uint32_t max_total_amount)
 {% codetabs name="C++", type="c++" -%}
 void set_stop_loss_result(const Decimal stop_loss_result);
 {%- language name="Python", type="py" -%}
-def set_stop_loss_result(self, Decimal stop_loss_result)
+def set_stop_loss_result(self, stop_loss_result)
 {%- endcodetabs %}
 
 #### executed_amount() {#executed_amount}
@@ -291,7 +291,7 @@ def set_stop_loss_result(self, Decimal stop_loss_result)
 {% codetabs name="C++", type="c++" -%}
 Amount executed_amount() const;
 {%- language name="Python", type="py" -%}
-def executed_amount(self, )
+def executed_amount(self)
 {%- endcodetabs %}
 
 #### total_amount() {#total_amount}
@@ -301,7 +301,7 @@ def executed_amount(self, )
 {% codetabs name="C++", type="c++" -%}
 Amount total_amount() const;
 {%- language name="Python", type="py" -%}
-def total_amount(self, )
+def total_amount(self)
 {%- endcodetabs %}
 
 #### is_our() {#is_our}
@@ -313,7 +313,7 @@ def total_amount(self, )
 {% codetabs name="C++", type="c++" -%}
 bool is_our(const Order* order) const;
 {%- language name="Python", type="py" -%}
-def is_our(self, Order order)
+def is_our(self, order)
 {%- endcodetabs %}
 
 #### is_our() {#is_our}
@@ -325,7 +325,7 @@ def is_our(self, Order order)
 {% codetabs name="C++", type="c++" -%}
 bool is_our(const Deal& deal) const;
 {%- language name="Python", type="py" -%}
-def is_our(self, Deal deal)
+def is_our(self, deal)
 {%- endcodetabs %}
 
 #### trading_book() {#trading_book}

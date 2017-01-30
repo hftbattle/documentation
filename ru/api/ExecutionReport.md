@@ -22,7 +22,7 @@
 {% codetabs name="C++", type="c++" -%}
 Order* order() const;
 {%- language name="Python", type="py" -%}
-def order(self, )
+def order(self)
 {%- endcodetabs %}
 
 #### price() {#price}
@@ -32,7 +32,7 @@ def order(self, )
 {% codetabs name="C++", type="c++" -%}
 Price price() const;
 {%- language name="Python", type="py" -%}
-def price(self, )
+def price(self)
 {%- endcodetabs %}
 
 #### amount() {#amount}
@@ -42,7 +42,7 @@ def price(self, )
 {% codetabs name="C++", type="c++" -%}
 Amount amount() const;
 {%- language name="Python", type="py" -%}
-def amount(self, )
+def amount(self)
 {%- endcodetabs %}
 
 #### dir() {#dir}
@@ -52,5 +52,5 @@ def amount(self, )
 {% codetabs name="C++", type="c++" -%}
 Dir dir() const;
 {%- language name="Python", type="py" -%}
-def dir(self, )
+def dir(self)
 {%- endcodetabs %}

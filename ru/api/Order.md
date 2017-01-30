@@ -28,7 +28,7 @@
 {% codetabs name="C++", type="c++" -%}
 Id id() const;
 {%- language name="Python", type="py" -%}
-def id(self, )
+def id(self)
 {%- endcodetabs %}
 
 #### dir() {#dir}
@@ -38,7 +38,7 @@ def id(self, )
 {% codetabs name="C++", type="c++" -%}
 Dir dir() const;
 {%- language name="Python", type="py" -%}
-def dir(self, )
+def dir(self)
 {%- endcodetabs %}
 
 #### price() {#price}
@@ -48,7 +48,7 @@ def dir(self, )
 {% codetabs name="C++", type="c++" -%}
 Price price() const;
 {%- language name="Python", type="py" -%}
-def price(self, )
+def price(self)
 {%- endcodetabs %}
 
 #### amount() {#amount}
@@ -58,7 +58,7 @@ def price(self, )
 {% codetabs name="C++", type="c++" -%}
 Amount amount() const;
 {%- language name="Python", type="py" -%}
-def amount(self, )
+def amount(self)
 {%- endcodetabs %}
 
 #### amount_rest() {#amount_rest}
@@ -68,7 +68,7 @@ def amount(self, )
 {% codetabs name="C++", type="c++" -%}
 Amount amount_rest() const;
 {%- language name="Python", type="py" -%}
-def amount_rest(self, )
+def amount_rest(self)
 {%- endcodetabs %}
 
 #### security_id() {#security_id}
@@ -78,7 +78,7 @@ def amount_rest(self, )
 {% codetabs name="C++", type="c++" -%}
 SecurityId security_id() const;
 {%- language name="Python", type="py" -%}
-def security_id(self, )
+def security_id(self)
 {%- endcodetabs %}
 
 #### status() {#status}
@@ -92,7 +92,7 @@ TODO(asalikhov): add links to docs.
 {% codetabs name="C++", type="c++" -%}
 OrderStatus status() const;
 {%- language name="Python", type="py" -%}
-def status(self, )
+def status(self)
 {%- endcodetabs %}
 
 #### origin_server_time() {#origin_server_time}
@@ -102,7 +102,7 @@ def status(self, )
 {% codetabs name="C++", type="c++" -%}
 Microseconds origin_server_time() const;
 {%- language name="Python", type="py" -%}
-def origin_server_time(self, )
+def origin_server_time(self)
 {%- endcodetabs %}
 
 #### local_time() {#local_time}
@@ -112,5 +112,5 @@ def origin_server_time(self, )
 {% codetabs name="C++", type="c++" -%}
 Microseconds local_time() const;
 {%- language name="Python", type="py" -%}
-def local_time(self, )
+def local_time(self)
 {%- endcodetabs %}

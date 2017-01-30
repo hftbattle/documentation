@@ -25,7 +25,7 @@
 {% codetabs name="C++", type="c++" -%}
 Dir aggressor_side() const;
 {%- language name="Python", type="py" -%}
-def aggressor_side(self, )
+def aggressor_side(self)
 {%- endcodetabs %}
 
 #### price() {#price}
@@ -35,7 +35,7 @@ def aggressor_side(self, )
 {% codetabs name="C++", type="c++" -%}
 Price price() const;
 {%- language name="Python", type="py" -%}
-def price(self, )
+def price(self)
 {%- endcodetabs %}
 
 #### amount() {#amount}
@@ -45,7 +45,7 @@ def price(self, )
 {% codetabs name="C++", type="c++" -%}
 Amount amount() const;
 {%- language name="Python", type="py" -%}
-def amount(self, )
+def amount(self)
 {%- endcodetabs %}
 
 #### server_time() {#server_time}
@@ -55,7 +55,7 @@ def amount(self, )
 {% codetabs name="C++", type="c++" -%}
 Microseconds server_time() const;
 {%- language name="Python", type="py" -%}
-def server_time(self, )
+def server_time(self)
 {%- endcodetabs %}
 
 #### local_time() {#local_time}
@@ -65,7 +65,7 @@ def server_time(self, )
 {% codetabs name="C++", type="c++" -%}
 Microseconds local_time() const;
 {%- language name="Python", type="py" -%}
-def local_time(self, )
+def local_time(self)
 {%- endcodetabs %}
 
 #### orders() {#orders}
@@ -75,7 +75,7 @@ def local_time(self, )
 {% codetabs name="C++", type="c++" -%}
 const RawOrdersArray orders() const;
 {%- language name="Python", type="py" -%}
-def orders(self, )
+def orders(self)
 {%- endcodetabs %}
 
 #### id() {#id}
@@ -86,5 +86,5 @@ def orders(self, )
 {% codetabs name="C++", type="c++" -%}
 Id id() const;
 {%- language name="Python", type="py" -%}
-def id(self, )
+def id(self)
 {%- endcodetabs %}

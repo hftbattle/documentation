@@ -45,7 +45,7 @@
 {% codetabs name="C++", type="c++" -%}
 const Quote& quote_by_index(Dir dir, size_t index) const;
 {%- language name="Python", type="py" -%}
-def quote_by_index(self, dir, size_t index)
+def quote_by_index(self, dir, index)
 {%- endcodetabs %}
 
 #### price_by_index() {#price_by_index}
@@ -57,7 +57,7 @@ def quote_by_index(self, dir, size_t index)
 {% codetabs name="C++", type="c++" -%}
 Price price_by_index(Dir dir, size_t index) const;
 {%- language name="Python", type="py" -%}
-def price_by_index(self, dir, size_t index)
+def price_by_index(self, dir, index)
 {%- endcodetabs %}
 
 #### volume_by_index() {#volume_by_index}
@@ -69,7 +69,7 @@ def price_by_index(self, dir, size_t index)
 {% codetabs name="C++", type="c++" -%}
 Amount volume_by_index(Dir dir, size_t index) const;
 {%- language name="Python", type="py" -%}
-def volume_by_index(self, dir, size_t index)
+def volume_by_index(self, dir, index)
 {%- endcodetabs %}
 
 #### quote_by_price() {#quote_by_price}
@@ -81,7 +81,7 @@ def volume_by_index(self, dir, size_t index)
 {% codetabs name="C++", type="c++" -%}
 const Quote& quote_by_price(Dir dir, Price price) const;
 {%- language name="Python", type="py" -%}
-def quote_by_price(self, dir, Price price)
+def quote_by_price(self, dir, price)
 {%- endcodetabs %}
 
 #### index_by_price() {#index_by_price}
@@ -93,7 +93,7 @@ def quote_by_price(self, dir, Price price)
 {% codetabs name="C++", type="c++" -%}
 size_t index_by_price(Dir dir, Price price) const;
 {%- language name="Python", type="py" -%}
-def index_by_price(self, dir, Price price)
+def index_by_price(self, dir, price)
 {%- endcodetabs %}
 
 #### volume_by_price() {#volume_by_price}
@@ -105,7 +105,7 @@ def index_by_price(self, dir, Price price)
 {% codetabs name="C++", type="c++" -%}
 Amount volume_by_price(Dir dir, Price price) const;
 {%- language name="Python", type="py" -%}
-def volume_by_price(self, dir, Price price)
+def volume_by_price(self, dir, price)
 {%- endcodetabs %}
 
 #### best_price() {#best_price}
@@ -164,7 +164,7 @@ def quotes_count(self, dir)
 {% codetabs name="C++", type="c++" -%}
 size_t depth() const;
 {%- language name="Python", type="py" -%}
-def depth(self, )
+def depth(self)
 {%- endcodetabs %}
 
 #### server_time() {#server_time}
@@ -174,7 +174,7 @@ def depth(self, )
 {% codetabs name="C++", type="c++" -%}
 Microseconds server_time() const;
 {%- language name="Python", type="py" -%}
-def server_time(self, )
+def server_time(self)
 {%- endcodetabs %}
 
 #### local_time() {#local_time}
@@ -184,7 +184,7 @@ def server_time(self, )
 {% codetabs name="C++", type="c++" -%}
 Microseconds local_time() const;
 {%- language name="Python", type="py" -%}
-def local_time(self, )
+def local_time(self)
 {%- endcodetabs %}
 
 #### orders() {#orders}
@@ -195,7 +195,7 @@ TODO(asalikhov): add links to docs.
 {% codetabs name="C++", type="c++" -%}
 const SecurityOrdersSnapshot& orders() const;
 {%- language name="Python", type="py" -%}
-def orders(self, )
+def orders(self)
 {%- endcodetabs %}
 
 #### middle_price() {#middle_price}
@@ -205,7 +205,7 @@ def orders(self, )
 {% codetabs name="C++", type="c++" -%}
 Price middle_price() const;
 {%- language name="Python", type="py" -%}
-def middle_price(self, )
+def middle_price(self)
 {%- endcodetabs %}
 
 #### min_step() {#min_step}
@@ -215,7 +215,7 @@ def middle_price(self, )
 {% codetabs name="C++", type="c++" -%}
 Price min_step() const;
 {%- language name="Python", type="py" -%}
-def min_step(self, )
+def min_step(self)
 {%- endcodetabs %}
 
 #### spread_in_min_steps() {#spread_in_min_steps}
@@ -225,7 +225,7 @@ def min_step(self, )
 {% codetabs name="C++", type="c++" -%}
 size_t spread_in_min_steps() const;
 {%- language name="Python", type="py" -%}
-def spread_in_min_steps(self, )
+def spread_in_min_steps(self)
 {%- endcodetabs %}
 
 #### book_updates_count() {#book_updates_count}
@@ -236,7 +236,7 @@ def spread_in_min_steps(self, )
 {% codetabs name="C++", type="c++" -%}
 size_t book_updates_count() const;
 {%- language name="Python", type="py" -%}
-def book_updates_count(self, )
+def book_updates_count(self)
 {%- endcodetabs %}
 
 #### security_id() {#security_id}
@@ -246,7 +246,7 @@ def book_updates_count(self, )
 {% codetabs name="C++", type="c++" -%}
 SecurityId security_id() const;
 {%- language name="Python", type="py" -%}
-def security_id(self, )
+def security_id(self)
 {%- endcodetabs %}
 
 #### added_volume_at_price() {#added_volume_at_price}
