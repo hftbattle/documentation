@@ -74,7 +74,7 @@ public:
         add_limit_order(dir, best_price, amount);
       } else {  // есть хотя бы одна наша активная заявка
         auto first_order = our_orders.orders_by_dir(dir)[0];
-        const bool on_best_price = (first_order.price() == best_price);
+        const bool on_best_price = (first_order->price() == best_price);
         if (!on_best_price) {  // наша заявка стоит, но не на текущей лучшей цене
           delete_order(first_order);
           add_limit_order(dir, best_price, amount);
@@ -122,7 +122,7 @@ def trading_book_update(strat, order_book):
             strat.add_limit_order(dir, best_price, amount)
         else:
             first_order = our_orders.orders_by_dir(dir)[0]
-            on_best_price = (first_order.price() == best_price)
+            on_best_price = (first_order->price() == best_price)
             if not on_best_price:  # наша заявка стоит, но не на текущей лучшей цене
                 strat.delete_order(first_order)
                 strat.add_limit_order(dir, best_price, amount)
