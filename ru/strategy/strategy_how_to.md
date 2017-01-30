@@ -5,9 +5,11 @@
 Сначала научимся ставить заявку.
 Для этого предназначена функция:
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 bool add_limit_order(Dir dir, Price price, Amount amount);
-```
+{%- language name="Python", type="py" -%}
+def add_limit_order(self, dir, Price price, Amount amount)
+{%- endcodetabs %}
 
 Внимание: в **Python** функции *trading_book_update*, *trading_deals_update*, *execution_report_update* являются свободными, поэтому в них первым параметром передаётся стратегия **strat**, от которой и нужно вызывать методы стратегии.
 
