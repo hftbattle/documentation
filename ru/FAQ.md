@@ -81,9 +81,11 @@ A: На это может быть несколько причин:
 
 A: Текущую лучшую цену можно узнать непосредственно у стакана [trading_book](api/ParticipantStrategy.md#trading_book) c помощью метода [best_price](api/OrderBook.md#best_price) у объекта OrderBook :
 
-```c++
-Price best_price = trading_book().best_price(dir);
-```
+{% codetabs name="C++", type="c++" -%}
+Price best_price = strat.trading_book().best_price(dir);
+{%- language name="Python", type="py" -%}
+best_price = strat.trading_book().best_price(dir)
+{%- endcodetabs %}
 
 ---
 
