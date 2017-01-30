@@ -9,9 +9,9 @@ Enum, описывающий направление сделок, котиров
 - BID, BUY, 0 означают покупку.
 - ASK, SELL, 1 означают продажу.
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 enum Dir : uint8_t;
-```
+{%- endcodetabs %}
 
 ## OrderStatus
 
@@ -26,9 +26,11 @@ Enum class, описывающий возможное состояние зая�
   Такое происходит из-за того, что есть задержка между тем, как заявка была послана на удаление и тем, как она действительно удалилась на бирже.
 - Deleted — заявка была удалена.
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 enum class OrderStatus : uint8_t;
-```
+{%- language name="Python", type="py" -%}
+class OrderStatus(Enum)
+{%- endcodetabs %}
 
 ## ChartYAxisType
 
@@ -39,9 +41,11 @@ Enum class, описывающий с какой стороны рисовать
 - Left - слева.
 - Right - справа.
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 enum class ChartYAxisType : int8_t;
-```
+{%- language name="Python", type="py" -%}
+class ChartYAxisType(Enum)
+{%- endcodetabs %}
 
 ## opposite_dir
 
@@ -51,9 +55,9 @@ enum class ChartYAxisType : int8_t;
 
 Возвращает противоположное направление.
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 inline Dir opposite_dir(Dir dir);
-```
+{%- endcodetabs %}
 
 ## dir_sign
 
@@ -63,6 +67,6 @@ inline Dir opposite_dir(Dir dir);
 
 Возвращает знак этого направления (1 для BID и -1 для ASK).
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 inline int32_t dir_sign(Dir dir);
-```
+{%- endcodetabs %}

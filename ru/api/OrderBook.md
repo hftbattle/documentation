@@ -42,9 +42,11 @@
 
 Возвращает котировку по направлению dir с порядковым номером index.
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 const Quote& quote_by_index(Dir dir, size_t index) const;
-```
+{%- language name="Python", type="py" -%}
+def quote_by_index(self, dir, size_t index)
+{%- endcodetabs %}
 
 #### price_by_index() {#price_by_index}
 
@@ -52,9 +54,11 @@ const Quote& quote_by_index(Dir dir, size_t index) const;
 
 Возвращает цену котировки по направлению dir с порядковым номером index.
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 Price price_by_index(Dir dir, size_t index) const;
-```
+{%- language name="Python", type="py" -%}
+def price_by_index(self, dir, size_t index)
+{%- endcodetabs %}
 
 #### volume_by_index() {#volume_by_index}
 
@@ -62,9 +66,11 @@ Price price_by_index(Dir dir, size_t index) const;
 
 Возвращает суммарный объём лотов по направлению dir с порядковым номером index.
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 Amount volume_by_index(Dir dir, size_t index) const;
-```
+{%- language name="Python", type="py" -%}
+def volume_by_index(self, dir, size_t index)
+{%- endcodetabs %}
 
 #### quote_by_price() {#quote_by_price}
 
@@ -72,9 +78,11 @@ Amount volume_by_index(Dir dir, size_t index) const;
 
 Возвращает котировку по направлению dir с ценой price.
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 const Quote& quote_by_price(Dir dir, Price price) const;
-```
+{%- language name="Python", type="py" -%}
+def quote_by_price(self, dir, Price price)
+{%- endcodetabs %}
 
 #### index_by_price() {#index_by_price}
 
@@ -82,9 +90,11 @@ const Quote& quote_by_price(Dir dir, Price price) const;
 
 Возвращает порядковый номер котировки по направлению dir с ценой price.
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 size_t index_by_price(Dir dir, Price price) const;
-```
+{%- language name="Python", type="py" -%}
+def index_by_price(self, dir, Price price)
+{%- endcodetabs %}
 
 #### volume_by_price() {#volume_by_price}
 
@@ -92,9 +102,11 @@ size_t index_by_price(Dir dir, Price price) const;
 
 Возвращает суммарный объём лотов по направлению dir с ценой price.
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 Amount volume_by_price(Dir dir, Price price) const;
-```
+{%- language name="Python", type="py" -%}
+def volume_by_price(self, dir, Price price)
+{%- endcodetabs %}
 
 #### best_price() {#best_price}
 
@@ -102,9 +114,11 @@ Amount volume_by_price(Dir dir, Price price) const;
 
 Возвращает лучшую цену в стакане по направлению dir.
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 Price best_price(Dir dir) const;
-```
+{%- language name="Python", type="py" -%}
+def best_price(self, dir)
+{%- endcodetabs %}
 
 #### best_volume() {#best_volume}
 
@@ -112,9 +126,11 @@ Price best_price(Dir dir) const;
 
 Возвращает суммарный объём лотов на лучшей цене по направлению dir.
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 Amount best_volume(Dir dir) const;
-```
+{%- language name="Python", type="py" -%}
+def best_volume(self, dir)
+{%- endcodetabs %}
 
 #### all_quotes() {#all_quotes}
 
@@ -125,9 +141,9 @@ Amount best_volume(Dir dir) const;
 Подробнее читайте в документации.
 TODO(asalikhov): add links to docs.
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 QuotesHolder all_quotes(Dir dir) const;
-```
+{%- endcodetabs %}
 
 #### quotes_count() {#quotes_count}
 
@@ -135,83 +151,103 @@ QuotesHolder all_quotes(Dir dir) const;
 
 Возвращает количество котировок по направлению dir.
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 size_t quotes_count(Dir dir) const;
-```
+{%- language name="Python", type="py" -%}
+def quotes_count(self, dir)
+{%- endcodetabs %}
 
 #### depth() {#depth}
 
 Возвращает максимальное количество ценовых уровней, отображаемых в стакане (для обоих направлений оно одинаковое).
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 size_t depth() const;
-```
+{%- language name="Python", type="py" -%}
+def depth(self, )
+{%- endcodetabs %}
 
 #### server_time() {#server_time}
 
 Возвращает биржевое время последнего изменения стакана, в микросекундах.
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 Microseconds server_time() const;
-```
+{%- language name="Python", type="py" -%}
+def server_time(self, )
+{%- endcodetabs %}
 
 #### local_time() {#local_time}
 
 Возвращает локальное время последнего изменения стакана, в микросекундах.
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 Microseconds local_time() const;
-```
+{%- language name="Python", type="py" -%}
+def local_time(self, )
+{%- endcodetabs %}
 
 #### orders() {#orders}
 
 Возвращает ссылку на объект типа SecurityOrdersSnapshot, содержащую ваши текущие заявки.
 TODO(asalikhov): add links to docs.
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 const SecurityOrdersSnapshot& orders() const;
-```
+{%- language name="Python", type="py" -%}
+def orders(self, )
+{%- endcodetabs %}
 
 #### middle_price() {#middle_price}
 
 Возвращает полусумму лучших цен по обоим направлениям.
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 Price middle_price() const;
-```
+{%- language name="Python", type="py" -%}
+def middle_price(self, )
+{%- endcodetabs %}
 
 #### min_step() {#min_step}
 
 Возвращает минимальный шаг цены в стакане (минимальную возможную разницу между ценами).
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 Price min_step() const;
-```
+{%- language name="Python", type="py" -%}
+def min_step(self, )
+{%- endcodetabs %}
 
 #### spread_in_min_steps() {#spread_in_min_steps}
 
 Возвращает расстояние между лучшими ценами покупки и продажи в терминах минимального шага цены.
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 size_t spread_in_min_steps() const;
-```
+{%- language name="Python", type="py" -%}
+def spread_in_min_steps(self, )
+{%- endcodetabs %}
 
 #### book_updates_count() {#book_updates_count}
 
 Возвращает количество обновлений стакана с начала дня.
 Примечание: исследование изменения этой величины может быть использовано для получения информации об активности рынка.
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 size_t book_updates_count() const;
-```
+{%- language name="Python", type="py" -%}
+def book_updates_count(self, )
+{%- endcodetabs %}
 
 #### security_id() {#security_id}
 
 Возвращает указатель на инструмент, которому соответствует данный стакан.
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 SecurityId security_id() const;
-```
+{%- language name="Python", type="py" -%}
+def security_id(self, )
+{%- endcodetabs %}
 
 #### added_volume_at_price() {#added_volume_at_price}
 
@@ -219,9 +255,9 @@ SecurityId security_id() const;
 
 Возвращает объём добавленных заявок по направлению dir и цене price, по сравнению с предыдущим обновлением стакана.
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 
-```
+{%- endcodetabs %}
 
 #### deleted_volume_at_price() {#deleted_volume_at_price}
 
@@ -229,6 +265,6 @@ SecurityId security_id() const;
 
 Возвращает объём удалённых заявок по направлению dir и цене price, по сравнению с предыдущим обновлением стакана.
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 
-```
+{%- endcodetabs %}

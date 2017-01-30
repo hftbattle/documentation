@@ -12,9 +12,11 @@
 
 Внимание: напрямую выводить Decimal в cout/cerr/printf нельзя, однако можно воспользоваться SCREEN()
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 class Decimal;
-```
+{%- language name="Python", type="py" -%}
+cdef class Decimal
+{%- endcodetabs %}
 
 ## Json
 
@@ -25,9 +27,9 @@ class Decimal;
 
 Для получения значения переменной в стратегии нужно воспользоваться методом "as".
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 class JsonView;
-```
+{%- endcodetabs %}
 
 ### Методы
 
@@ -47,9 +49,9 @@ class JsonView;
 - `config["имя_поля_в_json"].as<string>("строка_по_умолчанию")`.
 - `config["time"].as<Microseconds>(Microseconds(10))`
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 template<typename T>
-```
+{%- endcodetabs %}
 
 ## Amount
 
@@ -57,9 +59,9 @@ template<typename T>
 
 Синоним int32_t для повышения читабельности кода.
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 using Amount = int32_t;
-```
+{%- endcodetabs %}
 
 ## Price
 
@@ -67,9 +69,9 @@ using Amount = int32_t;
 
 Синоним класса Decimal, читайте подробнее про класс Decimal.
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 using Price = Decimal;
-```
+{%- endcodetabs %}
 
 ## Id
 
@@ -77,9 +79,9 @@ using Price = Decimal;
 
 Числовой идентификатор, синоним uint64_t.
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 using Id = uint64_t;
-```
+{%- endcodetabs %}
 
 ## Microseconds
 
@@ -88,9 +90,9 @@ using Id = uint64_t;
 Синоним std::chrono::microseconds.
 Подробнее читайте здесь: <http://en.cppreference.com/w/cpp/chrono/duration>.
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 using Microseconds = std::chrono::microseconds;
-```
+{%- endcodetabs %}
 
 ## kMinStopLossResult
 
@@ -98,9 +100,9 @@ using Microseconds = std::chrono::microseconds;
 
 Минимальное значение результата, которого может достичь ваша стратегия.
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 static constexpr Decimal kMinStopLossResult = Decimal(-50000.0);
-```
+{%- endcodetabs %}
 
 ## kMaximumMaxExecutedAmount
 
@@ -108,9 +110,9 @@ static constexpr Decimal kMinStopLossResult = Decimal(-50000.0);
 
 Ваша стратегия не может сделать больше чем kMaximumMaxExecutedAmount заявок.
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 static constexpr Amount kMaximumMaxExecutedAmount = 50 * 75;
-```
+{%- endcodetabs %}
 
 ## SCREEN
 
@@ -119,9 +121,9 @@ static constexpr Amount kMaximumMaxExecutedAmount = 50 * 75;
 Один из потоков вывода.
 Данные в этом потоке выводятся, если установлен уровень логгирования SCREEN и ниже.
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 #define SCREEN() PRIVATE_LOG(getCurrentLoggerId(), hftbattle::LogLevel::Screen)
-```
+{%- endcodetabs %}
 
 ## ERROR
 
@@ -131,6 +133,6 @@ static constexpr Amount kMaximumMaxExecutedAmount = 50 * 75;
 Данные в этом потоке выводятся, если установлен любой уровень логгирования.
 После этого программа прекращает свою работу.
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 #define ERROR() PRIVATE_LOG(getCurrentLoggerId(), hftbattle::LogLevel::Error)
-```
+{%- endcodetabs %}

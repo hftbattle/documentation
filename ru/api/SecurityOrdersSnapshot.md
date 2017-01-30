@@ -28,9 +28,11 @@
 
 Возвращает суммарный объём ваших заявок с заданной ценой price по направлению dir.
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 Amount amount(Dir dir, Price price) const;
-```
+{%- language name="Python", type="py" -%}
+def amount(self, dir, Price price)
+{%- endcodetabs %}
 
 #### size_by_dir() {#size_by_dir}
 
@@ -38,9 +40,11 @@ Amount amount(Dir dir, Price price) const;
 
 Возвращает количество всех ваших текущих заявок по направлению dir.
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 size_t size_by_dir(Dir dir) const;
-```
+{%- language name="Python", type="py" -%}
+def size_by_dir(self, dir)
+{%- endcodetabs %}
 
 #### active_orders_count() {#active_orders_count}
 
@@ -48,9 +52,11 @@ size_t size_by_dir(Dir dir) const;
 
 Возвращает количество ваших активных заявок по направлению dir, т.е. заявок со статусом Active.
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 size_t active_orders_count(Dir dir) const;
-```
+{%- language name="Python", type="py" -%}
+def active_orders_count(self, dir)
+{%- endcodetabs %}
 
 #### active_orders_volume() {#active_orders_volume}
 
@@ -58,9 +64,11 @@ size_t active_orders_count(Dir dir) const;
 
 Возвращает суммарный объём ваших активных заявок по направлению dir, т.е. заявок со статусом Active.
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 Amount active_orders_volume(Dir dir) const;
-```
+{%- language name="Python", type="py" -%}
+def active_orders_volume(self, dir)
+{%- endcodetabs %}
 
 #### orders_by_dir() {#orders_by_dir}
 
@@ -68,9 +76,11 @@ Amount active_orders_volume(Dir dir) const;
 
 Возвращает vector указателей на ваши заявки, т.е. vector указателей на объекты класса Order, по направлению dir.
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 const Orders& orders_by_dir(Dir dir) const;
-```
+{%- language name="Python", type="py" -%}
+def orders_by_dir(self, dir)
+{%- endcodetabs %}
 
 #### orders_by_dir_as_map() {#orders_by_dir_as_map}
 
@@ -79,9 +89,11 @@ const Orders& orders_by_dir(Dir dir) const;
 Возвращает map, в котором каждой цене соответствует vector заявок по направлению dir.
 Внимание: map всегда упорядочен по возрастанию цены в независимости от dir.
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 OrdersMap orders_by_dir_as_map(Dir dir) const;
-```
+{%- language name="Python", type="py" -%}
+def orders_by_dir_as_map(self, dir)
+{%- endcodetabs %}
 
 #### deleting_amount_by_dir() {#deleting_amount_by_dir}
 
@@ -89,6 +101,8 @@ OrdersMap orders_by_dir_as_map(Dir dir) const;
 
 Возвращает суммарный объём заявок по направлению dir, отправленных на удаление, но еще не удалённых, т.е. со статусом Deleting.
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 Amount deleting_amount_by_dir(Dir dir) const;
-```
+{%- language name="Python", type="py" -%}
+def deleting_amount_by_dir(self, dir)
+{%- endcodetabs %}

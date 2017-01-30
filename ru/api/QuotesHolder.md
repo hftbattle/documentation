@@ -21,30 +21,30 @@
 
 Итератор начала списка.
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 const_iterator begin() const;
-```
+{%- endcodetabs %}
 
 #### end() {#end}
 
 Итератор конца списка.
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 const_iterator end() const;
-```
+{%- endcodetabs %}
 
 #### rbegin() {#rbegin}
 
 Обратный итератор конца списка.
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 const_reverse_iterator rbegin() const;
-```
+{%- endcodetabs %}
 
 #### rend() {#rend}
 
 Обратный итератор конца списка.
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 const_reverse_iterator rend() const;
-```
+{%- endcodetabs %}

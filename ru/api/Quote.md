@@ -35,38 +35,48 @@
 
 Возвращает направление котировки (BID (покупка) или ASK (продажа)).
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 Dir dir() const;
-```
+{%- language name="Python", type="py" -%}
+def dir(self, )
+{%- endcodetabs %}
 
 #### price() {#price}
 
 Возвращает цену котировки.
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 Price price() const;
-```
+{%- language name="Python", type="py" -%}
+def price(self, )
+{%- endcodetabs %}
 
 #### volume() {#volume}
 
 Возвращает суммарное количество лотов на данном ценовом уровне.
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 Amount volume() const;
-```
+{%- language name="Python", type="py" -%}
+def volume(self, )
+{%- endcodetabs %}
 
 #### server_time() {#server_time}
 
 Возвращает биржевое время последнего изменения котировки в микросекундах.
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 Microseconds server_time() const;
-```
+{%- language name="Python", type="py" -%}
+def server_time(self, )
+{%- endcodetabs %}
 
 #### local_time() {#local_time}
 
 Возвращает локальное время последнего изменения котировки в микросекундах.
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 Microseconds local_time() const;
-```
+{%- language name="Python", type="py" -%}
+def local_time(self, )
+{%- endcodetabs %}
