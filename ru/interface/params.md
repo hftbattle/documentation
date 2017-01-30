@@ -62,7 +62,9 @@
 Параметры файла конфигурации приводятся к нужному типу с помощью метода `as<param_type>(deafult_value)`.
 При этом если вы не выберете значения для параметра, для него будет использовано значение по умолчанию `deafult_value`.
 
-```c++
+{% codetabs name="C++", type="c++" -%}
+#include "participant_strategy.h"
+
 class UserStrategy : public ParticipantStrategy {
 public:
   // Параметры стратегии, которые хочется подобрать.
@@ -85,6 +87,39 @@ public:
     // us - микросекунды.
     time_param = config["time_param"].as<Microseconds>(3s);
   }
+};
 
-}
-```
+REGISTER_CONTEST_STRATEGY(UserStrategy, user_strategy)
+{%- language name="Python", type="py" -%}
+# -*- coding: utf-8 -*-
+
+from py_defs import *
+
+
+BID = 0
+ASK = 1
+
+def trading_deals_update(strat, deals):
+    pass
+
+
+def trading_book_update(strat, order_book):
+    pass
+
+
+def execution_report_update(strat, execution_report):
+    pass
+
+
+# В конструктор стратегии участника передается файл конфигурации.
+# В файл конфигурации из веб-интерфейса можно передать параметры стратегии.
+def init(strat, config):
+    # Параметры стратегии, которые хочется подобрать.
+    # Тип параметра определяется только тем, как вы его зададите в JSON
+    # Числовые значения не надо заключать в кавычки
+    global int_param, double_param, time_param
+    int_param = config["int_param"]
+    double_param = config["double_param"]
+    # Здесь хранится тоже число
+    time_param = config["time_param"]
+{%- endcodetabs %}
