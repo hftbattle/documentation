@@ -28,7 +28,7 @@ cdef class Decimal
 Для получения значения переменной в стратегии нужно воспользоваться методом "as".
 
 {% codetabs name="C++", type="c++" -%}
-class JsonView;
+class JsonValue : private std::unique_ptr<Json::Value>, public JsonView;
 {%- endcodetabs %}
 
 ### Методы
@@ -48,10 +48,6 @@ class JsonView;
 
 - `config["имя_поля_в_json"].as<string>("строка_по_умолчанию")`.
 - `config["time"].as<Microseconds>(Microseconds(10))`
-
-{% codetabs name="C++", type="c++" -%}
-template<typename T>
-{%- endcodetabs %}
 
 ## Amount
 
