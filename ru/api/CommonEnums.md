@@ -11,6 +11,8 @@ Enum, описывающий направление сделок, котиров
 
 {% codetabs name="C++", type="c++" -%}
 enum Dir : uint8_t;
+{%- language name="Python", type="py" -%}
+BID = BUY = 0
 {%- endcodetabs %}
 
 ## OrderStatus
@@ -29,7 +31,7 @@ Enum class, описывающий возможное состояние зая�
 {% codetabs name="C++", type="c++" -%}
 enum class OrderStatus : uint8_t;
 {%- language name="Python", type="py" -%}
-class OrderStatus(Enum)
+class OrderStatus
 {%- endcodetabs %}
 
 ## ChartYAxisType
@@ -44,7 +46,7 @@ Enum class, описывающий с какой стороны рисовать
 {% codetabs name="C++", type="c++" -%}
 enum class ChartYAxisType : int8_t;
 {%- language name="Python", type="py" -%}
-class ChartYAxisType(Enum)
+class ChartYAxisType
 {%- endcodetabs %}
 
 ## opposite_dir
@@ -57,6 +59,8 @@ class ChartYAxisType(Enum)
 
 {% codetabs name="C++", type="c++" -%}
 inline Dir opposite_dir(Dir dir);
+{%- language name="Python", type="py" -%}
+def opposite_dir(dir)
 {%- endcodetabs %}
 
 ## dir_sign
@@ -69,4 +73,6 @@ inline Dir opposite_dir(Dir dir);
 
 {% codetabs name="C++", type="c++" -%}
 inline int32_t dir_sign(Dir dir);
+{%- language name="Python", type="py" -%}
+def dir_sign(dir)
 {%- endcodetabs %}
