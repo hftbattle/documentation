@@ -86,7 +86,7 @@ public:
                         best_price.get_double(),  // переводим тип Price в double
                         ChartYAxisType::Left,     // используем левую вертикальную ось
                         1);                       // 1 - номер графика
-        best_price_by_dir[dir] = order_book.best_price(dir);
+        best_price_by_dir[dir] = best_price;
       }
     }
   }
