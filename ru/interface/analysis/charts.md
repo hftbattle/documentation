@@ -101,15 +101,11 @@ REGISTER_CONTEST_STRATEGY(UserStrategy, user_strategy)
 # -*- coding: utf-8 -*-
 
 from py_defs import *
+from common_enums import *
 from py_defs import Decimal as Price
 
-BID = 0
-ASK = 1
 best_price_by_dir = [Price(), Price()]
 axis_name = ["best_bid", "best_ask"]
-
-def trading_deals_update(strat, deals):
-    pass
 
 
 def trading_book_update(strat, order_book):
@@ -130,20 +126,11 @@ def trading_book_update(strat, order_book):
         if best_price != best_price_by_dir[dir]:
             strat.add_chart_point(axis_name[dir],
                                   best_price.get_double(),
-                                  0, # пока, к сожалению, надо использовать 0, а не ChartYAxisType.Left
+                                  ChartYAxisType.Left,
                                   1)
             best_price_by_dir[dir] = best_price
-
-
-def execution_report_update(strat, execution_report):
-    pass
-
-
-def init(strat, config):
-    pass
 {%- endcodetabs %}
 
-<!-- TODO(asalikhov): ChartYAxisType instead of zero, when this gets fixed -->
 <!-- TODO(asalikhov): Rename Decimal to Price -->
 
 В результате на графике "Chart 1" получим следующую картинку:

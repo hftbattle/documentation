@@ -94,21 +94,7 @@ REGISTER_CONTEST_STRATEGY(UserStrategy, user_strategy)
 # -*- coding: utf-8 -*-
 
 from py_defs import *
-
-
-BID = 0
-ASK = 1
-
-def trading_deals_update(strat, deals):
-    pass
-
-
-def trading_book_update(strat, order_book):
-    pass
-
-
-def execution_report_update(strat, execution_report):
-    pass
+from common_enums import *
 
 
 # В конструктор стратегии участника передается файл конфигурации.

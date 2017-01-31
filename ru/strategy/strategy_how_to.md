@@ -8,7 +8,7 @@
 {% codetabs name="C++", type="c++" -%}
 bool add_limit_order(Dir dir, Price price, Amount amount);
 {%- language name="Python", type="py" -%}
-def add_limit_order(self, dir, Price price, Amount amount)
+def add_limit_order(self, dir, price, amount)
 {%- endcodetabs %}
 
 Внимание: в **Python** функции *trading_book_update*, *trading_deals_update*, *execution_report_update* являются свободными, поэтому в них первым параметром передаётся стратегия **strat**, от которой и нужно вызывать методы стратегии.
@@ -118,14 +118,7 @@ REGISTER_CONTEST_STRATEGY(UserStrategy, user_strategy)
 # -*- coding: utf-8 -*-
 
 from py_defs import *
-
-
-BID = 0
-ASK = 1
-
-
-def trading_deals_update(strat, deals):
-    pass
+from common_enums import *
 
 
 def trading_book_update(strat, order_book):
@@ -141,14 +134,6 @@ def trading_book_update(strat, order_book):
             if not on_best_price:  # наша заявка стоит, но не на текущей лучшей цене
                 strat.delete_order(first_order)
                 strat.add_limit_order(dir, best_price, amount)
-
-
-def execution_report_update(strat, execution_report):
-    pass
-
-
-def init(strat, config):
-    pass
 {%- endcodetabs %}
 
 Теперь вы можете писать простейшие стратегии.
