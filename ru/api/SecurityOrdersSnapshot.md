@@ -12,7 +12,7 @@
 
 | Имя | Описание |
 | --- | --- |
-| [amount()](#amount) | Объём заявок с заданной ценой и направлением. |
+| [volume()](#volume) | Объём заявок с заданной ценой и направлением. |
 | [size_by_dir()](#size_by_dir) | Количество текущих заявок в данном направлении. |
 | [active_orders_count()](#active_orders_count) | Количество активных заявок в данном направлении. |
 | [active_orders_volume()](#active_orders_volume) | Объём активных заявок в данном направлении. |
@@ -22,16 +22,16 @@
 
 ### Описание методов
 
-#### amount() {#amount}
+#### volume() {#volume}
 
 Принимает направление dir (BID (покупка) или ASK (продажа)) и цену price.
 
 Возвращает суммарный объём ваших заявок с заданной ценой price по направлению dir.
 
 {% codetabs name="C++", type="c++" -%}
-Amount amount(Dir dir, Price price) const;
+Amount volume(Dir dir, Price price) const;
 {%- language name="Python", type="py" -%}
-def amount(self, dir, price)
+def volume(self, dir, price)
 {%- endcodetabs %}
 
 #### size_by_dir() {#size_by_dir}
