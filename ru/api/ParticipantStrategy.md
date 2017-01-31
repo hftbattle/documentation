@@ -200,7 +200,7 @@ def add_chart_point(self, line_name, value, y_axis_type, chart_number)
 Учитываются как исполненные, так и просто поставленные заявки.
 
 {% codetabs name="C++", type="c++" -%}
-Price current_result() const;
+Decimal current_result() const;
 {%- language name="Python", type="py" -%}
 def current_result(self)
 {%- endcodetabs %}
@@ -211,7 +211,7 @@ def current_result(self)
 Учитываются только исполненные заявки.
 
 {% codetabs name="C++", type="c++" -%}
-Price saldo();
+Decimal saldo();
 {%- language name="Python", type="py" -%}
 def saldo(self)
 {%- endcodetabs %}

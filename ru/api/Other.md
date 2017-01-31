@@ -27,6 +27,8 @@ cdef class Decimal
 
 Для получения значения переменной в стратегии нужно воспользоваться методом "as".
 
+В **Python**, это обычный dict.
+
 {% codetabs name="C++", type="c++" -%}
 class JsonValue : private std::unique_ptr<Json::Value>, public JsonView;
 {%- endcodetabs %}
@@ -85,6 +87,8 @@ using Id = uint64_t;
 
 Синоним std::chrono::microseconds.
 Подробнее читайте здесь: <http://en.cppreference.com/w/cpp/chrono/duration>.
+
+В **Python**, это просто int.
 
 {% codetabs name="C++", type="c++" -%}
 using Microseconds = std::chrono::microseconds;
