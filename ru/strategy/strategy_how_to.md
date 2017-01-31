@@ -118,6 +118,7 @@ REGISTER_CONTEST_STRATEGY(UserStrategy, user_strategy)
 # -*- coding: utf-8 -*-
 
 from py_defs import *
+from py_defs import Decimal as Price
 from common_enums import *
 
 
