@@ -17,7 +17,7 @@
 
 <a id="lot"></a>
 
-- **Lot** is a set of goods for sale together in an auction; or a quantity of a financial instrument.
+- A **lot** represents the standardized quantity of a financial instrument as set out by an exchange or similar regulatory body.
 
 <a id="order"></a>
 
@@ -25,39 +25,43 @@
 
 <a id="limit_order"></a>
 
-- **A limit order** is an order to buy a security at no more than a specific price, or to sell a security at no less than a specific price (called "or better" for either direction).
+- **A limit order** is an order to buy a security at no more than a specific price, or to sell a security at no less than a specific price.
 
 <a id="ioc_order"></a>
 
-- **Immediate or cancel (IOC) orders** are immediately executed or cancelled by the exchange.
+- **Immediate or cancel (IOC) orders** are immediately executed or canceled by the exchange.
+  An IOC order requires all or part of the order to be executed immediately, and any unfilled parts of the order are canceled.
 
 <a id="order_book"></a>
 
-- An **order book** is the list of orders (manual or electronic) that a trading venue (in particular stock exchanges) uses to record the interest of buyers and sellers in a particular financial instrument.
+- An **order book** is the list of orders that a trading venue (in particular stock exchanges) uses to record the interest of buyers and sellers in a particular financial instrument.
+  An order book is displayed as a table, in which prices are sorted upwards.
+  Green color signifies purchase, red one - sale.
   <p align="center">
   <img src="{{ book["gitbook.img"] }}/order_book_example.png" title="An order book example">
   </p>
 
 <a id="bid"></a>
 
-- **Bid** is the price a market maker will buy a commodity at to buy a product in such a way.
+- **Bid** is the price a market participant will buy a commodity at to buy a product in such a way.
 
 <a id="ask"></a>
 
-- **ASK** is the price a market maker will sell a commodity at to sell a product in such a way.
+- **ASK** is the price a market participant will sell a commodity at to sell a product in such a way.
 
-<a id="spred"></a>
+<a id="spread"></a>
 
-- **The bid-ask spred** is the difference between the prices quoted (either by a single market maker or in a limit order book) for an immediate sale (bid) and an immediate purchase (offer) for stocks, futures contracts, options, or currency pairs.
+- **The bid-ask spread** is the difference between the best BID and best ASK prices.
 
 <a id="deal"></a>
 
-- **Deal** is an agreement, especially in business, on particular conditions for buying or doing something.
+- **Deal** is a purschase/sale of lots with an amount not exceeding the amount of an order.
+  In other words, it's a matching (execution) of an order with an order in other direction.
 
 <a id="position"></a>
 
 - **Position** is the difference between bought and sold lots.
-  It is positive if the customer sold more lots than bought and negative otherwise.
+  It is positive if the customer bought more lots than sold and negative otherwise.
 
 <a id="saldo"></a>
 

@@ -9,7 +9,7 @@
     "contest.landing-page.url": "https://www.hftbattle.com",
     "contest.landing-page.name": "hftbattle.com",
 
-    "contest.arena.url": "https://arena.hftbattle.com",
+    "contest.arena.url": "https://www.hftbattle.com/arena",
     "contest.arena.leaderboard.url": "https://arena.hftbattle.com/leaderboard",
     "contest.arena.name": "arena.hftbattle.com",
 
@@ -72,7 +72,9 @@
     "constraint.position": "50",
     "constraint.stop_loss": "-50000$",
     "constraint.comission": "0.2$",
-    "constraint.roundtrip": "10"
+    "constraint.roundtrip": "10",
+
+    "comission.equation": "0.2$ * 5000 = 1000$"
   },
   "plugins": ["language-picker", "edit-link", "disqus", "anchorjs", "search-languages", "-lunr", "yametrika", "expandable-chapters", "codetabs", "copy-code-button"],
   "pluginsConfig": {

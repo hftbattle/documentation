@@ -19,7 +19,7 @@ def add_limit_order(self, dir, price, amount)
 - *price* - цена, по которой заявка будет выставлена
 - *amount* - размер заявки
 
-Будем выставлять нашу заявку внутри функции [trading_book_update](/api/ParticipantStrategy.md#trading_book_update), когда нам приходит новый стакан `const OrderBook& order_book`.
+Будем выставлять нашу заявку внутри функции [trading_book_update](/api/ParticipantStrategy.md#trading_book_update), когда нам приходит новый стакан `order_book`.
 Для определения лучшей цены используем метод [best_price](/api/OrderBook.md#best_price) класса [OrderBook](/api/OrderBook.md):
 
 {% codetabs name="C++", type="c++" -%}
@@ -51,7 +51,7 @@ our_orders = order_book.orders()
 
 Здесь мы используем метод [orders](/api/OrderBook.md#orders), возвращающий ссылку на объект типа [SecurityOrdersSnapshot](/api/SecurityOrdersSnapshot.md).
 
-> Замечание 1: Определенная выше переменная `orders` содержит и те заявки, которые мы уже отправили, но на которые ещё не отправили запрос на удаление.
+> Замечание 1: Определённая выше переменная `orders` содержит в том числе и те заявки, которые мы уже отправили, но на которые ещё не отправили запрос на удаление.
 > Поэтому если для какой-то заявки будет вызван метод [delete_order](/api/ParticipantStrategy.md#delete_order), то к следующему обновлению в `orders` этой заявки точно не будет, даже если в реальности она ещё не успела удалиться.
 >
 > Замечание 2: Обновление объекта [order_book.orders()](/api/OrderBook.md#orders) происходит только между апдейтами, внутри апдейта она не меняется.
@@ -82,7 +82,7 @@ def trading_book_update(strat, order_book):
 
 В такой реализации есть минус – если лучшая цена изменится, то мы на это не отреагируем.
 Это может привести к тому, что мы долго не будем торговать по одному из направлений.
-Чтобы получить цену нашей активной заявки используем поле [orders_by_dir](/api/SecurityOrdersSnapshot.md#orders_by_dir) класса [SecurityOrdersSnapshot](/api/SecurityOrdersSnapshot.md#).
+Чтобы получить цену нашей активной заявки, используем метод [orders_by_dir()](/api/SecurityOrdersSnapshot.md#orders_by_dir) класса [SecurityOrdersSnapshot](/api/SecurityOrdersSnapshot.md#).
 Полный код стратегии будет выглядеть так:
 
 {% codetabs name="C++", type="c++" -%}
@@ -92,7 +92,7 @@ using namespace hftbattle;
 
 class UserStrategy : public ParticipantStrategy {
 public:
-  explicit UserStrategy(const JsonValue& /*config*/) { }
+  explicit UserStrategy(const JsonValue& config) { }
 
   void trading_book_update(const OrderBook& order_book) override {
     const auto& our_orders = order_book.orders();

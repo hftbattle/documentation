@@ -13,7 +13,7 @@
 
 - [Обновление стакана](#book_update)
 - [Обновление сделок](#deals_update)
-- [Отчёт о наших сделках](#execution_report_update)
+- [Отчёт об исполнении вашей заявки](#execution_report_update)
 
 ### Структура стратегий на языке C++ {#cpp}
 
@@ -36,16 +36,16 @@ class UserStrategy : public ParticipantStrategy {
 public:
   // В конструктор стратегии участника передается файл конфигурации.
   // В файл конфигурации из веб-интерфейса можно передать параметры стратегии.
-  explicit UserStrategy(const JsonValue& /*config*/) { }
+  explicit UserStrategy(const JsonValue& config) { }
 
   // Вызывается симулятором при получении нового стакана торгового инструмента.
-  void trading_book_update(const OrderBook& /*order_book*/) override { }
+  void trading_book_update(const OrderBook& order_book) override { }
 
   // Вызывается симулятором при получении новых сделок торгового инструмента.
-  void trading_deals_update(std::vector<Deal>&& /*deals*/) override { }
+  void trading_deals_update(std::vector<Deal>&& deals) override { }
 
   // Вызывается симулятором при получении отчёта о сделке с участием вашей заявки.
-  void execution_report_update(const ExecutionReport& /*execution_report*/) override { }
+  void execution_report_update(const ExecutionReport& execution_report) override { }
 };
 
 REGISTER_CONTEST_STRATEGY(UserStrategy, user_strategy)
@@ -96,16 +96,17 @@ def init(strat, config):
 Она принимает на вход ссылку на [OrderBook](/api/OrderBook.md), который является новой версией торгового стакана.
 
 > Стакан, пришедший в метод *trading_book_update* совпадает со стаканом, который вы получите, вызвав метод [trading_book](/api/ParticipantStrategy.md).
-  Он будет полезен, если вы захотите получить стакан в других методах.
+  Этот метод может быть использован для получения стакана в других методах.
 
 #### Обновление сделок {#deals_update}
 
 Помимо изменений стакана полезной информацией являются совершённые сделки.
-Для того, чтобы получать и обрабатывать эти изменения, применяется функция [trading_deals_update](/api/ParticipantStrategy.md#trading_deals_update), которая принимает в качестве аргумента вектор элементов класса [Deal](/api/Deal.md), который хранит в себе информацию об одной совершённой сделке.
+Для того, чтобы получать и обрабатывать эти изменения, применяется функция [trading_deals_update](/api/ParticipantStrategy.md#trading_deals_update), которая принимает в качестве аргумента вектор элементов класса [Deal](/api/Deal.md).
+Каждый элемент этого вектора хранит в себе информацию об одной совершённой сделке.
 Заметьте, что по каждой совершенной сделке информация о ней приходит **ровно один раз**.
 Однако, одна заявка **может участвовать в нескольких сделках**.
 
-#### Отчёт о наших сделках {#execution_report_update}
+#### Отчёт об исполнении вашей заявки {#execution_report_update}
 
-Функция [execution_report_update](/api/ParticipantStrategy.md#execution_report_update) предназначена для того, чтобы получать информацию о сделках, с участием наших заявок.
+Функция [execution_report_update](/api/ParticipantStrategy.md#execution_report_update) предназначена для того, чтобы получать информацию о сделках с участием наших заявок.
 На каждую такую сделку приходит отдельный *execution_report_update*.

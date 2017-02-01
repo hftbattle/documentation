@@ -1,4 +1,5 @@
 ## Примеры стратегий
+<!-- TODO(asalikhov): rewrite -->
 
 Рассмотрим здесь несколько примеров торговых стратегий:
 
@@ -234,8 +235,8 @@ public:
     }
   }
 
-  // Вызывается при получении отчета о сделке с участием вашего ордера:
-  // @execution_report – структура-отчет о совершенной сделке.
+  // Вызывается при получении отчёта о сделке с участием вашего ордера:
+  // @execution_report – структура-отчёт о совершенной сделке.
   void execution_report_update(const ExecutionReport& execution_report) override {
     our_deals_total_amount_ += execution_report.deal_amount();
     if (our_deals_total_amount_ > our_deals_max_total_amount_) {

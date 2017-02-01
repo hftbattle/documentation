@@ -19,7 +19,7 @@
 - Компилятор g++:
 
   ```bash
-  sudo apt-get install gcc
+  sudo apt-get install g++
   ```
 
 - [CMake]({{ book["cmake.url"] }}):
