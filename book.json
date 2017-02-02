@@ -26,7 +26,6 @@
     "contest.local-pack.url": "https://github.com/hftbattle/hftbattle",
     "contest.local-pack.readme": "https://github.com/hftbattle/hftbattle/blob/master/README.md",
     "contest.local-pack.data.url": "https://www.dropbox.com/s/s1uxgs3vj3tgvr7/data.zip?dl=1",
-    "contest.local-pack.virtual.url": "https://s3.eu-central-1.amazonaws.com/hftbattle/vm-hftbattle.ova",
 
     "blog.url": "http://blog.hftbattle.com",
 
@@ -36,7 +35,6 @@
     "data.small_day": "2015.09.29",
     "data.full_day": "2015.12.23",
     "git.url": "http://git-scm.com/download",
-    "virtualbox.url": "https://www.virtualbox.org",
     "tdm-gcc.url": "http://tdm-gcc.tdragon.net",
     "tdm-gcc-download.url": "http://tdm-gcc.tdragon.net/download",
 
@@ -52,8 +50,6 @@
 
     "viewer.url": "http://viewer.hftbattle.com",
     "viewer.name": "viewer.hftbattle.com",
-
-    "virtual.system": "Ubuntu 16.04",
 
     "trading.begin_time": "02:00:00",
     "trading.end_time": "23:45:00",

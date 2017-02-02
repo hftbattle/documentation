@@ -12,7 +12,6 @@
     - [Logs](interface/analysis/logs.md)
   - [Parameter tuning](interface/params.md)
 - [Local Pack](local-pack/README.md)
-  - [Virtual machine](local-pack/virtual.md)
   - [Dependency handling](local-pack/requirements.md)
   - [Data](local-pack/data.md)
   - [Strategy running](local-pack/run_strategy.md)

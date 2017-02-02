@@ -22,7 +22,6 @@
   - [Биржевые данные](local-pack/data.md)
   - [Добавление стратегии](local-pack/add_strategy.md)
   - [Запуск стратегии](local-pack/run_strategy.md)
-  - [Виртуальная машина](local-pack/virtual.md)
 - [Написание стратегий](strategy/README.md)
   - [Структура стратегий](strategy/structure.md)
   - [Как написать стратегию](strategy/strategy_how_to.md)
