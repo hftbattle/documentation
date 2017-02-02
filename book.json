@@ -58,9 +58,6 @@
     "trading.begin_time": "02:00:00",
     "trading.end_time": "23:45:00",
     "trading.daily_deals": "5-10",
-    "trading.min_step": "25",
-    "trading.lot_cost": "0.5$",
-    "trading.min_cost": "12.5$",
 
     "constraint.symbol": "10^6",
     "constraint.string": "10^3",
