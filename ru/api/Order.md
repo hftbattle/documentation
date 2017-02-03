@@ -1,138 +1,116 @@
-#Order
-Путь в Local Pack-е: `include/order.h`
+# Order
 
-Заявка - это пара <цена, количество лотов>.
-Класс Order представляет собой реализацию биржевой заявки.
+Путь в Local Pack `include/order.h`
 
-###Поля
+Описание биржевой заявки.
 
-|Имя| Описание|
-|------------------|--------------------|
-|[id](#id)|Наш (внутренний) ID заявки.|
-|[dir](#dir)|Направление заявки.|
-|[price](#price)|Цена заявки.|
-|[amount](#amount)|Объем заявки (количество лотов).|
-|[time_in_force](#time_in_force)|Тип заявки - Limit или IOC.|
-|[market_id](#market_id)|ID биржи.|
-|[security](#security)|Инструмент, к которому относится заявка.|
-|[kMaxCommentLength](#kMaxCommentLength)|Максимальная длина комментария к заявке.|
-|[server_time](#server_time)|Биржевое время постановки заявки в стакан в тиках.|
-|[origin_time](#origin_time)|Локальное время постановки заявки в стакан в тиках.|
+### Методы
 
-###Методы
+| Имя | Описание |
+| --- | --- |
+| [id()](#id) | Уникальный идентификатор заявки. |
+| [dir()](#dir) | Направление заявки. |
+| [price()](#price) | Цена заявки. |
+| [amount()](#amount) | Изначальный объём заявки. |
+| [amount_rest()](#amount_rest) | Текущий объём заявки. |
+| [security_id()](#security_id) | Указатель на инструмент, соответствующий заявке. |
+| [status()](#status) | Статус заявки. |
+| [origin_server_time()](#origin_server_time) | Биржевое время постановки заявки в стакан. |
+| [local_time()](#local_time) | Локальное время постановки заявки в стакан. |
 
-|Имя| Описание|
-|------------------|--------------------|
-|[amount_rest()](#amount_rest)|Текущий объем заявки. Может быть меньше начального, если были сделки с ее участием.|
-|[get_server_time()](#get_server_time)|Биржевое время последнего изменения (в микросекундах).|
-|[implied_amount()](#implied_amount)|Количество лотов, которое предположительно будет сведено.|
-|[status()](#status)|Статус заявки: в процессе добавления, активная, ждущая удаления, удаленная.|
-|[outer_id()](#outer_id)|Биржевой (внешний) ID заявки.|
+### Описание методов
 
-###Описание полей
-<a id="id"></a>
-####id
-```c++
-const Id id;
-```
-Наш (внутренний) ID заявки.
+#### id() {#id}
 
-<a id="dir"></a>
-####dir
-```c++
-const Dir dir;
-```
-Направление заявки.
+Возвращает уникальный числовой идентификатор заявки, полученный во время симуляции.
+Он может быть использован для сохранения какой-либо информации о заявке.
 
-<a id="price"></a>
-####price
-```c++
-const Price price;
-```
-Цена заявки.
+{% codetabs name="C++", type="c++" -%}
+Id id() const;
+{%- language name="Python", type="py" -%}
+def id(self)
+{%- endcodetabs %}
 
-<a id="amount"></a>
-####amount
-```c++
-const Amount amount;
-```
-Объем заявки (количество лотов).
+#### dir() {#dir}
 
-<a id="time_in_force"></a>
-####time_in_force
-```c++
-const OrderTimeInForce time_in_force;
-```
-Тип заявки - Limit или IOC.
+Возвращает направление заявки (BID (покупка) или ASK (продажа)).
 
-<a id="market_id"></a>
-####market_id
-```c++
-const MarketId market_id;
-```
-ID биржи.
+{% codetabs name="C++", type="c++" -%}
+Dir dir() const;
+{%- language name="Python", type="py" -%}
+def dir(self)
+{%- endcodetabs %}
 
-<a id="security"></a>
-####security
-```c++
-const Security* security;
-```
-Инструмент, к которому относится заявка.
+#### price() {#price}
 
-<a id="kMaxCommentLength"></a>
-####kMaxCommentLength
-```c++
-static const size_t kMaxCommentLength = 20;
-```
-Максимальная длина комментария к заявке.
+Возвращает цену заявки.
 
+{% codetabs name="C++", type="c++" -%}
+Price price() const;
+{%- language name="Python", type="py" -%}
+def price(self)
+{%- endcodetabs %}
 
-###Описание методов
-<a id="amount_rest"></a>
-####amount_rest()
-```c++
-inline Amount amount_rest() const;
-```
-Текущий объем заявки. Может быть меньше начального, если были сделки с ее участием.
+#### amount() {#amount}
 
-<a id="get_server_time"></a>
-####get_server_time()
-```c++
-Microseconds get_server_time() const;
-```
-Биржевое время последнего изменения (в микросекундах).
+Возвращает изначальный объём заявки (количество лотов).
 
-<a id="implied_amount"></a>
-####implied_amount()
-```c++
-inline Amount implied_amount() const;
-```
-Количество лотов, которое предположительно будет сведено.
+{% codetabs name="C++", type="c++" -%}
+Amount amount() const;
+{%- language name="Python", type="py" -%}
+def amount(self)
+{%- endcodetabs %}
 
-<a id="status"></a>
-####status()
-```c++
-inline OrderStatus status() const;
-```
-Статус заявки: в процессе добавления, активная, ждущая удаления, удаленная.
+#### amount_rest() {#amount_rest}
 
-<a id="outer_id"></a>
-####outer_id()
-```c++
-inline Id outer_id() const;
-```
-Биржевой (внешний) ID заявки.
+Возвращает текущий объём заявки (количество лотов этой заявки, которые ещё не были сведены).
 
-<a id="server_time"></a>
-####server_time
-```c++
-int64_t server_time;
-```
-Биржевое время постановки заявки в стакан в тиках.
+{% codetabs name="C++", type="c++" -%}
+Amount amount_rest() const;
+{%- language name="Python", type="py" -%}
+def amount_rest(self)
+{%- endcodetabs %}
 
-<a id="origin_time"></a>
-####origin_time
-```c++
-const Ticks origin_time;
-```
-Локальное время постановки заявки в стакан в тиках.
+#### security_id() {#security_id}
+
+Возвращает указатель на инструмент, к которому относится заявка (нужен для того, чтобы понимать, по какому из инструментов была поставлена заявка).
+
+{% codetabs name="C++", type="c++" -%}
+SecurityId security_id() const;
+{%- language name="Python", type="py" -%}
+def security_id(self)
+{%- endcodetabs %}
+
+#### status() {#status}
+
+Возвращает значение enum class, статус заявки.
+
+Возможные статусы: в процессе добавления (Adding), активная (Active), в процессе удаления, но ещё не удалённая (Deleting) и удалённая (Deleted).
+Подробнее читайте в описании класса OrderStatus.
+TODO(asalikhov): add links to docs.
+
+{% codetabs name="C++", type="c++" -%}
+OrderStatus status() const;
+{%- language name="Python", type="py" -%}
+def status(self)
+{%- endcodetabs %}
+
+#### origin_server_time() {#origin_server_time}
+
+Возвращает биржевое время постановки заявки в стакан в микросекундах.
+
+{% codetabs name="C++", type="c++" -%}
+Microseconds origin_server_time() const;
+{%- language name="Python", type="py" -%}
+def origin_server_time(self)
+{%- endcodetabs %}
+
+#### local_time() {#local_time}
+
+Возвращает локальное время постановки заявки в стакан в микросекундах.
+
+{% codetabs name="C++", type="c++" -%}
+Microseconds local_time() const;
+{%- language name="Python", type="py" -%}
+def local_time(self)
+{%- endcodetabs %}

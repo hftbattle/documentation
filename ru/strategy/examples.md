@@ -1,37 +1,37 @@
-##Примеры стратегий
+## Примеры стратегий
 
 Рассмотрим здесь несколько примеров торговых стратегий:
 
-* [Stay on best price strategy](#stay_on_best_price)
-    * [Base](#stay_on_best_price)
-    * [Improved](#stay_on_best_price_improved)
-* [Deals count diff strategy](#deals_count_diff)
-    * [Base](#deals_count_diff_base)
-    * [Limited](#deals_count_diff_limited)
-* [Improved ideas strategy](#improved_ideas)
+- [Stay on best price strategy](#stay_on_best_price)
+  - [Base](#stay_on_best_price)
+  - [Improved](#stay_on_best_price_improved)
+- [Deals count diff strategy](#deals_count_diff)
+  - [Base](#deals_count_diff_base)
+  - [Limited](#deals_count_diff_limited)
+- [Improved ideas strategy](#improved_ideas)
 
-<a id="stay_on_best_price"></a>
-####Stay on best price strategy
+#### Stay on best price strategy {#stay_on_best_price}
 
-Идея стратегии состоит в том, чтобы поддерживать на каждом направлении (*BID* и *ASK*) по одной нашей заявке на лучшей цене. В случае, если на направлении нет наших активных заявок, она ставит заявку объемом 1 на лучшую цену. Если заявка уже есть, но она стоит не на лучшей - мы ее снимаем и ставим новую на лучшую цену.
+Идея стратегии состоит в том, чтобы поддерживать на каждом направлении (*BID* и *ASK*) по одной нашей заявке на лучшей цене.
+В случае, если на направлении нет наших активных заявок, она ставит заявку объемом 1 на лучшую цену.
+Если заявка уже есть, но она стоит не на лучшей - мы ее снимаем и ставим новую на лучшую цену.
 
-<a id="stay_on_best_price"></a>
-Рассмотрим базовый вариант стратегии:
+##### Рассмотрим базовый вариант стратегии: {#stay_on_best_price_base}
 
 ```c++
-#include "./participant_strategy.h"
+#include "participant_strategy.h"
 
 using namespace hftbattle;
 
 class UserStrategy : public ParticipantStrategy {
 public:
-  UserStrategy(JsonValue config) {}
+  explicit UserStrategy(const JsonValue& config) { }
 
   // Вызывается при получении нового стакана торгового инструмента:
   // @order_book – новый стакан.
   void trading_book_update(const OrderBook& order_book) override {
     auto our_orders = trading_book_info.orders();
-    for (Dir dir: {BID, ASK}) {
+    for (Dir dir : {BID, ASK}) {
       const Price best_price = trading_book_info.best_price(dir);
       const Amount amount = 1;
       if (our_orders.active_orders_count(dir) == 0) {
@@ -50,14 +50,19 @@ public:
 };
 ```
 
-<a id="stay_on_best_price_improved"></a>
+##### Модифицируем предыдущую стратегию. {#stay_on_best_price_improved}
 
-[//]: #(Модифицируем предыдущую стратегию. Поскольку стратегия поддерживает только 1 заявку размером в 1 лот по каждому направлению, то свою позицию она меняет очень медленно. Для HFT-стратегий очень важна возможность быстро вернуться к нулевой позиции, поэтому мы попробуем ограничить максимально допустимую открытую позицию. Для этого достаточно в параметрах передать *max\_executed\_amount*. Согласно правилам [позиция](../terms.md#position) не может быть превышать 50, подробнее см. [Ограничения симулятора](../simulator.md#restrictions). Оптимальное значение можно подобрать, перебрав разные варианты в системе. Подробнее в разделе [Перебор параметров](../interface/params.md).)
+Поскольку стратегия поддерживает только 1 заявку размером в 1 лот по каждому направлению, то свою позицию она меняет очень медленно.
+Для HFT-стратегий очень важна возможность быстро вернуться к нулевой позиции, поэтому мы попробуем ограничить максимально допустимую открытую позицию.
+Для этого достаточно в параметрах передать *`max_executed_amount`*.
+Согласно правилам, [позиция](/terms.md#position) не может быть превышать 50, подробнее см. [Ограничения симулятора](/simulator/restrictions.md).
+Оптимальное значение можно подобрать, перебрав разные варианты в системе.
+Подробнее в разделе [Перебор параметров](/interface/params.md).
 
-Применим следующую простую оптимизацию: если на лучшей цене стоит объем меньший чем *min\_amount\_to\_stay\_on\_best\_*, то мы на нее выставляться не будем и снимем заявку если уже там стоим:
+Применим следующую простую оптимизацию: если на лучшей цене стоит объем меньший чем *`min_amount_to_stay_on_best_`*, то мы на нее выставляться не будем и снимем заявку если уже там стоим:
 
 ```c++
-#include "./participant_strategy.h"
+#include "participant_strategy.h"
 
 using namespace hftbattle;
 
@@ -71,7 +76,7 @@ public:
   // @order_book – новый стакан.
   void trading_book_update(const OrderBook& order_book) override {
     auto our_orders = trading_book_info.orders();
-    for (Dir dir: {BID, ASK}) {
+    for (Dir dir : {BID, ASK}) {
       const Price best_price = trading_book_info.best_price(dir);
       const Amount best_volume = trading_book_info.best_volume(dir);
       const bool can_stay_on_best = best_volume >= min_volume_to_stay_on_best_;
@@ -97,29 +102,26 @@ public:
 private:
     Amount min_volume_to_stay_on_best_;
 };
-
 ```
 
-<a id="deals_count_diff"></a>
-####Deals count diff strategy
+#### Deals count diff strategy {#deals_count_diff}
 
-Данная стратегия торгует на основе произошедших на бирже сделок: если абсолютная разность количества сделок на биде и аске за определенное время (*deals\_reset\_period\_ms\_*) больше некоторой фиксированной величины (*min\_deals\_count\_diff\_*), то стратегия выставляет заявку типа [IOC (Immediate-Or-Cancel)](../terms.md#ioc_order) по преобладающему направлению и обнуляет счетчики.
->  Замечание 1: направление сделки - это направление агрессора, то есть активной стороны, спровоцировавшей сделку.
+Данная стратегия торгует на основе произошедших на бирже сделок: если абсолютная разность количества сделок на биде и аске за определенное время (*`deals_reset_period_ms_`*) больше некоторой фиксированной величины (*`min_deals_count_diff_`*), то стратегия выставляет заявку типа [IOC (Immediate-Or-Cancel)](/terms.md#ioc_order) по преобладающему направлению и обнуляет счетчики.
 
+> Замечание 1: направление сделки - это направление агрессора, то есть активной стороны, спровоцировавшей сделку.
+>
 > Замечание 2: заявка типа IOC сразу после выполнения всех возможный сведений автоматически удаляется из стакана, в отличие от лимитной заявки, которая остается в стакане после выполнения всех возможных сведений.
 
-<a id="deals_count_diff_base"></a>
-```c++
+##### Рассмотрим базовый вариант стратегии: {#deals_count_diff_base}
 
-#include "./participant_strategy.h"
+```c++
+#include "participant_strategy.h"
 
 using namespace hftbattle;
 
 class UserStrategy : public ParticipantStrategy {
 public:
-  UserStrategy(JsonValue config)
-  : last_reset_time_(0)
-  {
+  explicit UserStrategy(const JsonValue& config) : last_reset_time_(0) {
     deals_count_by_dir_.fill(0);
     min_deals_count_diff_ = config["min_deals_count_diff"].as<int>(100);
     deals_reset_period_ms_ = config["deals_reset_period_ms"].as<Milliseconds>(10ms);
@@ -167,22 +169,21 @@ private:
 };
 ```
 
-<a id="deals_count_diff_limited"></a>
-Модифицируем предыдущую стратегию следующим образом: ограничим суммарный объем наших сделок, используя информацию, приходящую в функции [execution_report_update](../api/ParticipantStrategy.md#execution_report_update).
+##### Модифицируем предыдущую стратегию. {#deals_count_diff_limited}
 
+Модифицируем предыдущую стратегию следующим образом: ограничим суммарный объем наших сделок, используя информацию, приходящую в функции [execution_report_update](/api/ParticipantStrategy.md#execution_report_update).
 
 ```c++
-#include "./participant_strategy.h"
+#include "participant_strategy.h"
 
 using namespace hftbattle;
 
 class UserStrategy : public ParticipantStrategy {
 public:
-  UserStrategy(JsonValue config)
-  : last_reset_time_(0)
-  , our_deals_total_amount_(0)
-  , trading_finished_(false)
-  {
+  explicit UserStrategy(const JsonValue& config) :
+      last_reset_time_(0),
+      our_deals_total_amount_(0),
+      trading_finished_(false) {
     deals_count_by_dir_.fill(0);
     min_deals_count_diff_ = config["min_deals_count_diff"].as<int>(100);
     deals_reset_period_ms_ = config["deals_reset_period_ms"].as<Milliseconds>(10ms);
@@ -252,15 +253,15 @@ private:
   Milliseconds deals_reset_period_ms_;
   Amount our_deals_max_total_amount_;
 };
-
 ```
-<a id="improved_ideas"></a>
-####Improved ideas strategy
 
-Идея этой стратегии мы подробно описали в [блоге](http://blog.hftbattle.com). Стратегия даже в неизменённом виде позволяет набрать результат более $2000 на контрольной выборке.
+#### Improved ideas strategy {#improved_ideas}
+
+Идея этой стратегии мы подробно описали в [блоге]({{ book["blog.url"] }}).
+Стратегия даже в неизменённом виде позволяет набрать результат более $2000 на контрольной выборке.
 
 ```c++
-#include "./participant_strategy.h"
+#include "participant_strategy.h"
 #include <set>
 
 using namespace hftbattle;
@@ -268,7 +269,7 @@ using namespace hftbattle;
 class UserStrategy : public ParticipantStrategy {
 public:
 
-  UserStrategy(JsonValue config) :
+  explicit UserStrategy(const JsonValue& config) :
       max_executed_amount_(config["max_executed_amount"].as<Amount>(50)),
       max_amount_at_price_(config["max_amount_at_price"].as<Amount>(3)),
       max_amount_to_run_from_best_(config["max_amount_to_run_from_best"].as<Amount>(20)),
@@ -370,13 +371,13 @@ public:
     for (Dir dir : {BID, ASK}) {
       // Удаляем заявки с далёких ценовых уровней, чтобы не попадать под ограничение на набираемую позу.
       for(auto& order: trading_book_info.orders().orders_by_dir[dir]) {
-        if (trading_book->get_index_by_price(dir, order->price) > 9) {
+        if (trading_book().get_index_by_price(dir, order->price) > 9) {
           delete_order(order);
         }
       }
       // Выставляем заявки на все видимые котировки в стакане.
       auto active_orders = trading_book_info.orders().get_orders_by_dir_to_map(dir);
-      for (const auto& quote : trading_book->all_quotes(dir)) {
+      for (const auto& quote : trading_book().all_quotes(dir)) {
         Price quote_price = quote.get_price();
         Amount amount = get_wanted_amount(dir, quote_price);
         // По отдельности обрабатываем лучшие ценовые уровни и все остальные.

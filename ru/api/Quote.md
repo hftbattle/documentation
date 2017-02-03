@@ -1,56 +1,82 @@
-#Quote
-Путь в Local Pack-е: `include/quote.h`
+# Quote
 
-Котировка (или квота) - это термин для обозначения одного ценового уровня в стакане.
-Она характеризуется
-- направлением (покупка или продажа),
-- ценой,
-- объемом, т.е. количеством лотов, которые доступны для покупки/продажи по данной цене.
-В стратегии предлагается использовать один из методов класса OrderBook для получения
-объекта типа Quote (например, get_quote_by_index).
+## default_quote_price
 
-###Методы
+Путь в Local Pack `include/quote.h`
 
-|Имя| Описание|
-|------------------|--------------------|
-|[get_dir()](#get_dir)|Направление котировки.|
-|[get_price()](#get_price)|Цена котировки.|
-|[get_volume()](#get_volume)|Объем лотов котировки.|
-|[get_server_time()](#get_server_time)|Биржевое время последнего изменения в микросекундах.|
-|[get_local_time()](#get_local_time)|Локальное время последнего изменения в микросекундах.|
+Цена по умолчанию для обозначения пустого уровня.
+Принимает направление dir (BID (покупка) или ASK (продажа)).
 
-###Описание методов
-<a id="get_dir"></a>
-####get_dir()
-```c++
-inline Dir get_dir() const;
-```
-Направление котировки.
+Возвращает цену по умолчанию по направлению dir.
 
-<a id="get_price"></a>
-####get_price()
-```c++
-inline Price get_price() const;
-```
-Цена котировки.
+Внимание: если котировка не существует (в котировке нет заявок), то её цена совпадает с default_quote_price(dir).
+При этом в OrderBook нумеруются только непустые котировки.
 
-<a id="get_volume"></a>
-####get_volume()
-```c++
-inline Amount get_volume() const;
-```
-Объем лотов котировки.
+## Quote
 
-<a id="get_server_time"></a>
-####get_server_time()
-```c++
-Microseconds get_server_time() const;
-```
-Биржевое время последнего изменения в микросекундах.
+Путь в Local Pack `include/quote.h`
 
-<a id="get_local_time"></a>
-####get_local_time()
-```c++
-Microseconds get_local_time() const;
-```
-Локальное время последнего изменения в микросекундах.
+Описание ценового уровня в стакане.
+Также называется квота или котировка.
+
+### Методы
+
+| Имя | Описание |
+| --- | --- |
+| [dir()](#dir) | Направление котировки. |
+| [price()](#price) | Цена котировки. |
+| [volume()](#volume) | Объём котировки. |
+| [server_time()](#server_time) | Биржевое время последнего изменения котировки. |
+| [local_time()](#local_time) | Локальное время последнего изменения котировки. |
+
+### Описание методов
+
+#### dir() {#dir}
+
+Возвращает направление котировки (BID (покупка) или ASK (продажа)).
+
+{% codetabs name="C++", type="c++" -%}
+Dir dir() const;
+{%- language name="Python", type="py" -%}
+def dir(self)
+{%- endcodetabs %}
+
+#### price() {#price}
+
+Возвращает цену котировки.
+
+{% codetabs name="C++", type="c++" -%}
+Price price() const;
+{%- language name="Python", type="py" -%}
+def price(self)
+{%- endcodetabs %}
+
+#### volume() {#volume}
+
+Возвращает суммарное количество лотов на данном ценовом уровне.
+
+{% codetabs name="C++", type="c++" -%}
+Amount volume() const;
+{%- language name="Python", type="py" -%}
+def volume(self)
+{%- endcodetabs %}
+
+#### server_time() {#server_time}
+
+Возвращает биржевое время последнего изменения котировки в микросекундах.
+
+{% codetabs name="C++", type="c++" -%}
+Microseconds server_time() const;
+{%- language name="Python", type="py" -%}
+def server_time(self)
+{%- endcodetabs %}
+
+#### local_time() {#local_time}
+
+Возвращает локальное время последнего изменения котировки в микросекундах.
+
+{% codetabs name="C++", type="c++" -%}
+Microseconds local_time() const;
+{%- language name="Python", type="py" -%}
+def local_time(self)
+{%- endcodetabs %}

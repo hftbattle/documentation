@@ -1,146 +1,90 @@
-#Deal
-Путь в Local Pack-е: `include/deal.h`
+# Deal
 
-Сделка - это акт купли-продажи определенного инструмента.
-Класс Deal представляет собой реализацию биржевой сделки.
+Путь в Local Pack `include/deal.h`
 
-###Поля
+Описание произошедшей сделки.
 
-|Имя| Описание|
-|------------------|--------------------|
-|[dir](#dir)|Направление сделки (покупка или продажа).|
-|[price](#price)|Цена по которой произошла сделка.|
-|[amount](#amount)|Количество лотов в сделке.|
-|[implied_amount](#implied_amount)|Количество лотов, которые предположительно должны были свестись в случае, когда налетающая заявка была нашей.|
-|[server_time](#server_time)|Биржевое время совершения сделки.|
-|[passive_order_server_time](#passive_order_server_time)|Время постановки "пассивного" ордера, если оно известно.|
-|[origin_time](#origin_time)|Локальное время в тиках.|
-|[outer_id](#outer_id)|Биржевой (внешний) ID сделки.|
+### Методы
 
-###Методы
+| Имя | Описание |
+| --- | --- |
+| [aggressor_side()](#aggressor_side) | Направление более поздней заявки. |
+| [price()](#price) | Цена сделки. |
+| [amount()](#amount) | Объём сделки. |
+| [server_time()](#server_time) | Биржевое время совершения сделки. |
+| [local_time()](#local_time) | Локальное время совершения сделки. |
+| [orders()](#orders) | Заявки, участвующие в сделке. |
+| [id()](#id) | Уникальный идентификатор сделки. |
 
-|Имя| Описание|
-|------------------|--------------------|
-|[get_agressor_side()](#get_agressor_side)|Направление налетающей заявки.|
-|[get_price()](#get_price)|Цена, по которой произошла сделка.|
-|[get_amount()](#get_amount)|Объем сделки.|
-|[get_server_time()](#get_server_time)|Биржевое время сделки.|
-|[get_local_time()](#get_local_time)|Локальное время сделки.|
-|[get_comments()](#get_comments)|Комментарии к заявкам, участвующим в сделке.|
-|[get_orders()](#get_orders)|Массив заявок (на продажу и на покупку), участвующих в сделке.|
-|[is_our()](#is_our)|Является ли данная сделка нашей.|
+### Описание методов
 
-###Описание полей
-<a id="dir"></a>
-####dir
-```c++
-Dir dir;
-```
-Направление сделки (покупка или продажа).
+#### aggressor_side() {#aggressor_side}
 
-<a id="price"></a>
-####price
-```c++
-Price price;
-```
-Цена по которой произошла сделка.
+Возвращает направление агрессора сделки, т.е. направление той заявки, которая была поставлена позже.
 
-<a id="amount"></a>
-####amount
-```c++
-Amount amount;
-```
-Количество лотов в сделке.
+{% codetabs name="C++", type="c++" -%}
+Dir aggressor_side() const;
+{%- language name="Python", type="py" -%}
+def aggressor_side(self)
+{%- endcodetabs %}
 
-<a id="implied_amount"></a>
-####implied_amount
-```c++
-Amount implied_amount;
-```
-Количество лотов, которые предположительно должны были свестись в случае, когда налетающая заявка была нашей.
+#### price() {#price}
 
-<a id="server_time"></a>
-####server_time
-```c++
-Microseconds server_time;
-```
-Биржевое время совершения сделки.
+Возвращает цену, по которой была совершена сделка.
 
-<a id="passive_order_server_time"></a>
-####passive_order_server_time
-```c++
-Microseconds passive_order_server_time;
-```
-Время постановки "пассивного" ордера, если оно известно.
+{% codetabs name="C++", type="c++" -%}
+Price price() const;
+{%- language name="Python", type="py" -%}
+def price(self)
+{%- endcodetabs %}
 
-<a id="origin_time"></a>
-####origin_time
-```c++
-Ticks origin_time;
-```
-Локальное время в тиках.
+#### amount() {#amount}
 
-<a id="outer_id"></a>
-####outer_id
-```c++
-int64_t outer_id;
-```
-Биржевой (внешний) ID сделки.
+Возвращает объём сделки, т.е. количество лотов, которые были сведены в результате этой сделки.
 
+{% codetabs name="C++", type="c++" -%}
+Amount amount() const;
+{%- language name="Python", type="py" -%}
+def amount(self)
+{%- endcodetabs %}
 
-###Описание методов
-<a id="get_agressor_side"></a>
-####get_agressor_side()
-```c++
-inline Dir get_agressor_side() const;
-```
-Направление налетающей заявки.
+#### server_time() {#server_time}
 
-<a id="get_price"></a>
-####get_price()
-```c++
-inline Price get_price() const;
-```
-Цена, по которой произошла сделка.
+Возвращает биржевое время совершения сделки в микросекундах.
 
-<a id="get_amount"></a>
-####get_amount()
-```c++
-inline Amount get_amount() const;
-```
-Объем сделки.
+{% codetabs name="C++", type="c++" -%}
+Microseconds server_time() const;
+{%- language name="Python", type="py" -%}
+def server_time(self)
+{%- endcodetabs %}
 
-<a id="get_server_time"></a>
-####get_server_time()
-```c++
-inline Microseconds get_server_time() const;
-```
-Биржевое время сделки.
+#### local_time() {#local_time}
 
-<a id="get_local_time"></a>
-####get_local_time()
-```c++
-inline Microseconds get_local_time() const;
-```
-Локальное время сделки.
+Возвращает локальное время совершения сделки в микросекундах.
 
-<a id="get_comments"></a>
-####get_comments()
-```c++
-std::array<std::string, 2> const& get_comments() const;
-```
-Комментарии к заявкам, участвующим в сделке.
+{% codetabs name="C++", type="c++" -%}
+Microseconds local_time() const;
+{%- language name="Python", type="py" -%}
+def local_time(self)
+{%- endcodetabs %}
 
-<a id="get_orders"></a>
-####get_orders()
-```c++
-std::array<std::shared_ptr<Order>, 2> const& get_orders() const;
-```
-Массив заявок (на продажу и на покупку), участвующих в сделке.
+#### orders() {#orders}
 
-<a id="is_our"></a>
-####is_our()
-```c++
-bool is_our() const;
-```
-Является ли данная сделка нашей.
+Возвращает массив из двух указателей на заявки (BID (покупка) или ASK (продажа)), участвующие в сделке.
+
+{% codetabs name="C++", type="c++" -%}
+const RawOrdersArray orders() const;
+{%- language name="Python", type="py" -%}
+def orders(self)
+{%- endcodetabs %}
+
+#### id() {#id}
+
+Возвращает уникальный числовой идентификатор сделки, полученный во время симуляции.
+Он может быть использован для сохранения какой-либо информации о заявке.
+
+{% codetabs name="C++", type="c++" -%}
+Id id() const;
+{%- language name="Python", type="py" -%}
+def id(self)
+{%- endcodetabs %}

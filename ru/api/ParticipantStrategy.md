@@ -1,239 +1,349 @@
-#ParticipantStrategy
-Путь в Local Pack-е: `include/participant_strategy.h`
+# ParticipantStrategy
 
-ParticipantStrategy - класс-интерфейс для написания пользовательских стратегий.
-Этот класс служит прослойкой между ядром симуляции и стратегией.
+Путь в Local Pack `include/participant_strategy.h`
 
-Он обеспечивает обработку входящих сигналов от симуляции:
-обновления торгового стакана, сделок, отчеты о наших сделках.
-Он же осуществляет передачу исходящих сигналов в симуляцию: постановка и снятие заявок.
+Класс-обёртка для стратегий участников для взаимодействия с торговым симулятором.
 
-Помимо реализации методов для описанных выше действий,
-класс также предоставляет некоторые вспомогательные методы для удобства работы.
+### Методы
 
-Классы-стратегии участников должны наследовать от класса ParticipantStrategy.
+| Имя | Описание |
+| --- | --- |
+| [trading_book_update()](#trading_book_update) | Вызывается симулятором при получении нового стакана торгового инструмента. |
+| [trading_deals_update()](#trading_deals_update) | Вызывается симулятором при получении новых сделок торгового инструмента. |
+| [execution_report_update()](#execution_report_update) | Вызывается симулятором при получении отчёта о сделке с участием вашей заявки. |
+| [signal_book_update()](#signal_book_update) | Вызывается симулятором при получении нового стакана сигнального инструмента. |
+| [signal_deals_update()](#signal_deals_update) | Вызывается симулятором при получении новых сделок сигнального инструмента. |
+| [add_limit_order()](#add_limit_order) | Выставляет лимитную заявку. |
+| [add_ioc_order()](#add_ioc_order) | Выставляет заявку типа IOC (Immediate-Or-Cancel). |
+| [delete_order()](#delete_order) | Снимает вашу заявку с торгов. |
+| [delete_all_orders_at_dir()](#delete_all_orders_at_dir) | Удаляет все ваши заявки в данном направлении. |
+| [delete_all_orders_at_price()](#delete_all_orders_at_price) | Удаляет все ваши заявки с заданной ценой и направлением. |
+| [amount_before_order()](#amount_before_order) | Объём заявок в очереди перед вашей заявкой. |
+| [volume_by_price()](#volume_by_price) | Объём активных заявок с заданной ценой и направлением. |
+| [add_chart_point()](#add_chart_point) | Добавляет точку на график. |
+| [current_result()](#current_result) | Текущий заработок стратегии, учитывающий все заявки. |
+| [saldo()](#saldo) | Текущий заработок стратегии, учитывающий только исполненные заявки. |
+| [signal_security_exists()](#signal_security_exists) | Существует ли сигнальный инструмент |
+| [local_time()](#local_time) | Текущее локальное время. |
+| [server_time()](#server_time) | Текущее биржевое время. |
+| [server_time_tm()](#server_time_tm) | Биржевое время типа tm. |
+| [set_max_total_amount()](#set_max_total_amount) | Устанавливает желаемое значение максимальной позы. |
+| [set_stop_loss_result()](#set_stop_loss_result) | Устанавливает желаемое значение минимального результата. |
+| [executed_amount()](#executed_amount) | Наша текущая позиция, учитывающая только исполненные лоты. |
+| [total_amount()](#total_amount) | Наша текущая позиция, учитывающая все лоты. |
+| [is_our()](#is_our) | Является ли заявка вашей. |
+| [is_our()](#is_our) | Является ли сделка вашей. |
+| [trading_book()](#trading_book) | Ссылка на текущий стакан торгового инструмента. |
+| [signal_book()](#signal_book) | Ссылка на текущий стакан сигнального инструмента. |
 
-###Методы
+### Описание методов
 
-|Имя| Описание|
-|------------------|--------------------|
-|[trading_book_update(const OrderBook& order_book)](#trading_book_update)|Вызывается при получении нового стакана торгового инструмента.|
-|[trading_deals_update(const std::vector<Deal>& deals)](#trading_deals_update)|Вызывается при получении новых сделок торгового инструмента.|
-|[execution_report_update(const ExecutionReport& execution_report)](#execution_report_update)|Вызывается при получении отчета о сделке с участием вашего ордера.|
-|[signal_book_update(const OrderBook& order_book)](#signal_book_update)|Вызывается при получении нового стакана сигнального инструмента.|
-|[signal_deals_update(const std::vector<Deal>& deals)](#signal_deals_update)|Вызывается при получении новых сделок сигнального инструмента.|
-|[add_limit_order(Dir dir, Price price, Amount amount, const std::string& comment = {})](#add_limit_order)|Выставляет нашу лимитную заявку.|
-|[add_ioc_order(Dir dir, Price price, Amount amount, const std::string& comment = {})](#add_ioc_order)|Выставляет нашу заявку типа Immediate-Or-Cancel (IOC).|
-|[delete_order(Order* order)](#delete_order)|Снимает нашу заявку с торгов.|
-|[delete_all_orders_by_dir(Dir dir)](#delete_all_orders_by_dir)|Снимает все наши заявки с торгов по направлению *dir*.|
-|[get_amount_before_order(const Order* order)](#get_amount_before_order)|Возвращает количество лотов, стоящих в очереди перед нашей заявкой.|
-|[get_volume_at_price(Dir dir, Price price)](#get_volume_at_price)|Возвращает суммарное количество лотов в наших активных заявках, стоящих на определённой цене.|
-|[add_chart_point(const std::string& line_name, double value, ChartYAxisType y_axis_type, uint8_t chart_number)](#add_chart_point)|Добавляет точку на график.|
-|[get_current_result()](#get_current_result)|Возвращает текущий результат (заработок).|
-|[get_saldo()](#get_saldo)|Возвращает текущее сальдо, т.е. баланс без учета позы.|
-|[signal_security_exists()](#signal_security_exists)|Возвращает true, если есть сигнальный инструмент. Иначе false.|
-|[get_local_time()](#get_local_time)|Возвращает локальное время в микросекундах.|
-|[get_server_time()](#get_server_time)|Возвращает биржевое время с точностью до микросекунд.|
-|[get_server_time_tm()](#get_server_time_tm)|Возвращает биржевое время типа tm с точностью до секунды.|
-|[set_max_total_amount(const uint32_t max_total_amount)](#set_max_total_amount)|Устанавливает максимальное разрешённое значение позиции (не более 50).|
-|[set_stop_loss_result(const Decimal stop_loss_result)](#set_stop_loss_result)|Устанавливает минимально допустимое значение, при достижении которого позиция закрывается, и стратегия перестаёт торговать.|
+#### trading_book_update() {#trading_book_update}
 
-###Поля
+Вызывается симулятором при получении нового стакана торгового инструмента.
 
-|Имя| Описание|
-|------------------|--------------------|
-|[trading_book_info](#trading_book_info)|Структура-агрегатор основной информации о торговом стакане.|
-|[signal_book_info](#signal_book_info)|Структура-агрегатор основной информации о сигнальном стакане.|
-|[trading_book](#trading_book)|Умный указатель на текущий стакан торгового инструмента.|
-|[signal_book](#signal_book)|Аналогично trading_book для сигнального инструмента.|
+{% codetabs name="C++", type="c++" -%}
+virtual void trading_book_update(const OrderBook& /*order_book*/);
+{%- language name="Python", type="py" -%}
+cdef public void ctrading_book_update(defs.ParticipantStrategy* ptr, const defs.OrderBook& order_book) except *
+{%- endcodetabs %}
 
-###Описание методов
-<a id="trading_book_update"></a>
-####trading_book_update()
-```c++
-virtual void trading_book_update(const OrderBook& order_book);
-```
-Вызывается при получении нового стакана торгового инструмента:
-- *order_book* – новый стакан.
+#### trading_deals_update() {#trading_deals_update}
 
-<a id="trading_deals_update"></a>
-####trading_deals_update()
-```c++
-virtual void trading_deals_update(const std::vector<Deal>& deals);
-```
-Вызывается при получении новых сделок торгового инструмента:
-- *deals* - вектор новых сделок.
+Вызывается симулятором при получении новых сделок торгового инструмента.
 
-<a id="execution_report_update"></a>
-####execution_report_update()
-```c++
-virtual void execution_report_update(const ExecutionReport& execution_report);
-```
-Вызывается при получении отчета о сделке с участием вашего ордера:
-- *snapshot* – структура-отчет о совершенной сделке.
+{% codetabs name="C++", type="c++" -%}
+virtual void trading_deals_update(std::vector<Deal>&& /*deals*/);
+{%- language name="Python", type="py" -%}
+cdef public void ctrading_deals_update(defs.ParticipantStrategy* ptr, vector[defs.Deal]&& deals) except *
+{%- endcodetabs %}
 
-<a id="signal_book_update"></a>
-####signal_book_update()
-```c++
-virtual void signal_book_update(const OrderBook& order_book);
-```
-Вызывается при получении нового стакана сигнального инструмента:
-- *order_book* – новый стакан.
+#### execution_report_update() {#execution_report_update}
 
-<a id="signal_deals_update"></a>
-####signal_deals_update()
-```c++
-virtual void signal_deals_update(const std::vector<Deal>& deals);
-```
-Вызывается при получении новых сделок сигнального инструмента:
-- *deals* - вектор новых сделок.
+Вызывается симулятором при получении отчёта о сделке с участием вашей заявки.
 
-<a id="add_limit_order"></a>
-####add_limit_order()
-```c++
-bool add_limit_order(Dir dir, Price price, Amount amount, const std::string& comment =;
-```
-Выставляет нашу лимитную заявку:
-- *dir* - направление (BID = 0 - покупка, ASK = 1 - продажа),
-- *price* - цена, по которой заявка будет выставлена,
-- *amount* - размер заявки.
-- *comment* - комментарий к заявке.
+{% codetabs name="C++", type="c++" -%}
+virtual void execution_report_update(const ExecutionReport& /*execution_report*/);
+{%- language name="Python", type="py" -%}
+cdef public void cexecution_report_update(defs.ParticipantStrategy* ptr, const defs.ExecutionReport& snapshot) except *
+{%- endcodetabs %}
 
-<a id="add_ioc_order"></a>
-####add_ioc_order()
-```c++
-bool add_ioc_order(Dir dir, Price price, Amount amount, const std::string& comment =;
-```
-Выставляет нашу заявку типа Immediate-Or-Cancel (IOC):
-- *dir* - направление (BID = 0 - покупка, ASK = 1 - продажа),
-- *price* - цена, по которой заявка будет выставлена,
-- *amount* - размер заявки.
-- *comment* - комментарий к заявке.
+#### signal_book_update() {#signal_book_update}
 
-<a id="delete_order"></a>
-####delete_order()
-```c++
+Вызывается симулятором при получении нового стакана сигнального инструмента.
+
+{% codetabs name="C++", type="c++" -%}
+virtual void signal_book_update(const OrderBook& /*order_book*/);
+{%- endcodetabs %}
+
+#### signal_deals_update() {#signal_deals_update}
+
+Вызывается симулятором при получении новых сделок сигнального инструмента.
+
+{% codetabs name="C++", type="c++" -%}
+virtual void signal_deals_update(std::vector<Deal>&& /*deals*/);
+{%- endcodetabs %}
+
+#### add_limit_order() {#add_limit_order}
+
+Принимает направление dir (BID (покупка) или ASK (продажа)), цену price и размер заявки amount.
+
+Выставляет лимитную заявку.
+
+Возвращает значение типа bool — была ли ваша заявка принята торговой системой.
+Внимание: заявка может быть не принята по нескольким причинам.
+Подробнее читайте в документации: <https://docs.hftbattle.com/ru/FAQ.html#simulator>
+
+{% codetabs name="C++", type="c++" -%}
+bool add_limit_order(Dir dir, Price price, Amount amount);
+{%- language name="Python", type="py" -%}
+def add_limit_order(self, dir, price, amount)
+{%- endcodetabs %}
+
+#### add_ioc_order() {#add_ioc_order}
+
+Принимает направление dir (BID (покупка) или ASK (продажа)), цену price и размер заявки amount.
+
+Выставляет заявку типа IOC (Immediate-Or-Cancel).
+
+Возвращает значение типа bool — была ли принята ваша заявка.
+Внимание: заявка может быть не принята по нескольким причинам.
+Подробнее читайте в документации: <https://docs.hftbattle.com/ru/FAQ.html#simulator>
+
+{% codetabs name="C++", type="c++" -%}
+bool add_ioc_order(Dir dir, Price price, Amount amount);
+{%- language name="Python", type="py" -%}
+def add_ioc_order(self, dir, price, amount)
+{%- endcodetabs %}
+
+#### delete_order() {#delete_order}
+
+Принимает указатель на вашу заявку, т.е. указатель на объект класса Order.
+
+Снимает эту заявку с торгов.
+Внимание: удаление происходит немоментально.
+Подробнее читайте в документации.
+TODO(asalikhov): add links to docs.
+
+{% codetabs name="C++", type="c++" -%}
 void delete_order(Order* order);
-```
-Снимает нашу заявку с торгов:
-- *order* - заявка, которую мы хотим снять.
+{%- language name="Python", type="py" -%}
+def delete_order(self, order)
+{%- endcodetabs %}
 
-<a id="delete_all_orders_by_dir"></a>
-####delete_all_orders_by_dir()
-```c++
-void delete_all_orders_by_dir(Dir dir);
-```
-Снимает все наши заявки с торгов по направлению *dir*.
-- *dir* - направление (BID = 0 - покупка, ASK = 1 - продажа).
+#### delete_all_orders_at_dir() {#delete_all_orders_at_dir}
 
-<a id="get_amount_before_order"></a>
-####get_amount_before_order()
-```c++
-Amount get_amount_before_order(const Order* order) const;
-```
-Возвращает количество лотов, стоящих в очереди перед нашей заявкой.
-- *order* - заявка, для которой мы хотим узнать количество стоящих перед ней лотов.
+Принимает направление dir (BID (покупка) или ASK (продажа)).
 
-<a id="get_volume_at_price"></a>
-####get_volume_at_price()
-```c++
-Amount get_volume_at_price(Dir dir, Price price) const;
-```
-Возвращает суммарное количество лотов в наших активных заявках, стоящих на определённой цене.
-- *dir* - направление (BID = 0 - покупка, ASK = 1 - продажа).
-- *price* - цена, объём лотов на которой мы хотим узнать.
+Удаляет все ваши заявки по направлению dir.
 
-<a id="add_chart_point"></a>
-####add_chart_point()
-```c++
-void add_chart_point(const std::string& line_name, double value, ChartYAxisType y_axis_type, uint8_t chart_number);
-```
-Добавляет точку на график.
-- *line_name* - название графика, *value* - значение, *y_axis_type* - ось (левая или правая),
-- *chart_number* - номер картинки на которой будет нарисован график.
+{% codetabs name="C++", type="c++" -%}
+void delete_all_orders_at_dir(Dir dir);
+{%- language name="Python", type="py" -%}
+def delete_all_orders_at_dir(self, dir)
+{%- endcodetabs %}
 
-<a id="get_current_result"></a>
-####get_current_result()
-```c++
-Price get_current_result() const;
-```
-Возвращает текущий результат (заработок).
+#### delete_all_orders_at_price() {#delete_all_orders_at_price}
 
-<a id="get_saldo"></a>
-####get_saldo()
-```c++
-Price get_saldo();
-```
-Возвращает текущее сальдо, т.е. баланс без учета позы.
+Принимает направление dir (BID (покупка) или ASK (продажа)) и цену price.
 
-<a id="signal_security_exists"></a>
-####signal_security_exists()
-```c++
+Удаляет все ваши заявки по направлению dir по данной цене.
+
+{% codetabs name="C++", type="c++" -%}
+void delete_all_orders_at_price(Dir dir, Price price);
+{%- language name="Python", type="py" -%}
+def delete_all_orders_at_price(self, dir, price)
+{%- endcodetabs %}
+
+#### amount_before_order() {#amount_before_order}
+
+Принимает указатель на вашу заявку, т.е. указатель на объект класса Order.
+
+Возвращает суммарное количество лотов, стоящих в очереди перед вашей заявкой в котировке данного ценового уровня.
+
+{% codetabs name="C++", type="c++" -%}
+Amount amount_before_order(const Order* order) const;
+{%- language name="Python", type="py" -%}
+def amount_before_order(self, order)
+{%- endcodetabs %}
+
+#### volume_by_price() {#volume_by_price}
+
+Принимает направление dir (BID (покупка) или ASK (продажа)) и цену price.
+
+Возвращает суммарное количество лотов в ваших активных заявках, стоящих на определённой цене.
+
+{% codetabs name="C++", type="c++" -%}
+Amount volume_by_price(Dir dir, Price price) const;
+{%- language name="Python", type="py" -%}
+def volume_by_price(self, dir, price)
+{%- endcodetabs %}
+
+#### add_chart_point() {#add_chart_point}
+
+Принимает строку line_name (название графика), value типа double — значение, которое хочется добавить, y_axis_type — с какой стороны будет нарисована ось y и chart_number — номер графика.
+
+Добавляет точку на график в данный момент времени с желаемым значением value.
+Соседние точки на графике соединяются отрезком.
+В итоге получаем ломаную, которая и является графиком.
+Внимание: благодаря параметру chart_number можно создавать несколько графиков, а с помощью line_name — можно рисовать несколько графиков на одном изображении.
+
+{% codetabs name="C++", type="c++" -%}
+void add_chart_point(const std::string& line_name, double value, ChartYAxisType y_axis_type,
+{%- language name="Python", type="py" -%}
+def add_chart_point(self, line_name, value, y_axis_type, chart_number)
+{%- endcodetabs %}
+
+#### current_result() {#current_result}
+
+Возвращает текущий результат стратегии (заработок).
+Учитываются как исполненные, так и просто поставленные заявки.
+
+{% codetabs name="C++", type="c++" -%}
+Decimal current_result() const;
+{%- language name="Python", type="py" -%}
+def current_result(self)
+{%- endcodetabs %}
+
+#### saldo() {#saldo}
+
+Возвращает текущий результат стратегии (заработок).
+Учитываются только исполненные заявки.
+
+{% codetabs name="C++", type="c++" -%}
+Decimal saldo();
+{%- language name="Python", type="py" -%}
+def saldo(self)
+{%- endcodetabs %}
+
+#### signal_security_exists() {#signal_security_exists}
+
+Возвращает значение типа bool — существует ли сигнальный инструмент.
+
+{% codetabs name="C++", type="c++" -%}
 bool signal_security_exists() const;
-```
-Возвращает true, если есть сигнальный инструмент. Иначе false.
+{%- language name="Python", type="py" -%}
+def signal_security_exists(self)
+{%- endcodetabs %}
 
-<a id="get_local_time"></a>
-####get_local_time()
-```c++
-Microseconds get_local_time() const;
-```
-Возвращает локальное время в микросекундах. Локальное время здесь – это время на машине, получающей биржевые данные.
+#### local_time() {#local_time}
 
-<a id="get_server_time"></a>
-####get_server_time()
-```c++
-Microseconds get_server_time() const;
-```
-Возвращает биржевое время с точностью до микросекунд.
+Возвращает текущее локальное время в микросекундах.
 
-<a id="get_server_time_tm"></a>
-####get_server_time_tm()
-```c++
-tm get_server_time_tm() const;
-```
-Возвращает биржевое время типа tm c точностью до секунды.
+{% codetabs name="C++", type="c++" -%}
+Microseconds local_time() const;
+{%- language name="Python", type="py" -%}
+def local_time(self)
+{%- endcodetabs %}
 
-<a id="set_max_total_amount"></a>
-####set_max_total_amount()
-```c++
-void set_max_total_amount(const uint32_t max_total_amount);
-```
-Устанавливает максимальное разрешённое значение позиции (не более 50).
+#### server_time() {#server_time}
 
-<a id="set_stop_loss_result"></a>
-####set_stop_loss_result()
-```c++
+Возвращает текущее биржевое время в микросекундах.
+
+{% codetabs name="C++", type="c++" -%}
+Microseconds server_time() const;
+{%- language name="Python", type="py" -%}
+def server_time(self)
+{%- endcodetabs %}
+
+#### server_time_tm() {#server_time_tm}
+
+Возвращает биржевое время типа tm с точностью до секунды.
+Примечание: биржевое время в таком формате может быть использовано для определения времени суток.
+
+{% codetabs name="C++", type="c++" -%}
+tm server_time_tm() const;
+{%- language name="Python", type="py" -%}
+def server_time_tm(self)
+{%- endcodetabs %}
+
+#### set_max_total_amount() {#set_max_total_amount}
+
+Принимает желаемое значение максимальной позы — неотрицательное число не более 50.
+
+Устанавливает данное значение позы максимальным и не разрешает стратегии превышать его по модулю.
+
+{% codetabs name="C++", type="c++" -%}
+void set_max_total_amount(const Amount max_total_amount);
+{%- language name="Python", type="py" -%}
+def set_max_total_amount(self, max_total_amount)
+{%- endcodetabs %}
+
+#### set_stop_loss_result() {#set_stop_loss_result}
+
+Принимает желаемое значение минимального результата.
+
+Устанавливает это значение, при достижении которого позиция закрывается, и стратегия перестаёт торговать.
+Внимание: закрытие позиции происходит немоментально, поэтому вы можете получить результат как меньше, так и больше ожидаемого.
+Подробнее читайте здесь: <https://docs.hftbattle.com/ru/FAQ.html#simulator>
+
+{% codetabs name="C++", type="c++" -%}
 void set_stop_loss_result(const Decimal stop_loss_result);
-```
-Устанавливает минимально допустимое значение, при достижении которого позиция закрывается, и стратегия перестаёт торговать.
+{%- language name="Python", type="py" -%}
+def set_stop_loss_result(self, stop_loss_result)
+{%- endcodetabs %}
 
+#### executed_amount() {#executed_amount}
 
-###Описание полей
-<a id="trading_book_info"></a>
-####trading_book_info
-```c++
-ContestBookInfo trading_book_info;
-```
-Структура-агрегатор основной информации о торговом стакане.
+Возвращает вашу текущую позицию.
+Учитываются только исполненные лоты.
 
-<a id="signal_book_info"></a>
-####signal_book_info
-```c++
-ContestBookInfo signal_book_info;
-```
-Структура-агрегатор основной информации о сигнальном стакане.
+{% codetabs name="C++", type="c++" -%}
+Amount executed_amount() const;
+{%- language name="Python", type="py" -%}
+def executed_amount(self)
+{%- endcodetabs %}
 
-<a id="trading_book"></a>
-####trading_book
-```c++
-std::shared_ptr<const OrderBook> trading_book;
-```
-Умный указатель на текущий стакан торгового инструмента. Они обновляются каждый раз с приходом очередного апдейта торгового стакана. При этом объект внутри (стакан) разрушается. Чтобы сохранить старый стакан, нужно явно в стратегии сохранить этот указатель.
+#### total_amount() {#total_amount}
 
-<a id="signal_book"></a>
-####signal_book
-```c++
-std::shared_ptr<const OrderBook> signal_book;
-```
-Аналогично trading_book для сигнального инструмента.
+Возвращает вашу общую позицию: учитывается как исполненные, так и просто поставленные заявки.
+
+{% codetabs name="C++", type="c++" -%}
+Amount total_amount() const;
+{%- language name="Python", type="py" -%}
+def total_amount(self)
+{%- endcodetabs %}
+
+#### is_our() {#is_our}
+
+Принимает указатель на заявку, т.е. указатель на объект класса Order.
+
+Возвращает значение типа bool — является ли данная заявка вашей.
+
+{% codetabs name="C++", type="c++" -%}
+bool is_our(const Order* order) const;
+{%- language name="Python", type="py" -%}
+def is_our(self, order)
+{%- endcodetabs %}
+
+#### is_our() {#is_our}
+
+Принимает ссылку на сделку, т.е. ссылку на объект класса Deal.
+
+Возвращает значение типа bool — участвует ли в сделке ваша заявка.
+
+{% codetabs name="C++", type="c++" -%}
+bool is_our(const Deal& deal) const;
+{%- language name="Python", type="py" -%}
+def is_our(self, deal)
+{%- endcodetabs %}
+
+#### trading_book() {#trading_book}
+
+Ссылка на текущий стакан торгового инструмента.
+
+{% codetabs name="C++", type="c++" -%}
+OrderBook& trading_book();
+{%- language name="Python", type="py" -%}
+def trading_book(self)
+{%- endcodetabs %}
+
+#### signal_book() {#signal_book}
+
+Ссылка на текущий стакан сигнального инструмента.
+
+{% codetabs name="C++", type="c++" -%}
+OrderBook& signal_book();
+{%- language name="Python", type="py" -%}
+def signal_book(self)
+{%- endcodetabs %}
