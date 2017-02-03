@@ -75,7 +75,7 @@ public:
   explicit UserStrategy(const JsonValue& config) {
     // Читаем целочисленный параметр, который обязательно должен быть указан в JSON файле.
     int_param = config["int_param"].as<int>();
-    // Читаем вещественный параметр. Если его нет в JSON файле, то он будет равен по умолчанию равен 3.14.
+    // Читаем вещественный параметр. Если его нет в JSON файле, то он будет равен значению по умолчанию, т.е. 3.14.
     double_param = config["double_param"].as<double>(3.14);
     // Читаем временной параметр.
     // ! Временной параметр по умолчанию необходимо указывать с единицей измерения (литералом).
@@ -107,6 +107,6 @@ def init(strat, config):
     global int_param, double_param, time_param
     int_param = config["int_param"]
     double_param = config["double_param"]
-    # Здесь хранится тоже число
+    # Здесь тоже хранится число
     time_param = config["time_param"]
 {%- endcodetabs %}

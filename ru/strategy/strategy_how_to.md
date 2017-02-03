@@ -49,7 +49,7 @@ const auto& our_orders = order_book.orders();
 our_orders = order_book.orders()
 {%- endcodetabs %}
 
-Здесь мы используем метод [orders](/api/OrderBook.md#orders), возвращающий ссылку на структуру типа [SecurityOrdersSnapshot](/api/SecurityOrdersSnapshot.md).
+Здесь мы используем метод [orders](/api/OrderBook.md#orders), возвращающий ссылку на объект типа [SecurityOrdersSnapshot](/api/SecurityOrdersSnapshot.md).
 
 > Замечание 1: Определенная выше переменная `orders` содержит и те заявки, которые мы уже отправили, но на которые ещё не отправили запрос на удаление.
 > Поэтому если для какой-то заявки будет вызван метод [delete_order](/api/ParticipantStrategy.md#delete_order), то к следующему обновлению в `orders` этой заявки точно не будет, даже если в реальности она ещё не успела удалиться.
