@@ -25,73 +25,92 @@
 Возвращает уникальный числовой идентификатор заявки, полученный во время симуляции.
 Он может быть использован для сохранения какой-либо информации о заявке.
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 Id id() const;
-```
+{%- language name="Python", type="py" -%}
+def id(self)
+{%- endcodetabs %}
 
 #### dir() {#dir}
 
 Возвращает направление заявки (BID (покупка) или ASK (продажа)).
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 Dir dir() const;
-```
+{%- language name="Python", type="py" -%}
+def dir(self)
+{%- endcodetabs %}
 
 #### price() {#price}
 
 Возвращает цену заявки.
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 Price price() const;
-```
+{%- language name="Python", type="py" -%}
+def price(self)
+{%- endcodetabs %}
 
 #### amount() {#amount}
 
 Возвращает изначальный объём заявки (количество лотов).
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 Amount amount() const;
-```
+{%- language name="Python", type="py" -%}
+def amount(self)
+{%- endcodetabs %}
 
 #### amount_rest() {#amount_rest}
 
 Возвращает текущий объём заявки (количество лотов этой заявки, которые ещё не были сведены).
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 Amount amount_rest() const;
-```
+{%- language name="Python", type="py" -%}
+def amount_rest(self)
+{%- endcodetabs %}
 
 #### security_id() {#security_id}
 
 Возвращает указатель на инструмент, к которому относится заявка (нужен для того, чтобы понимать, по какому из инструментов была поставлена заявка).
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 SecurityId security_id() const;
-```
+{%- language name="Python", type="py" -%}
+def security_id(self)
+{%- endcodetabs %}
 
 #### status() {#status}
 
 Возвращает значение enum class, статус заявки.
+
 Возможные статусы: в процессе добавления (Adding), активная (Active), в процессе удаления, но ещё не удалённая (Deleting) и удалённая (Deleted).
 Подробнее читайте в описании класса OrderStatus.
 TODO(asalikhov): add links to docs.
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 OrderStatus status() const;
-```
+{%- language name="Python", type="py" -%}
+def status(self)
+{%- endcodetabs %}
 
 #### origin_server_time() {#origin_server_time}
 
 Возвращает биржевое время постановки заявки в стакан в микросекундах.
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 Microseconds origin_server_time() const;
-```
+{%- language name="Python", type="py" -%}
+def origin_server_time(self)
+{%- endcodetabs %}
 
 #### local_time() {#local_time}
 
 Возвращает локальное время постановки заявки в стакан в микросекундах.
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 Microseconds local_time() const;
-```
+{%- language name="Python", type="py" -%}
+def local_time(self)
+{%- endcodetabs %}

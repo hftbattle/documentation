@@ -33,12 +33,17 @@
 
 Также имеется возможность добавлять свои графики из стратегии с помощью функции *add_chart_point*:
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 void add_chart_point(const std::string& line_name,
                      double value,
                      ChartYAxisType y_axis_type,
                      uint8_t chart_number)
-```
+{%- language name="Python", type="py" -%}
+def add_chart_point(self, str line_name,
+                    double value,
+                    int y_axis_type,
+                    uint8_t chart_number)
+{%- endcodetabs %}
 
 - *line_name* - имя оси, отображается в легенде
 - *value* - вещественное значение
@@ -47,33 +52,29 @@ void add_chart_point(const std::string& line_name,
 
 Модифицируем, например, стратегию, стоящую на каждом из направлений на лучшей цене так, чтобы она "рисовала" график лучшей цены:
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 #include "participant_strategy.h"
 #include <string>
 
 using namespace hftbattle;
 
 class UserStrategy : public ParticipantStrategy {
-private:
-  std::array<Price, 2> best_price_by_dir;
-  std::array<std::string, 2> axis_name;
-
 public:
-  UserStrategy(const JsonValue& config) {
+  explicit UserStrategy(const JsonValue& /*config*/) {
     axis_name[BID] = "best_bid";
     axis_name[ASK] = "best_ask";
   }
 
   void trading_book_update(const OrderBook& order_book) override {
-    auto our_orders = trading_book().orders();
-    for (Dir dir: {BID, ASK}) {
-      const Price best_price = trading_book().best_price(dir);
+    const auto& our_orders = order_book.orders();
+    for (Dir dir : {BID, ASK}) {
+      const Price best_price = order_book.best_price(dir);
       const Amount amount = 1;
       if (our_orders.active_orders_count(dir) == 0) {
         add_limit_order(dir, best_price, amount);
       } else {  // есть хотя бы одна наша активная заявка
         auto first_order = our_orders.orders_by_dir(dir)[0];
-        const bool on_best_price = (first_order.price() == best_price);
+        const bool on_best_price = (first_order->price() == best_price);
         if (!on_best_price) {  // наша заявка стоит, но не на текущей лучшей цене
           delete_order(first_order);
           add_limit_order(dir, best_price, amount);
@@ -85,14 +86,52 @@ public:
                         best_price.get_double(),  // переводим тип Price в double
                         ChartYAxisType::Left,     // используем левую вертикальную ось
                         1);                       // 1 - номер графика
-        best_price_by_dir[dir] = order_book->best_price(dir);
+        best_price_by_dir[dir] = best_price;
       }
     }
   }
+
+private:
+  std::array<Price, 2> best_price_by_dir;
+  std::array<std::string, 2> axis_name;
 };
 
 REGISTER_CONTEST_STRATEGY(UserStrategy, user_strategy)
-```
+{%- language name="Python", type="py" -%}
+# -*- coding: utf-8 -*-
+
+from py_defs import *
+from py_defs import Decimal as Price
+from common_enums import *
+
+best_price_by_dir = [Price(), Price()]
+axis_name = ["best_bid", "best_ask"]
+
+
+def trading_book_update(strat, order_book):
+    global best_price_by_dir
+    our_orders = order_book.orders()
+    for dir in (BID, ASK):
+        best_price = order_book.best_price(dir)
+        amount = 1
+        if our_orders.active_orders_count(dir) == 0:
+            strat.add_limit_order(dir, best_price, amount)
+        else:
+            first_order = our_orders.orders_by_dir(dir)[0]
+            on_best_price = (first_order.price() == best_price)
+            if not on_best_price:  # наша заявка стоит, но не на текущей лучшей цене
+                strat.delete_order(first_order)
+                strat.add_limit_order(dir, best_price, amount)
+
+        if best_price != best_price_by_dir[dir]:
+            strat.add_chart_point(axis_name[dir],
+                                  best_price.get_double(),
+                                  ChartYAxisType.Left,
+                                  1)
+            best_price_by_dir[dir] = best_price
+{%- endcodetabs %}
+
+<!-- TODO(asalikhov): Rename Decimal to Price -->
 
 В результате на графике "Chart 1" получим следующую картинку:
 

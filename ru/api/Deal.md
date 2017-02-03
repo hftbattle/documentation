@@ -22,55 +22,69 @@
 
 Возвращает направление агрессора сделки, т.е. направление той заявки, которая была поставлена позже.
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 Dir aggressor_side() const;
-```
+{%- language name="Python", type="py" -%}
+def aggressor_side(self)
+{%- endcodetabs %}
 
 #### price() {#price}
 
 Возвращает цену, по которой была совершена сделка.
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 Price price() const;
-```
+{%- language name="Python", type="py" -%}
+def price(self)
+{%- endcodetabs %}
 
 #### amount() {#amount}
 
 Возвращает объём сделки, т.е. количество лотов, которые были сведены в результате этой сделки.
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 Amount amount() const;
-```
+{%- language name="Python", type="py" -%}
+def amount(self)
+{%- endcodetabs %}
 
 #### server_time() {#server_time}
 
 Возвращает биржевое время совершения сделки в микросекундах.
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 Microseconds server_time() const;
-```
+{%- language name="Python", type="py" -%}
+def server_time(self)
+{%- endcodetabs %}
 
 #### local_time() {#local_time}
 
 Возвращает локальное время совершения сделки в микросекундах.
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 Microseconds local_time() const;
-```
+{%- language name="Python", type="py" -%}
+def local_time(self)
+{%- endcodetabs %}
 
 #### orders() {#orders}
 
 Возвращает массив из двух указателей на заявки (BID (покупка) или ASK (продажа)), участвующие в сделке.
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 const RawOrdersArray orders() const;
-```
+{%- language name="Python", type="py" -%}
+def orders(self)
+{%- endcodetabs %}
 
 #### id() {#id}
 
 Возвращает уникальный числовой идентификатор сделки, полученный во время симуляции.
 Он может быть использован для сохранения какой-либо информации о заявке.
 
-```c++
+{% codetabs name="C++", type="c++" -%}
 Id id() const;
-```
+{%- language name="Python", type="py" -%}
+def id(self)
+{%- endcodetabs %}

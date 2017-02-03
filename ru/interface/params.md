@@ -62,7 +62,9 @@
 Параметры файла конфигурации приводятся к нужному типу с помощью метода `as<param_type>(deafult_value)`.
 При этом если вы не выберете значения для параметра, для него будет использовано значение по умолчанию `deafult_value`.
 
-```c++
+{% codetabs name="C++", type="c++" -%}
+#include "participant_strategy.h"
+
 class UserStrategy : public ParticipantStrategy {
 public:
   // Параметры стратегии, которые хочется подобрать.
@@ -70,10 +72,10 @@ public:
   double double_param;
   Microseconds time_param;
 
-  UserStrategy(const JsonValue& config) {
-    // Читаем целочисленный параметр.
-    int_param = config["int_param"].as<int>(42);
-    // Читаем вещественный параметр.
+  explicit UserStrategy(const JsonValue& config) {
+    // Читаем целочисленный параметр, который обязательно должен быть указан в JSON файле.
+    int_param = config["int_param"].as<int>();
+    // Читаем вещественный параметр. Если его нет в JSON файле, то он будет равен значению по умолчанию, т.е. 3.14.
     double_param = config["double_param"].as<double>(3.14);
     // Читаем временной параметр.
     // ! Временной параметр по умолчанию необходимо указывать с единицей измерения (литералом).
@@ -85,6 +87,26 @@ public:
     // us - микросекунды.
     time_param = config["time_param"].as<Microseconds>(3s);
   }
+};
 
-}
-```
+REGISTER_CONTEST_STRATEGY(UserStrategy, user_strategy)
+{%- language name="Python", type="py" -%}
+# -*- coding: utf-8 -*-
+
+from py_defs import *
+from py_defs import Decimal as Price
+from common_enums import *
+
+
+# В конструктор стратегии участника передается файл конфигурации.
+# В файл конфигурации из веб-интерфейса можно передать параметры стратегии.
+def init(strat, config):
+    # Параметры стратегии, которые хочется подобрать.
+    # Тип параметра определяется только тем, как вы его зададите в JSON
+    # Числовые значения не надо заключать в кавычки
+    global int_param, double_param, time_param
+    int_param = config["int_param"]
+    double_param = config["double_param"]
+    # Здесь тоже хранится число
+    time_param = config["time_param"]
+{%- endcodetabs %}

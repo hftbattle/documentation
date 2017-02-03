@@ -45,7 +45,8 @@ REGISTER_CONTEST_STRATEGY(UserStrategy, best_strategy_ever)
 
 ### Создание новой Python стратегии {#python}
 
-К сожалению, пока нет возможности создавать новые папки для `Python` стратегий. Пожалуйста, пишите свою стратегию в файле `strategies/python_strategy/python_strategy.py`.
+К сожалению, пока нет возможности создавать новые папки для `Python` стратегий.
+Пожалуйста, пишите свою стратегию в файле `strategies/python_strategy/python_strategy.py`.
 О запуске стратегии вы можете почитать [здесь](run_strategy.md).
 
 При этом название вашей стратегии будет `python_strategy`.
@@ -55,7 +56,8 @@ REGISTER_CONTEST_STRATEGY(UserStrategy, best_strategy_ever)
 #### 1. Создайте папку стратегии
 
 - В папке `strategies` создайте копию папки `python_strategy`
-- Выберите имя для вашей стратегии. Далее, мы будем обозначать его *strategy_name*.
+- Выберите имя для вашей стратегии.
+  Далее, мы будем обозначать его *strategy_name*.
 - Назовите новую папку, а также json и cpp файлы в ней *strategy_name*, *strategy_name.json*, *strategy_name.cpp* соответственно.
 
 **Внимание**: не изменяйте имена других файлов.
