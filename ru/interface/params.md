@@ -65,6 +65,8 @@
 {% codetabs name="C++", type="c++" -%}
 #include "participant_strategy.h"
 
+using namespace hftbattle;
+
 class UserStrategy : public ParticipantStrategy {
 public:
   // Параметры стратегии, которые хочется подобрать.
