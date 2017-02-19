@@ -36,14 +36,14 @@
 
 - An **order book** is the list of orders that a trading venue (in particular stock exchanges) uses to record the interest of buyers and sellers in a particular financial instrument.
   An order book is displayed as a table, in which prices are sorted upwards.
-  Green color signifies purchase, red one - sale.
+  Green color signifies purchase, red one — sale.
   <p align="center">
   <img src="{{ book["gitbook.img"] }}/order_book_example.png" title="An order book example">
   </p>
 
 <a id="bid"></a>
 
-- **Bid** is the price a market participant will buy a commodity at to buy a product in such a way.
+- **BID** is the price a market participant will buy a commodity at to buy a product in such a way.
 
 <a id="ask"></a>
 
@@ -51,12 +51,12 @@
 
 <a id="spread"></a>
 
-- **The bid-ask spread** is the difference between the best BID and best ASK prices.
+- **The bid-ask spread** is the difference between the best bid and best ask prices.
 
 <a id="deal"></a>
 
-- **Deal** is a purschase/sale of lots with an amount not exceeding the amount of an order.
-  In other words, it's a matching (execution) of an order with an order in other direction.
+- **Deal** is a purchase/sale of lots with an amount not exceeding the amount of an order.
+  In other words, it's a matching (execution) of an order with another order in opposite direction.
 
 <a id="position"></a>
 
