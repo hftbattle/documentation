@@ -19,7 +19,7 @@ def add_limit_order(self, dir, price, amount)
 - *price* - цена, по которой заявка будет выставлена
 - *amount* - размер заявки
 
-Будем выставлять нашу заявку внутри функции [trading_book_update](/api/ParticipantStrategy.md#trading_book_update), когда нам приходит новый стакан `const OrderBook& order_book`.
+Будем выставлять нашу заявку внутри функции [trading_book_update](/api/ParticipantStrategy.md#trading_book_update), когда нам приходит новый стакан `order_book`.
 Для определения лучшей цены используем метод [best_price](/api/OrderBook.md#best_price) класса [OrderBook](/api/OrderBook.md):
 
 {% codetabs name="C++", type="c++" -%}
@@ -40,7 +40,7 @@ def trading_book_update(strat, order_book):
 
 
 В тот момент, когда у нас вызывается функция [trading_book_update](/api/ParticipantStrategy.md#trading_book_update), наши заявки, поставленные в прошлых вызовах этой функции, всё еще могут быть не исполнены.
-В итоге, у нас может скопиться огромное количество заявок и мы превысим лимит на количество заявок в день.
+В итоге, у нас может скопиться огромное количество заявок, и мы превысим лимит на количество заявок в день.
 К счастью, у нас есть возможность посмотреть все наши активные заявки:
 
 {% codetabs name="C++", type="c++" -%}
@@ -51,13 +51,13 @@ our_orders = order_book.orders()
 
 Здесь мы используем метод [orders](/api/OrderBook.md#orders), возвращающий ссылку на объект типа [SecurityOrdersSnapshot](/api/SecurityOrdersSnapshot.md).
 
-> Замечание 1: Определенная выше переменная `orders` содержит и те заявки, которые мы уже отправили, но на которые ещё не отправили запрос на удаление.
+> Замечание 1: Определённая выше переменная `orders` содержит в том числе те заявки, которые мы уже отправили, но на которые ещё не отправили запрос на удаление.
 > Поэтому если для какой-то заявки будет вызван метод [delete_order](/api/ParticipantStrategy.md#delete_order), то к следующему обновлению в `orders` этой заявки точно не будет, даже если в реальности она ещё не успела удалиться.
 >
-> Замечание 2: Обновление объекта [order_book.orders()](/api/OrderBook.md#orders) происходит только между апдейтами, внутри апдейта она не меняется.
+> Замечание 2: Обновление объекта [order_book.orders()](/api/OrderBook.md#orders) происходит только между апдейтами, внутри апдейта он не меняется.
 
 Будем ставить заявку, если не существует активной заявки по этому направлению.
-Используем для этого метод [active_orders_count(Dir dir)](/api/SecurityOrdersSnapshot.md#active_orders_count) класса [SecurityOrdersSnapshot](/api/SecurityOrdersSnapshot.md), возвращающий количество наших активных заявок по направлению:
+Для определения наличия активной заявки используем метод [active_orders_count(Dir dir)](/api/SecurityOrdersSnapshot.md#active_orders_count) класса [SecurityOrdersSnapshot](/api/SecurityOrdersSnapshot.md), возвращающий количество наших активных заявок по направлению:
 
 {% codetabs name="C++", type="c++" -%}
 void trading_book_update(const OrderBook& order_book) override {
@@ -82,7 +82,7 @@ def trading_book_update(strat, order_book):
 
 В такой реализации есть минус – если лучшая цена изменится, то мы на это не отреагируем.
 Это может привести к тому, что мы долго не будем торговать по одному из направлений.
-Чтобы получить цену нашей активной заявки используем поле [orders_by_dir](/api/SecurityOrdersSnapshot.md#orders_by_dir) класса [SecurityOrdersSnapshot](/api/SecurityOrdersSnapshot.md#).
+Чтобы получить цену нашей активной заявки, используем метод [orders_by_dir()](/api/SecurityOrdersSnapshot.md#orders_by_dir) класса [SecurityOrdersSnapshot](/api/SecurityOrdersSnapshot.md#).
 Полный код стратегии будет выглядеть так:
 
 {% codetabs name="C++", type="c++" -%}
@@ -92,7 +92,7 @@ using namespace hftbattle;
 
 class UserStrategy : public ParticipantStrategy {
 public:
-  explicit UserStrategy(const JsonValue& /*config*/) { }
+  explicit UserStrategy(const JsonValue& config) { }
 
   void trading_book_update(const OrderBook& order_book) override {
     const auto& our_orders = order_book.orders();

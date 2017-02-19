@@ -38,10 +38,13 @@ REGISTER_CONTEST_STRATEGY(UserStrategy, best_strategy_ever)
 Необходимость регистрировать новую стратегию вызвана особенностями динамической линковки стратегий с симулятором.
 При этом в систему [{{ book["contest.arena.name"] }}]({{ book["contest.arena.url"] }}) вы можете посылать код стратегий, не заботясь о регистрации, т.е. как с ней, так и без неё.
 
-#### 3. Перезагрузите CMake в СLion
+#### 3. Перезагрузите CMake
 
-Если вы работаете из CLion, то вам нужно выполнить *Tools > CMake > Reload CMake Project*.
-Это перезагрузит CMake.
+- Для тех, кто работает из консоли, нужно заново выполнить скрипт *build.py*:
+  ```bash
+  ./build.py
+  ```
+- Если вы работаете из CLion, то вам нужно выполнить *Tools > CMake > Reload CMake Project*.
 
 ### Создание новой Python стратегии {#python}
 
@@ -51,6 +54,7 @@ REGISTER_CONTEST_STRATEGY(UserStrategy, best_strategy_ever)
 
 При этом название вашей стратегии будет `python_strategy`.
 
+<!-- TODO(asalikhov): it may be allowed to write in another files -->
 <!-- Для создания новой стратегии на языке Python:
 
 #### 1. Создайте папку стратегии

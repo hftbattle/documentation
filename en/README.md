@@ -11,7 +11,7 @@ Read more here: [User interface](interface/README.md).
 
 - Download local pack.
 
-  For this you can [download]({{ book["contest.local-pack.virtual.url"] }}) [VirtualBox]({{book["virtualbox.url"]}}) image, or you can clone local-package from [GitHub]({{ book["contest.local-pack.url"] }}) ([Git]({{ book["git.url"] }}) is required):
+  Clone local-package from [GitHub]({{ book["contest.local-pack.url"] }}) ([Git]({{ book["git.url"] }}) is required):
 
   ```bash
   git clone https://github.com/hftbattle/hftbattle.git

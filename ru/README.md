@@ -9,7 +9,7 @@
   Подробнее в разделе [Интерфейс участника](interface/README.md).
 - Скачайте пакет для локальной разработки.
 
-  Для этого можно [скачать]({{ book["contest.local-pack.virtual.url"] }}) настроенный образ [VirtualBox]({{book["virtualbox.url"]}}), либо склонировать пакет, опубликованный на [GitHub]( {{book["contest.local-pack.url"]}} ) (должен быть установлен [Git]({{ book["git.url"] }})):
+  Для этого можно нужно склонировать пакет, опубликованный на [GitHub]( {{book["contest.local-pack.url"]}} ) (должен быть установлен [Git]({{ book["git.url"] }})):
 
   ```bash
   git clone https://github.com/hftbattle/hftbattle.git

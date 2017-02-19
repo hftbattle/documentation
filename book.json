@@ -4,12 +4,12 @@
   "variables": {
     "contest.name": "HFT Battle 2016",
 
-    "gitbook.img": "http://localhost:4000/img",
+    "gitbook.img": "http://192.168.7.159:4000/img",
 
     "contest.landing-page.url": "https://www.hftbattle.com",
     "contest.landing-page.name": "hftbattle.com",
 
-    "contest.arena.url": "https://arena.hftbattle.com",
+    "contest.arena.url": "https://www.hftbattle.com/arena",
     "contest.arena.leaderboard.url": "https://arena.hftbattle.com/leaderboard",
     "contest.arena.name": "arena.hftbattle.com",
 
@@ -26,7 +26,6 @@
     "contest.local-pack.url": "https://github.com/hftbattle/hftbattle",
     "contest.local-pack.readme": "https://github.com/hftbattle/hftbattle/blob/master/README.md",
     "contest.local-pack.data.url": "https://www.dropbox.com/s/s1uxgs3vj3tgvr7/data.zip?dl=1",
-    "contest.local-pack.virtual.url": "https://s3.eu-central-1.amazonaws.com/hftbattle/vm-hftbattle.ova",
 
     "blog.url": "http://blog.hftbattle.com",
 
@@ -36,7 +35,6 @@
     "data.small_day": "2015.09.29",
     "data.full_day": "2015.12.23",
     "git.url": "http://git-scm.com/download",
-    "virtualbox.url": "https://www.virtualbox.org",
     "tdm-gcc.url": "http://tdm-gcc.tdragon.net",
     "tdm-gcc-download.url": "http://tdm-gcc.tdragon.net/download",
 
@@ -53,14 +51,9 @@
     "viewer.url": "http://viewer.hftbattle.com",
     "viewer.name": "viewer.hftbattle.com",
 
-    "virtual.system": "Ubuntu 16.04",
-
     "trading.begin_time": "02:00:00",
     "trading.end_time": "23:45:00",
     "trading.daily_deals": "5-10",
-    "trading.min_step": "25",
-    "trading.lot_cost": "0.5$",
-    "trading.min_cost": "12.5$",
 
     "constraint.symbol": "10^6",
     "constraint.string": "10^3",
@@ -72,7 +65,9 @@
     "constraint.position": "50",
     "constraint.stop_loss": "-50000$",
     "constraint.comission": "0.2$",
-    "constraint.roundtrip": "10"
+    "constraint.roundtrip": "10",
+
+    "comission.equation": "0.2$ * 5000 = 1000$"
   },
   "plugins": ["language-picker", "edit-link", "disqus", "anchorjs", "search-languages", "-lunr", "yametrika", "expandable-chapters", "codetabs", "copy-code-button"],
   "pluginsConfig": {
