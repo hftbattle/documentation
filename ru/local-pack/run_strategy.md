@@ -33,12 +33,12 @@
 
 - **задать исполняемый файл**:
 
-  для этого заходим в *Run > Edit configurations*, там задаем в качестве *Executable* исполняемый файл в корне директории, соответствующий вашей платформе (*mac_launcher* для MacOS, *windows_launcher* для Windows и *linux_launcher* для Linux).
+  Для этого необходимо зайти в *Run > Edit configurations*, там задаем в качестве *Executable* исполняемый файл в корне директории, соответствующий вашей платформе (*mac_launcher* для MacOS, *windows_launcher* для Windows и *linux_launcher* для Linux).
 - **прописать название стратегии** в аргументах командной строки:
 
-  для этого в той же вкладке *Run > Edit configurations* в строчке *Program arguments* пишем название вашей стратегии, например:
+  Для этого в той же вкладке *Run > Edit configurations* в строчке *Program arguments* необходимо написать путь до файла конфигурации вашей стратегии, например:
 
   ```bash
-  user_strategy
+  strategies/user_strategy/user_strategy.json
   ```
 - **запустить сборку проекта и симуляцию**, нажав кнопку *Run*.

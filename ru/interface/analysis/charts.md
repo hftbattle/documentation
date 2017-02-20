@@ -14,9 +14,7 @@
 По умолчанию для каждой тренировочной посылки строится график "Chart 0", на котором изображены 2 линии:
 
 - *sum* – ваша прибыль в течение торговой сессии, её значения отмечены на левой вертикальной оси
-- *[symbol_name]-pos* – ваша позиция, то есть разность числа купленных и проданных вами лотов
-
-Значениям позиции соответствует правая вертикальная ось.
+- *[symbol_name]-pos* – ваша позиция, то есть разность числа купленных и проданных вами лотов, её значения отмечены на правой вертикальной оси
 
 <img src="{{ book["gitbook.img"] }}/base_chart.png" title="График лучшей цены" align="center">
 
@@ -40,10 +38,11 @@ void add_chart_point(const std::string& line_name,
                      ChartYAxisType y_axis_type,
                      uint8_t chart_number)
 {%- language name="Python", type="py" -%}
-def add_chart_point(self, str line_name,
-                    double value,
-                    int y_axis_type,
-                    uint8_t chart_number)
+def add_chart_point(self,
+                    line_name,
+                    value,
+                    y_axis_type,
+                    chart_number)
 {%- endcodetabs %}
 
 - *line_name* - имя оси, отображается в легенде графика

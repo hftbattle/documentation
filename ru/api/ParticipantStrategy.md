@@ -122,8 +122,7 @@ def add_ioc_order(self, dir, price, amount)
 
 Снимает эту заявку с торгов.
 Внимание: удаление происходит немоментально.
-Подробнее читайте в документации.
-TODO(asalikhov): add links to docs.
+Подробнее об ограничениях симулятора читайте здесь: <https://docs.hftbattle.com/ru/simulator/restrictions.html>.
 
 {% codetabs name="C++", type="c++" -%}
 void delete_order(Order* order);
@@ -189,9 +188,9 @@ def volume_by_price(self, dir, price)
 Внимание: благодаря параметру chart_number можно создавать несколько графиков, а с помощью line_name — можно рисовать несколько графиков на одном изображении.
 
 {% codetabs name="C++", type="c++" -%}
-void add_chart_point(const std::string& line_name, double value, ChartYAxisType y_axis_type,
+void add_chart_point(const std::string& line_name, Decimal value, ChartYAxisType y_axis_type = ChartYAxisType::Left, uint8_t chart_number = 1);
 {%- language name="Python", type="py" -%}
-def add_chart_point(self, line_name, value, y_axis_type, chart_number)
+def add_chart_point(self, line_name, value, 0, 1)
 {%- endcodetabs %}
 
 #### current_result() {#current_result}

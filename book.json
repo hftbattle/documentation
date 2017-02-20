@@ -10,8 +10,8 @@
     "contest.landing-page.name": "hftbattle.com",
 
     "contest.arena.url": "https://www.hftbattle.com/arena",
-    "contest.arena.leaderboard.url": "https://arena.hftbattle.com/leaderboard",
-    "contest.arena.name": "arena.hftbattle.com",
+    "contest.arena.leaderboard.url": "https://www.hftbattle.com/arena/leaderboard",
+    "contest.arena.name": "hftbattle.com/arena",
 
     "contest.docs.url": "https://docs.hftbattle.com",
     "contest.docs.name": "docs.hftbattle.com",
@@ -55,19 +55,19 @@
     "trading.end_time": "23:45:00",
     "trading.daily_deals": "5-10",
 
-    "constraint.symbol": "10^6",
-    "constraint.string": "10^3",
-    "constraint.symbol_in_string": "10^3",
+    "constraint.symbol": "1'000'000",
+    "constraint.string": "1000",
+    "constraint.symbol_in_string": "1000",
     "constraint.logs_size": "100",
     "constraint.simulation_time": "10",
 
     "constraint.daily_control_submissions": "2",
     "constraint.position": "50",
-    "constraint.stop_loss": "-50000$",
-    "constraint.comission": "0.2$",
-    "constraint.roundtrip": "10",
+    "constraint.stop_loss": "-50000",
+    "constraint.comission": "0.2",
+    "constraint.round-trip": "10",
 
-    "comission.equation": "0.2$ * 5000 = 1000$"
+    "comission.equation": "0.2 * 5000 = 1000"
   },
   "plugins": ["language-picker", "edit-link", "disqus", "anchorjs", "search-languages", "-lunr", "yametrika", "expandable-chapters", "codetabs", "copy-code-button"],
   "pluginsConfig": {

@@ -15,7 +15,7 @@
 | [amount_rest()](#amount_rest) | Текущий объём заявки. |
 | [security_id()](#security_id) | Указатель на инструмент, соответствующий заявке. |
 | [status()](#status) | Статус заявки. |
-| [origin_server_time()](#origin_server_time) | Биржевое время постановки заявки в стакан. |
+| [server_time()](#server_time) | Биржевое время постановки заявки в стакан. |
 | [local_time()](#local_time) | Локальное время постановки заявки в стакан. |
 
 ### Описание методов
@@ -86,8 +86,7 @@ def security_id(self)
 Возвращает значение enum class, статус заявки.
 
 Возможные статусы: в процессе добавления (Adding), активная (Active), в процессе удаления, но ещё не удалённая (Deleting) и удалённая (Deleted).
-Подробнее читайте в описании класса OrderStatus.
-TODO(asalikhov): add links to docs.
+Подробнее читайте в описании класса OrderStatus: <https://docs.hftbattle.com/ru/api/CommonEnums.html#orderstatus>.
 
 {% codetabs name="C++", type="c++" -%}
 OrderStatus status() const;
@@ -95,14 +94,14 @@ OrderStatus status() const;
 def status(self)
 {%- endcodetabs %}
 
-#### origin_server_time() {#origin_server_time}
+#### server_time() {#server_time}
 
 Возвращает биржевое время постановки заявки в стакан в микросекундах.
 
 {% codetabs name="C++", type="c++" -%}
-Microseconds origin_server_time() const;
+Microseconds server_time() const;
 {%- language name="Python", type="py" -%}
-def origin_server_time(self)
+def server_time(self)
 {%- endcodetabs %}
 
 #### local_time() {#local_time}

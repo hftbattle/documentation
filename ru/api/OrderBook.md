@@ -138,8 +138,7 @@ def best_volume(self, dir)
 
 Возвращает все котировки по направлению dir в виде объекта QuotesHolder.
 Внимание: QuotesHolder — контейнер, по которому можно итерироваться.
-Подробнее читайте в документации.
-TODO(asalikhov): add links to docs.
+Подробнее о QuotesHolder читайте здесь: <https://docs.hftbattle.com/ru/api/QuotesHolder.html>.
 
 {% codetabs name="C++", type="c++" -%}
 QuotesHolder all_quotes(Dir dir) const;
@@ -190,7 +189,7 @@ def local_time(self)
 #### orders() {#orders}
 
 Возвращает ссылку на объект типа SecurityOrdersSnapshot, содержащую ваши текущие заявки.
-TODO(asalikhov): add links to docs.
+Подробнее о SecurityOrdersSnapshot читайте здесь: <https://docs.hftbattle.com/ru/api/SecurityOrdersSnapshot.html>.
 
 {% codetabs name="C++", type="c++" -%}
 const SecurityOrdersSnapshot& orders() const;

@@ -42,7 +42,7 @@ To launch simulation in [CLion](({{ book["clion-download.url"] }}) you need to:
   For example:
 
   ```bash
-  user_strategy
+  strategies/user_strategy/user_strategy.json
   ```
 
 - **to start the project build and simulation**, by pressing *Run* button.
