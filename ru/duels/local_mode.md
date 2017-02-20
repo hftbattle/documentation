@@ -22,5 +22,5 @@
 В случае CLion нужно прописать во вкладке *Run > Edit configurations* в строчке *Program arguments*:
 
 ```bash
-first_strategy second_strategy
+strategies/first_strategy/first_strategy.json strategies/second_strategy/second_strategy.json
 ```
