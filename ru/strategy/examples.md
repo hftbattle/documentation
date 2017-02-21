@@ -371,7 +371,7 @@ public:
     // Обновляем списки недавних постановок и снятий на лучшие цены
     update_deletions_and_additions();
     for (Dir dir : {BID, ASK}) {
-      // Удаляем заявки с далёких ценовых уровней, чтобы не попадать под ограничение на набираемую позу.
+      // Удаляем заявки с далёких ценовых уровней, чтобы не попадать под ограничение на набираемую позицию.
       for(auto& order: trading_book_info.orders().orders_by_dir[dir]) {
         if (trading_book().get_index_by_price(dir, order->price) > 9) {
           delete_order(order);
