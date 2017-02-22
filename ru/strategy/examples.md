@@ -29,7 +29,7 @@ public:
   explicit UserStrategy(const JsonValue& config) { }
 
   // Вызывается при получении нового стакана торгового инструмента:
-  // @order_book – новый стакан.
+  // @order_book — новый стакан.
   void trading_book_update(const OrderBook& order_book) override {
     auto our_orders = trading_book_info.orders();
     for (Dir dir : {BID, ASK}) {
@@ -75,7 +75,7 @@ public:
   }
 
   // Вызывается при получении нового стакана торгового инструмента:
-  // @order_book – новый стакан.
+  // @order_book — новый стакан.
   void trading_book_update(const OrderBook& order_book) override {
     auto our_orders = trading_book_info.orders();
     for (Dir dir : {BID, ASK}) {
@@ -197,7 +197,7 @@ public:
   }
 
   // Вызывается при получении нового стакана торгового инструмента:
-  // @order_book – новый стакан.
+  // @order_book — новый стакан.
   void trading_book_update(const OrderBook& order_book) override {
     /* написать свою реализацию здесь */
   }
@@ -237,7 +237,7 @@ public:
   }
 
   // Вызывается при получении отчёта о сделке с участием вашего ордера:
-  // @execution_report – структура-отчёт о совершенной сделке.
+  // @execution_report — структура-отчёт о совершенной сделке.
   void execution_report_update(const ExecutionReport& execution_report) override {
     our_deals_total_amount_ += execution_report.deal_amount();
     if (our_deals_total_amount_ > our_deals_max_total_amount_) {

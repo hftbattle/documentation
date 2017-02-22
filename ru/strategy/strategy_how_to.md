@@ -15,9 +15,9 @@ def add_limit_order(self, dir, price, amount)
 
 Функция [add_limit_order](/api/ParticipantStrategy.md#add_limit_order) выставляет нашу [лимитную заявку](/terms.md#limit_order), где:
 
-- *dir* - направление (BID = 0 - покупка, ASK = 1 - продажа)
-- *price* - цена, по которой заявка будет выставлена
-- *amount* - размер заявки
+- *dir* — направление (BID = 0 — покупка, ASK = 1 — продажа)
+- *price* — цена, по которой заявка будет выставлена
+- *amount* — размер заявки
 
 Будем выставлять нашу заявку внутри функции [trading_book_update](/api/ParticipantStrategy.md#trading_book_update), когда нам приходит новый стакан `order_book`.
 Для определения лучшей цены используем метод [best_price](/api/OrderBook.md#best_price) класса [OrderBook](/api/OrderBook.md):
@@ -80,7 +80,7 @@ def trading_book_update(strat, order_book):
             strat.add_limit_order(dir, best_price, amount)
 {%- endcodetabs %}
 
-В такой реализации есть минус – если лучшая цена изменится, то мы на это не отреагируем.
+В такой реализации есть минус — если лучшая цена изменится, то мы на это не отреагируем.
 Это может привести к тому, что мы долго не будем торговать по одному из направлений.
 Чтобы получить нашу активную заявку, используем метод [orders_by_dir()](/api/SecurityOrdersSnapshot.md#orders_by_dir) класса [SecurityOrdersSnapshot](/api/SecurityOrdersSnapshot.md#).
 Полный код стратегии будет выглядеть так:
