@@ -43,7 +43,7 @@
 Вызывается симулятором при получении нового стакана торгового инструмента.
 
 {% codetabs name="C++", type="c++" -%}
-virtual void trading_book_update(const OrderBook& /*order_book*/);
+virtual void trading_book_update(const OrderBook& order_book);
 {%- language name="Python", type="py" -%}
 cdef public void ctrading_book_update(defs.ParticipantStrategy* ptr, const defs.OrderBook& order_book) except *
 {%- endcodetabs %}
@@ -53,7 +53,7 @@ cdef public void ctrading_book_update(defs.ParticipantStrategy* ptr, const defs.
 Вызывается симулятором при получении новых сделок торгового инструмента.
 
 {% codetabs name="C++", type="c++" -%}
-virtual void trading_deals_update(std::vector<Deal>&& /*deals*/);
+virtual void trading_deals_update(std::vector<Deal>&& deals);
 {%- language name="Python", type="py" -%}
 cdef public void ctrading_deals_update(defs.ParticipantStrategy* ptr, vector[defs.Deal]&& deals) except *
 {%- endcodetabs %}
@@ -63,7 +63,7 @@ cdef public void ctrading_deals_update(defs.ParticipantStrategy* ptr, vector[def
 Вызывается симулятором при получении отчёта о сделке с участием вашей заявки.
 
 {% codetabs name="C++", type="c++" -%}
-virtual void execution_report_update(const ExecutionReport& /*execution_report*/);
+virtual void execution_report_update(const ExecutionReport& execution_report);
 {%- language name="Python", type="py" -%}
 cdef public void cexecution_report_update(defs.ParticipantStrategy* ptr, const defs.ExecutionReport& snapshot) except *
 {%- endcodetabs %}
@@ -73,7 +73,7 @@ cdef public void cexecution_report_update(defs.ParticipantStrategy* ptr, const d
 Вызывается симулятором при получении нового стакана сигнального инструмента.
 
 {% codetabs name="C++", type="c++" -%}
-virtual void signal_book_update(const OrderBook& /*order_book*/);
+virtual void signal_book_update(const OrderBook& order_book);
 {%- endcodetabs %}
 
 #### signal_deals_update() {#signal_deals_update}
@@ -81,7 +81,7 @@ virtual void signal_book_update(const OrderBook& /*order_book*/);
 Вызывается симулятором при получении новых сделок сигнального инструмента.
 
 {% codetabs name="C++", type="c++" -%}
-virtual void signal_deals_update(std::vector<Deal>&& /*deals*/);
+virtual void signal_deals_update(std::vector<Deal>&& deals);
 {%- endcodetabs %}
 
 #### add_limit_order() {#add_limit_order}
