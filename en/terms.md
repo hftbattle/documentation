@@ -43,11 +43,11 @@
 
 <a id="bid"></a>
 
-- **BID** is the price a market participant will buy a commodity at to buy a product in such a way.
+- **Bid** is the price a market participant will buy a commodity at to buy a product in such a way.
 
 <a id="ask"></a>
 
-- **ASK** is the price a market participant will sell a commodity at to sell a product in such a way.
+- **Ask** is the price a market participant will sell a commodity at to sell a product in such a way.
 
 <a id="spread"></a>
 
@@ -65,5 +65,5 @@
 
 <a id="saldo"></a>
 
-- **Saldo** is the outstanding balance is the amount of money owed, (or due), that remains in a deposit account.
+- **Saldo** is the outstanding balance is the amount of money owed (or due) that remains in a deposit account.
   > For example: if user bought 10 lots of instrument for the price of 1, and then sold 3 lots for the price of 2, then his current position is equal to 10 - 3 = 7, and his current saldo is `-10 * 1 + 3 * 2 = -4`.

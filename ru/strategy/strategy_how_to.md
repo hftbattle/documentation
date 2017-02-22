@@ -3,7 +3,7 @@
 Реализуем следующую стратегию: будем поддерживать наши [заявки](/terms.md#order) на лучшей цене в обоих направлениях.
 
 Сначала научимся ставить заявку.
-Для этого предназначена функция:
+Для этого используем метод:
 
 {% codetabs name="C++", type="c++" -%}
 bool add_limit_order(Dir dir, Price price, Amount amount);
@@ -11,7 +11,7 @@ bool add_limit_order(Dir dir, Price price, Amount amount);
 def add_limit_order(self, dir, price, amount)
 {%- endcodetabs %}
 
-Внимание: в **Python** функции *trading_book_update*, *trading_deals_update*, *execution_report_update* являются свободными, поэтому в них первым параметром передаётся стратегия **strat**, от которой и нужно вызывать методы стратегии.
+Внимание: в **Python** функции *trading_book_update*, *trading_deals_update*, *execution_report_update* являются свободными, поэтому в них первым параметром передаётся объект **strat** типа *ParticipantStrategy*, от которого и нужно вызывать методы стратегии.
 
 Функция [add_limit_order](/api/ParticipantStrategy.md#add_limit_order) выставляет нашу [лимитную заявку](/terms.md#limit_order), где:
 
@@ -40,7 +40,7 @@ def trading_book_update(strat, order_book):
 
 
 В тот момент, когда у нас вызывается функция [trading_book_update](/api/ParticipantStrategy.md#trading_book_update), наши заявки, поставленные в прошлых вызовах этой функции, всё еще могут быть не исполнены.
-В итоге, у нас может скопиться огромное количество заявок, и мы превысим лимит на количество заявок в день.
+В итоге, у нас может скопиться огромное количество заявок.
 К счастью, у нас есть возможность посмотреть все наши активные заявки:
 
 {% codetabs name="C++", type="c++" -%}
@@ -82,7 +82,7 @@ def trading_book_update(strat, order_book):
 
 В такой реализации есть минус – если лучшая цена изменится, то мы на это не отреагируем.
 Это может привести к тому, что мы долго не будем торговать по одному из направлений.
-Чтобы получить цену нашей активной заявки, используем метод [orders_by_dir()](/api/SecurityOrdersSnapshot.md#orders_by_dir) класса [SecurityOrdersSnapshot](/api/SecurityOrdersSnapshot.md#).
+Чтобы получить нашу активную заявку, используем метод [orders_by_dir()](/api/SecurityOrdersSnapshot.md#orders_by_dir) класса [SecurityOrdersSnapshot](/api/SecurityOrdersSnapshot.md#).
 Полный код стратегии будет выглядеть так:
 
 {% codetabs name="C++", type="c++" -%}

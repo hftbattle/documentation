@@ -18,7 +18,7 @@
 ### Структура стратегий на языке C++ {#cpp}
 
 Рассмотрим класс-шаблон **UserStrategy**, предназначенный для написания стратегий.
-Он наследуется от класса-интерфейса [ParticipantStrategy](/api/ParticipantStrategy.md), где объявлено 3 виртуальных функции, которые вы можете реализовать в своей стратегии:
+Он наследуется от класса-интерфейса [ParticipantStrategy](/api/ParticipantStrategy.md), где объявлены три виртуальные функции, которые вы можете реализовать в своей стратегии:
 
 - [trading_book_update](/api/ParticipantStrategy.md#trading_book_update)
 - [trading_deals_update](/api/ParticipantStrategy.md#trading_deals_update)
