@@ -26,7 +26,7 @@
 | symbol | {{ book["contest.instrument"] }} | название инструмента |
 | price | 8639 | цена заявки |
 | amount | 10 | объем заявки (число лотов) |
-| exec_amount | 10 | количество сведённых лотов |
+| executed_amount | 10 | количество сведённых лотов |
 | dir | 0 | направление заявки: BID (0) / ASK (1) |
 | order_meaning | Quote | смысл заявки, Quote для Limit заявок и Beat для IOC |
 | order_type | Limit | тип заявки: Limit / IOC |
