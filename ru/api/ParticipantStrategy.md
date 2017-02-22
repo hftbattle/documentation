@@ -45,7 +45,7 @@
 {% codetabs name="C++", type="c++" -%}
 virtual void trading_book_update(const OrderBook& order_book);
 {%- language name="Python", type="py" -%}
-cdef public void ctrading_book_update(defs.ParticipantStrategy* ptr, const defs.OrderBook& order_book) except *
+def trading_book_update(strat, trading_book)
 {%- endcodetabs %}
 
 #### trading_deals_update() {#trading_deals_update}
@@ -55,7 +55,7 @@ cdef public void ctrading_book_update(defs.ParticipantStrategy* ptr, const defs.
 {% codetabs name="C++", type="c++" -%}
 virtual void trading_deals_update(std::vector<Deal>&& deals);
 {%- language name="Python", type="py" -%}
-cdef public void ctrading_deals_update(defs.ParticipantStrategy* ptr, vector[defs.Deal]&& deals) except *
+def trading_deals_update(strat, deals)
 {%- endcodetabs %}
 
 #### execution_report_update() {#execution_report_update}
@@ -65,7 +65,7 @@ cdef public void ctrading_deals_update(defs.ParticipantStrategy* ptr, vector[def
 {% codetabs name="C++", type="c++" -%}
 virtual void execution_report_update(const ExecutionReport& execution_report);
 {%- language name="Python", type="py" -%}
-cdef public void cexecution_report_update(defs.ParticipantStrategy* ptr, const defs.ExecutionReport& snapshot) except *
+def execution_report_update(strat, execution_report)
 {%- endcodetabs %}
 
 #### signal_book_update() {#signal_book_update}
