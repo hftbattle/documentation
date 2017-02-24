@@ -119,7 +119,7 @@ static constexpr Amount kMaximumMaxExecutedAmount = 50 * 75;
 Путь в Local Pack `include/base/log.h`
 
 Один из потоков вывода.
-Данные в этом потоке выводятся, если установлен уровень логгирования SCREEN и ниже.
+Данные в этом потоке выводятся, если установлен уровень логирования SCREEN и ниже.
 
 {% codetabs name="C++", type="c++" -%}
 #define SCREEN() PRIVATE_LOG(getCurrentLoggerId(), hftbattle::LogLevel::Screen)
@@ -130,7 +130,7 @@ static constexpr Amount kMaximumMaxExecutedAmount = 50 * 75;
 Путь в Local Pack `include/base/log.h`
 
 Один из потоков вывода.
-Данные в этом потоке выводятся, если установлен любой уровень логгирования.
+Данные в этом потоке выводятся, если установлен любой уровень логирования.
 После этого программа прекращает свою работу.
 
 {% codetabs name="C++", type="c++" -%}
