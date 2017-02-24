@@ -14,7 +14,7 @@
 #### Stay on best price strategy {#stay_on_best_price}
 
 Идея стратегии состоит в том, чтобы поддерживать на каждом направлении (*BID* и *ASK*) по одной нашей заявке на лучшей цене.
-В случае, если на направлении нет наших активных заявок, она ставит заявку объемом 1 на лучшую цену.
+В случае, если на направлении нет наших активных заявок, она ставит заявку объёмом 1 на лучшую цену.
 Если заявка уже есть, но она стоит не на лучшей - мы ее снимаем и ставим новую на лучшую цену.
 
 ##### Рассмотрим базовый вариант стратегии: {#stay_on_best_price_base}
@@ -60,7 +60,7 @@ public:
 Оптимальное значение можно подобрать, перебрав разные варианты в системе.
 Подробнее в разделе [Перебор параметров](/interface/params.md).
 
-Применим следующую простую оптимизацию: если на лучшей цене стоит объем меньший, чем *`min_amount_to_stay_on_best_`*, то мы не будем на неё выставляться.
+Применим следующую простую оптимизацию: если на лучшей цене стоит объём меньший, чем *`min_amount_to_stay_on_best_`*, то мы не будем на неё выставляться.
 Если же на этой цене уже стоит наша заявка, то мы её снимем:
 
 ```c++
@@ -70,7 +70,7 @@ using namespace hftbattle;
 
 class UserStrategy : public ParticipantStrategy {
 public:
-  UserStrategy(JsonValue config) {
+  explicit UserStrategy(const JsonValue& config) {
     min_volume_to_stay_on_best_ = config["min_volume_to_stay_on_best"].as<int>(10);
   }
 
@@ -162,6 +162,7 @@ public:
       deals_count_by_dir_[ASK] = 0;
     }
   }
+
 private:
   Microseconds last_reset_time_;
   std::array<int, 2> deals_count_by_dir_;
@@ -173,7 +174,7 @@ private:
 
 ##### Модифицируем предыдущую стратегию. {#deals_count_diff_limited}
 
-Модифицируем предыдущую стратегию следующим образом: ограничим суммарный объем наших сделок, используя информацию, приходящую в функции [execution_report_update](/api/ParticipantStrategy.md#execution_report_update).
+Модифицируем предыдущую стратегию следующим образом: ограничим суммарный объём наших сделок, используя информацию, приходящую в функции [execution_report_update](/api/ParticipantStrategy.md#execution_report_update).
 
 ```c++
 #include "participant_strategy.h"
@@ -237,7 +238,7 @@ public:
   }
 
   // Вызывается при получении отчёта о сделке с участием вашего ордера:
-  // @execution_report — структура-отчёт о совершенной сделке.
+  // @execution_report — структура-отчёт о совершённой сделке.
   void execution_report_update(const ExecutionReport& execution_report) override {
     our_deals_total_amount_ += execution_report.deal_amount();
     if (our_deals_total_amount_ > our_deals_max_total_amount_) {
@@ -270,7 +271,6 @@ using namespace hftbattle;
 
 class UserStrategy : public ParticipantStrategy {
 public:
-
   explicit UserStrategy(const JsonValue& config) :
       max_executed_amount_(config["max_executed_amount"].as<Amount>(50)),
       max_amount_at_price_(config["max_amount_at_price"].as<Amount>(3)),
@@ -313,7 +313,7 @@ public:
       if (order->status() != OrderStatus::Active) {
         continue;
       }
-      // считаем объем, стоящий после нашей заявки
+      // считаем объём, стоящий после нашей заявки
       Amount amount_after_order = trading_book_info.best_volume(dir) - get_amount_before_order(order);
       // если с цены хорошо бы сняться и мы не сильно теряем очередь - то снимаем заявку
       if (should_strategy_run_from_best_price(dir) && amount_after_order < max_after_amount_to_run_) {
@@ -331,17 +331,17 @@ public:
                                           [](Amount amount, const OrderSnapshot &order) {
                                             return amount + order->amount;
                                           });
-    // если объем на цене совсем маленький - то снимаемся с нее
+    // если объём на цене совсем маленький - то снимаемся с нее
     if (trading_book_info.best_volume(dir) - current_amount < max_amount_to_run_from_best_) {
       delete_all_at_price(dir, price);
       return;
     }
-    // если объем не превышает какого-то - то думаем, стоит ли сняться, или все же стоит держать заявки
+    // если объём не превышает какого-то - то думаем, стоит ли сняться, или все же стоит держать заявки
     if (trading_book_info.best_volume(dir) - current_amount < max_soft_amount_to_run_from_best_) {
       delete_soft_second_version(dir, price, current_amount, wanted_amount, current_orders);
       return;
     }
-    // если объем достаточно большой - то просто обрабатываем цену как все другие
+    // если объём достаточно большой - то просто обрабатываем цену как все другие
     manage_amount_on_price(dir, price, wanted_amount, current_orders);
   }
 

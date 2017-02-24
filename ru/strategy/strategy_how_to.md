@@ -15,9 +15,9 @@ def add_limit_order(self, dir, price, amount)
 
 Функция [add_limit_order](/api/ParticipantStrategy.md#add_limit_order) выставляет нашу [лимитную заявку](/terms.md#limit_order), где:
 
-- *dir* — направление (BID = 0 — покупка, ASK = 1 — продажа)
-- *price* — цена, по которой заявка будет выставлена
-- *amount* — размер заявки
+- *dir* — направление (BID = 0 — покупка, ASK = 1 — продажа).
+- *price* — цена, по которой заявка будет выставлена.
+- *amount* — размер заявки.
 
 Будем выставлять нашу заявку внутри функции [trading_book_update](/api/ParticipantStrategy.md#trading_book_update), когда нам приходит новый стакан `order_book`.
 Для определения лучшей цены используем метод [best_price](/api/OrderBook.md#best_price) класса [OrderBook](/api/OrderBook.md):
