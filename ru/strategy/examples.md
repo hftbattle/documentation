@@ -33,13 +33,13 @@ public:
   void trading_book_update(const OrderBook& order_book) override {
     auto our_orders = trading_book_info.orders();
     for (Dir dir : {BID, ASK}) {
-      const Price best_price = trading_book_info.best_price(dir);
-      const Amount amount = 1;
+      Price best_price = trading_book_info.best_price(dir);
+      Amount amount = 1;
       if (our_orders.active_orders_count(dir) == 0) {
         add_limit_order(dir, best_price, amount);
       } else {  // есть хотя бы одна наша активная заявка
         auto first_order = our_orders.orders_by_dir[dir][0];
-        const bool on_best_price = first_order->price == best_price;
+        bool on_best_price = (first_order->price == best_price);
         if (!on_best_price) {  // наша заявка стоит, но не на текущей лучшей цене
           delete_order(first_order);
           add_limit_order(dir, best_price, amount);
@@ -79,14 +79,14 @@ public:
   void trading_book_update(const OrderBook& order_book) override {
     auto our_orders = trading_book_info.orders();
     for (Dir dir : {BID, ASK}) {
-      const Price best_price = trading_book_info.best_price(dir);
-      const Amount best_volume = trading_book_info.best_volume(dir);
-      const bool can_stay_on_best = best_volume >= min_volume_to_stay_on_best_;
+      Price best_price = trading_book_info.best_price(dir);
+      Amount best_volume = trading_book_info.best_volume(dir);
+      bool can_stay_on_best = (best_volume >= min_volume_to_stay_on_best_);
       if (our_orders.active_orders_count(dir) == 0) {
         add_limit_order_if(dir, best_price, 1, can_stay_on_best);
       } else {  // есть хотя бы одна наша активная заявка
         auto first_order = our_orders.orders_by_dir[dir][0];
-        const bool on_best_price = first_order->price == best_price;
+        bool on_best_price = (first_order->price() == best_price);
         if (!on_best_price || !can_stay_on_best) {
           delete_order(first_order);
           add_limit_order_if(dir, best_price, 1, can_stay_on_best);
@@ -138,20 +138,20 @@ public:
     for (const auto& deal : deals) {
       deals_count_by_dir_[deal.dir] += 1;
     }
-    const int deals_count_diff = std::abs(deals_count_by_dir_[ASK] -
-                                          deals_count_by_dir_[BID]);
-    bool trade = deals_count_diff >= min_deals_count_diff_;
+    int deals_count_diff = std::abs(deals_count_by_dir_[ASK] -
+                                    deals_count_by_dir_[BID]);
+    bool trade = (deals_count_diff >= min_deals_count_diff_);
     if (trade) {
-      const Dir dir_to_beat = deals_count_by_dir_[ASK] >= deals_count_by_dir_[BID]
+      Dir dir_to_beat = deals_count_by_dir_[ASK] >= deals_count_by_dir_[BID]
                               ? ASK
                               : BID;
-      const Price price_to_beat = trading_book_info.best_price(opposite_dir(dir_to_beat));
-      const Amount amount_to_beat = 1;
+      Price price_to_beat = trading_book_info.best_price(opposite_dir(dir_to_beat));
+      Amount amount_to_beat = 1;
       add_ioc_order(dir_to_beat, price_to_beat, amount_to_beat);
     }
 
-    const Microseconds current_time = get_server_time();
-    const Microseconds time_diff_us = current_time - last_reset_time_;
+    Microseconds current_time = get_server_time();
+    Microseconds time_diff_us = current_time - last_reset_time_;
     // Далее сравнивается величина time_diff_us в микросекундах
     // с величиной deals_reset_period_ms_ в миллисекундах -
     // это нормально, система сама понимает как сравнить два времени,
@@ -212,19 +212,19 @@ public:
     for (const auto& deal : deals) {
       deals_count_by_dir_[deal.dir] += 1;
     }
-    const int deals_count_diff = std::abs(deals_count_by_dir_[ASK] -
-                                          deals_count_by_dir_[BID]);
-    bool trade = deals_count_diff >= min_deals_count_diff_;
+    int deals_count_diff = std::abs(deals_count_by_dir_[ASK] -
+                                    deals_count_by_dir_[BID]);
+    bool trade = (deals_count_diff >= min_deals_count_diff_);
     if (trade) {
-      const Dir dir_to_beat = deals_count_by_dir_[ASK] >= deals_count_by_dir_[BID]
+      Dir dir_to_beat = deals_count_by_dir_[ASK] >= deals_count_by_dir_[BID]
                               ? ASK
                               : BID;
-      const Price price_to_beat = trading_book_info.best_price(opposite_dir(dir_to_beat));
-      const Amount amount_to_beat = 1;
+      Price price_to_beat = trading_book_info.best_price(opposite_dir(dir_to_beat));
+      Amount amount_to_beat = 1;
       add_ioc_order(dir_to_beat, price_to_beat, amount_to_beat);
     }
-    const Microseconds current_time = get_server_time();
-    const Microseconds time_diff_us = current_time - last_reset_time_;
+    Microseconds current_time = get_server_time();
+    Microseconds time_diff_us = current_time - last_reset_time_;
     // Далее сравнивается величина time_diff_us в микросекундах
     // с величиной deals_reset_period_ms_ в миллисекундах -
     // это нормально, система сама понимает как сравнить два времени,
@@ -314,7 +314,7 @@ public:
         continue;
       }
       // считаем объем, стоящий после нашей заявки
-      const Amount amount_after_order = trading_book_info.best_volume(dir) - get_amount_before_order(order);
+      Amount amount_after_order = trading_book_info.best_volume(dir) - get_amount_before_order(order);
       // если с цены хорошо бы сняться и мы не сильно теряем очередь - то снимаем заявку
       if (should_strategy_run_from_best_price(dir) && amount_after_order < max_after_amount_to_run_) {
         delete_order(order);
@@ -417,12 +417,12 @@ private:
   std::array<Microseconds, 2> last_our_deal_moment_;
 
   // Возвращает количество снятых заявок с лучшей цены по направлению @dir за определённый промежуток времени.
-  size_t deletions_count(const Dir dir) const {
+  size_t deletions_count(Dir dir) const {
     return deletions_by_dir_[dir].size();
   }
 
   // Возвращает количество добавленных заявок на лучшую цену по направлению @dir за определённый промежуток времени.
-  size_t additions_count(const Dir dir) const {
+  size_t additions_count(Dir dir) const {
     return additions_by_dir_[dir].size();
   }
 
@@ -449,7 +449,7 @@ private:
   // Обновление объёмов снятых и добавленных заявок на лучших ценах.
   void update_deletions_and_additions() {
     for (Dir dir : {BID, ASK}) {
-      const Price best_price = trading_book_info.best_price(dir);
+      Price best_price = trading_book_info.best_price(dir);
       auto& deletions = deletions_by_dir_[dir];
       auto& additions = additions_by_dir_[dir];
       // Если лучшая цена изменилась, то сбросим объёмы.
@@ -463,7 +463,7 @@ private:
     }
   }
 
-  void update_events(Events& events, const Amount changed_volume) const {
+  void update_events(Events& events, Amount changed_volume) const {
     Microseconds current_time = get_server_time();
     // если событие было давно - то перестаем его учитывать
     while (!events.empty() && current_time - *events.begin() > 20ms) {

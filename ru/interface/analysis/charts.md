@@ -2,7 +2,7 @@
 
 Графики являются полезным инструментом для анализа поведения стратегии.
 
-В данном разделе будут обсуждены:
+В данном разделе будет рассказано про:
 
 - [Графики прибыли и позиции](#sum_and_pos_chart)
 - [Переход во Viewer](#links)
@@ -13,8 +13,8 @@
 <!-- TODO(asalikhov): change Chart 0 to sth. else when changed in web system -->
 По умолчанию для каждой тренировочной посылки строится график "Chart 0", на котором изображены 2 линии:
 
-- *sum* — ваша прибыль в течение торговой сессии, её значения отмечены на левой вертикальной оси
-- *[symbol_name]-pos* — ваша позиция, то есть разность числа купленных и проданных вами лотов, её значения отмечены на правой вертикальной оси
+- *sum* — ваша прибыль в течение торговой сессии, её значения отмечены на левой вертикальной оси.
+- *[symbol_name]-pos* — ваша позиция, то есть разность числа купленных и проданных вами лотов, её значения отмечены на правой вертикальной оси.
 
 <img src="{{ book["gitbook.img"] }}/base_chart.png" title="График лучшей цены" align="center">
 
@@ -34,21 +34,21 @@
 
 {% codetabs name="C++", type="c++" -%}
 void add_chart_point(const std::string& line_name,
-                     double value,
-                     ChartYAxisType y_axis_type,
-                     uint8_t chart_number)
+                     Decimal value,  // или double
+                     ChartYAxisType y_axis_type = ChartYAxisType::Left,
+                     uint8_t chart_number = 1)
 {%- language name="Python", type="py" -%}
 def add_chart_point(self,
                     line_name,
                     value,
-                    y_axis_type,
-                    chart_number)
+                    y_axis_type = ChartYAxisType.Left,
+                    chart_number = 1)
 {%- endcodetabs %}
 
-- *line_name* — имя оси, отображается в легенде графика
-- *value* — вещественное значение
-- *y_axis_type* — сторона, с которой изображается вертикальная ось: *ChartYAxisType::Left* или *ChartYAxisType::Right*
-- *chart_number* — номер графика (0 — график по умолчанию с результатом и позицией, с номерами 1 и более — ваши собственные графики)
+- *line_name* — имя оси, отображается в легенде графика.
+- *value* — вещественное значение, которое нужно изобразить на графике.
+- *y_axis_type* — сторона, с которой изображается вертикальная ось: *ChartYAxisType::Left* или *ChartYAxisType::Right* (ChartYAxisType.Left или ChartYAxisType.Right для *Python*).
+- *chart_number* — номер графика (0 — график по умолчанию с результатом и позицией, с номерами 1 и более — ваши собственные графики).
 
 Модифицируем стратегию, стоящую на каждом из направлений на лучшей цене так, чтобы строился график лучшей цены:
 
@@ -68,24 +68,22 @@ public:
   void trading_book_update(const OrderBook& order_book) override {
     const auto& our_orders = order_book.orders();
     for (Dir dir : {BID, ASK}) {
-      const Price best_price = order_book.best_price(dir);
-      const Amount amount = 1;
+      Price best_price = order_book.best_price(dir);
+      Amount amount = 1;
       if (our_orders.active_orders_count(dir) == 0) {
         add_limit_order(dir, best_price, amount);
       } else {  // есть хотя бы одна наша активная заявка
         auto first_order = our_orders.orders_by_dir(dir)[0];
-        const bool on_best_price = (first_order->price() == best_price);
+        bool on_best_price = (first_order->price() == best_price);
         if (!on_best_price) {  // наша заявка стоит, но не на текущей лучшей цене
           delete_order(first_order);
           add_limit_order(dir, best_price, amount);
         }
       }
 
-      if (best_price != best_price_by_dir[dir]) { // лучшая цена изменилась
-        add_chart_point(axis_name[dir],           // имя оси, отображается в легенде
-                        best_price.get_double(),  // переводим тип Price в double
-                        ChartYAxisType::Left,     // используем левую вертикальную ось
-                        1);                       // 1 - номер графика
+      if (best_price != best_price_by_dir[dir]) {  // лучшая цена изменилась
+        add_chart_point(axis_name[dir],            // имя оси, отображается в легенде
+                        best_price);
         best_price_by_dir[dir] = best_price;
       }
     }
@@ -125,9 +123,7 @@ def trading_book_update(strat, order_book):
 
         if best_price != best_price_by_dir[dir]:
             strat.add_chart_point(axis_name[dir],
-                                  best_price.get_double(),
-                                  ChartYAxisType.Left,
-                                  1)
+                                  best_price)
             best_price_by_dir[dir] = best_price
 {%- endcodetabs %}
 

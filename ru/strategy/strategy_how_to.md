@@ -25,8 +25,8 @@ def add_limit_order(self, dir, price, amount)
 {% codetabs name="C++", type="c++" -%}
 void trading_book_update(const OrderBook& order_book) override {
   for (Dir dir : {BID, ASK}) {
-    const Price best_price = order_book.best_price(dir);
-    const Amount amount = 1;
+    Price best_price = order_book.best_price(dir);
+    Amount amount = 1;
     add_limit_order(dir, best_price, amount);
   }
 }
@@ -64,8 +64,8 @@ void trading_book_update(const OrderBook& order_book) override {
   const auto& our_orders = order_book.orders();
   for (Dir dir : {BID, ASK}) {
     if (our_orders.active_orders_count(dir) == 0) {
-      const Price best_price = order_book.best_price(dir);
-      const Amount amount = 1;
+      Price best_price = order_book.best_price(dir);
+      Amount amount = 1;
       add_limit_order(dir, best_price, amount);
     }
   }
@@ -97,13 +97,13 @@ public:
   void trading_book_update(const OrderBook& order_book) override {
     const auto& our_orders = order_book.orders();
     for (Dir dir : {BID, ASK}) {
-      const Price best_price = order_book.best_price(dir);
-      const Amount amount = 1;
+      Price best_price = order_book.best_price(dir);
+      Amount amount = 1;
       if (our_orders.active_orders_count(dir) == 0) {
         add_limit_order(dir, best_price, amount);
       } else {  // есть хотя бы одна наша активная заявка
         auto first_order = our_orders.orders_by_dir(dir)[0];
-        const bool on_best_price = (first_order->price() == best_price);
+        bool on_best_price = (first_order->price() == best_price);
         if (!on_best_price) {  // наша заявка стоит, но не на текущей лучшей цене
           delete_order(first_order);
           add_limit_order(dir, best_price, amount);

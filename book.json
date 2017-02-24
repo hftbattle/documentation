@@ -44,6 +44,9 @@
     "viewer.url": "http://viewer.hftbattle.com",
     "viewer.name": "viewer.hftbattle.com",
 
+    "high.priority": "6",
+    "medium.priority": "40",
+
     "trading.begin_time": "09:15:00",
     "trading.end_time": "15:30:00",
     "trading.daily_deals": "5-10",
