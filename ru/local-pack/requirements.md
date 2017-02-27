@@ -14,7 +14,7 @@
 sudo ./packages_ubuntu.sh
 ```
 
-Скрипт устанавливает компилятор g++, систему сборки [CMake]({{ book["cmake.url"] }}) и Python3:
+Скрипт устанавливает компилятор g++, систему сборки [CMake]({{ book["cmake.url"] }}) и Python 3:
 
 ```bash
 sudo apt-get update && sudo apt-get install g++ cmake python3 --yes
@@ -42,7 +42,7 @@ sudo apt-get update && sudo apt-get install g++ cmake python3 --yes
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   ```
 
-- [CMake]({{ book["cmake.url"] }}) и Python3:
+- [CMake]({{ book["cmake.url"] }}) и Python 3:
 
   ```bash
   brew install cmake python3
