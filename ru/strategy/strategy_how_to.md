@@ -82,7 +82,7 @@ def trading_book_update(strat, order_book):
 
 В такой реализации есть минус — если лучшая цена изменится, то мы на это не отреагируем.
 Это может привести к тому, что мы долго не будем торговать по одному из направлений.
-Чтобы получить нашу активную заявку, используем метод [orders_by_dir()](/api/SecurityOrdersSnapshot.md#orders_by_dir) класса [SecurityOrdersSnapshot](/api/SecurityOrdersSnapshot.md#).
+Чтобы получить список наших активных заявок, используем метод [orders_by_dir()](/api/SecurityOrdersSnapshot.md#orders_by_dir) класса [SecurityOrdersSnapshot](/api/SecurityOrdersSnapshot.md#).
 Полный код стратегии будет выглядеть так:
 
 {% codetabs name="C++", type="c++" -%}

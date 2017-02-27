@@ -33,7 +33,7 @@
 
 {% codetabs name="C++", type="c++" -%}
 void add_chart_point(const std::string& line_name,
-                     Decimal value,  // или double
+                     Decimal value,  // вместо Decimal можно передавать double
                      ChartYAxisType y_axis_type = ChartYAxisType::Left,
                      uint8_t chart_number = 1)
 {%- language name="Python", type="py" -%}
@@ -45,7 +45,7 @@ def add_chart_point(self,
 {%- endcodetabs %}
 
 - *line_name* — имя оси, отображается в легенде графика.
-- *value* — вещественное значение, которое нужно изобразить на графике.
+- *value* — вещественное значение, которое нужно отобразить на графике.
 - *y_axis_type* — сторона, с которой изображается вертикальная ось: *ChartYAxisType::Left* или *ChartYAxisType::Right* (ChartYAxisType.Left или ChartYAxisType.Right для *Python*).
 - *chart_number* — номер графика (0 — график по умолчанию с результатом и позицией, с номерами 1 и более — ваши собственные графики).
 
