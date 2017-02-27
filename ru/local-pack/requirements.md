@@ -42,10 +42,10 @@ sudo apt-get update && sudo apt-get install g++ cmake python3 --yes
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   ```
 
-- [CMake]({{ book["cmake.url"] }}):
+- [CMake]({{ book["cmake.url"] }}) и Python3:
 
   ```bash
-  brew install cmake
+  brew install cmake python3
   ```
 
 ### Windows {#windows}
