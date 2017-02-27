@@ -11,7 +11,7 @@
 Для установки зависимостей на Ubuntu можно запустить скрипт *packages_ubuntu.sh*, находящийся в корне репозитория:
 
 ```bash
-./packages_ubuntu.sh
+sudo ./packages_ubuntu.sh
 ```
 
 Скрипт устанавливает:

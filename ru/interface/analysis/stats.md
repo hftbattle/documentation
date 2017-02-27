@@ -29,7 +29,7 @@ SCORE = AVG - (STD / 10.0) + min(0, MIN_INTRADAY_RESULT) / 5.0
 
 - [графики](charts.md) вашей стратегии.
 - [viewer](viewer.md) — визуализатор реальных торгов, то есть торгов без вашего участия.
-	<!-- TODO(asalikhov): may be real orderbook -->
+	<!-- TODO(asalikhov): may be virtual orderbook -->
 - [логи](logs.md) — ссылка на архив с файлами ваших логов, списками заявок и сделок стратегии.
 - stdout — стандартный вывод стратегии и симулятора.
 
