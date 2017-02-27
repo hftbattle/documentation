@@ -14,19 +14,11 @@
 sudo ./packages_ubuntu.sh
 ```
 
-Скрипт устанавливает:
+Скрипт устанавливает компилятор g++, систему сборки [CMake]({{ book["cmake.url"] }}) и Python3:
 
-- Компилятор g++:
-
-  ```bash
-  sudo apt-get install g++
-  ```
-
-- [CMake]({{ book["cmake.url"] }}):
-
-  ```bash
-  sudo apt-get install cmake
-  ```
+```bash
+sudo apt-get update && sudo apt-get install g++ cmake python3 --yes
+```
 
 ### MacOS {#macos}
 
