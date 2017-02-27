@@ -3,7 +3,7 @@
 В данном разделе описаны зависимости, необходимые для следующих операционных систем:
 
 - [Ubuntu](#ubuntu)
-- [MacOS](#macos)
+- [macOS](#macos)
 - [Windows](#windows)
 
 ### Ubuntu {#ubuntu}
@@ -20,9 +20,9 @@ sudo ./packages_ubuntu.sh
 sudo apt-get update && sudo apt-get install g++ cmake python3 --yes
 ```
 
-### MacOS {#macos}
+### macOS {#macos}
 
-Для установки зависимостей на MacOS можно запустить скрипт *packages_mac.sh*, находящийся в корне репозитория:
+Для установки зависимостей на macOS можно запустить скрипт *packages_mac.sh*, находящийся в корне репозитория:
 
 ```bash
 ./packages_mac.sh

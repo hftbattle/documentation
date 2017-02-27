@@ -34,7 +34,7 @@ To launch simulation in [CLion](({{ book["clion-download.url"] }}) you need to:
 
 - **specify executable file**:
 
-  open *Run > Edit configurations*, specify executable file in the root of directory as *Executable* (*mac_launcher* for MacOS, *windows_launcher* for Windows and *linux_launcher* for Linux).
+  open *Run > Edit configurations*, specify executable file in the root of directory as *Executable* (*mac_launcher* for macOS, *windows_launcher* for Windows and *linux_launcher* for Linux).
 
 - **specify path to your configuration file** in the arguments of command line:
 

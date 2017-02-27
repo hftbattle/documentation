@@ -33,7 +33,7 @@
 
   Для этого необходимо зайти в *Run > Edit configurations* и в качестве *Executable* выбрать исполняемый файл в корне директории, соответствующий вашей платформе:
 
-  - *mac_launcher* для MacOS
+  - *mac_launcher* для macOS
   - *windows_launcher* для Windows
   - *linux_launcher* для Linux
 
