@@ -57,7 +57,9 @@
     "constraint.logs_size": "100",
     "constraint.simulation_time": "10",
 
-    "constraint.daily_control_submissions": "2",
+    "constraint.daily_control_submissions.ru.nom": "две",
+    "constraint.daily_control_submissions.ru.gen": "двух",
+    "constraint.daily_control_submissions.ru.ins": "двумя",
     "constraint.position": "50",
     "constraint.stop_loss": "-50000",
     "constraint.comission": "0.3",
