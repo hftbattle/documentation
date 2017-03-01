@@ -84,7 +84,5 @@ def orders(self)
 Он может быть использован для сохранения какой-либо информации о заявке.
 
 {% codetabs name="C++", type="c++" -%}
-Id id() const;
-{%- language name="Python", type="py" -%}
-def id(self)
+
 {%- endcodetabs %}
