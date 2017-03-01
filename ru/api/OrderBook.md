@@ -29,6 +29,7 @@
 | [middle_price()](#middle_price) | Полусумма лучших цен. |
 | [min_step()](#min_step) | Минимальный шаг цены. |
 | [spread_in_min_steps()](#spread_in_min_steps) | Расстояние между лучшими ценами в минимальных шагах цены. |
+| [fee_per_lot()](#fee_per_lot) | Комиссия за один проторгованный лот. |
 | [book_updates_count()](#book_updates_count) | Количество обновлений стакана с начала дня. |
 | [security_id()](#security_id) | Указатель на инструмент соответствующий стакану. |
 | [added_volume_at_price()](#added_volume_at_price) | Объём новых добавленных заявок по данному направлению и цене. |
@@ -225,6 +226,16 @@ def min_step(self)
 size_t spread_in_min_steps() const;
 {%- language name="Python", type="py" -%}
 def spread_in_min_steps(self)
+{%- endcodetabs %}
+
+#### fee_per_lot() {#fee_per_lot}
+
+Возвращает комиссию за один проторгованный лот.
+
+{% codetabs name="C++", type="c++" -%}
+Decimal fee_per_lot() const;
+{%- language name="Python", type="py" -%}
+def fee_per_lot(self)
 {%- endcodetabs %}
 
 #### book_updates_count() {#book_updates_count}
