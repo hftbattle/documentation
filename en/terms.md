@@ -41,13 +41,9 @@
   <img src="{{ book["gitbook.img"] }}/order_book_example.png" title="An order book example">
   </p>
 
-<a id="bid"></a>
+<a id="bid_and_ask"></a>
 
-- **Bid** is the price a market participant will buy a commodity at to buy a product in such a way.
-
-<a id="ask"></a>
-
-- **Ask** is the price a market participant will sell a commodity at to sell a product in such a way.
+- The **bid** and **ask** are the best potential prices that buyers and sellers are willing to transact at: the bid for the buying side, and the ask for the selling side.
 
 <a id="spread"></a>
 
