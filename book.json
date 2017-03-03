@@ -51,7 +51,7 @@
     "trading.end_time": "15:30:00",
     "trading.daily_deals": "5-10",
 
-    "constraint.symbol": "1 000 000",
+    "constraint.symbol": "1&nbsp;000&nbsp;000",
     "constraint.string": "1000",
     "constraint.symbol_in_string": "1000",
     "constraint.logs_size": "100",
