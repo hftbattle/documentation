@@ -52,9 +52,9 @@
     "trading.daily_deals": "5-10",
 
     "constraint.symbol": "1&nbsp;000&nbsp;000",
-    "constraint.string": "1000",
+    "constraint.string": "6000",
     "constraint.symbol_in_string": "1000",
-    "constraint.logs_size": "100",
+    "constraint.logs_size": "1000",
     "constraint.simulation_time": "10",
 
     "constraint.daily_control_submissions.ru.nom": "две",
