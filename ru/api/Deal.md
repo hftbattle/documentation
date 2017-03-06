@@ -8,13 +8,11 @@
 
 | Имя | Описание |
 | --- | --- |
-| [aggressor_side()](#aggressor_side) | Направление более поздней заявки. |
+| [aggressor_side()](#aggressor_side) | Направление агрессора сделки. |
 | [price()](#price) | Цена сделки. |
 | [amount()](#amount) | Объём сделки. |
 | [server_time()](#server_time) | Биржевое время совершения сделки. |
-| [local_time()](#local_time) | Локальное время совершения сделки. |
 | [orders()](#orders) | Заявки, участвующие в сделке. |
-| [id()](#id) | Уникальный идентификатор сделки. |
 
 ### Описание методов
 
@@ -58,31 +56,12 @@ Microseconds server_time() const;
 def server_time(self)
 {%- endcodetabs %}
 
-#### local_time() {#local_time}
-
-Возвращает локальное время совершения сделки в микросекундах.
-
-{% codetabs name="C++", type="c++" -%}
-Microseconds local_time() const;
-{%- language name="Python", type="py" -%}
-def local_time(self)
-{%- endcodetabs %}
-
 #### orders() {#orders}
 
-Возвращает массив из двух указателей на заявки (BID (покупка) или ASK (продажа)), участвующие в сделке.
+Возвращает массив из двух указателей на заявки, участвующие в сделке.
 
 {% codetabs name="C++", type="c++" -%}
 const RawOrdersArray orders() const;
 {%- language name="Python", type="py" -%}
 def orders(self)
-{%- endcodetabs %}
-
-#### id() {#id}
-
-Возвращает уникальный числовой идентификатор сделки, полученный во время симуляции.
-Он может быть использован для сохранения какой-либо информации о заявке.
-
-{% codetabs name="C++", type="c++" -%}
-
 {%- endcodetabs %}

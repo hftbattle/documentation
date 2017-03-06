@@ -5,7 +5,7 @@
 Путь в Local Pack `include/quote.h`
 
 Цена по умолчанию для обозначения пустого уровня.
-Принимает направление dir (BID (покупка) или ASK (продажа)).
+Принимает направление dir.
 
 Возвращает цену по умолчанию по направлению dir.
 
@@ -17,7 +17,7 @@
 Путь в Local Pack `include/quote.h`
 
 Описание ценового уровня в стакане.
-Также называется квота или котировка.
+Также называется котировка.
 
 ### Методы
 
@@ -27,13 +27,12 @@
 | [price()](#price) | Цена котировки. |
 | [volume()](#volume) | Объём котировки. |
 | [server_time()](#server_time) | Биржевое время последнего изменения котировки. |
-| [local_time()](#local_time) | Локальное время последнего изменения котировки. |
 
 ### Описание методов
 
 #### dir() {#dir}
 
-Возвращает направление котировки (BID (покупка) или ASK (продажа)).
+Возвращает направление котировки.
 
 {% codetabs name="C++", type="c++" -%}
 Dir dir() const;
@@ -69,14 +68,4 @@ def volume(self)
 Microseconds server_time() const;
 {%- language name="Python", type="py" -%}
 def server_time(self)
-{%- endcodetabs %}
-
-#### local_time() {#local_time}
-
-Возвращает локальное время последнего изменения котировки в микросекундах.
-
-{% codetabs name="C++", type="c++" -%}
-Microseconds local_time() const;
-{%- language name="Python", type="py" -%}
-def local_time(self)
 {%- endcodetabs %}
