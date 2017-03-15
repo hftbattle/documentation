@@ -19,7 +19,7 @@
     "contest.support.email": "help@hftbattle.com",
 
     "contest.local-pack.url": "https://github.com/hftbattle/hftbattle",
-    "contest.local-pack.data.url": "https://www.dropbox.com/s/s1uxgs3vj3tgvr7/data.zip?dl=1",
+    "contest.local-pack.data.url": "https://www.dropbox.com/s/ko2zgwt004yejts/data.zip?dl=1",
 
     "blog.url": "http://blog.hftbattle.com",
 
@@ -27,7 +27,7 @@
     "data.control_days": "20",
     "data.final_days": "20",
     "data.small_day": "2015.09.29",
-    "data.full_day": "2015.12.23",
+    "data.full_day": "2016.09.01",
     "git.url": "http://git-scm.com/download",
     "tdm-gcc.url": "http://tdm-gcc.tdragon.net",
     "tdm-gcc-download.url": "http://tdm-gcc.tdragon.net/download",
