@@ -41,8 +41,6 @@
 
 {% codetabs name="C++", type="c++" -%}
 virtual void trading_book_update(const OrderBook& order_book);
-{%- language name="Python", type="py" -%}
-def trading_book_update(strat, trading_book)
 {%- endcodetabs %}
 
 #### trading_deals_update() {#trading_deals_update}
@@ -51,8 +49,6 @@ def trading_book_update(strat, trading_book)
 
 {% codetabs name="C++", type="c++" -%}
 virtual void trading_deals_update(std::vector<Deal>&& deals);
-{%- language name="Python", type="py" -%}
-def trading_deals_update(strat, deals)
 {%- endcodetabs %}
 
 #### execution_report_update() {#execution_report_update}
@@ -61,8 +57,6 @@ def trading_deals_update(strat, deals)
 
 {% codetabs name="C++", type="c++" -%}
 virtual void execution_report_update(const ExecutionReport& execution_report);
-{%- language name="Python", type="py" -%}
-def execution_report_update(strat, execution_report)
 {%- endcodetabs %}
 
 #### signal_book_update() {#signal_book_update}
@@ -92,7 +86,7 @@ virtual void signal_deals_update(std::vector<Deal>&& deals);
 Подробнее читайте в документации: <https://docs.hftbattle.com/ru/FAQ.html#simulator>
 
 {% codetabs name="C++", type="c++" -%}
-bool add_limit_order(Dir dir, Price price, Amount amount);
+bool add_limit_order(Dir dir, Price price, Amount amount) const;
 {%- language name="Python", type="py" -%}
 def add_limit_order(self, dir, price, amount)
 {%- endcodetabs %}
@@ -108,7 +102,7 @@ def add_limit_order(self, dir, price, amount)
 Подробнее читайте в документации: <https://docs.hftbattle.com/ru/FAQ.html#simulator>
 
 {% codetabs name="C++", type="c++" -%}
-bool add_ioc_order(Dir dir, Price price, Amount amount);
+bool add_ioc_order(Dir dir, Price price, Amount amount) const;
 {%- language name="Python", type="py" -%}
 def add_ioc_order(self, dir, price, amount)
 {%- endcodetabs %}
@@ -122,7 +116,7 @@ def add_ioc_order(self, dir, price, amount)
 Подробнее об ограничениях симулятора читайте здесь: <https://docs.hftbattle.com/ru/simulator/restrictions.html>.
 
 {% codetabs name="C++", type="c++" -%}
-void delete_order(Order* order);
+void delete_order(Order* order) const;
 {%- language name="Python", type="py" -%}
 def delete_order(self, order)
 {%- endcodetabs %}
@@ -134,7 +128,7 @@ def delete_order(self, order)
 Отправляет запрос на удаление всех ваших заявки по направлению dir.
 
 {% codetabs name="C++", type="c++" -%}
-void delete_all_orders_at_dir(Dir dir);
+void delete_all_orders_at_dir(Dir dir) const;
 {%- language name="Python", type="py" -%}
 def delete_all_orders_at_dir(self, dir)
 {%- endcodetabs %}
@@ -146,7 +140,7 @@ def delete_all_orders_at_dir(self, dir)
 Отправляет запрос на удаление всех ваших заявок по направлению dir с заданной ценой.
 
 {% codetabs name="C++", type="c++" -%}
-void delete_all_orders_at_price(Dir dir, Price price);
+void delete_all_orders_at_price(Dir dir, Price price) const;
 {%- language name="Python", type="py" -%}
 def delete_all_orders_at_price(self, dir, price)
 {%- endcodetabs %}
@@ -185,7 +179,7 @@ def volume_by_price(self, dir, price)
 Используя параметр chart_number можно создавать несколько графиков, а с помощью line_name можно строить сразу несколько линий на одном графике.
 
 {% codetabs name="C++", type="c++" -%}
-void add_chart_point(const std::string& line_name, Decimal value, ChartYAxisType y_axis_type = ChartYAxisType::Left, uint8_t chart_number = 1);
+void add_chart_point(const std::string& line_name, Decimal value, ChartYAxisType y_axis_type = ChartYAxisType::Left, uint8_t chart_number = 1) const;
 {%- language name="Python", type="py" -%}
 def add_chart_point(self, line_name, value, 0, 1)
 {%- endcodetabs %}
@@ -299,7 +293,7 @@ def is_our(self, deal)
 Текущий стакан торгового инструмента.
 
 {% codetabs name="C++", type="c++" -%}
-OrderBook& trading_book();
+const OrderBook& trading_book() const;
 {%- language name="Python", type="py" -%}
 def trading_book(self)
 {%- endcodetabs %}
@@ -309,7 +303,7 @@ def trading_book(self)
 Текущий стакан сигнального инструмента.
 
 {% codetabs name="C++", type="c++" -%}
-OrderBook& signal_book();
+const OrderBook& signal_book() const;
 {%- language name="Python", type="py" -%}
 def signal_book(self)
 {%- endcodetabs %}
