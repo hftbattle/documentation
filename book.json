@@ -26,7 +26,7 @@
     "data.training_days": "40",
     "data.control_days": "20",
     "data.final_days": "20",
-    "data.small_day": "2015.09.29",
+    "data.small_day": "2016.09.02",
     "data.full_day": "2016.09.01",
     "git.url": "http://git-scm.com/download",
     "tdm-gcc.url": "http://tdm-gcc.tdragon.net",
