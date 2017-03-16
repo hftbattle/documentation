@@ -83,7 +83,7 @@ virtual void signal_deals_update(std::vector<Deal>&& deals);
 
 Возвращает значение типа bool — была ли ваша заявка принята торговой системой.
 Внимание: заявка может быть не принята при нарушении некоторых ограничений.
-Подробнее читайте в документации: <https://docs.hftbattle.com/ru/FAQ.html#simulator>
+Подробнее читайте в документации: <https://docs.hftbattle.com/ru/HFAQ.html#simulator>
 
 {% codetabs name="C++", type="c++" -%}
 bool add_limit_order(Dir dir, Price price, Amount amount) const;
@@ -99,7 +99,7 @@ def add_limit_order(self, dir, price, amount)
 
 Возвращает значение типа bool — была ли принята ваша заявка.
 Внимание: заявка может быть не принята при нарушении некоторых ограничений.
-Подробнее читайте в документации: <https://docs.hftbattle.com/ru/FAQ.html#simulator>
+Подробнее читайте в документации: <https://docs.hftbattle.com/ru/HFAQ.html#simulator>
 
 {% codetabs name="C++", type="c++" -%}
 bool add_ioc_order(Dir dir, Price price, Amount amount) const;
@@ -245,7 +245,7 @@ def set_max_total_amount(self, max_total_amount)
 
 Устанавливает это значение, при достижении которого симулятор закрывает позицию и останавливает стратегию.
 Внимание: закрытие позиции происходит не моментально, поэтому вы можете получить результат как меньше, так и больше ожидаемого.
-Подробнее читайте здесь: <https://docs.hftbattle.com/ru/FAQ.html#simulator>
+Подробнее читайте здесь: <https://docs.hftbattle.com/ru/HFAQ.html#simulator>
 
 {% codetabs name="C++", type="c++" -%}
 void set_stop_loss_result(const Decimal stop_loss_result);

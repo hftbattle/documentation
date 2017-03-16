@@ -25,7 +25,7 @@
   - [Market data](simulator/data.md)
   - [Simulation restrictions](simulator/restrictions.md)
 - [Glossary](terms.md)
-- [HFAQ](FAQ.md)
+- [HFAQ](HFAQ.md)
 - [API](api/README.md)
   - [ContestBookInfo](api/ContestBookInfo.md)
   - [Deal](api/Deal.md)

@@ -19,7 +19,7 @@ Read more here: [User interface](interface/README.md).
 
   Read more about local pack [here](local-pack/README.md).
 
-- Please, read the documentation: [Writing a strategy](strategy/README.md), [Market simulator](simulator/README.md), [Glossary](terms.md), [FAQ](FAQ.md) will be helpful.
+- Please, read the documentation: [Writing a strategy](strategy/README.md), [Market simulator](simulator/README.md), [Glossary](terms.md), [HFAQ](HFAQ.md) will be helpful.
 - You can start writing your own strategy!
 
 ## Questions and help

@@ -31,7 +31,7 @@
   - [Данные для симуляции](simulator/data.md)
   - [Ограничения симулятора](simulator/restrictions.md)
 - [Словарь терминов](terms.md)
-- [HFAQ](FAQ.md)
+- [HFAQ](HFAQ.md)
 - [API](api/README.md)
   - [CommonEnums](api/CommonEnums.md)
   - [Deal](api/Deal.md)
