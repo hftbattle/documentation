@@ -72,7 +72,7 @@ class UserStrategy : public ParticipantStrategy {
 public:
   explicit UserStrategy(const JsonValue& config) {
     min_volume_to_stay_on_best_ = config["min_volume_to_stay_on_best"].as<int>(10);
-    set_max_total_amount(config["max_total_amount"].as<int>());
+    set_max_total_amount(config["max_total_amount"].as<int>(100));
   }
 
   // Вызывается при получении нового стакана торгового инструмента:
