@@ -44,7 +44,7 @@ Viewer доступен по адресу [{{ book["viewer.name"] }}]({{ book["v
 
 ![]({{ book["gitbook.img"] }}/viewer/time.gif)
 
-<!-- TODO(asalikhov): check button names and icons -->
+<!-- TODO(asalikhov): there is a task to simplify date/time panel -->
 Достаточно выбрать дату и время, которые вы хотите отобразить, и нажать на галочку (иконка ✔).
 
 ## Панель управления {#panel}
