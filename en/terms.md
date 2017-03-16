@@ -38,7 +38,7 @@
   An order book is displayed as a table, in which prices are sorted upwards.
   Green color signifies purchase, red one — sale.
   <p align="center">
-  <img src="{{ book["gitbook.img"] }}/order_book_example.png" title="An order book example">
+  <img src="{{ book["gitbook.img"] }}/order_book_example.png" title="An order book example" width="128" height="213">
   </p>
 
 <a id="bid_and_ask"></a>
