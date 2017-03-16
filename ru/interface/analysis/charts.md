@@ -127,8 +127,6 @@ def trading_book_update(strat, order_book):
             best_price_by_dir[dir] = best_price
 {%- endcodetabs %}
 
-<!-- TODO(asalikhov): Rename Decimal to Price -->
-
 В результате на графике "Chart 1" получим следующую картинку:
 
 <img src="{{ book["gitbook.img"] }}/best_price_chart.png" title="График лучшей цены" align="center">
