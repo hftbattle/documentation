@@ -53,6 +53,7 @@ def add_chart_point(self,
 
 {% codetabs name="C++", type="c++" -%}
 #include "participant_strategy.h"
+#include <array>
 #include <string>
 
 using namespace hftbattle;
