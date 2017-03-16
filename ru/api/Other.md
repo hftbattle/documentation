@@ -71,20 +71,6 @@
 
 Этот класс используется только в C++, в **Python** используется стандартный тип int.
 
-## kMinStopLossResult
-
-Путь в Local Pack `include/base/constants.h`
-
-Минимальное значение результата, которого может достичь ваша стратегия.
-Этот значение используется только в C++.
-
-## kMaximumMaxExecutedAmount
-
-Путь в Local Pack `include/base/constants.h`
-
-Максимальное ограничение позиции вашей стратегии.
-Этот значение используется только в C++.
-
 ## Логи
 
 Путь в Local Pack `include/base/log.h`
