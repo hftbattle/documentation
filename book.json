@@ -70,7 +70,7 @@
   "plugins": ["language-picker", "edit-link", "disqus", "anchorjs", "search-languages", "-lunr", "yametrika", "expandable-chapters", "codetabs", "copy-code-button"],
   "pluginsConfig": {
     "edit-link": {
-      "base": "https://github.com/hftbattle/documentation/tree/asalikhov/new_version",
+      "base": "https://github.com/hftbattle/documentation/tree/master",
       "label": "Suggest an improvement"
     },
     "disqus": {
