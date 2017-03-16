@@ -14,11 +14,11 @@
 | Имя | Описание |
 | --- | --- |
 | [volume()](#volume) | Суммарный объём заявок с заданной ценой и направлением. |
-| [size_by_dir()](#size_by_dir) | Количество текущих заявок в данном направлении. |
-| [active_orders_count()](#active_orders_count) | Количество активных заявок в данном направлении. |
-| [active_orders_volume()](#active_orders_volume) | Суммарный объём активных заявок в данном направлении. |
-| [orders_by_dir()](#orders_by_dir) | Вектор ваших заявок в данном направлении. |
-| [orders_by_dir_as_map()](#orders_by_dir_as_map) | Ваши заявки в данном направлении в виде map. |
+| [size_by_dir()](#size_by_dir) | Количество текущих заявок по данному направлению. |
+| [active_orders_count()](#active_orders_count) | Количество активных заявок по данному направлению. |
+| [active_orders_volume()](#active_orders_volume) | Суммарный объём активных заявок по данному направлениию. |
+| [orders_by_dir()](#orders_by_dir) | Вектор ваших заявок по данному направлению. |
+| [orders_by_dir_as_map()](#orders_by_dir_as_map) | Ваши заявки по данному направлению в виде map. |
 | [deleting_amount_by_dir()](#deleting_amount_by_dir) | Суммарный объём заявок, отправленных на удаление. |
 
 ### Описание методов
@@ -75,7 +75,7 @@ def active_orders_volume(self, dir)
 
 Принимает направление dir.
 
-Возвращает vector указателей на ваши заявки, т.е. vector указателей на объекты класса Order по направлению dir.
+Возвращает vector указателей на ваши заявки по направлению dir, т.е. vector указателей на объекты класса Order.
 
 {% codetabs name="C++", type="c++" -%}
 const Orders& orders_by_dir(Dir dir) const;
