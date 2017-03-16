@@ -13,19 +13,19 @@
 
 | Имя | Описание |
 | --- | --- |
-| [volume()](#volume) | Объём заявок с заданной ценой и направлением. |
-| [size_by_dir()](#size_by_dir) | Количество текущих заявок в данном направлении. |
-| [active_orders_count()](#active_orders_count) | Количество активных заявок в данном направлении. |
-| [active_orders_volume()](#active_orders_volume) | Объём активных заявок в данном направлении. |
-| [orders_by_dir()](#orders_by_dir) | Вектор ваших заявок. |
-| [orders_by_dir_as_map()](#orders_by_dir_as_map) | Наши заявки в виде map. |
-| [deleting_amount_by_dir()](#deleting_amount_by_dir) | Объём заявок, отправленных на удаление. |
+| [volume()](#volume) | Суммарный объём заявок с заданной ценой и направлением. |
+| [size_by_dir()](#size_by_dir) | Количество текущих заявок по данному направлению. |
+| [active_orders_count()](#active_orders_count) | Количество активных заявок по данному направлению. |
+| [active_orders_volume()](#active_orders_volume) | Суммарный объём активных заявок по данному направлениию. |
+| [orders_by_dir()](#orders_by_dir) | Вектор ваших заявок по данному направлению. |
+| [orders_by_dir_as_map()](#orders_by_dir_as_map) | Ваши заявки по данному направлению в виде map. |
+| [deleting_amount_by_dir()](#deleting_amount_by_dir) | Суммарный объём заявок, отправленных на удаление. |
 
 ### Описание методов
 
 #### volume() {#volume}
 
-Принимает направление dir (BID (покупка) или ASK (продажа)) и цену price.
+Принимает направление dir и цену price.
 
 Возвращает суммарный объём ваших заявок с заданной ценой price по направлению dir.
 
@@ -37,7 +37,7 @@ def volume(self, dir, price)
 
 #### size_by_dir() {#size_by_dir}
 
-Принимает направление dir (BID (покупка) или ASK (продажа)).
+Принимает направление dir.
 
 Возвращает количество всех ваших текущих заявок по направлению dir.
 
@@ -49,7 +49,7 @@ def size_by_dir(self, dir)
 
 #### active_orders_count() {#active_orders_count}
 
-Принимает направление dir (BID (покупка) или ASK (продажа)).
+Принимает направление dir.
 
 Возвращает количество ваших активных заявок по направлению dir, т.е. заявок со статусом Active.
 
@@ -61,7 +61,7 @@ def active_orders_count(self, dir)
 
 #### active_orders_volume() {#active_orders_volume}
 
-Принимает направление dir (BID (покупка) или ASK (продажа)).
+Принимает направление dir.
 
 Возвращает суммарный объём ваших активных заявок по направлению dir, т.е. заявок со статусом Active.
 
@@ -73,9 +73,9 @@ def active_orders_volume(self, dir)
 
 #### orders_by_dir() {#orders_by_dir}
 
-Принимает направление dir (BID (покупка) или ASK (продажа)).
+Принимает направление dir.
 
-Возвращает vector указателей на ваши заявки, т.е. vector указателей на объекты класса Order, по направлению dir.
+Возвращает вектор указателей на ваши заявки по направлению dir, т.е. вектор указателей на объекты класса Order.
 
 {% codetabs name="C++", type="c++" -%}
 const Orders& orders_by_dir(Dir dir) const;
@@ -85,10 +85,10 @@ def orders_by_dir(self, dir)
 
 #### orders_by_dir_as_map() {#orders_by_dir_as_map}
 
-Принимает направление dir (BID (покупка) или ASK (продажа)).
+Принимает направление dir.
 
-Возвращает map, в котором каждой цене соответствует vector заявок по направлению dir.
-Внимание: map всегда упорядочен по возрастанию цены в независимости от dir.
+Возвращает map, в котором каждой цене соответствует вектор заявок по направлению dir.
+Внимание: map всегда упорядочен по возрастанию цены вне зависимости от dir.
 
 {% codetabs name="C++", type="c++" -%}
 OrdersMap orders_by_dir_as_map(Dir dir) const;
@@ -98,7 +98,7 @@ def orders_by_dir_as_map(self, dir)
 
 #### deleting_amount_by_dir() {#deleting_amount_by_dir}
 
-Принимает направление dir (BID (покупка) или ASK (продажа)).
+Принимает направление dir.
 
 Возвращает суммарный объём заявок по направлению dir, отправленных на удаление, но еще не удалённых, т.е. со статусом Deleting.
 

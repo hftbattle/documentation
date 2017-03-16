@@ -4,7 +4,7 @@
   "variables": {
     "contest.name": "HFT Battle 2017",
 
-    "gitbook.img": "http://192.168.7.159:4000/img",
+    "gitbook.img": "https://docs.hftbattle.com/img",
 
     "contest.landing-page.url": "https://www.hftbattle.com",
 
@@ -19,15 +19,15 @@
     "contest.support.email": "help@hftbattle.com",
 
     "contest.local-pack.url": "https://github.com/hftbattle/hftbattle",
-    "contest.local-pack.data.url": "https://www.dropbox.com/s/s1uxgs3vj3tgvr7/data.zip?dl=1",
+    "contest.local-pack.data.url": "https://www.dropbox.com/s/ko2zgwt004yejts/data.zip?dl=1",
 
     "blog.url": "http://blog.hftbattle.com",
 
     "data.training_days": "40",
     "data.control_days": "20",
     "data.final_days": "20",
-    "data.small_day": "2015.09.29",
-    "data.full_day": "2015.12.23",
+    "data.small_day": "2016.09.02",
+    "data.full_day": "2016.09.01",
     "git.url": "http://git-scm.com/download",
     "tdm-gcc.url": "http://tdm-gcc.tdragon.net",
     "tdm-gcc-download.url": "http://tdm-gcc.tdragon.net/download",
@@ -51,17 +51,17 @@
     "trading.end_time": "15:30:00",
     "trading.daily_deals": "5-10",
 
-    "constraint.symbol": "1 000 000",
-    "constraint.string": "1000",
+    "constraint.symbol": "1&nbsp;000&nbsp;000",
+    "constraint.string": "6000",
     "constraint.symbol_in_string": "1000",
-    "constraint.logs_size": "100",
+    "constraint.logs_size": "1000",
     "constraint.simulation_time": "10",
 
     "constraint.daily_control_submissions.ru.nom": "две",
     "constraint.daily_control_submissions.ru.gen": "двух",
     "constraint.daily_control_submissions.ru.ins": "двумя",
-    "constraint.position": "50",
-    "constraint.stop_loss": "-50000",
+    "constraint.position": "100",
+    "constraint.stop_loss": "-100000",
     "constraint.comission": "0.3",
     "constraint.round-trip": "10",
 
