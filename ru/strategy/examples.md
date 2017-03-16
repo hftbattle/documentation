@@ -1,5 +1,5 @@
 ## Примеры стратегий
-<!-- TODO(asalikhov): rewrite -->
+<!-- TODO(asalikhov): add good strategies when they will be completely finished -->
 
 Рассмотрим здесь несколько примеров торговых стратегий:
 
