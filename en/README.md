@@ -11,13 +11,13 @@ Read more here: [User interface](interface/README.md).
 
 - Download local pack.
 
-  Clone local-package from [GitHub]({{ book["contest.local-pack.url"] }}) ([Git]({{ book["git.url"] }}) is required):
+  Clone local package from [GitHub]({{ book["contest.local_pack.url"] }}) ([Git]({{ book["git.url"] }}) is required):
 
   ```bash
   git clone https://github.com/hftbattle/hftbattle.git
   ```
 
-  Read more about local pack [here](local-pack/README.md).
+  Read more about local pack [here](local_pack/README.md).
 
 - Please, read the documentation: [Writing a strategy](strategy/README.md), [Market simulator](simulator/README.md), [Glossary](terms.md), [HFAQ](HFAQ.md) will be helpful.
 - You can start writing your own strategy!

@@ -5,7 +5,7 @@
 
 - [Организация соревнования](#org)
 - [Симулятор торгов](#simulator)
-- [Пакет для локальной разработки](#local-pack)
+- [Пакет для локальной разработки](#local_pack)
 - [Анализ биржевого стакана с помощью Viewer](#viewer)
 - [Quick Tips](#quick_tips)
 
@@ -40,9 +40,9 @@
 
 Подробнее в разделе [Симулятор торгов](simulator/README.md).
 
-## Пакет для локальной разработки {#local-pack}
+## Пакет для локальной разработки {#local_pack}
 
-- Мы опубликовали на [GitHub]({{ book["contest.local-pack.url"] }}) симулятор для локальной разработки стратегий:
+- Мы опубликовали на [GitHub]({{ book["contest.local_pack.url"] }}) симулятор для локальной разработки стратегий:
 
   ```bash
   git clone https://github.com/hftbattle/hftbattle.git
@@ -67,7 +67,7 @@
   REGISTER_CONTEST_STRATEGY(UserStrategy, best_strategy_ever)
   ```
 
-Подробнее в разделе [Пакет для локальной разработки](local-pack/README.md).
+Подробнее в разделе [Пакет для локальной разработки](local_pack/README.md).
 
 ## Анализ биржевого стакана с помощью Viewer {#viewer}
 
