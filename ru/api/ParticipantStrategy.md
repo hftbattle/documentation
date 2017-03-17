@@ -291,6 +291,7 @@ def is_our(self, deal)
 #### trading_book() {#trading_book}
 
 Текущий стакан торгового инструмента.
+Внимание: стакан торгового инструмента нельзя получить до первого вызова `trading_book_update`.
 
 {% codetabs name="C++", type="c++" -%}
 const OrderBook& trading_book() const;
@@ -301,6 +302,7 @@ def trading_book(self)
 #### signal_book() {#signal_book}
 
 Текущий стакан сигнального инструмента.
+Внимание: стакан сигнального инструмента нельзя получить до первого вызова `signal_book_update`.
 
 {% codetabs name="C++", type="c++" -%}
 const OrderBook& signal_book() const;
