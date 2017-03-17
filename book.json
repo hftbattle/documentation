@@ -62,10 +62,10 @@
     "constraint.daily_control_submissions.ru.ins": "двумя",
     "constraint.position": "100",
     "constraint.stop_loss": "-100000",
-    "constraint.comission": "0.3",
+    "constraint.comission": "10",
     "constraint.round-trip": "10",
 
-    "comission.equation": "0.3 * 5000 = 1500"
+    "comission.equation": "10 * 5000 = 50000"
   },
   "plugins": ["language-picker", "edit-link", "disqus", "anchorjs", "search-languages", "-lunr", "yametrika", "expandable-chapters", "codetabs", "copy-code-button"],
   "pluginsConfig": {
