@@ -40,7 +40,7 @@ public:
   }
 
   void trading_book_update(const OrderBook& order_book) override {
-    const auto &orders = order_book.orders();
+    const auto& orders = order_book.orders();
     auto middle_price = order_book.middle_price();
     auto pos = executed_amount();
 
@@ -55,7 +55,7 @@ public:
           add_limit_order(dir, target_price, order_amount);
         }
       } else {
-        auto current = orders.orders_by_dir(dir)[0];
+        auto current = orders.orders_by_dir(dir).front();
         if (current->price() != target_price) {
           delete_order(current);
           if (order_amount > 0) {
