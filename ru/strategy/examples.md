@@ -46,7 +46,7 @@ public:
 
     add_chart_point("middle_price", middle_price);
 
-    for (Dir dir: {BID, ASK}) {
+    for (Dir dir : {BID, ASK}) {
       auto target_price = middle_price - dir_sign(dir) * offset_;
       auto order_amount = amount_available(pos, dir);
 
@@ -63,8 +63,8 @@ public:
           }
         }
       }
-   }
- }
+    }
+  }
 
 private:
   Amount volume_;
