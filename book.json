@@ -55,7 +55,7 @@
     "constraint.string": "6000",
     "constraint.symbol_in_string": "1000",
     "constraint.logs_size": "1000",
-    "constraint.simulation_time": "10",
+    "constraint.simulation_time": "20",
 
     "constraint.daily_control_submissions.ru.nom": "две",
     "constraint.daily_control_submissions.ru.gen": "двух",
