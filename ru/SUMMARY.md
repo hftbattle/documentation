@@ -19,7 +19,7 @@
 - [Написание стратегий](strategy/README.md)
   - [Структура стратегий](strategy/structure.md)
   - [Как написать стратегию](strategy/strategy_how_to.md)
-  - [Примеры стратегий](strategy/examples.md)
+  - [Пример стратегии](strategy/examples.md)
   - [Идеи для реализации](strategy/ideas.md)
 - [Симулятор торгов](simulator/README.md)
   - [Данные для симуляции](simulator/data.md)
