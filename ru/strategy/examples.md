@@ -55,9 +55,9 @@ public:
           add_limit_order(dir, target_price, order_amount);
         }
       } else {
-        auto current = orders.orders_by_dir(dir).front();
-        if (current->price() != target_price) {
-          delete_order(current);
+        auto current_order = orders.orders_by_dir(dir).front();
+        if (current_order->price() != target_price) {
+          delete_order(current_order);
           if (order_amount > 0) {
             add_limit_order(dir, target_price, order_amount);
           }
@@ -115,9 +115,9 @@ def trading_book_update(strat, order_book):
             if order_amount > 0:
                 strat.add_limit_order(dir, target_price, order_amount)
         else:
-            current = orders.orders_by_dir(dir)[0]
-            if current.price() != target_price:
-                strat.delete_order(current)
+            current_order = orders.orders_by_dir(dir)[0]
+            if current_order.price() != target_price:
+                strat.delete_order(current_order)
                 if order_amount > 0:
                     strat.add_limit_order(dir, target_price, order_amount)
 {%- endcodetabs %}
