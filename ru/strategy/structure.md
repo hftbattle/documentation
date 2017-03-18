@@ -32,6 +32,8 @@
 
 using namespace hftbattle;
 
+namespace {
+
 class UserStrategy : public ParticipantStrategy {
 public:
   // В конструктор стратегии участника передается файл конфигурации.
@@ -47,6 +49,8 @@ public:
   // Вызывается симулятором при получении отчёта о сделке с участием вашей заявки.
   void execution_report_update(const ExecutionReport& execution_report) override { }
 };
+
+}  // namespace
 
 REGISTER_CONTEST_STRATEGY(UserStrategy, user_strategy)
 ```

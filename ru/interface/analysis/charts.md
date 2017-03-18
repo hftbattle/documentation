@@ -58,6 +58,8 @@ def add_chart_point(self,
 
 using namespace hftbattle;
 
+namespace {
+
 class UserStrategy : public ParticipantStrategy {
 public:
   explicit UserStrategy(const JsonValue& config) {
@@ -93,6 +95,8 @@ private:
   std::array<Price, 2> best_price_by_dir;
   std::array<std::string, 2> axis_name;
 };
+
+}  // namespace
 
 REGISTER_CONTEST_STRATEGY(UserStrategy, user_strategy)
 {%- language name="Python", type="py" -%}

@@ -54,6 +54,8 @@
 
 using namespace hftbattle;
 
+namespace {
+
 class UserStrategy : public ParticipantStrategy {
 public:
   // Параметры стратегии, которые хочется подобрать.
@@ -78,6 +80,8 @@ public:
     time_param = config["time_param"].as<Microseconds>(3s);
   }
 };
+
+}  // namespace
 
 REGISTER_CONTEST_STRATEGY(UserStrategy, user_strategy)
 {%- language name="Python", type="py" -%}

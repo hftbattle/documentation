@@ -90,6 +90,8 @@ def trading_book_update(strat, order_book):
 
 using namespace hftbattle;
 
+namespace {
+
 class UserStrategy : public ParticipantStrategy {
 public:
   explicit UserStrategy(const JsonValue& config) { }
@@ -112,6 +114,8 @@ public:
     }
   }
 };
+
+}  // namespace
 
 REGISTER_CONTEST_STRATEGY(UserStrategy, user_strategy)
 {%- language name="Python", type="py" -%}
