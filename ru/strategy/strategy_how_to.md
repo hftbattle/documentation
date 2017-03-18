@@ -104,7 +104,7 @@ public:
       if (our_orders.active_orders_count(dir) == 0) {
         add_limit_order(dir, best_price, amount);
       } else {  // есть хотя бы одна наша активная заявка
-        auto first_order = our_orders.orders_by_dir(dir)[0];
+        auto first_order = our_orders.orders_by_dir(dir).front();
         bool on_best_price = (first_order->price() == best_price);
         if (!on_best_price) {  // наша заявка стоит, но не на текущей лучшей цене
           delete_order(first_order);
