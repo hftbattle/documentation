@@ -49,7 +49,7 @@
 
     "trading.begin_time": "09:15:00",
     "trading.end_time": "15:30:00",
-    "trading.daily_deals": "5-10",
+    "trading.daily_deals": "1-5",
 
     "constraint.symbol": "1&nbsp;000&nbsp;000",
     "constraint.string": "6000",
