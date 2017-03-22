@@ -42,10 +42,10 @@ sudo apt-get update && sudo apt-get install g++ cmake python3 --yes
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   ```
 
-- [CMake]({{ book["cmake.url"] }}) и Python 3:
+- [CMake]({{ book["cmake.url"] }}), [JsonCpp]({{ book["jsoncpp.url"] }}) и Python 3:
 
   ```bash
-  brew install cmake python3
+  brew install cmake jsoncpp python3
   ```
 
 ### Windows {#windows}

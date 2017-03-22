@@ -36,6 +36,7 @@
 
     "brew.url": "https://brew.sh/",
     "cmake.url": "https://cmake.org/",
+    "jsoncpp.url": "https://github.com/open-source-parsers/jsoncpp",
     "clion-download.url": "https://www.jetbrains.com/clion/download/",
     "python.url": "https://www.python.org/downloads/",
     "std_deviation.ru_url": "https://ru.wikipedia.org/wiki/Среднеквадратическое_отклонение",
