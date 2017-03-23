@@ -14,10 +14,10 @@
 sudo ./packages_ubuntu.sh
 ```
 
-Скрипт устанавливает компилятор g++, систему сборки [CMake]({{ book["cmake.url"] }}) и Python 3:
+Скрипт устанавливает компилятор g++, систему сборки [CMake]({{ book["cmake.url"] }}) и Python 2:
 
 ```bash
-sudo apt-get update && sudo apt-get install g++ cmake python3 --yes
+sudo apt-get update && sudo apt-get install g++ cmake python --yes
 ```
 
 ### macOS {#macos}
@@ -42,10 +42,10 @@ sudo apt-get update && sudo apt-get install g++ cmake python3 --yes
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   ```
 
-- [CMake]({{ book["cmake.url"] }}), [JsonCpp]({{ book["jsoncpp.url"] }}) и Python 3:
+- [CMake]({{ book["cmake.url"] }}), [JsonCpp]({{ book["jsoncpp.url"] }}) и Python 2:
 
   ```bash
-  brew install cmake jsoncpp python3
+  brew install cmake jsoncpp python
   ```
 
 ### Windows {#windows}
@@ -55,6 +55,7 @@ sudo apt-get update && sudo apt-get install g++ cmake python3 --yes
 - Компилятор [TDM64-GCC]({{ book["tdm-gcc.url"] }}) версии `5.1.0` и выше:
 
   Скачать можно [здесь]({{ book["tdm-gcc-download.url"] }}).
+  Просим вас обратить внимание на то, что нужна именно версия **TDM64-gcc**.
 
 - [CMake]({{ book["cmake.url"] }}) версии `2.8.4` и выше:
 
@@ -62,7 +63,7 @@ sudo apt-get update && sudo apt-get install g++ cmake python3 --yes
 
   Или же [скачать CMake]({{ book["cmake.url"] }}) с официального сайта.
 
-- Python `2.7` и выше:
+- Python версии `2.7`:
 
   Скачать можно [здесь]({{ book["python.url"] }}).
 
