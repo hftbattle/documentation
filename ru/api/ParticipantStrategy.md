@@ -11,8 +11,6 @@
 | [trading_book_update()](#trading_book_update) | Вызывается симулятором при получении нового стакана торгового инструмента. |
 | [trading_deals_update()](#trading_deals_update) | Вызывается симулятором при получении новых сделок по торговому инструменту. |
 | [execution_report_update()](#execution_report_update) | Вызывается симулятором при получении отчёта о проведении сделки с участием вашей заявки. |
-| [signal_book_update()](#signal_book_update) | Вызывается симулятором при получении нового стакана сигнального инструмента. |
-| [signal_deals_update()](#signal_deals_update) | Вызывается симулятором при получении новых сделок по сигнальному инструменту. |
 | [add_limit_order()](#add_limit_order) | Выставляет лимитную заявку. |
 | [add_ioc_order()](#add_ioc_order) | Выставляет заявку типа IOC (Immediate-Or-Cancel). |
 | [delete_order()](#delete_order) | Отправляет запрос на удаление вашей заявки. |
@@ -21,8 +19,7 @@
 | [amount_before_order()](#amount_before_order) | Суммарный объём заявок в очереди перед вашей заявкой. |
 | [volume_by_price()](#volume_by_price) | Суммарный объём активных заявок с заданной ценой и направлением. |
 | [add_chart_point()](#add_chart_point) | Добавляет точку на график. |
-| [current_result()](#current_result) | Текущий заработок стратегии, учитывающий все заявки. |
-| [signal_security_exists()](#signal_security_exists) | Существует ли сигнальный инструмент. |
+| [current_result()](#current_result) | Текущий заработок стратегии, учитывающий как исполненные, так и просто выставленные заявки. |
 | [server_time()](#server_time) | Текущее биржевое время. |
 | [server_time_tm()](#server_time_tm) | Биржевое время типа tm. |
 | [set_max_total_amount()](#set_max_total_amount) | Устанавливает желаемое ограничение максимальной позиции. |
@@ -31,7 +28,6 @@
 | [is_our()](#is_our) | Является ли заявка вашей. |
 | [is_our()](#is_our) | Является ли сделка вашей. |
 | [trading_book()](#trading_book) | Текущий стакан торгового инструмента. |
-| [signal_book()](#signal_book) | Текущий стакан сигнального инструмента. |
 
 ### Описание методов
 
@@ -59,29 +55,13 @@ virtual void trading_deals_update(std::vector<Deal>&& deals);
 virtual void execution_report_update(const ExecutionReport& execution_report);
 {%- endcodetabs %}
 
-#### signal_book_update() {#signal_book_update}
-
-Вызывается симулятором при получении нового стакана сигнального инструмента.
-
-{% codetabs name="C++", type="c++" -%}
-virtual void signal_book_update(const OrderBook& order_book);
-{%- endcodetabs %}
-
-#### signal_deals_update() {#signal_deals_update}
-
-Вызывается симулятором при получении новых сделок по сигнальному инструменту.
-
-{% codetabs name="C++", type="c++" -%}
-virtual void signal_deals_update(std::vector<Deal>&& deals);
-{%- endcodetabs %}
-
 #### add_limit_order() {#add_limit_order}
 
 Принимает направление dir, цену price и размер заявки amount.
 
 Выставляет лимитную заявку.
 
-Возвращает значение типа bool — была ли ваша заявка принята торговой системой.
+Возвращает значение типа bool — была ли ваша заявка принята торговым симулятором.
 Внимание: заявка может быть не принята при нарушении некоторых ограничений.
 Подробнее читайте в документации: <https://docs.hftbattle.com/ru/HFAQ.html#simulator>
 
@@ -97,7 +77,7 @@ def add_limit_order(self, dir, price, amount)
 
 Выставляет заявку типа IOC (Immediate-Or-Cancel).
 
-Возвращает значение типа bool — была ли принята ваша заявка.
+Возвращает значение типа bool — была ли ваша заявка принята торговым симулятором.
 Внимание: заявка может быть не принята при нарушении некоторых ограничений.
 Подробнее читайте в документации: <https://docs.hftbattle.com/ru/HFAQ.html#simulator>
 
@@ -173,7 +153,7 @@ def volume_by_price(self, dir, price)
 
 Принимает строку line_name (название графика), value типа double или Decimal — значение, которое хочется добавить, y_axis_type — сторона, с которой будет нарисована ось Y, и chart_number — номер графика.
 
-Добавляет точку на график в данный момент времени с желаемым значением value в текущий момент торговой сессии.
+Добавляет точку на график с желаемым значением value в текущий момент торговой сессии.
 Соседние точки на графике соединяются отрезком.
 В итоге получается ломаная, которая и является графиком.
 Используя параметр chart_number, можно создавать несколько графиков, а с помощью line_name можно строить сразу несколько линий на одном графике.
@@ -187,23 +167,13 @@ def add_chart_point(self, line_name, value, 0, 1)
 #### current_result() {#current_result}
 
 Возвращает текущий результат стратегии (заработок).
-Учитываются как исполненные, так и просто поставленные заявки.
-При подсчёте результата мы предполагаем, что поставленные заявки сводятся по противоположной лучшей цене.
+Учитываются как исполненные, так и просто выставленные заявки.
+При подсчёте результата мы предполагаем, что выставленные заявки сводятся по противоположной лучшей цене.
 
 {% codetabs name="C++", type="c++" -%}
 Decimal current_result() const;
 {%- language name="Python", type="py" -%}
 def current_result(self)
-{%- endcodetabs %}
-
-#### signal_security_exists() {#signal_security_exists}
-
-Возвращает значение типа bool — существует ли сигнальный инструмент.
-
-{% codetabs name="C++", type="c++" -%}
-bool signal_security_exists() const;
-{%- language name="Python", type="py" -%}
-def signal_security_exists(self)
 {%- endcodetabs %}
 
 #### server_time() {#server_time}
@@ -297,15 +267,4 @@ def is_our(self, deal)
 const OrderBook& trading_book() const;
 {%- language name="Python", type="py" -%}
 def trading_book(self)
-{%- endcodetabs %}
-
-#### signal_book() {#signal_book}
-
-Текущий стакан сигнального инструмента.
-Внимание: стакан сигнального инструмента нельзя получить до первого вызова `signal_book_update`.
-
-{% codetabs name="C++", type="c++" -%}
-const OrderBook& signal_book() const;
-{%- language name="Python", type="py" -%}
-def signal_book(self)
 {%- endcodetabs %}

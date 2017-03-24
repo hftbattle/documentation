@@ -3,7 +3,7 @@
 Путь в Local Pack `include/order_book.h`
 
 Класс OrderBook — это агрегатор всех заявок по конкретному инструменту.
-Внимание: нумерация индексов (порядковых номеров) идёт с 0, начиная с лучшей цены отдельно по каждому направлению, т.е. в порядке возрастания цены для BID (покупки) и в порядке убывания цены для ASK (продажи).
+Внимание: нумерация индексов (порядковых номеров) идёт с 0, начиная с лучшей цены отдельно по каждому направлению, т.е. в порядке убывания цены для BID (покупки) и в порядке возрастания цены для ASK (продажи).
 
 При этом **учитываются только непустые котировки**!
 Т.е. котировка с порядковым номером 3 не обязательно отстоит ровно на 3 минимальных шага цены от котировки с лучшей ценой.
@@ -21,7 +21,7 @@
 | [best_price()](#best_price) | Лучшая цена в стакане по данному направлению. |
 | [best_volume()](#best_volume) | Суммарный объём лотов во всех заявках в котировке с лучшей ценой по заданному направлению. |
 | [all_quotes()](#all_quotes) | Все котировки с данным направлением в виде объекта QuotesHolder. |
-| [quotes_count()](#quotes_count) | Количество котировок по направлению dir. |
+| [quotes_count()](#quotes_count) | Количество непустых котировок по направлению dir. |
 | [depth()](#depth) | Количество ценовых уровней, отображаемых в стакане. |
 | [server_time()](#server_time) | Биржевое время последнего изменения стакана. |
 | [orders()](#orders) | Ваши текущие заявки в виде объекта SecurityOrdersSnapshot. |
@@ -30,7 +30,6 @@
 | [spread_in_min_steps()](#spread_in_min_steps) | Расстояние между лучшими ценами в минимальных шагах цены. |
 | [fee_per_lot()](#fee_per_lot) | Комиссия за один проторгованный лот. |
 | [book_updates_count()](#book_updates_count) | Количество обновлений стакана с начала торговой сессии. |
-| [security_id()](#security_id) | Указатель на инструмент, соответствующий стакану. |
 | [added_volume_at_price()](#added_volume_at_price) | Суммарный объём новых добавленных заявок по данному направлению и цене с момента прошлого обновления стакана. |
 | [deleted_volume_at_price()](#deleted_volume_at_price) | Суммарный объём удалённых заявок по данному направлению и цене с момента прошлого обновления стакана. |
 
@@ -53,6 +52,7 @@ def quote_by_index(self, dir, index)
 Принимает направление dir и порядковый номер index.
 
 Возвращает цену котировки по направлению dir с порядковым номером index.
+Внимание: если котировка отсутствует, то возвращается соответствующее значение default_quote_price.
 
 {% codetabs name="C++", type="c++" -%}
 Price price_by_index(Dir dir, size_t index) const;
@@ -89,7 +89,7 @@ def quote_by_price(self, dir, price)
 Принимает направление dir и цену price.
 
 Возвращает порядковый номер котировки по направлению dir с ценой price.
-Если котировки с данной ценой не существует, то возвращается `std::numeric_limits<size_t>::max()`.
+Если котировки с данной ценой не существует, то возвращается максимально допустимое значение в диапозоне типа size_t, т.е. `std::numeric_limits<size_t>::max()`.
 
 {% codetabs name="C++", type="c++" -%}
 size_t index_by_price(Dir dir, Price price) const;
@@ -114,6 +114,7 @@ def volume_by_price(self, dir, price)
 Принимает направление dir.
 
 Возвращает лучшую цену в стакане по направлению dir.
+Внимание: если котировка отсутствует, то возвращается соответствующее значение default_quote_price.
 
 {% codetabs name="C++", type="c++" -%}
 Price best_price(Dir dir) const;
@@ -138,7 +139,7 @@ def best_volume(self, dir)
 Принимает направление dir.
 
 Возвращает все котировки по направлению dir в виде объекта QuotesHolder.
-Внимание: QuotesHolder — контейнер, по которому можно итерироваться.
+QuotesHolder — контейнер, по которому можно итерироваться.
 Подробнее о QuotesHolder читайте здесь: <https://docs.hftbattle.com/ru/api/QuotesHolder.html>.
 
 {% codetabs name="C++", type="c++" -%}
@@ -149,7 +150,7 @@ QuotesHolder all_quotes(Dir dir) const;
 
 Принимает направление dir.
 
-Возвращает количество котировок по направлению dir.
+Возвращает количество непустых котировок по направлению dir.
 
 {% codetabs name="C++", type="c++" -%}
 size_t quotes_count(Dir dir) const;
@@ -237,16 +238,6 @@ def fee_per_lot(self)
 size_t book_updates_count() const;
 {%- language name="Python", type="py" -%}
 def book_updates_count(self)
-{%- endcodetabs %}
-
-#### security_id() {#security_id}
-
-Возвращает указатель на инструмент, которому соответствует данный стакан.
-
-{% codetabs name="C++", type="c++" -%}
-SecurityId security_id() const;
-{%- language name="Python", type="py" -%}
-def security_id(self)
 {%- endcodetabs %}
 
 #### added_volume_at_price() {#added_volume_at_price}

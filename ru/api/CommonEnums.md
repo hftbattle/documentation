@@ -1,8 +1,8 @@
 # CommonEnums
 
-Путь в Local Pack `include/base/common_enums.h`
-
 ## Dir
+
+Путь в Local Pack `include/base/common_enums.h`
 
 Enum, описывающий направления сделок, заявок и котировок.
 

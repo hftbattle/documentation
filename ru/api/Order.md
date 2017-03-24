@@ -13,7 +13,6 @@
 | [price()](#price) | Цена заявки. |
 | [amount()](#amount) | Изначальный объём заявки. |
 | [amount_rest()](#amount_rest) | Текущий объём заявки. |
-| [security_id()](#security_id) | Указатель на инструмент, соответствующий заявке. |
 | [status()](#status) | Статус заявки. |
 | [server_time()](#server_time) | Биржевое время постановки заявки в стакан. |
 
@@ -70,21 +69,11 @@ Amount amount_rest() const;
 def amount_rest(self)
 {%- endcodetabs %}
 
-#### security_id() {#security_id}
-
-Возвращает указатель на инструмент, к которому относится заявка (нужен для того, чтобы понимать, какому инструменту соответствует заявка).
-
-{% codetabs name="C++", type="c++" -%}
-SecurityId security_id() const;
-{%- language name="Python", type="py" -%}
-def security_id(self)
-{%- endcodetabs %}
-
 #### status() {#status}
 
 Возвращает значение enum class — статус заявки.
 
-Возможные статусы: в процессе добавления (Adding), активная (Active), в процессе удаления, но ещё не удалённая (Deleting) и удалённая (Deleted).
+Возможные статусы: в процессе добавления (Adding), активная (Active), в процессе удаления, но ещё не удалённая (Deleting), и удалённая (Deleted).
 Подробнее читайте в описании класса OrderStatus: <https://docs.hftbattle.com/ru/api/CommonEnums.html#orderstatus>.
 
 {% codetabs name="C++", type="c++" -%}
