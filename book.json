@@ -33,6 +33,10 @@
 
     "final_testing_duration": "4",
 
+    "duels.period": "Каждый час",
+    "duels.rating_elo.ru_url": "https://ru.wikipedia.org/wiki/Рейтинг_Эло",
+    "duels.rating_elo.en_url": "https://en.wikipedia.org/wiki/Elo_rating_system",
+
     "brew.url": "https://brew.sh/",
     "cmake.url": "https://cmake.org/",
     "jsoncpp.url": "https://github.com/open-source-parsers/jsoncpp",
