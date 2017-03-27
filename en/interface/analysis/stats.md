@@ -3,9 +3,9 @@
 There's a vast interface of strategy analysis on the page of submission. 
 Basic sections of the page are:
 
-- [Общий результат](#common_result)
-- [Результаты по дням](#results_by_day)
-- [Статистика по дням](#stats_by_day)
+- [Common results](#common_result)
+- [Results by day](#results_by_day)
+- [Statisctics by day](#stats_by_day)
 
 #### Common results {#common_result}
 

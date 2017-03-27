@@ -7,7 +7,7 @@
   - [Strategy submission](interface/submit.md)
   - [Results' analysis](interface/analysis/README.md)
     - [Statistics](interface/analysis/stats.md)
-    - [Graphics](interface/analysis/charts.md)
+    - [Charts](interface/analysis/charts.md)
     - [Viewer](interface/analysis/viewer.md)
     - [Logs](interface/analysis/logs.md)
   - [Parameter tuning](interface/params.md)
