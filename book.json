@@ -34,6 +34,7 @@
     "final_testing_duration": "4",
 
     "duels.period": "Каждый час",
+    "duels.users": "два",
     "duels.rating_elo.ru_url": "https://ru.wikipedia.org/wiki/Рейтинг_Эло",
     "duels.rating_elo.en_url": "https://en.wikipedia.org/wiki/Elo_rating_system",
 
