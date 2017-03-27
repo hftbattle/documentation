@@ -144,6 +144,8 @@ QuotesHolder — контейнер, по которому можно итери
 
 {% codetabs name="C++", type="c++" -%}
 QuotesHolder all_quotes(Dir dir) const;
+{%- language name="Python", type="py" -%}
+def all_quotes(self, dir)
 {%- endcodetabs %}
 
 #### quotes_count() {#quotes_count}
