@@ -5,7 +5,7 @@ User interface is available at [{{ book["contest.arena.name"] }}]({{ book["conte
 To get more information on it visit following pages:
 
 - [Testing modes](modes.md)
-- [Strategy submition](submit.md)
+- [Strategy submission](submit.md)
 - [Results Analysis](analysis/README.md)
   - [Statistics](analysis/stats.md)
   - [Charts](analysis/charts.md)

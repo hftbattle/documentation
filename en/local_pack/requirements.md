@@ -1,6 +1,6 @@
-## Dependency handling
+## Dependency management
 
-Here you can find dependency handling suggestions for the following operating systems:
+Here you can find dependency management suggestions for the following operating systems:
 
 - [Ubuntu](#ubuntu)
 - [macOS](#macos)
@@ -29,13 +29,13 @@ To install dependencies run *packages_mac.sh*:
 ```
 The script installs:
 
-- Apple LLVM compilator (you may find detailed installation description [here](http://osxdaily.com/2014/02/12/install-command-line-tools-mac-os-x/)):
+- Apple LLVM compiler (you can find detailed installation instruction [here](http://osxdaily.com/2014/02/12/install-command-line-tools-mac-os-x/)):
 
   ```bash
   xcode-select --install
   ```
 
-- [Homebrew]({{ book["brew.url"] }}) packet manager:
+- [Homebrew]({{ book["brew.url"] }}) package manager:
 
   ```bash
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -51,17 +51,17 @@ The script installs:
 
 To run local pack under Windows, it's essential to have:
 
-- [TDM64-GCC]({{ book["tdm-gcc.url"] }}) compliator at least `5.1.0` version:
+- [TDM64-GCC]({{ book["tdm-gcc.url"] }}) compiler at least version `5.1.0`:
 
   You may download it [here]({{ book["tdm-gcc-download.url"] }}).
   Note that you need **TDM64-gcc**.
 
-- [CMake]({{ book["cmake.url"] }}) at least `2.8.4`:
+- [CMake]({{ book["cmake.url"] }}) at least version `2.8.4`:
 
-  You may install [CLion]({{ book["clion-download.url"] }}), or [download]({{ book["cmake.url"] }}) **CMake** from official website.
+  You may install [CLion]({{ book["clion-download.url"] }}), or [download]({{ book["cmake.url"] }}) **CMake** from official.
 
 - Python `2.7`:
 
   You may download it [here]({{ book["python.url"] }}).
 
-Get sure that paths to *cmake.exe*, *python.exe*, *g++.exe* and *mingw32-make.exe*/*make.exe* are added to environmental variable *PATH*.
+Make sure that paths to *cmake.exe*, *python.exe*, *g++.exe* and *mingw32-make.exe*/*make.exe* are added to *PATH* environment variable.

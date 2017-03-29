@@ -1,6 +1,6 @@
 ### Charts 
 
-Charts are useful to analyze your strategy.
+Charts are useful for strategy analysis.
 
 Main points of the sections are:
 
@@ -11,20 +11,20 @@ Main points of the sections are:
 #### Profit and position charts {#sum_and_pos_chart}
 
 <!-- TODO(asalikhov): change Chart 0 to sth. else when changed in web system -->
-A chart "Chart 0" is build for each training submission by default, with 2 following lines:
+A chart "Chart 0" is shown for each training submission by default, with 2 following lines:
 
 - *sum* — your profit during the trading session, values are marked on the left vertical axis.
-- *[symbol_name]-pos* — your [position](/terms.md#position), values are marked on the left vertical axis.
+- *[symbol_name]-pos* — your [position](/terms.md#position), values are marked on the right vertical axis.
 
-<img src="{{ book["gitbook.img"] }}/base_chart.png" title="График лучшей цены" align="center">
+<img src="{{ book["gitbook.img"] }}/base_chart.png" title="Best price chart" align="center">
 
-> Note: charts are using smoothing to display lines.
-To get exact values you can zoom in by selecting appropriate area with mouse
+> Note: charts tool uses smoothing to display lines.
+> To get exact values you can zoom in by selecting appropriate area with mouse.
 
 #### Redirection to Viewer {#links}
 
 You may often feel like analyzing situation in the order book in some exact moment.
-There is redirection to [Viewer](viewer.md) for this purpose: to open a moment in viewer, click the appropriate point of the chart.
+There is redirection to [Viewer](viewer.md) for this purpose: to open a moment in Viewer, click the appropriate point of the chart.
 
 #### Custom charts {#custom}
 
@@ -46,7 +46,7 @@ def add_chart_point(self,
 - *line_name* — unique name for each line you'd like to display.
 - *value* — real number to be displayed on the chart.
 - *y_axis_type* — side to display the vertical axis: *ChartYAxisType::Left* or *ChartYAxisType::Right* (ChartYAxisType.Left or ChartYAxisType.Right in *Python*).
-- *chart_number* — 0 for default chart, 1 or more for your custom charts.
+- *chart_number* — 0 for the default chart, 1 or more for your custom charts.
 
 Strategy standing on best price in each direction modification to build best price chart:
 
@@ -130,6 +130,6 @@ def trading_book_update(strat, order_book):
             best_price_by_dir[dir] = best_price
 {%- endcodetabs %}
 
-It builds "Chart 1":
+It shows "Chart 1":
 
-<img src="{{ book["gitbook.img"] }}/best_price_chart.png" title="График лучшей цены" align="center">
+<img src="{{ book["gitbook.img"] }}/best_price_chart.png" title="Best price chart" align="center">

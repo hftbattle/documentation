@@ -1,6 +1,6 @@
 ## Results analysis
 
-There is only one number in the list of your submissions  on the main page - rounded to the nearest whole result, calculated with [evaluation formula](stats.md#result_formula).
+There is only one number in the list of your submissions on the main page - rounded to the nearest integer result, calculated using [evaluation formula](stats.md#result_formula).
 
 You can get more information:
 
@@ -9,4 +9,4 @@ You can get more information:
 - [Viewer](viewer.md)
 - [Logs](logs.md)
 
-by clicking the row of your submission.
+by clicking the row corresponding to your submission.
