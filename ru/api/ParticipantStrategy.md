@@ -164,6 +164,15 @@ void add_chart_point(const std::string& line_name, Decimal value, ChartYAxisType
 def add_chart_point(self, line_name, value, 0, 1)
 {%- endcodetabs %}
 
+Приведём пример использования данного метода.
+Мы добавим новый график лучшей цены покупки.
+
+{% codetabs name="C++", type="c++" -%}
+add_chart_point("best_bid", order_book.best_price(BID));
+{%- language name="Python", type="py" -%}
+strat.add_chart_point("best_bid", order_book.best_price(BID))
+{%- endcodetabs %}
+
 #### current_result() {#current_result}
 
 Возвращает текущий результат стратегии (заработок).

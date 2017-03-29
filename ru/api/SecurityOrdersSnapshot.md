@@ -96,6 +96,20 @@ OrdersMap orders_by_dir_as_map(Dir dir) const;
 def orders_by_dir_as_map(self, dir)
 {%- endcodetabs %}
 
+Приведём пример использования данного метода.
+Мы пробежимся по всем нашим заявкам на покупку и выведем текущее количество заявок с такой ценой.
+
+{% codetabs name="C++", type="c++" -%}
+auto orders_map = order_book.orders().orders_by_dir_as_map(BID);
+for (auto it = orders_map.cbegin(); it != orders_map.cend(); ++it) {
+  SCREEN() << "price: " << it->first << " amount: " << it->second.size()
+}
+{%- language name="Python", type="py" -%}
+orders_map = order_book.orders().orders_by_dir_as_map(BID)
+for price, orders in orders_map.items():
+    print('price: %s amount: %s' % (price, len(orders)))
+{%- endcodetabs %}
+
 #### deleting_amount_by_dir() {#deleting_amount_by_dir}
 
 Принимает направление dir.
