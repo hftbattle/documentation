@@ -1,8 +1,7 @@
 ## General strategy structure
 
-Trading strategy get's changes of [instrument](/terms.md#instrument) on the [exhange](/terms.md#exchange) as an input.
-According to this information it may perform some actions.
-It may be adding new [orders](/terms.md#order) and/or request deleting old ones.
+Trading strategy gets updates of [instrument](/terms.md#instrument) on the [exxhange](/terms.md#exchange) as an input.
+According to this information it may perform some actions: adding new [orders](/terms.md#order) and/or requesting deletions of old ones.
 
 Here we are going to discuss:
 
@@ -13,11 +12,11 @@ And methods you have to implement:
 
 - [Order book update](#book_update)
 - [Deals update](#deals_update)
-- [Report on order execution](#execution_report_update)
+- [Order execution report](#execution_report_update)
 
 ### C++ strategy structure {#cpp}
 
-**UserStrategy** class is designed to write strategies.
+**UserStrategy** class is designed to develop strategies.
 It's inherited from [ParticipantStrategy](/api/ParticipantStrategy.md) class with 3 virtual functions declared.
 You may implement them:
 
@@ -38,7 +37,7 @@ namespace {
 class UserStrategy : public ParticipantStrategy {
 public:
   // Config file is passed to constructor.
-  // You can add running parameters to it from web interface.
+  // You can add running parameters to it from the web interface.
   explicit UserStrategy(const JsonValue& config) { }
 
   // Is called after getting new order book of the trading instrument.
@@ -56,12 +55,12 @@ public:
 REGISTER_CONTEST_STRATEGY(UserStrategy, user_strategy)
 ```
 
-Further you have to implement this methods.
+Further you have to implement these methods.
 
 ### Python strategy structure {#python}
 
 Empty strategy looks the following.
-There are 3 fucntions you may implement and *init* function to get information from the configuration file.
+There are 3 functions you may implement and *init* function to get information from the configuration file.
 ```py
 # -*- coding: utf-8 -*-
 
@@ -86,30 +85,30 @@ def execution_report_update(strat, execution_report):
 
 
 # Config file is passed to this function.
-# You can add running parameters to it from web interface.
+# You can add running parameters to it from the web interface.
 def init(strat, config):
     pass
 ```
 
 #### Order book update {#book_update}
 
-Some changes in [order book](/terms.md#order_book) are consistently happening during trading on exchange.
+Some changes in [order book](/terms.md#order_book) are consistently happening during trading session.
 [trading_book_update](/api/ParticipantStrategy.md#trading_book_update) method is used to notify strategy about such changes.
 It accepts reference to [OrderBook](/api/OrderBook.md) as an input.
 
-> Order book applied to the input of *trading_book_update* is the same with one you can get by calling [trading_book](/api/ParticipantStrategy.md).
-> This method is useful to get order book during other types of updates.
+> Order book applied to the input of *trading_book_update* is the same as one you can get by calling [trading_book](/api/ParticipantStrategy.md) method.
+> This method is useful to get order book during other updates (deals and execution report).
 
 #### Deals update {#deals_update}
 
-Deals made on exchage are also useful to analyze.
-[trading_deals_update](/api/ParticipantStrategy.md#trading_deals_update) method is used for these changes.
-It accepts std::vector of [Deal](/api/Deal.md) as an input.
+Deals made on exchange are also useful to analyze.
+[trading_deals_update](/api/ParticipantStrategy.md#trading_deals_update) method is used to notify strategy about these changes.
+It accepts vector of [Deals](/api/Deal.md) as an input.
 Each element of this vector contains information on one completed deal.
-This information is sent **exactly one time** for each deal.
-However, one order **may be refered in multiple deals**.
+This information is sent **exactly once** for each deal.
+However, one order **may be referred in multiple deals**.
 
-#### Report on order execution {#execution_report_update}
+#### Order execution report {#execution_report_update}
 
-[execution_report_update](/api/ParticipantStrategy.md#execution_report_update) is used to get strategy's order's execution information.
+[execution_report_update](/api/ParticipantStrategy.md#execution_report_update) is used to get strategy's order execution information.
 For each deal containing strategy's order *execution_report_update* is called.
