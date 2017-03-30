@@ -3,7 +3,7 @@
 Trading strategy gets updates of [instrument](/terms.md#instrument) on the [exxhange](/terms.md#exchange) as an input.
 According to this information it may perform some actions: adding new [orders](/terms.md#order) and/or requesting deletions of old ones.
 
-Here we are going to discuss:
+Let's take a look at:
 
 - [C++ strategy structure](#cpp)
 - [Python strategy structure](#python)

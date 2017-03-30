@@ -2,7 +2,7 @@
 
 Charts are useful for strategy analysis.
 
-Main points of the sections are:
+Key parts of this paragraph are:
 
 - [Profit and position charts](#sum_and_pos_chart)
 - [Redirection to Viewer](#links)
@@ -19,12 +19,12 @@ A chart "Chart 0" is shown for each training submission by default, with 2 follo
 <img src="{{ book["gitbook.img"] }}/base_chart.png" title="Best price chart" align="center">
 
 > Note: charts tool uses smoothing to display lines.
-> To get exact values you can zoom in by selecting appropriate area with mouse.
+> To get exact values you can zoom in by selecting an area with mouse.
 
 #### Redirection to Viewer {#links}
 
 You may often feel like analyzing situation in the order book in some exact moment.
-There is redirection to [Viewer](viewer.md) for this purpose: to open a moment in Viewer, click the appropriate point of the chart.
+For this purpose [Viewer](viewer.md) is provided: to open a moment there click the appropriate point of the chart.
 
 #### Custom charts {#custom}
 
@@ -76,14 +76,14 @@ public:
       } else {  // есть хотя бы одна наша активная заявка
         auto first_order = our_orders.orders_by_dir(dir).front();
         bool on_best_price = (first_order->price() == best_price);
-        if (!on_best_price) {  // наша заявка стоит, но не на текущей лучшей цене
+        if (!on_best_price) {
           delete_order(first_order);
           add_limit_order(dir, best_price, amount);
         }
       }
 
-      if (best_price != best_price_by_dir[dir]) {  // лучшая цена изменилась
-        add_chart_point(axis_name[dir],            // имя оси, отображается в легенде
+      if (best_price != best_price_by_dir[dir]) {
+        add_chart_point(axis_name[dir],
                         best_price);
         best_price_by_dir[dir] = best_price;
       }
@@ -120,7 +120,7 @@ def trading_book_update(strat, order_book):
         else:
             first_order = our_orders.orders_by_dir(dir)[0]
             on_best_price = (first_order.price() == best_price)
-            if not on_best_price:  # наша заявка стоит, но не на текущей лучшей цене
+            if not on_best_price:
                 strat.delete_order(first_order)
                 strat.add_limit_order(dir, best_price, amount)
 
