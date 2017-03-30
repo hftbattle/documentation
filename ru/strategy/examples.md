@@ -3,6 +3,7 @@
 - [Описание стратегии и её исходный код](#strategy)
 - [Анализ стратегии](#analysis)
 - [Идеи для дальнейшей реализации](#ideas)
+- [Улучшенная стратегия](#improved)
 
 ## Описание стратегии и её исходный код {#strategy}
 
@@ -142,3 +143,99 @@ def trading_book_update(strat, order_book):
 
 Это только часть того, чем мы хотели бы поделиться с вами.
 В ходе контеста идеи будут дополняться и описываться более подробно.
+
+## Улучшенная стратегия {#improved}
+
+В предыдущей стратегии мы ставим заявку на уровень, который отстоит от средней цены на фиксированную разницу `offset`.
+Однако, такое поведение не является разумным, если на одном из направлений лучшая цена является неадекватной.
+
+Это происходит потому, что middle_price очень чувствителен по отношению к лучшим ценам — если появится даже одна заявка с ценой лучше, чем была, то изменится middle_price и изменятся уровни, на которых мы ставим заявку.
+
+Поэтому разумной идеей кажется пробовать стоять на ценах, которые менее чувствительны к таким маленьким изменениям.
+
+Попробуем стоять на такой цене, чтобы перед нами стоял фиксированный объём заявок — в нашем случае за это отвечает параметр `target_volume_`.
+
+Если написать стратегию в таком виде, мы столкнёмся с двумя проблемами:
+
+1. Если мы будет стоять на той же цене, на которой достигается `target_volume_`, то наша стратегия будет стоять после других участников рынка.
+2. Если не ограничивать уровни, на которых мы стоим, то наши заявки в противоположных направлениях будут отличпаться даже меньше, чем величина комиссии, а такое поведение явно нежелательно.
+
+Вот как мы попытаемся решить эти проблемы:
+
+1. Будем стоять на цене, которая ближе к `middle_price` на один `min_step` чем та, которую мы нашли.
+2. Мы не будем ставить заявку, если от противоположной лучшей цены она отстоит меньше, чем на заранее заданное значени.
+  Это значение мы также назовём `offset_`, т.к. оно имеет почти такой же смысл, как и в предыдущей.
+
+В итоге мы получим следующую стратегию:
+
+{% codetabs name="C++", type="c++" -%}
+#include "participant_strategy.h"
+
+using namespace hftbattle;
+
+namespace {
+
+class UserStrategy : public ParticipantStrategy {
+public:
+  UserStrategy(const JsonValue& config) :
+      volume_(config["volume"].as<Amount>(2)),
+      max_pos_(config["max_pos"].as<Amount>(3)),
+      offset_(config["offset"].as<Price>(26)),
+      target_volume_(config["target_volume"].as<Amount>(2)) {
+    set_max_total_amount(max_pos_);
+  }
+
+  Amount amount_available(Amount pos, Dir dir) {
+    Amount max_volume = std::min(max_pos_ - dir_sign(dir) * pos, volume_);
+    return std::max(0, max_volume);
+  }
+
+  void trading_book_update(const OrderBook& order_book) override {
+    const auto& orders = order_book.orders();
+    Price middle_price = order_book.middle_price();
+    Amount pos = executed_amount();
+
+    add_chart_point("middle_price", middle_price);
+
+    for (Dir dir : {BID, ASK}) {
+      Amount accumulated_volume = 0;
+      size_t idx = 0;
+      for (; idx < order_book.depth(); ++idx) {
+        accumulated_volume += order_book.volume_by_index(dir, idx);
+
+        if (accumulated_volume >= target_volume_) {
+          break;
+        }
+      }
+
+      Price target_price = order_book.price_by_index(dir, idx) + dir_sign(dir) * order_book.min_step();
+      Price diff = abs(target_price - order_book.best_price(opposite_dir(dir)));
+      Amount order_amount = amount_available(pos, dir);
+
+      if (orders.active_orders_count(dir) == 0) {
+        if (order_amount > 0 && diff > offset_) {
+          add_limit_order(dir, target_price, order_amount);
+        }
+      } else {
+        Order* current_order = orders.orders_by_dir(dir).front();
+        if (current_order->price() != target_price) {
+          delete_order(current_order);
+          if (order_amount > 0 && diff > offset_) {
+            add_limit_order(dir, target_price, order_amount);
+          }
+        }
+      }
+    }
+  }
+
+private:
+  Amount volume_;
+  Amount max_pos_;
+  Price offset_;
+  Amount target_volume_;
+};
+
+}  // namespace
+
+REGISTER_CONTEST_STRATEGY(UserStrategy, new_strategy)
+{%- endcodetabs %}
