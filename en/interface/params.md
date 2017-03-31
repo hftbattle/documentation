@@ -1,4 +1,4 @@
-## Parameters fitting
+## Parameters tuning
 
 - [Reason to fit parameters](#intro)
 - [Pass parameters into the strategy](#to_strategy)
@@ -7,11 +7,11 @@
 #### Reason to fit parameters {#intro}
 
 Finding an optimal value for a numeric parameter using historical data is a commonly used approach for strategy development.
-Parameters fitting interface can be helpful for that.
+Parameters tuning interface can be helpful for that.
 
 #### Passing parameters into a strategy {#to_strategy}
 
-The strategy submission page allows you to pass into a strategy dataset of numerical atomic parameters for fitting.
+The strategy submission page allows you to pass into a strategy dataset of numerical atomic parameters for tuning.
 To do that at the bottom of the page find a field *Parameter Name* and enter the name of the parameter and its value in the next field.
 
 
@@ -33,19 +33,19 @@ Populate data values fields and click on *Add* button.
 
 The parameters set by 1 and 2 methods are passed as is. The parameters set as range of values will be automatically expanded in the parameters list and displayed in the parameters table.
 
-Parameters fitting interface allows you to add several various parameters. You may also turn the fitting off by setting a default value (*default value*):
+Parameters tuning interface allows you to add several various parameters. You may also turn the tuning off by setting a default value (*default value*):
 
 - Setting up a number of several datasets.
  2 values for a *double_param* and 4 values for *int_param* combines gives you 4 * 2 = 8 combinations.
-In case a parameter gets fitting you may skip setting its default value, obviously.  
+In case a parameter gets tuning you may skip setting its default value, obviously.
 
   <img src="{{ book["gitbook.img"] }}/param_double_int_combo.png" title="Setting up a number of several datasets.">
 
-- Turn off *double_param* parameter fitting example, default value = 0:
-  
-The *int_param* parameter’s default value is ignored since it has parameter fitting turned on:
+- Turn off *double_param* parameter tuning example, default value = 0:
 
-  <img src="{{ book["gitbook.img"] }}/param_double_int_turn_off_double.png" title="Turn off parameter fitting example double_param">
+The *int_param* parameter’s default value is ignored since it has parameter tuning turned on:
+
+  <img src="{{ book["gitbook.img"] }}/param_double_int_turn_off_double.png" title="Turn off parameter tuning example double_param">
 
 #### Reading parameters from the strategy {#from_strategy}
 

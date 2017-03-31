@@ -1,4 +1,4 @@
-# Strategy writing
+# Strategy development
 
 The main participant's goal is to write a trading strategy showing high and consistent result on most of the days..
 Read the following sections, they might be helpful:

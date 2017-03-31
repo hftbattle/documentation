@@ -1,6 +1,6 @@
-# How to start participation {{ book["contest.name"] }}
+# How to start participation in {{ book["contest.name"] }}
 
-Documentation for [{{ book["contest.name"] }}]({{ book["contest.landing-page.url"] }}), HFT strategy competition is available here.
+Documentation for [{{ book["contest.name"] }}]({{ book["contest.landing-page.url"] }}), HFT strategy competition, is available here.
 
 ## How to start participation
 
@@ -8,16 +8,16 @@ Documentation for [{{ book["contest.name"] }}]({{ book["contest.landing-page.url
 - Submit one of the sample strategies that are given in participant default interface.
 - Download off-line development kit.
 
-  For that, please  create a clone out of this one  GitHub [GitHub]({{ book["contest.local_pack.url"] }}) ([Git] must be installed ({{ book["git.url"] }})):
+  For that, please clone this [GitHub repository]({{ book["contest.local_pack.url"] }}) ([Git]({{ book["git.url"] }}) must be installed):
 
   ```bash
   git clone https://github.com/hftbattle/hftbattle.git
   ```
 
   More on that in the [Off-line development kit](local_pack/README.md).
-- Read this section [Quick start](quick_start.md).
-- More on this in the following sections [Strategy writting](strategy/README.md), [Trading simulator](simulator/README.md), and [Glossary of terms](terms.md) и [HFAQ](HFAQ.md).
-- Now, start developing your own strategy!!
+- Read the [Quick start](quick_start.md) section.
+- More on this in the following sections [Strategy development](strategy/README.md), [Trading simulator](simulator/README.md), and [Glossary of terms](terms.md) and [HFAQ](HFAQ.md).
+- Now, start developing your own strategy!
 
 ## Feedback and support
 

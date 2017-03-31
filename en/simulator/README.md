@@ -1,7 +1,7 @@
-# Trading  simulator
+# Trading simulator
 
-**Trading  simulator** Simulator  is a software that reads market data in series, acts on it, informs strategies about recent updates and reacts on the strategy's responses - requests to add or remove orders.
+**Trading simulator** Simulator is a software that reads market data in series, acts on it, informs strategies about recent updates and reacts on the strategy's responses - requests to add or remove orders.
 
 - [Data for simulation](./data.md)
-- [Limitations of the simulator](./restrictions.md)
+- [Simulator restrictions](./restrictions.md)
 

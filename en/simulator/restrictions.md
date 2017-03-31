@@ -1,4 +1,4 @@
-## Limitations  of simulator
+## Simulator restrictions
 
 Simulator has a number of limitations that aim to make it similar to the real trading:
 

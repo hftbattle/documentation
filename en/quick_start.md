@@ -88,6 +88,6 @@ More on that in the [Viewer] section (interface/analysis/viewer.md).
 ## Quick Tips {#quick_tips}
 
 - In case you would like to find out how your strategy performs on a particular day, run it just for the selected date, this way you get results much faster.
-- To get most out of your idea try [fitting parameters](interface/params.md).
+- To get most out of your idea try [tuning parameters](interface/params.md).
 
 See more that in the [corresponding section](interface/README.md).

@@ -3,7 +3,7 @@
 After you submitted a strategy for the contest system in a testing mode, its work simulation on some set of days starts. 
 By default a single day is used.
 
-In case your strategy depends on parameters you may define [parameter fitting](params.md) before submitting the strategy into the system.
+In case your strategy depends on parameters you may define [parameter tuning](params.md) before submitting the strategy into the system.
 If you do so, the system will built all possible combinations and will run a strategy copy for each parameter set on each of the days selected.
 Total number of simulations run equals to `(Total number  of parameters set) x (number of days selected)`.
 
