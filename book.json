@@ -15,7 +15,7 @@
 
     "contest.instrument": "HFTBI",
 
-    "contest.support.email": "help@hftbattle.com",
+    "contest.support.email": "<help@hftbattle.com>",
 
     "contest.local_pack.url": "https://github.com/hftbattle/hftbattle",
     "contest.local_pack.data.url": "https://www.dropbox.com/s/ko2zgwt004yejts/data.zip?dl=1",

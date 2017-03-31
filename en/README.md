@@ -24,4 +24,4 @@ Read more here: [User interface](interface/README.md).
 
 ## Questions and help
 
-You can ask your questions right here, or by writing us an email <{{ book["contest.support.email"] }}>.
+You can ask your questions right here, or by writing us an email {{ book["contest.support.email"] }}.
