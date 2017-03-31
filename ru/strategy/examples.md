@@ -149,21 +149,22 @@ def trading_book_update(strat, order_book):
 В предыдущей стратегии мы ставим заявку на уровень, который отстоит от средней цены на фиксированную разницу `offset`.
 Однако, такое поведение не является разумным, если на одном из направлений лучшая цена является неадекватной.
 
-Это происходит потому, что middle_price очень чувствителен по отношению к лучшим ценам — если появится даже одна заявка с ценой лучше, чем была, то изменится middle_price и изменятся уровни, на которых мы ставим заявку.
+Это происходит потому, что middle_price очень чувствителен по отношению к лучшим ценам — если появится даже одна заявка с ценой лучше, чем была, то изменится middle_price и изменятся уровни, на которые мы ставим заявку.
 
-Поэтому разумной идеей кажется пробовать стоять на ценах, которые менее чувствительны к таким маленьким изменениям.
+Отметим, что стакан является разреженным — между котировками могут быть большие промежутки (т.е. много котировок пустые), а также на многих котировках стоит небольшой объём.
 
-Попробуем стоять на такой цене, чтобы перед нами стоял фиксированный объём заявок — в нашем случае за это отвечает параметр `target_volume_`.
+Попробуем стоять на такой цене, чтобы перед нами стоял фиксированный объём заявок — в нашем случае за это отвечает параметр `volume_before_our_order_`.
 
 Если написать стратегию в таком виде, мы столкнёмся с двумя проблемами:
 
-1. Если мы будет стоять на той же цене, на которой достигается `target_volume_`, то наша стратегия будет стоять после других участников рынка.
-2. Если не ограничивать уровни, на которых мы стоим, то наши заявки в противоположных направлениях будут отличпаться даже меньше, чем величина комиссии, а такое поведение явно нежелательно.
+1. Если мы будет стоять на той же цене, на которой достигается `volume_before_our_order_`, то наша стратегия будет стоять после других участников рынка.
+2. Помимо ограничения на объём перед нашей заявкой, стоит проследить за тем, чтобы наши заявки не стояли близко друг к другу (на расстоянии меньше двух комиссий).
+  Иначе может получиться так, что обе заявки исполнятся, а мы окажется в минусе просто заплатив комиссию.
 
 Вот как мы попытаемся решить эти проблемы:
 
 1. Будем стоять на цене, которая ближе к `middle_price` на один `min_step` чем та, которую мы нашли.
-2. Мы не будем ставить заявку, если от противоположной лучшей цены она отстоит меньше, чем на заранее заданное значени.
+2. Мы не будем ставить заявку, если от противоположной лучшей цены она отстоит меньше, чем на заранее заданное значение.
   Это значение мы также назовём `offset_`, т.к. оно имеет почти такой же смысл, как и в предыдущей.
 
 В итоге мы получим следующую стратегию:
@@ -181,13 +182,13 @@ public:
       volume_(config["volume"].as<Amount>(2)),
       max_pos_(config["max_pos"].as<Amount>(3)),
       offset_(config["offset"].as<Price>(26)),
-      target_volume_(config["target_volume"].as<Amount>(2)) {
+      volume_before_our_order_(config["volume_before_our_order"].as<Amount>(2)) {
     set_max_total_amount(max_pos_);
   }
 
-  Amount amount_available(Amount pos, Dir dir) {
-    Amount max_volume = std::min(max_pos_ - dir_sign(dir) * pos, volume_);
-    return std::max(0, max_volume);
+  Amount max_available_order_amount(Amount pos, Dir dir) {
+    Amount max_amount = std::min(max_pos_ - dir_sign(dir) * pos, volume_);
+    return std::max(0, max_amount);
   }
 
   void trading_book_update(const OrderBook& order_book) override {
@@ -203,14 +204,14 @@ public:
       for (; idx < order_book.depth(); ++idx) {
         accumulated_volume += order_book.volume_by_index(dir, idx);
 
-        if (accumulated_volume >= target_volume_) {
+        if (accumulated_volume >= volume_before_our_order_) {
           break;
         }
       }
 
       Price target_price = order_book.price_by_index(dir, idx) + dir_sign(dir) * order_book.min_step();
       Price diff = abs(target_price - order_book.best_price(opposite_dir(dir)));
-      Amount order_amount = amount_available(pos, dir);
+      Amount order_amount = max_available_order_amount(pos, dir);
 
       if (orders.active_orders_count(dir) == 0) {
         if (order_amount > 0 && diff > offset_) {
@@ -232,10 +233,10 @@ private:
   Amount volume_;
   Amount max_pos_;
   Price offset_;
-  Amount target_volume_;
+  Amount volume_before_our_order_;
 };
 
 }  // namespace
 
-REGISTER_CONTEST_STRATEGY(UserStrategy, new_strategy)
+REGISTER_CONTEST_STRATEGY(UserStrategy, user_strategy)
 {%- endcodetabs %}
