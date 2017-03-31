@@ -12,4 +12,3 @@ So, if you strategy make, let’s say, 2000 deals with a 500 as a total number o
 - The strategy simulation can not run on a single day longer than {{ book["constraint.simulation_time"] }} minutes.
 - At the end of the trading day the simulator closes your [position](/terms.md#position) automatically.
 In case your strategy makes large number of deals during a day that will be just another convenience.
-

@@ -24,7 +24,7 @@ Multiple logins are forbidden. Final versions will be check for plagiarism.
 
 ##### Q: How to submit a strategy for the control testing??
 
-A: To submit a strategy for the control testing, change the "Day set" trigger on the main arena's page from "Training" to the "Control" value..
+A: To submit a strategy for the control testing, change the "Day set" trigger on the main arena's page from "Training" to the "Control" value.
 A participant is provided with {{ book["constraint.daily_control_submissions.ru.nom"] }} submisiions in the control mode.
 
 ---
@@ -33,14 +33,14 @@ A participant is provided with {{ book["constraint.daily_control_submissions.ru.
 
 ##### Q: I can not run strategies from the off-line development package. What should I do?
 
-A: Make sure your system has::
+A: Make sure your system has:
 
 - python `2.7.x` or `3.x` (`python --version`)
 - cmake `2.8.4` or above (`cmake --version`)
 - compiler C++:
   - for Linux — compiler g++ `5.0` or above (`g++ --version`)
   - for macOS — Apple LLVM version `6.0` or above, (`c++ --version`)
-  - for  Windows — TDM64-GCC `5.1.0` or above
+  - for Windows — TDM64-GCC `5.1.0` or above
 
 More on that in [Setting dependences] section (/local_pack/requirements.md).
 
@@ -50,8 +50,7 @@ More on that in [Setting dependences] section (/local_pack/requirements.md).
 
 ##### Q: Is there a lag between a moment when an order was sent and the moment when it was placed in the order book??
 
-A:  Time between the moment an order is sent and the moment it is accepted by the market is called *round-trip*.
-
+A: Time between the moment an order is sent and the moment it is accepted by the market is called *round-trip*.
 
 The simulator has *round-trip* is set to {{ book["constraint.round-trip"] }} microseconds.
 That means all your requests for the orders adding / removal happen with a little time lag as if it was sent to the market.
@@ -64,7 +63,7 @@ A: A position is being closed in some time period. During that period the close 
 
 ---
 
-##### Q: How is it possible that my order is rejected by the system? 
+##### Q: How is it possible that my order is rejected by the system?
 
 A: There could be a number of reasons for that:
 
@@ -80,11 +79,11 @@ A: The trading simulator does not allow for the strategy to set new orders and d
 
 ---
 
-## Simulator's API  {#api}
+## Simulator's API {#api}
 
 ##### Q: How to know the best price for a direction?
 
-A: The current best price can be known from the order book [trading_book](api/ParticipantStrategy.md#trading_book) with a  [best_price](api/OrderBook.md#best_price) method:
+A: The current best price can be known from the order book [trading_book](api/ParticipantStrategy.md#trading_book) with a [best_price](api/OrderBook.md#best_price) method:
 
 {% codetabs name="C++", type="c++" -%}
 Price best_price = trading_book().best_price(dir);
@@ -99,14 +98,13 @@ best_price = strat.trading_book().best_price(dir)
 ##### Q: How does the order book work?
 
 A: When a new order X comes into the order book, it is placed into the order queue according to its direction and price.
-Inside each price all orders are sorted by the time they were placed it the queue..
+Inside each price all orders are sorted by the time they were placed it the queue.
 In case the best bid price is strictly less than the best ask price, the order book processing is stopped.
 Otherwise the process of the orders execution starts.
 Suppose the X order was a bid, that is an order to buy.
 Then opposite asks are one by one taken to execute against the X, in order of the price increase or, inside each price - in order of the placement time increase. The execution results in a new deal with the price of the passive executed order (ask, in this case) with the minimal of the two, involved in the deal orders, volume.
 The volume of the deal is subtracted from the volumes of the orders involved in the deal.
 And so the process goes, until the best bid price is less than the best ask price.
-
 
 ##### Q: What types of orders are used?
 
@@ -128,12 +126,12 @@ Let's say the order book has 3 orders to sell:
 | 101 | 10 (11:00), 20 (11:01) |
 | 102 | 10 (11:00) |
 
-Let's say a trader places a bid X on some price with a volume of  35.
+Let's say a trader places a bid X on some price with a volume of 35.
  Consider several options:
 
 1. X — limit order on the price of 101.
-2 deals are going to happen, one with the volume of 10 and another with the volume of 20. The rest of the X stays in the order book on the price of 101..
+  2 deals are going to happen, one with the volume of 10 and another with the volume of 20. The rest of the X stays in the order book on the price of 101.
 2. X - of IOC type on the price of 101.
- 2 deals are going to happen, with the rest of the X to be removed from the order book.
+  2 deals are going to happen, with the rest of the X to be removed from the order book.
 3. X - of IOC type on the price of 102.
   3 deals are going to happen with the volume of 10, 20 and 5 on the price of 101, 101 and 102 and the X will have nothing left.

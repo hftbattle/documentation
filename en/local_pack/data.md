@@ -16,6 +16,4 @@ You may do it yourself, unzip the file into the directory root or with the scrip
 
 The script downloads the file *data.zip* and unzips it into the *data* folder.
 
-
-To test the strategy on with the complete day data you should change the value of the field “day” "{{ book["data.full_day"] }}"  in the configuration file 
-
+To test the strategy on with the complete day data you should change the value of the field “day” "{{ book["data.full_day"] }}" in the configuration file.

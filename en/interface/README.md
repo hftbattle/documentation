@@ -2,7 +2,7 @@
 
 Participant interface is available at [{{ book["contest.arena.name"] }}]({{ book["contest.arena.url"] }}).
 
-More on Participant Interface in the following sections::
+More on Participant Interface in the following sections:
 
 - [Testing modes](modes.md)
 - [Strategy submission](submit.md)
@@ -12,4 +12,3 @@ More on Participant Interface in the following sections::
   - [Viewer](analysis/viewer.md)
   - [Logs](analysis/logs.md)
 - [Parameters tuning](params.md)
-

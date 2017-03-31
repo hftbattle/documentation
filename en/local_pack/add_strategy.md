@@ -9,7 +9,6 @@ Once you decide to try more ideas and develop more strategies, one strategy - on
 
 To develop a new C++ strategy:
 
-
 #### 1. Create a strategy folder
 
 - In the `strategies` folder create a copy of the `sample_strategy` folder
@@ -17,8 +16,7 @@ To develop a new C++ strategy:
 
 Let’s call it *strategy_name*.
 
-- Rename the new folder, json and cpp files in it with the  *strategy_name*, *strategy_name.json*, *strategy_name.cpp*.
-
+- Rename the new folder, json and cpp files in it with the *strategy_name*, *strategy_name.json*, *strategy_name.cpp*.
 
 #### 2. Register your strategy
 
@@ -38,7 +36,6 @@ REGISTER_CONTEST_STRATEGY(UserStrategy, best_strategy_ever)
 
 This is necessary due to specifics of the simulator’s dynamic linking process of the strategies.
 
-
 #### 3. Restart CMake
 
 - Those of you who work in cli run the following script *build.py*:
@@ -51,9 +48,8 @@ This is necessary due to specifics of the simulator’s dynamic linking process 
 
 Currently there is no way to create new folders for `Python` strategies, unfortunately.
 Please write your strategy in the
- `strategies/python_strategy/python_strategy.py` file. 
+ `strategies/python_strategy/python_strategy.py` file.
 How to run the strategy you may find out [here](run_strategy.md).
-
 
 <!-- TODO(asalikhov): it may be allowed to write in another files -->
 <!-- To create a new strategy in Python:
@@ -65,12 +61,10 @@ How to run the strategy you may find out [here](run_strategy.md).
 - In the `strategies` folder create a `python_strategy` folder copy
 - Choose a new for your strategy.
   Let’s call it *strategy_name*.
-- Name a new folder, json and cpp files  *strategy_name*, *strategy_name.json*, *strategy_name.cpp*.
-
+- Name a new folder, json and cpp files *strategy_name*, *strategy_name.json*, *strategy_name.cpp*.
 
 **Note**: do not rename any other files.
 
 Your strategy code should be in the *python_strategy.py* file.
 
 Next you may [run](run_strategy.md) the new strategy. -->
-

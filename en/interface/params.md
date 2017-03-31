@@ -14,7 +14,6 @@ Parameters tuning interface can be helpful for that.
 The strategy submission page allows you to pass into a strategy dataset of numerical atomic parameters for tuning.
 To do that at the bottom of the page find a field *Parameter Name* and enter the name of the parameter and its value in the next field.
 
-
 Integer and real values with a dot as a separator are allowed.
 
 Let's have a look at how parameters are set:
@@ -50,7 +49,7 @@ The *int_param* parameter’s default value is ignored since it has parameter tu
 #### Reading parameters from the strategy {#from_strategy}
 
 All defined parameters of the strategy, can be read from the configuration file that is passed into the user's strategy constructor *UserStrategy*.
-In **C++** all the parameters of the configuration file can be converted to the type required by  `as<param_type> method (deafult_value)`.
+In **C++** all the parameters of the configuration file can be converted to the type required by `as<param_type> method (deafult_value)`.
 In case no parameter value is defined by you, the default value is used deafult_value.
 With **Python** you can use the standard type conversion.
 
@@ -110,4 +109,3 @@ def init(strat, config):
     # a number is stored here, too.
     time_param = config["time_param"]
 {%- endcodetabs %}
-

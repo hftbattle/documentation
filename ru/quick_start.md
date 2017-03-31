@@ -32,7 +32,7 @@
 - Есть закрытие [позиции](terms.md#position) в конце торгового дня.
   Это происходит автоматически для вашего удобства.
   Подробную информацию про закрытие позиции можно прочитать [здесь](HFAQ.md#close_position).
-- События, приходящие в стратегию, бывают трех видов:  [обновление стакана](api/ParticipantStrategy.md#trading_book_update), [обновление сделок](api/ParticipantStrategy.md#trading_deals_update) и [отчёт об исполнении вашей заявки](api/ParticipantStrategy.md#execution_report_update).
+- События, приходящие в стратегию, бывают трех видов: [обновление стакана](api/ParticipantStrategy.md#trading_book_update), [обновление сделок](api/ParticipantStrategy.md#trading_deals_update) и [отчёт об исполнении вашей заявки](api/ParticipantStrategy.md#execution_report_update).
   При этом, если произошла сделка с участием вашей заявки, то сначала придёт отчёт об исполнении вашей заявки, потом — обновление сделок.
 
 Внимательно смотрите в логи стратегии: там содержится полезная информация по всем вашим заявкам и сделкам.

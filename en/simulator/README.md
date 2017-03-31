@@ -4,4 +4,3 @@
 
 - [Data for simulation](./data.md)
 - [Simulator restrictions](./restrictions.md)
-

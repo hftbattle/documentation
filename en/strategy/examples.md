@@ -1,11 +1,8 @@
 # A sample strategy
 
-
 - [Description of the strategy and its source code](#strategy)
 - [The strategy analysis](#analysis)
 - [Ideas to implement](#ideas)
-
-
 
 ## Description of the strategy and its source code {#strategy}
 
@@ -127,7 +124,7 @@ def trading_book_update(strat, order_book):
 
 ## The strategy analysis{#analysis}
 
-Since the strategy keeps only 1 order with a volume of 1 lot for each direction, it does not make lots of deals in a given one. 
+Since the strategy keeps only 1 order with a volume of 1 lot for each direction, it does not make lots of deals in a given one.
 On the other hand, if a limit is set tight the strategy will not gather a volume so big for it to lose large sum of money when the volatility increases.
 
 ## Ideas to implement {#ideas}
@@ -135,11 +132,11 @@ On the other hand, if a limit is set tight the strategy will not gather a volume
 A serious factor that limits the strategy result - maximum position volume set low.
 Increase this parameter and your strategy will make a larger number of deals, so your profit rises proportionally.
 On the other hand the bigger your maximum position volume the longer your strategy keeps a position in one direction and this affects negatively on the overall result.
-2. Current strategy keeps just 1 order on 1 price level for each direction. Go in for several different price levels in the order book and you make much more profitable deals. 
+2. Current strategy keeps just 1 order on 1 price level for each direction. Go in for several different price levels in the order book and you make much more profitable deals.
 3. It has already been said that it’s very important to quickly close the position.
-One of such methods is a dynamic price and volume selection for new orders being set. 
-The larger the current position along a given direction the more active you need to act in the opposite direction and refrain from acting in the current direction. 
-4. Keep an eye on “quoting” orders on each direction and do not forget to collect “foreign volume” that is in the order book. 
-You may do it both to reduce the current position and if noticed that another participant stays on unfair price. 
-This is just a part of our experience we wanted to share. 
+One of such methods is a dynamic price and volume selection for new orders being set.
+The larger the current position along a given direction the more active you need to act in the opposite direction and refrain from acting in the current direction.
+4. Keep an eye on “quoting” orders on each direction and do not forget to collect “foreign volume” that is in the order book.
+You may do it both to reduce the current position and if noticed that another participant stays on unfair price.
+This is just a part of our experience we wanted to share.
 During the contest new ideas will come up and we will describe them in details.

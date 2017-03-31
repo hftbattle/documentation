@@ -25,7 +25,7 @@ To start from a command line interface you must:
   ./run.py user_strategy
   ```
 
-### Start from  CLion {#clion}
+### Start from CLion {#clion}
 
 To start from [CLion]({{ book["clion-download.url"] }}):
 
@@ -45,4 +45,3 @@ To do that, on the same tab *Run > Edit configurations* in the line *Program arg
   strategies/user_strategy/user_strategy.json
   ```
 - **start building the project and simulation**, by clicking on the *Run* button.
-

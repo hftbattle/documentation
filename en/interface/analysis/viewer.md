@@ -2,7 +2,7 @@
 
 We offer you a tool to visualize market trading — [Viewer]({{ book["viewer.url"] }}).
 Using this tool you may find out what was happening on a selected symbol at any time of any day from a dataset.
-Viewer is available on the following link  [{{ book["viewer.name"] }}]({{ book["viewer.url"] }}).
+Viewer is available on the following link [{{ book["viewer.name"] }}]({{ book["viewer.url"] }}).
 
 You can get Viewer for the real trading (use the line Viewer at the top of the page) and to visualize your strategy on a particular day. (the "Write to Viewer" button on the submission page).
 
@@ -30,8 +30,6 @@ Red lines - the best ask price, green - the best offer price.
 Besides, all deals made on the market are shown.
 Each deal can be further reviewed by clicking on it. You may find out when it was done, its volume and more.
 
-
-
 Information on how to work with a chart is given below.
 
 ![]({{ book["gitbook.img"] }}/viewer/chart.gif)
@@ -39,7 +37,7 @@ Information on how to work with a chart is given below.
 ## Control {#control}
 
 Viewer implements a market trading simulation in such a way that events in the order book happen continuously.
-To move to the next event, push "right arrow" button  («→»), for the previous event push the "left arrow" button  («←»), correspondingly.
+To move to the next event, push "right arrow" button («→»), for the previous event push the "left arrow" button  («←»), correspondingly.
 
 Current location is marked by a vertical line on the chart.
 
@@ -54,7 +52,7 @@ Select data/time and press the click on the tick icon (✔).
 
 ## Control panel {#panel}
 
-There are three tabs::
+There are three tabs:
 
 - data selection
 - current configuration information
@@ -77,4 +75,3 @@ How to manage your orders.
 Your orders are shown on a chart.
 To find out their symbol (form) - have a look at the control panel.
 The Symbol of the orders is shown in the "@" column.
-
