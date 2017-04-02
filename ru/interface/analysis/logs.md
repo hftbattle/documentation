@@ -29,7 +29,7 @@
 | executed_amount | 10 | количество сведённых лотов |
 | dir | BID | направление заявки: BID - покупка / ASK - продажа |
 | order_meaning | Quote | смысл заявки, Quote для Limit заявок и Beat для IOC |
-| order_type | Limit | тип заявки: Limit / IOC |
+| order_type | Limit | тип заявки: [Limit](/terms.md#limit_order) / [IOC](/terms.md#ioc_order) |
 | status | added | статус операции |
 | reject_reason | "" | причина отказа выполнения, если есть |
 | order_id | 320000001 | уникальный идентификатор заявки |

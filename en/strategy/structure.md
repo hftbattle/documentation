@@ -1,6 +1,6 @@
 ## General strategy structure
 
-Trading strategy gets updates of [instrument](/terms.md#instrument) on the [exxhange](/terms.md#exchange) as an input.
+Trading strategy receives updates of [instrument](/terms.md#instrument) on the [exchange](/terms.md#exchange) as an input.
 According to this information it may perform some actions: adding new [orders](/terms.md#order) and/or requesting deletions of old ones.
 
 Let's take a look at:
@@ -8,7 +8,7 @@ Let's take a look at:
 - [C++ strategy structure](#cpp)
 - [Python strategy structure](#python)
 
-And methods you have to implement:
+Methods you have to implement:
 
 - [Order book update](#book_update)
 - [Deals update](#deals_update)

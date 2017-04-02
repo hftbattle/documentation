@@ -8,7 +8,7 @@ Here you can find dependency management suggestions for the following operating 
 
 ### Ubuntu {#ubuntu}
 
-To install dependencies run *packages_ubuntu.sh*:
+Run *packages_ubuntu.sh* to install dependencies:
 
 ```bash
 sudo ./packages_ubuntu.sh
@@ -22,7 +22,7 @@ sudo apt-get update && sudo apt-get install g++ cmake python --yes
 
 ### macOS {#macos}
 
-To install dependencies run *packages_mac.sh*:
+Run *packages_mac.sh* to install dependencies:
 
 ```bash
 ./packages_mac.sh
@@ -49,7 +49,7 @@ The script installs:
 
 ### Windows {#windows}
 
-To run local pack under Windows, it's essential to have:
+It's essential to have the following to run local pack under Windows:
 
 - [TDM64-GCC]({{ book["tdm-gcc.url"] }}) compiler at least version `5.1.0`:
 
@@ -58,7 +58,7 @@ To run local pack under Windows, it's essential to have:
 
 - [CMake]({{ book["cmake.url"] }}) at least version `2.8.4`:
 
-  You may install [CLion]({{ book["clion-download.url"] }}), or [download]({{ book["cmake.url"] }}) **CMake** from official.
+  You may install [CLion]({{ book["clion-download.url"] }}), or [download]({{ book["cmake.url"] }}) **CMake** from the official website.
 
 - Python `2.7`:
 

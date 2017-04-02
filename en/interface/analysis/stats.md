@@ -19,9 +19,9 @@ SCORE = AVG - (STD / 10.0) + min(0, MIN_INTRADAY_RESULT) / 5.0
 
 - `AVG` — average strategy score calculated on all of the days (taking fee of {{ book["constraint.comission"] }} per lot into account).
 - `STD` — [standard deviation]({{ book["std_deviation.en_url"] }}) of result on all sample days.
-- `MIN_INTRADAY_RESULT` — the minimal result of the strategy that was reached at any given moment during a day (not necessarily at the close of the trading session), among all of the days.
+- `MIN_INTRADAY_RESULT` — the minimum result of the strategy that was reached at any given moment during a day (not necessarily at the close of the trading session), among all of the days.
 
-To get exact values of these components click “Details” in table rows.
+Click “Details” in a table row to get exact values of these components.
 
 #### Results by day {#results_by_day}
 
@@ -40,8 +40,8 @@ Columns:
 
 - min_result / max_result — the minimum / maximum result of the strategy during a day.
 - our_deals_count — number of deals made by the strategy.
-- our_deals_volume — deals made by the strategy total volume.
+- our_deals_volume — total volume of deals made by the strategy.
 - result — the final result of the strategy at the end of the trading day.
 - transactions_count — the number of transactions (order additions and deletions) made by the strategy.
 - fee — total fee of the strategy.
-- work_time — pure time period of simulation in seconds excluding preparation expenses.
+- work_time — net time period of simulation in seconds excluding preparation expenses.

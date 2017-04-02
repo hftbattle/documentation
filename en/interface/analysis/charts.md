@@ -2,7 +2,7 @@
 
 Charts are useful for strategy analysis.
 
-Key parts of this paragraph are:
+Key parts of this article are:
 
 - [Profit and position charts](#sum_and_pos_chart)
 - [Redirection to Viewer](#links)
@@ -18,13 +18,13 @@ A chart "Chart 0" is shown for each training submission by default, with 2 follo
 
 <img src="{{ book["gitbook.img"] }}/base_chart.png" title="Best price chart" align="center">
 
-> Note: charts tool uses smoothing to display lines.
-> To get exact values you can zoom in by selecting an area with mouse.
+> Note: charts tool uses antialiasing to display lines.
+> To get exact values you can zoom in by selecting necessary area with mouse.
 
 #### Redirection to Viewer {#links}
 
-You may often feel like analyzing situation in the order book in some exact moment.
-For this purpose [Viewer](viewer.md) is provided: to open a moment there click the appropriate point of the chart.
+You can analyze full situation in the order book in some particular moment.
+For this purpose [Viewer](viewer.md) is provided: to open a moment there click the particular point of the chart.
 
 #### Custom charts {#custom}
 
@@ -73,7 +73,7 @@ public:
       Amount amount = 1;
       if (our_orders.active_orders_count(dir) == 0) {
         add_limit_order(dir, best_price, amount);
-      } else {  // есть хотя бы одна наша активная заявка
+      } else {
         auto first_order = our_orders.orders_by_dir(dir).front();
         bool on_best_price = (first_order->price() == best_price);
         if (!on_best_price) {

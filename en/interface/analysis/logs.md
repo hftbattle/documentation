@@ -1,9 +1,11 @@
 ### Logs 
 
 Mining and analysis of trading information is a significant part of strategy development.
-Since number of atomic market events can be extremely large (about {{ book["trading.daily_deals"] }} million), there is a need to extract the most important details, features and strategy actions.
+Since number of atomic market events can be extremely large (about {{ book["trading.daily_deals"] }} million), there is a need in extracting the most important details, features and strategy actions.
 
-Deals and orders archive contains 3 files: orders.tsv and deals.tsv - charts containing all the strategy orders and deals and logs.txt containing custom output.
+There are 3 files in deals and orders archive:
+**orders.tsv** and **deals.tsv** - charts containing all the strategy orders and deals,
+**logs.txt** containing custom output.
 Here you can explore it:
 
 - [Orders](#orders)
@@ -26,7 +28,7 @@ Here's the description of one row in **orders.tsv**:
 | order_meaning | Quote | Quote for your [limit](/terms.md#limit_order) orders and Beat for [IOC](/terms.md#ioc_order) ones |
 | order_type | Limit | [Limit](/terms.md#limit_order) / [IOC](/terms.md#ioc_order) |
 | status | added | transaction status |
-| reject_reason | "" | reason of rejection if any |
+| reject_reason | "" | reason of rejection, if any |
 | order_id | 320000001 | unique order identifier |
 
 #### Deals {#deals}
@@ -39,7 +41,7 @@ Similarly one row in **deals.tsv**:
 | symbol | {{ book["contest.instrument"] }} | instrument name |
 | price | 8639 | deal price |
 | amount | 10 | number of executed lots |
-| dir | BID | [direction](/terms.md#bid_and_ask) of your order in this deal |
+| dir | BID | your order [direction](/terms.md#bid_and_ask) in this deal |
 | order_meaning | Quote | Quote for your [limit](/terms.md#limit_order) orders and Beat for [IOC](/terms.md#ioc_order) ones |
 | our_order_status | active | status of our order |
 | executed_amount | 10 | signed executed amount: negative for sold lots and positive for bought |
@@ -47,7 +49,7 @@ Similarly one row in **deals.tsv**:
 | saldo | -86390 | balance of **all** deals performed by the strategy |
 | order_id_bid | 320000001 | bid order unique identifier |
 | order_id_ask | 300000000 | ask order unique identifier |
-| aggressor_side | BID | [direction](/terms.md#bid_and_ask) of the aggressor order |
+| aggressor_side | BID | aggressor order [direction](/terms.md#bid_and_ask) |
 
 #### Custom output {#custom_output}
 
