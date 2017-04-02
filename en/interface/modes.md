@@ -6,7 +6,7 @@ There are three different testing modes, which can be used to develop your ideas
 - [control](#control_mode)
 - [weekly](#weekly_mode)
 
-In a month after the competition main phase is over [a final testing](#final_test) starts.
+The [final testing](#final_test) starts in a month after the competition main phase is over.
 Details on each mode are given below.
 
 #### Training mode {#training_mode}
@@ -15,12 +15,12 @@ Training mode aims for a strategy testing, dealing with various issues, selectin
 
 While in the testing mode you are provided with comprehensive data on how your strategy conducts during trading.
 To learn more on how to analyze your strategy see the [Result Analysis](analysis/README.md) section.
-The mode allows you to optimize your strategy by tuning your initial parameters set. More on the see [Parameters tuning](params.md) section.
+The mode allows you to optimize your strategy by tuning your initial parameters set. More on the in [Parameters tuning](params.md) section.
 It also allows you to choose days for your strategy to run on.
 For example, the best way to improve the results on a specific day is to run your strategy only on this day - this way you'll obtain the results as soon as possible.
 Other participants will not be able to see your submissions in the training mode.
 The daily total number of submissions is limited.
-For more on limits visit your page for submissions.
+For more on limits visit your submissions page.
 
 #### Control mode {#control_mode}
 
@@ -28,8 +28,8 @@ This mode is designed to run your strategy on a set of {{ book["data.control_day
 The mode aims for two purposes:
 
 - Control submissions are used to calculate your current rating.
-- Only strategies with a positive result are shown in the rating.
-- All participants are able to see your result but not the strategy code.
+  Only strategies with a positive result are shown in the rating.
+  All participants are able to see your result but not the strategy code.
 - Control mode aims to be a testing set. You can use it to find out whether your strategy performs well on a new, out of sample, data. It also makes it possible for you to avoid overfitting.
 
 Control mode has some limitations:
@@ -44,10 +44,11 @@ At the beginning of each week **one of your strategies** is run in a **weekly** 
 To specify the strategy you want to test **tick** (✔ icon) next to it in your submissions table.
 Otherwise the system would automatically select the best strategy. System decision is based on the **control set** results.
 
-> **Note 1:** None of your strategies will be used in the weekly testing unless you select it manually or send any of your strategies for a weekly testing.
-> **Note 2:** If you select a strategy that tuned several sets of parameters on the testing mode the system will automatically choose the parameter set with the best result.
+> **Note 1**: None of your strategies will be used in the weekly testing unless you select it manually or send any of your strategies for a weekly testing.
+>
+> **Note 2**: If you select a strategy that tuned several sets of parameters on the testing mode the system will automatically choose the parameter set with the best result.
 
-Therefore there are two different ratings, which are being maintained for all the participants: by control set and by weekly testing.
+Therefore there are two different ratings, which are being maintained for all the participants: by control testing and by weekly testing.
 Please pay attention, those ratings have no effect on the **winners selections** and just necessary to monitor overfitting process and to evaluate results on the new available days.
 
 #### Final testing {#final_test}

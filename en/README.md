@@ -5,7 +5,7 @@ Documentation for [{{ book["contest.name"] }}]({{ book["contest.landing-page.url
 ## How to start participation
 
 - Sign up on [{{ book["contest.arena.name"] }}]({{ book["contest.arena.url"] }}).
-- Submit one of the sample strategies that are given in participant default interface.
+- Submit one of the sample strategies given in participant default interface.
 - Download off-line development kit.
 
   For that, please clone this [GitHub repository]({{ book["contest.local_pack.url"] }}) ([Git]({{ book["git.url"] }}) must be installed):

@@ -16,7 +16,7 @@ There are three submission types in the competition:
 - There is no practical limit on the number of [training submissions](interface/modes.md#training_mode) - use them to develop and to improve your strategies.
 - [Control mode](interface/modes.md#control_mode) - your strategies will be run on a new set of days, which are not available in the testing mode. This makes you know whether your strategy performs well on out of sample data.
   Besides, control submissions are taken into account for [overall rating]({{ book["contest.arena.leaderboard.url"] }}).
-  You may upload up to {{ book["constraint.daily_control_submissions.en"] }} control submissions per day
+  You may upload up to {{ book["constraint.daily_control_submissions.en"] }} control submissions per day.
 - [Weekly testing](interface/modes.md#weekly_mode) - each week the selected strategy (or the best among control runs) will be run on a new dataset.
 
 [Final testing](interface/modes.md#final_test) will be carried out after the main competition phase is over.
@@ -28,12 +28,12 @@ There are three submission types in the competition:
     This limit replaces the initial capital limit.
   - If your strategy losses reach {{ book["constraint.stop_loss"] }}, the simulator liquidates the position and stops trading.
 - Fee = {{ book["constraint.comission"] }} per each executed lot.
-- Round-trip equals to {{ book["constraint.round-trip"] }} microseconds — the time period from a moment you request some action (to add or to remove an order) to the moment when it is actually processed.
+- Round-trip equals to {{ book["constraint.round-trip"] }} microseconds. This is the time period from a moment you request some action (to add or to remove an order) to the moment when it is actually processed.
 - At the end of the day the [position](terms.md#position) is liquidated.
   It happens automatically for your convenience.
   More on this [here](HFAQ.md#close_position).
 - Your strategy deals with three types of events: [order book update](api/ParticipantStrategy.md#trading_book_update), [deals update](api/ParticipantStrategy.md#trading_deals_update) and [your order execution report](api/ParticipantStrategy.md#execution_report_update).
- So, when your order is executed, the first event is the deals update, then the order book update and the last one is the order book altered event.
+ So, when your order is executed, the first event is the deals update, then the order book update and the last one is the order execution report.
 
 Take particular attention to the strategy logs, they contain data on your orders and deals.
 
@@ -50,7 +50,7 @@ See [Trading simulator](simulator/README.md) for more information.
 
 - If the strategy is written in C++, the single cpp file contains everything. If it is written on Python, its code is in the *python_strategy.py*.
   Each strategy has a corresponding json file.
-- To collect all the *strategies* in the folder, it is necessary to run python script *build.py* located in the repository root to build all the strategies in the folder:
+- To collect all the *strategies* in the folder it is necessary to run python script *build.py* located in the repository root to build all the strategies in the folder:
 
   ```bash
   ./build.py
@@ -60,8 +60,8 @@ See [Trading simulator](simulator/README.md) for more information.
   ```bash
   ./run.py user_strategy
   ```
-- If you develop new strategies in the off-line development package, change the strategy registration line in the cpp-file:
-  Note, *best_strategy_ever* — is the folder, cpp and json files name:
+- If you develop new strategies in the off-line development package, change the strategy registration line in the cpp-file.
+  Note that *best_strategy_ever* is the folder, cpp and json files name:
 
   ```c++
   REGISTER_CONTEST_STRATEGY(UserStrategy, best_strategy_ever)
