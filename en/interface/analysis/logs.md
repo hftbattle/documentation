@@ -56,7 +56,7 @@ Similarly one row in **deals.tsv**:
 You can use the following ways to display information from your strategy:
 
 1. Output to `stdout` and `stderr`.
-  It's recommended to use for printing little information (running parameters, config, etc.)
+  It's recommended to use for printing small amount of information (running parameters, config, etc.)
   Logs in stdout and stderr are **limited with {{ book["constraint.symbol"] }} symbols, {{ book["constraint.string"] }} lines and {{ book["constraint.symbol_in_string"] }} symbols per line**.
 2. Logging to files with our log streams, e.g. `SCREEN() <<` (**C++ only**):
 
@@ -64,6 +64,6 @@ You can use the following ways to display information from your strategy:
   SCREEN() << "This is my awesome strategy";
   ```
 
-  It's recommended to use these [streams](/api/Other.md#logs) to log lots of information.
+  It's recommended to use these [streams](/api/Other.md#logs) to log large amount of information.
 
   The total size of these 3 files is **limited with {{ book["constraint.logs_size"] }} MB** for one simulation.

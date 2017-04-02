@@ -102,7 +102,7 @@ It accepts reference to [OrderBook](/api/OrderBook.md) as an input.
 #### Deals update {#deals_update}
 
 Deals made on exchange are also useful to analyze.
-[trading_deals_update](/api/ParticipantStrategy.md#trading_deals_update) method is used to notify strategy about these changes.
+[trading_deals_update](/api/ParticipantStrategy.md#trading_deals_update) method is used to notify the strategy about these changes.
 It accepts vector of [Deals](/api/Deal.md) as an input.
 Each element of this vector contains information on one completed deal.
 This information is sent **exactly once** for each deal.
