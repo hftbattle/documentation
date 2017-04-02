@@ -24,8 +24,8 @@ Multiple logins are forbidden. Final versions will be checked for plagiarism.
 
 ##### Q: How to submit a strategy for the control testing??
 
-A: To submit a strategy for the control testing, change the "Day set" trigger on the main arena's page from "Training" to the "Control" value.
-A participant is provided with {{ book["constraint.daily_control_submissions.ru.nom"] }} submisiions in the control mode.
+A: To submit a strategy for the control testing, change the "Day set" switch on the main arena's page from "Training" to the "Control" value.
+A participant is provided with {{ book["constraint.daily_control_submissions.ru.nom"] }} submissions in the control mode.
 
 ---
 
@@ -53,11 +53,11 @@ More on that in [Setting dependences] section (/local_pack/requirements.md).
 A: Time between the moment an order is sent and the moment it is accepted by the market is called *round-trip*.
 
 The simulator has *round-trip* is set to {{ book["constraint.round-trip"] }} microseconds.
-That means all your requests for the orders adding / removal happen with a little time lag as if it was sent to the market.
+That means all your requests for the orders adding / removal happen with a little time lag as after if it was sent to the market.
 
 ---
 
-##### Q: I set *stop_loss* with a [set_stop_loss_result](api/ParticipantStrategy.md#set_stop_loss_result) method. Why did I get a Lesser result?
+##### Q: I set *stop_loss* with a [set_stop_loss_result](api/ParticipantStrategy.md#set_stop_loss_result) method. Why did I get lower result?
 
 A: A position is being closed in some time period. During that period the close price can be varied significantly and so your total result may vary (be less or more) than the one you set as *stop_loss*.
 

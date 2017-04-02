@@ -32,7 +32,7 @@ Populate data values fields and click on *Add* button.
 
 The parameters set by 1 and 2 methods are passed as is. The parameters set as range of values will be automatically expanded in the parameters list and displayed in the parameters table.
 
-Parameters tuning interface allows you to add several various parameters. You may also turn the tuning off by setting a default value (*default value*):
+Parameters tuning interface allows you to add several various parameters. You may also turn the tuning off by setting a *default value*:
 
 - Setting up a number of several datasets.
  2 values for a *double_param* and 4 values for *int_param* combines gives you 4 * 2 = 8 combinations.

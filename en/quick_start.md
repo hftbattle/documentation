@@ -24,7 +24,7 @@ There are three submission types in the competition:
 ## Trading simulator {#simulator}
 
 - Four restrictions approximate the trading simulator to the reality:
-  - Maximum buy / sell size for an open [position](terms.md#position) is limited to {{ book["constraint.position"] }} lots.
+  - Maximum bid / ask size for an open [position](terms.md#position) is limited to {{ book["constraint.position"] }} lots.
     This limit replaces the initial capital limit.
   - If your strategy losses reach {{ book["constraint.stop_loss"] }}, the simulator liquidates the position and stops trading.
 - Fee = {{ book["constraint.comission"] }} per each executed lot.

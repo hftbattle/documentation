@@ -1,7 +1,7 @@
 ### Viewer
 
 We offer you a tool to visualize market trading — [Viewer]({{ book["viewer.url"] }}).
-Using this tool you may find out what was happening on a selected symbol at any time of any day from a dataset.
+Using this tool you may find out what was happening with selected symbol at any time of any day from a dataset.
 Viewer is available on the following link [{{ book["viewer.name"] }}]({{ book["viewer.url"] }}).
 
 You can get Viewer for the real trading (use the line Viewer at the top of the page) and to visualize your strategy on a particular day. (the "Write to Viewer" button on the submission page).
@@ -22,7 +22,7 @@ Let's have a look at each of them in details:
 ## Chart {#chart}
 
 Chart is the central piece of the analysis tool.
-Abscissa axis is used for microsecond timing (local exchange time), ordinate axis - order book level of price.
+`OX` axis is used for microsecond timing (local exchange time), `OY` axis - order book price level.
 
 Best price is shown as lines on the chart.
 Red lines - the best ask price, green line - the best offer price.

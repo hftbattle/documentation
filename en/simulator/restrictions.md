@@ -2,7 +2,7 @@
 
 The simulator has a number of limitations that make it work similar to the real trading:
 
-- Maximum size of the open [position](/terms.md#position) is limited by {{ book["constraint.position"] }} lots to buy or sell.
+- Maximum size of the open [position](/terms.md#position) is limited by {{ book["constraint.position"] }} lots to bid or ask.
 - There is no starting capital - the limit for a possible position serves this role.
 - If your strategy hits the result of {{ book["constraint.stop_loss"] }} on any day, the simulator closes the position and stops trading.
 - Commission for each traded [lot](/terms.md#lot) is {{ book["constraint.comission"] }}.

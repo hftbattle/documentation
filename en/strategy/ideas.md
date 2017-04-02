@@ -28,7 +28,7 @@ Let's have a closer look at this particular intraday period:
 
 <img src="{{ book["gitbook.img"] }}/charts_1_september_part.png" title="a part of the chart as of September the 1st" align="center">
 
-On this chart it is evident that our position was negative during the very large period of time.
+According to the chart it is evident that our position was negative during the large period of time.
 Such a behaviour is a bad sign for a HFT-strategy (as well as long positive position holding).
 
 Second issue here - net position has a value of about 100.
