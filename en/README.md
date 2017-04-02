@@ -1,27 +1,24 @@
-# How to start participance in {{ book["contest.name"] }}
+# How to start participation in {{ book["contest.name"] }}
 
-This is the documentation for [{{ book["contest.name"] }}]({{ book["contest.landing-page.url"] }}), HFT strategies competition.
+Documentation for [{{ book["contest.name"] }}]({{ book["contest.landing-page.url"] }}), HFT strategy competition, is available here.
 
-## How to start
+## How to start participation
 
-- Register here: [{{ book["contest.arena.name"] }}]({{ book["contest.arena.url"] }}).
-- Please, send one of example strategies, which are available to you in web interface by default.
+- Sign up on [{{ book["contest.arena.name"] }}]({{ book["contest.arena.url"] }}).
+- Submit one of the sample strategies that are given in participant default interface.
+- Download off-line development kit.
 
-Read more here: [User interface](interface/README.md).
-
-- Download local pack.
-
-  Clone local package from [GitHub]({{ book["contest.local_pack.url"] }}) ([Git]({{ book["git.url"] }}) is required):
+  For that, please clone this [GitHub repository]({{ book["contest.local_pack.url"] }}) ([Git]({{ book["git.url"] }}) must be installed):
 
   ```bash
   git clone https://github.com/hftbattle/hftbattle.git
   ```
 
-  Read more about local pack [here](local_pack/README.md).
+  More on that in the [Off-line development kit](local_pack/README.md).
+- Read the [Quick start](quick_start.md) section.
+- More on this in the following sections [Strategy development](strategy/README.md), [Trading simulator](simulator/README.md), and [Glossary of terms](terms.md) and [HFAQ](HFAQ.md).
+- Now, start developing your own strategy!
 
-- Please, read the documentation: [Writing a strategy](strategy/README.md), [Market simulator](simulator/README.md), [Glossary](terms.md), [HFAQ](HFAQ.md) will be helpful.
-- You can start writing your own strategy!
+## Feedback and support
 
-## Questions and help
-
-You can ask your questions right here, or by writing us an email <{{ book["contest.support.email"] }}>.
+Submit a question in the comments section of the documentation or email us to <{{ book["contest.support.email"] }}>.

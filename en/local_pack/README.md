@@ -1,17 +1,18 @@
-# Local pack
+# Off-line development package
 
-We have developed and published to [GitHub]({{ book["contest.local_pack.url"] }}) a pack for developing C++ and Python strategies locally.
-It includes a set of libraries and files sufficient to develop and test a strategy on your computer.
+We have prepared an off-line C++ and Python strategy development package.
+It has a kit containing libraries and files that is sufficient to develop and test strategies on your computer.
 
-You may download it with the following command ([Git]({{ book["git.url"] }}) required):
+The packet is published on GitHub. [GitHub]({{ book["contest.local_pack.url"] }}).
+Download it using the following command (Git must be installed [Git]({{ book["git.url"] }})):
 
 ```bash
 git clone https://github.com/hftbattle/hftbattle.git
 ```
 
-More about local pack usage:
+More on how to use Off-line Development Package:
 
-- [Dependency management](requirements.md)
+- [Setting dependencies](requirements.md)
 - [Market data](data.md)
-- [Adding strategy](add_strategy.md)
-- [Strategy running](run_strategy.md)
+- [Strategy adding](add_strategy.md)
+- [Strategy starting](run_strategy.md)
