@@ -148,6 +148,18 @@ QuotesHolder all_quotes(Dir dir) const;
 def all_quotes(self, dir)
 {%- endcodetabs %}
 
+Приведём пример использования данного метода.
+Мы пробежимся по всем котировкам с заявками на покупку и выведем текущее количество заявок с такой ценой.
+
+{% codetabs name="C++", type="c++" -%}
+for (const auto& quote : book.all_quotes(BID)) {
+  SCREEN() << "price: " << quote.price() << " volume: " << quote.volume();
+}
+{%- language name="Python", type="py" -%}
+for quote in order_book.all_quotes(BID):
+    print('price: %s amount: %s' % (quote.price(), quote.volume()))
+{%- endcodetabs %}
+
 #### quotes_count() {#quotes_count}
 
 Принимает направление dir.
