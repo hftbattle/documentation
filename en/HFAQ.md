@@ -16,7 +16,7 @@ Questions are categorized:
 
 A: No, it can not as this is an individual competition.
 Rules state the real name must be provided. There will be the only one award.
-Multiple logins are forbidden. Final versions will be check for plagiarism.
+Multiple logins are forbidden. Final versions will be checked for plagiarism.
 
 ---
 
@@ -75,7 +75,7 @@ You are trying to set the order in the hidden part of the order book.
 
 ##### Q: The strategy position is being closed. What does it mean? {#close_position}
 
-A: The trading simulator does not allow for the strategy to set new orders and deletes the current. Once it is done, the trading simulator sets orders in such a way that the resulting position of the strategy equals to zero.
+A: The trading simulator does not allow the strategy to set new orders and deletes the current one. Once it is done, the trading simulator sets orders in a such way that the resulting position of the strategy equals to zero.
 
 ---
 
@@ -98,20 +98,20 @@ best_price = strat.trading_book().best_price(dir)
 ##### Q: How does the order book work?
 
 A: When a new order X comes into the order book, it is placed into the order queue according to its direction and price.
-Inside each price all orders are sorted by the time they were placed it the queue.
+Inside each price all orders are sorted by the time they were placed in the queue.
 In case the best bid price is strictly less than the best ask price, the order book processing is stopped.
 Otherwise the process of the orders execution starts.
 Suppose the X order was a bid, that is an order to buy.
-Then opposite asks are one by one taken to execute against the X, in order of the price increase or, inside each price - in order of the placement time increase. The execution results in a new deal with the price of the passive executed order (ask, in this case) with the minimal of the two, involved in the deal orders, volume.
+Then opposite asks are taken one by one to execute against the X, in order of the price increase or, inside each price - in order of the placement time increase. The execution results in a new deal with the price of the passive executed order (ask, in this case) with the minimal of the two, involved in the deal orders, volume.
 The volume of the deal is subtracted from the volumes of the orders involved in the deal.
 And so the process goes, until the best bid price is less than the best ask price.
 
 ##### Q: What types of orders are used?
 
-A: For the contest two types of orders are used: [limit order](terms.md#limit_order) (limit order) and [IOC](terms.md#ioc_order) (Immediate-Or-Cancel).
-Consider what will happen if after all processes are done for an order, there is still some volume left.
+A: Two types of orders are used for the contest: [limit order](terms.md#limit_order) (limit order) and [IOC](terms.md#ioc_order) (Immediate-Or-Cancel).
+Consider what will happen if there is still some volume left after all processes are done for an order.
 
-- if the order was limited, it will stay in the order book by the price specified.
+- if the order was limited, it will stay in the order book by the specified price.
 - if the order was IOC, it will be immediately removed from the order book.
 
 For example.

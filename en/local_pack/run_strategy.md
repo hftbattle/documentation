@@ -1,16 +1,16 @@
 ## Strategy starting
 
-Two ways to start a strategy are described in this section:
+There are two ways to to start the strategy:
 
 - [Start from command line interface](#command_line)
 - [Start from CLion](#clion)
 
-We are going to use **user_strategy** as the strategy and the folder name of the strategy.
+We are going to use **user_strategy** as the strategy and its folder name.
 Read [this](add_strategy.md) section to find out more on how to create new strategies.
 
 ### Starting from a command line interface {#command_line}
 
-To start from a command line interface you must:
+To start from a command line interface you should:
 
 - **compile all existing strategies**:
 
@@ -18,7 +18,7 @@ To start from a command line interface you must:
   ./build.py
   ```
 
- As the result libraries will be created for your strategies in the *build* folder.
+Libraries for your strategies will be created in the *build* folder.
 - **start simulation**:
 
   ```bash
@@ -39,9 +39,9 @@ To start from [CLion]({{ book["clion-download.url"] }}):
 
 - **specify strategy name** in the parameters of the command line:
 
-To do that, on the same tab *Run > Edit configurations* in the line *Program arguments* specify a path to the configuration file of your strategy, for example.
+To do that, you may specify a path to your strategy`s configuration file on the same tab *Run > Edit configurations* in the line *Program arguments*.
 
   ```bash
   strategies/user_strategy/user_strategy.json
   ```
-- **start building the project and simulation**, by clicking on the *Run* button.
+- **start building the project and simulation** by clicking on the *Run* button.

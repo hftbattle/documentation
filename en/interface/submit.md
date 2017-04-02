@@ -1,7 +1,7 @@
 ##  Strategy submission
 
-After you submitted a strategy for the contest system in a testing mode, its work simulation on some set of days starts.
-By default a single day is used.
+After submitting your strategy in the testing mode its work simulation on some set of days starts.
+A single day is used by default.
 
 In case your strategy depends on parameters you may define [parameter tuning](params.md) before submitting the strategy into the system.
 If you do so, the system will built all possible combinations and will run a strategy copy for each parameter set on each of the days selected.

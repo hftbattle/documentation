@@ -1,6 +1,6 @@
 ## Adding a strategy
 
-Once you decide to try more ideas and develop more strategies, one strategy - one file approach may become difficult to maintain. Let’s talk how to add new strategies in the off-line development package.
+Once you decide to try more ideas and develop more strategies, one strategy - one file approach may become difficult to maintain. Let’s have a look how to add new strategies in the off-line development package.
 
 - [C++](#cpp)
 - [Python](#python)
@@ -16,11 +16,11 @@ To develop a new C++ strategy:
 
 Let’s call it *strategy_name*.
 
-- Rename the new folder, json and cpp files in it with the *strategy_name*, *strategy_name.json*, *strategy_name.cpp*.
+- Rename the new folder with json and cpp files in it with the *strategy_name*, *strategy_name.json*, *strategy_name.cpp* respectively.
 
 #### 2. Register your strategy
 
-Once the files are copied you need to edit *cpp* file a little bit.
+Once the files are copied you need to edit *cpp* file.
 
 **Register** your new strategy with the following command at the end of the cpp file:
 
@@ -46,10 +46,10 @@ This is necessary due to specifics of the simulator’s dynamic linking process 
 
 ### Creating a new Python strategy {#python}
 
-Currently there is no way to create new folders for `Python` strategies, unfortunately.
+Unfortunately, there is currently no way to create new folders for `Python` strategies.
 Please write your strategy in the
  `strategies/python_strategy/python_strategy.py` file.
-How to run the strategy you may find out [here](run_strategy.md).
+You may find out [here](run_strategy.md) how to run the strategy.
 
 <!-- TODO(asalikhov): it may be allowed to write in another files -->
 <!-- To create a new strategy in Python:

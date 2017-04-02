@@ -11,10 +11,10 @@ Parameters tuning interface can be helpful for that.
 
 #### Passing parameters into a strategy {#to_strategy}
 
-The strategy submission page allows you to pass into a strategy dataset of numerical atomic parameters for tuning.
-To do that at the bottom of the page find a field *Parameter Name* and enter the name of the parameter and its value in the next field.
+The strategy submission page allows you to pass a set of numerical parameters into the strategy for tuning.
+To do that you may find a field *Parameter Name* at the bottom of the page and enter the name of the parameter whith its value in the next field.
 
-Integer and real values with a dot as a separator are allowed.
+Only integer and dot separated real values are allowed.
 
 Let's have a look at how parameters are set:
 
@@ -48,9 +48,9 @@ The *int_param* parameter’s default value is ignored since it has parameter tu
 
 #### Reading parameters from the strategy {#from_strategy}
 
-All defined parameters of the strategy, can be read from the configuration file that is passed into the user's strategy constructor *UserStrategy*.
+All defined parameters of the strategy can be read from the configuration file passed into the user's strategy constructor *UserStrategy*.
 In **C++** all the parameters of the configuration file can be converted to the type required by `as<param_type> method (deafult_value)`.
-In case no parameter value is defined by you, the default value is used deafult_value.
+In case no parameter value is defined by you, the deafult_value is used instead.
 With **Python** you can use the standard type conversion.
 
 {% codetabs name="C++", type="c++" -%}
@@ -74,7 +74,7 @@ public:
     // If it is not in the JSON file, it will be set as a default value 3.14.
     double_param = config["double_param"].as<double>(3.14);
     // Read a date-time parameter.
-    // ! For a date-time parameter a time period symbol must be set (literal).
+    // ! A time period symbol (literal) must be set for a date-time parameter.
     // possible time period literals:
     // h — hours,
     // min — minutes,
