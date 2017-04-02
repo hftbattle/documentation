@@ -1,47 +1,49 @@
-## Strategy starting
+## Execution of your strategy
 
-There are two ways to to start the strategy:
+This chapter describes execution of your strategy:
 
-- [Start from command line interface](#command_line)
-- [Start from CLion](#clion)
+- [Execution in command line](#command_line)
+- [CLion usage](#clion)
 
-We are going to use **user_strategy** as the strategy and its folder name.
-Read [this](add_strategy.md) section to find out more on how to create new strategies.
+We will assume, that your strategy and folder are called **user_strategy**.
+Read [here](add_strategy.md) about creating new strategies.
 
-### Starting from a command line interface {#command_line}
+### Execution in command line {#command_line}
 
-To start from a command line interface you should:
+You need to:
 
-- **compile all existing strategies**:
+- **compile all the strategies you have**:
 
   ```bash
   ./build.py
   ```
 
-Libraries for your strategies will be created in the *build* folder.
-- **start simulation**:
+  This will create libraries for your strategies in *build* folder.
+- **run a simulation**.
 
   ```bash
   ./run.py user_strategy
   ```
 
-### Start from CLion {#clion}
+### CLion usage {#clion}
 
-To start from [CLion]({{ book["clion-download.url"] }}):
+To launch simulation in [CLion](({{ book["clion-download.url"] }}) you need to:
 
-- **define the file to execute**:
+- **specify executable file**:
 
- Open Run > Edit configurations and select *Executable* as an executable file in the root of the directory, depending of your operating system:
+  open *Run > Edit configurations*, specify executable file in the root of directory as *Executable*:
 
   - *mac_launcher* for macOS
   - *windows_launcher* for Windows
   - *linux_launcher* for Linux
 
-- **specify strategy name** in the parameters of the command line:
+- **specify path to your configuration file** in the arguments of command line:
 
-To do that, you may specify a path to your strategy`s configuration file on the same tab *Run > Edit configurations* in the line *Program arguments*.
+  in the same tab *Run > Edit configurations* you need to fill *Program arguments* with relative path to configuration file of your strategy.
+  For example:
 
   ```bash
   strategies/user_strategy/user_strategy.json
   ```
-- **start building the project and simulation** by clicking on the *Run* button.
+
+- **to start the project build and simulation**, by pressing *Run* button.
