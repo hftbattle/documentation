@@ -19,7 +19,7 @@
 - [Writing a strategy](strategy/README.md)
   - [Strategy structure](strategy/structure.md)
   - [How to write a strategy](strategy/strategy_how_to.md)
-  - [Strategies examples](strategy/examples.md)
+  - [Simple strategy example](strategy/base_strategy.md)
   - [Ideas for realization](strategy/ideas.md)
 - [Trading simulator](simulator/README.md)
   - [Market data](simulator/data.md)
