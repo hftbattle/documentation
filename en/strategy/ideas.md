@@ -8,7 +8,7 @@ Particularly, the `middle_price` will be dramatically changed if an order with v
 It is clear that this order does not show the real instrument bid price in most cases. (Here, by the way, it is reasonable to think about the "better" `middle_price` evaluation).
 
 Note that the order book of given instrument is rarefied so there may be large gaps (i.e. large amount of price levels without any order) and also many quotes with a small volume.
-Let's remember that. It it is quite clear that keeping the free price level is generally better than keeping the occupied one, because of the higher queue priority.
+Let's remember that. It is quite clear that keeping the free price level is generally better than keeping the occupied one, because of the higher queue priority.
 
 Let's keep our orders on such a price, that will give us a fixed accumulated volume of orders standing on better prices. `volume_before_our_order_` parameter will be used for this.
 This allows us to exclude the possibility of staying on unfair price.
@@ -41,8 +41,8 @@ class UserStrategy : public ParticipantStrategy {
 public:
   UserStrategy(const JsonValue& config) :
       volume_(config["volume"].as<Amount>(2)),
-      max_pos_(config["max_pos"].as<Amount>(3)),
-      offset_(config["offset"].as<Price>(26)),
+      max_pos_(config["max_pos"].as<Amount>(1)),
+      offset_(config["offset"].as<Price>(17)),
       volume_before_our_order_(config["volume_before_our_order"].as<Amount>(2)) {
     set_max_total_amount(max_pos_);
   }
@@ -113,8 +113,8 @@ class Params:
 
 def init(strat, config):
     Params.VOLUME = config.get('VOLUME', 2)
-    Params.MAX_POS = config.get('MAX_POS', 3)
-    Params.OFFSET = Price(config.get('OFFSET', 26))
+    Params.MAX_POS = config.get('MAX_POS', 1)
+    Params.OFFSET = Price(config.get('OFFSET', 17))
     Params.VOLUME_BEFORE_OUR_ORDER = config.get('VOLUME_BEFORE_OUR_ORDER', 2)
 
     strat.set_max_total_amount(Params.MAX_POS)

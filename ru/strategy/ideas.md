@@ -37,8 +37,8 @@ class UserStrategy : public ParticipantStrategy {
 public:
   UserStrategy(const JsonValue& config) :
       volume_(config["volume"].as<Amount>(2)),
-      max_pos_(config["max_pos"].as<Amount>(3)),
-      offset_(config["offset"].as<Price>(26)),
+      max_pos_(config["max_pos"].as<Amount>(1)),
+      offset_(config["offset"].as<Price>(17)),
       volume_before_our_order_(config["volume_before_our_order"].as<Amount>(2)) {
     set_max_total_amount(max_pos_);
   }
@@ -109,8 +109,8 @@ class Params:
 
 def init(strat, config):
     Params.VOLUME = config.get('VOLUME', 2)
-    Params.MAX_POS = config.get('MAX_POS', 3)
-    Params.OFFSET = Price(config.get('OFFSET', 26))
+    Params.MAX_POS = config.get('MAX_POS', 1)
+    Params.OFFSET = Price(config.get('OFFSET', 17))
     Params.VOLUME_BEFORE_OUR_ORDER = config.get('VOLUME_BEFORE_OUR_ORDER', 2)
 
     strat.set_max_total_amount(Params.MAX_POS)
