@@ -155,7 +155,7 @@ Here is the possible solution of these problems:
    There is a possibility of standing on a free price, which is definitely good for us. This is a simplified version of more complicated idea:
    Generally, the price should be chosen in a such way, that will allow us to keep more volume on the next price and less volume on our price.
 2. We would not place the order, if its price difference with the opposite best price is less than some predetermined value.
-   (It is reasonable to change this later because the strategy may )
+   (It is reasonable to change this later, when this constraint would not allow us to keep orders on some direction).
    Let it be called `offset_`.
 
 Finally we will get the following strategy:
@@ -289,7 +289,7 @@ def trading_book_update(strat, order_book):
 ## Ideas to implement {#ideas}
 
 1. A serious factor limiting the strategy result is the low maximum position.
-   Increasing this parameter will make your strategy create a larger number of deals, increasing your profit proportionally.
+   Increasing this parameter will make your strategy create a larger number of deals, increasing your profit almost proportionally.
    On the other hand the larger maximum position volume you set the longer your strategy keeps one-directed position affecting negatively on the overall result.
 2. Current strategy keeps just 1 order on 1 price level for each direction.
    Keeping you orders on different price levels would allow you to make much more profitable deals.
@@ -300,5 +300,8 @@ def trading_book_update(strat, order_book):
    You may do it both to reduce the current position and to collect other participants' orders staying on unfair price.
 5. It is worth thinking about what price can be treated as fair in each time period.
    `middle_price` is a bad indicator so you should watch carefully for other participants' actions in the order book on any update.
+6. The following strategy has a problem - if takes its orders into account while processing volumes.
+   This may lead to unexpected situations such as changing the target price level of new orders because of the strategy's orders in order book.
+   It's worth thinking how to change that.
 
 New ideas will come up during the contest and we are going to provide you the detailed overview.
