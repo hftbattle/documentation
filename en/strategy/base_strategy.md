@@ -128,4 +128,4 @@ Since the strategy keeps only 1 order with a volume of 1 lot for each direction,
 On the other hand, limiting position would not allow the strategy to keep its position in one direction for a long time.
 Staying in one-directed position leads to large losses in periods of order book fluctuations.
 
-More complicated strategy and ideas for further realization are available [here](ideas.md).
+More complicated strategy and ideas for further implementation are available [here](ideas.md).
