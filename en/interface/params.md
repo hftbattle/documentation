@@ -35,7 +35,7 @@ The parameters set by 1 and 2 methods are passed as is. The parameters set as a 
 Parameters tuning interface allows you to add several parameters. You may also turn the tuning off for a specific parameter by setting a *default value*:
 
 - Setting up a number of several parameter sets.
-  2 values for a *double_param* and 4 values for *int_param* combines gives you 4 * 2 = 8 combinations.
+  2 values for a *double_param* and 4 values for *int_param* give you 4 * 2 = 8 combinations.
   In case a parameter gets tuning you may skip setting its default value, obviously.
 
   <img src="{{ book["gitbook.img"] }}/en/param_double_int_combo.png" title="Setting up a number of several datasets.">

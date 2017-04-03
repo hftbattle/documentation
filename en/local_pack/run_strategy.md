@@ -1,6 +1,7 @@
-## Execution of your strategy
 
-This chapter describes execution of your strategy:
+## Strategy running
+
+This chapter describes the execution of your strategy:
 
 - [Execution in command line](#command_line)
 - [CLion usage](#clion)
