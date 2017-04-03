@@ -64,7 +64,7 @@ There are three tabs:
 
   * Load seconds
 
-     Length of time period in seconds to be loaded when you open Viewer.
+     Length of the time period in seconds to be loaded when you open Viewer.
   * Tool height
 
      Height of the chart in pixels.
@@ -73,7 +73,7 @@ There are three tabs:
      Viewer won't show empty quotes if this option is turned on.
   * Cumulative volume
 
-     Show an extra column for each quote representing the total volume of all orders with given direction with price no worse than current quote price.
+     Show an extra column for each quote representing the total volume of all orders with given direction with price no worse than the current quote price.
   * My events
 
      Viewer will omit all changes without your orders participation while navigating if "Stop only on my events" flag is turned on.
