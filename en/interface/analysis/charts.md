@@ -1,6 +1,6 @@
 ### Charts 
 
-Charts are useful for strategy analysis.
+Charts are useful for the strategy analysis.
 
 Key parts of this article are:
 
@@ -11,7 +11,7 @@ Key parts of this article are:
 #### Profit and position charts {#sum_and_pos_chart}
 
 <!-- TODO(asalikhov): change Chart 0 to sth. else when changed in web system -->
-A chart "Chart 0" is shown for each training submission by default, with 2 following lines:
+The default chart "Chart 0" is shown for each training submission with 2 following lines:
 
 - *sum* — your profit during the trading session, values are marked on the left vertical axis.
 - *[symbol_name]-pos* — your [position](/terms.md#position), values are marked on the right vertical axis.
@@ -23,7 +23,7 @@ A chart "Chart 0" is shown for each training submission by default, with 2 follo
 
 #### Redirection to Viewer {#links}
 
-You can analyze full situation in the order book in some particular moment.
+You can analyze the full situation in the order book in some particular moment.
 For this purpose [Viewer](viewer.md) is provided: to open a moment there click the particular point of the chart.
 
 #### Custom charts {#custom}
@@ -48,7 +48,7 @@ def add_chart_point(self,
 - *y_axis_type* — side to display the vertical axis: *ChartYAxisType::Left* or *ChartYAxisType::Right* (ChartYAxisType.Left or ChartYAxisType.Right in *Python*).
 - *chart_number* — 0 for the default chart, 1 or more for your custom charts.
 
-Strategy standing on best price in each direction modification to display best price chart:
+Strategy standing on best price in each direction and displaying best price chart:
 
 {% codetabs name="C++", type="c++" -%}
 #include "participant_strategy.h"

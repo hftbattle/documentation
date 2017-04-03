@@ -1,6 +1,6 @@
 ### Statistics
 
-There's a vast interface for strategy analysis on the submission page. 
+There's a vast interface for the strategy analysis on the submission page. 
 Basic sections of the page are:
 
 - [Common results](#common_result)
@@ -21,7 +21,7 @@ SCORE = AVG - (STD / 10.0) + min(0, MIN_INTRADAY_RESULT) / 5.0
 - `STD` — [standard deviation]({{ book["std_deviation.en_url"] }}) of result on all sample days.
 - `MIN_INTRADAY_RESULT` — the minimum result of the strategy that was reached at any given moment during a day (not necessarily at the close of the trading session), among all of the days.
 
-Click “Details” in a table row to get exact values of these components.
+Click “Details” in a table row to get particular values of these components.
 
 #### Results by day {#results_by_day}
 
@@ -39,9 +39,9 @@ Click “Details” in a table row to get exact values of these components.
 Columns:
 
 - min_result / max_result — the minimum / maximum result of the strategy during a day.
-- our_deals_count — number of deals made by the strategy.
-- our_deals_volume — total volume of deals made by the strategy.
+- our_deals_count — the number of deals made by the strategy.
+- our_deals_volume — the total volume of deals made by the strategy.
 - result — the final result of the strategy at the end of the trading day.
 - transactions_count — the number of transactions (order additions and deletions) made by the strategy.
-- fee — total fee of the strategy.
-- work_time — net time period of simulation in seconds excluding preparation expenses.
+- fee — the total fee of the strategy.
+- work_time — the net time period of the simulation in seconds excluding preparation expenses.

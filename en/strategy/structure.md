@@ -24,7 +24,7 @@ You may implement them:
 - [trading_deals_update](/api/ParticipantStrategy.md#trading_deals_update)
 - [execution_report_update](/api/ParticipantStrategy.md#execution_report_update)
 
-The class is the following:
+The class looks like this:
 
 ```c++
 #include "participant_strategy.h"
@@ -54,8 +54,6 @@ public:
 
 REGISTER_CONTEST_STRATEGY(UserStrategy, user_strategy)
 ```
-
-Further you have to implement these methods.
 
 ### Python strategy structure {#python}
 
@@ -92,9 +90,9 @@ def init(strat, config):
 
 #### Order book update {#book_update}
 
-Some changes in [order book](/terms.md#order_book) are consistently happening during trading session.
+The changes in [order book](/terms.md#order_book) are consistently happening during the trading session.
 [trading_book_update](/api/ParticipantStrategy.md#trading_book_update) method is used to notify strategy about such changes.
-It accepts reference to [OrderBook](/api/OrderBook.md) as an input.
+It takes reference to [OrderBook](/api/OrderBook.md) as an input.
 
 > Order book applied to the input of *trading_book_update* is the same as one you can get by calling [trading_book](/api/ParticipantStrategy.md) method.
 > This method is useful to get order book during other updates (deals and execution report).
@@ -103,10 +101,10 @@ It accepts reference to [OrderBook](/api/OrderBook.md) as an input.
 
 Deals made on exchange are also useful to analyze.
 [trading_deals_update](/api/ParticipantStrategy.md#trading_deals_update) method is used to notify the strategy about these changes.
-It accepts vector of [Deals](/api/Deal.md) as an input.
+It takes vector of [Deals](/api/Deal.md) as an input.
 Each element of this vector contains information on one completed deal.
 This information is sent **exactly once** for each deal.
-However, one order **may be referred in multiple deals**.
+However, a single order **may be referred in multiple deals**.
 
 #### Order execution report {#execution_report_update}
 
