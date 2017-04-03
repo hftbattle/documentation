@@ -73,7 +73,7 @@ More on that in the [off-line development kit](local_pack/README.md).
 
 - On [{{ book["viewer.name"] }}]({{ book["viewer.url"] }}) you may get a trading visualization tool.
   All events are shown atomically, deals are combined in packets, as they were sent by the exchange.
-- Please note, that the order book in Viewer is actually the market online order book that is a list of pairs <price, total amount by the price> currently existing on the market.
+- Please note, that the order book in Viewer is actually the market online order book that is a list of pairs [price, total amount by the price] currently existing on the market.
   You are not able to affect it.
 - You can also see your strategy transactions in Viewer.
   Click the button “Write data to Viewer” on the particular day.
