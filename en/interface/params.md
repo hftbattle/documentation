@@ -20,13 +20,13 @@ Let's have a look at how parameters are set:
 
 1. Constant:
 
-  <img src="{{ book["gitbook.img"] }}/param_const_double_set.png" title="Constant real value">
+  <img src="{{ book["gitbook.img"] }}/en/param_const_double_set.png" title="Constant real value">
 2. Comma separated list of values:
 
-  <img src="{{ book["gitbook.img"] }}/param_list_int_set.png" title="List of integer values">
+  <img src="{{ book["gitbook.img"] }}/en/param_list_int_set.png" title="List of integer values">
 3. Range of values with an increment: (start, end, step):
 
-  <img src="{{ book["gitbook.img"] }}/param_range_int_set.png" title="List of values from 0 up to 10 with increment of 2">
+  <img src="{{ book["gitbook.img"] }}/en/param_range_int_set.png" title="List of values from 0 up to 10 with increment of 2">
 
 Populate data values fields and click on *Add* button.
 
@@ -38,11 +38,12 @@ Parameters tuning interface allows you to add several parameters. You may also t
   2 values for a *double_param* and 4 values for *int_param* combines gives you 4 * 2 = 8 combinations.
   In case a parameter gets tuning you may skip setting its default value, obviously.
 
-  <img src="{{ book["gitbook.img"] }}/param_double_int_combo.png" title="Setting up a number of several datasets.">
+  <img src="{{ book["gitbook.img"] }}/en/param_double_int_combo.png" title="Setting up a number of several datasets.">
+
 - Turn off *double_param* parameter tuning example, default value = 0:
   The *int_param* parameter’s default value is ignored since it has parameter tuning turned on:
 
-  <img src="{{ book["gitbook.img"] }}/param_double_int_turn_off_double.png" title="Turn off parameter tuning example double_param">
+  <img src="{{ book["gitbook.img"] }}/en/param_double_int_turn_off_double.png" title="Turn off parameter tuning example double_param">
 
 #### Reading parameters from the strategy {#from_strategy}
 
