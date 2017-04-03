@@ -18,7 +18,7 @@ You need to:
   ./build.py
   ```
 
-  This will create libraries for your strategies in *build* folder.
+  This will create libraries for your strategies in the *build* folder.
 - **run a simulation**.
 
   ```bash
@@ -46,4 +46,4 @@ To launch simulation in [CLion](({{ book["clion-download.url"] }}) you need to:
   strategies/user_strategy/user_strategy.json
   ```
 
-- **to start the project build and simulation**, by pressing *Run* button.
+- **start building the project and simulating strategy** by pressing *Run* button.
