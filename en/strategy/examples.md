@@ -132,23 +132,30 @@ Staying in one-directed position leads to large losses in periods of order book 
 ## Improved strategy{#improved}
 
 In previous strategy we placed our orders on the `middle_price` with fixed `offset_`.
-However, this behaviour is not acceptable when the best price is unfair in some direction.
-The `middle_price` is very sensitive to order book fluctuations: a new order placed far before the previous best price level in some direction can dramatically change the `middle_price`, causing our strategy to place orders in wrong price levels.
+However, this behaviour is not acceptable, for example, when the best price is unfair in some direction.
+The `middle_price` is very sensitive to order book fluctuations: a new order placed before the previous best price level in some direction can change the `middle_price`, causing our strategy to place orders in wrong price levels.
+Particularly, the `middle_price` will be dramatically changed if an order with value of 1 lot will be placed far above the previous best bid price.
+It is clear that this order does not show the real instrument bid price in most cases. (Here, by the way, it is reasonable to think about the "better" `middle_price` evaluation).
 
-Note that the order book is rarefied so there may be large gaps (i.e. large amount of price levels without any order) and also many quotes with a small volume.
+Note that the order book of given instrument is rarefied so there may be large gaps (i.e. large amount of price levels without any order) and also many quotes with a small volume.
+Let's remember that. It it is quite clear that keeping the free price level is generally better than keeping the occupied one, because of the higher queue priority.
 
-Let's try to keep our orders on such a price, that will give us a fixed accumulated order volume before our order. `volume_before_our_order_` parameter will be used for this.
+Let's keep our orders on such a price, that will give us a fixed accumulated volume of orders standing on better prices. `volume_before_our_order_` parameter will be used for this.
+This allows us to exclude the possibility of staying on unfair price.
 
 If we implement this strategy, we will face two problems:
 
-1. Staying on the price achieved by `volume_before_our_order_` will keep us behind the other market participants.
-2. We should ensure that our orders would not be placed too close to each other in the order book.
-   Having both orders executed, we will be charged with a double fee, risking to lose money.
+1. Staying on the price achieved by `volume_before_our_order_` will certainly keep us behind the other's volume.
+2. We should ensure that our orders (bid and ask) would not be placed too close to each other in the order book.
+   Having both orders executed almost at the same time, we will be charged with a double fee, risking to lose money.
 
 Here is the possible solution of these problems:
 
 1. We would stay on the price, which is closer to `middle_price` by one `min_step` from the one achieved by `volume_before_our_order_` constraint.
+   There is a possibility of standing on a free price, which is definitely good for us. This is a simplified version of more complicated idea:
+   Generally, the price should be chosen in a such way, that will allow us to keep more volume on the next price and less volume on our price.
 2. We would not place the order, if its price difference with the opposite best price is less than some predetermined value.
+   (It is reasonable to change this later because the strategy may )
    Let it be called `offset_`.
 
 Finally we will get the following strategy:
