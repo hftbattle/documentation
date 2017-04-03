@@ -2,7 +2,7 @@
 
 Let's write the following strategy: we will keep our [orders](/terms.md#order) on the best price for both directions.
 
-Firstly, we are going to learn how to place an order.
+Firstly, we will learn how to place an order.
 The method is:
 
 {% codetabs name="C++", type="c++" -%}

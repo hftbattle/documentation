@@ -22,10 +22,10 @@ Multiple logins are forbidden. Final versions will be checked for plagiarism.
 
 ## Arena's interface {#interface}
 
-##### Q: How to submit a strategy for the control testing??
+##### Q: How to submit a strategy for the control testing?
 
 A: To submit a strategy for the control testing, change the "Day set" switch on the main arena's page from "Training" to the "Control" value.
-A participant is provided with {{ book["constraint.daily_control_submissions.ru.nom"] }} submissions in the control mode.
+A participant is provided with {{ book["constraint.daily_control_submissions.en"] }} submissions in the control mode.
 
 ---
 
@@ -37,23 +37,23 @@ A: Make sure your system has:
 
 - python `2.7.x` or `3.x` (`python --version`)
 - cmake `2.8.4` or above (`cmake --version`)
-- compiler C++:
-  - for Linux — compiler g++ `5.0` or above (`g++ --version`)
+- C++ compiler:
+  - for Linux — g++ compiler `5.0` or above (`g++ --version`)
   - for macOS — Apple LLVM version `6.0` or above, (`c++ --version`)
   - for Windows — TDM64-GCC `5.1.0` or above
 
-More on that in [Setting dependences] section (/local_pack/requirements.md).
+More on that in [Setting dependences](/local_pack/requirements.md) section.
 
 ---
 
 ## Trading simulator {#simulator}
 
-##### Q: Is there a lag between a moment when an order was sent and the moment when it was placed in the order book??
+##### Q: Is there a lag between a moment when an order was sent and the moment when it was placed in the order book?
 
 A: Time between the moment an order is sent and the moment it is accepted by the market is called *round-trip*.
 
-The simulator has *round-trip* is set to {{ book["constraint.round-trip"] }} microseconds.
-That means all your requests for the orders adding / removal happen with a little time lag as after if it was sent to the market.
+The simulator has a *round-trip* set to {{ book["constraint.round-trip"] }} microseconds.
+That means all your requests for the orders adding / removal happen with a little time lag as after it was sent to the market.
 
 ---
 
@@ -67,15 +67,15 @@ A: A position is being closed in some time period. During that period the close 
 
 A: There could be a number of reasons for that:
 
-It is possible that the order exceeds an allowed maximum for the position.
-A price level is not within a correct limits, there is no such a price for the symbol.
-Number of lots is not a natural number.
-The order could be merged with another order.
-You are trying to set the order in the hidden part of the order book.
+1. It is possible that the order exceeds an allowed maximum position limit.
+2. A price level is not within whe allowed limits, there is no such a price for the security.
+3. Number of lots is not a natural number.
+4. The order could be matched with your another order in the opposite direction.
+5. You are trying to set the order in the hidden part of the order book.
 
 ##### Q: The strategy position is being closed. What does it mean? {#close_position}
 
-A: The trading simulator does not allow the strategy to set new orders and deletes the current one. Once it is done, the trading simulator sets orders in a such way that the resulting position of the strategy equals to zero.
+A: The trading simulator does not allow the strategy to set new orders and deletes the active ones. Once it is done, the trading simulator sets orders in a such way that the resulting position of the strategy equals to zero.
 
 ---
 
@@ -102,7 +102,7 @@ Inside each price all orders are sorted by the time they were placed in the queu
 In case the best bid price is strictly less than the best ask price, the order book processing is stopped.
 Otherwise the process of the orders execution starts.
 Suppose the X order was a bid, that is an order to buy.
-Then opposite asks are taken one by one to execute against the X, in order of the price increase or, inside each price - in order of the placement time increase. The execution results in a new deal with the price of the passive executed order (ask, in this case) with the minimal of the two, involved in the deal orders, volume.
+Then opposite asks are taken one by one to execute against the X, in order of the price increase or, inside each price - in order of the placement time increase. The execution results in a new deal with the price of the passive executed order (ask, in this case) with the volume of minimal of the two orders, involved in the deal.
 The volume of the deal is subtracted from the volumes of the orders involved in the deal.
 And so the process goes, until the best bid price is less than the best ask price.
 
@@ -117,9 +117,9 @@ Consider what will happen if there is still some volume left after all processes
 For example.
 Let's say the order book has 3 orders to sell:
 
-- Volume of 10 on the price of 101, placed at 11:00
-- Volume of 20 on the price of 101, placed at 11:01
-- Volume of 20 on the price of 101, placed at 11:01
+- volume of 10 on the price of 101, placed at 11:00
+- volume of 20 on the price of 101, placed at 11:01
+- volume of 20 on the price of 102, placed at 11:00
 
 | Price| Volume (placement time) |
 | --- | --- |
