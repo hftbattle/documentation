@@ -8,8 +8,8 @@
 
 The idea of the strategy is to keep one order on the best price at each direction (BID и ASK) with the price of `middle_price` and a constant offset `offset` in the corresponding direction.
 In case a direction has none of our active orders, the strategy places an order with volume of `volume`.
-In case an order exists, but happens to be of other price, we cancel it and replace it with the new one.
-The volume of the placed order can be decreased for us not to get out of the maximum volume size.
+In case an order exists, but happens to be placed on the different price, we cancel it and place a new one.
+The volume of the placed order can be decreased for us not to get out of the maximum position limit.
 It is very important for HFT strategy to be able to quickly close the current position. So, we will try to limit the maximum open position to the value of `max_pos`.
 
 Description of the strategy parameters:
@@ -128,4 +128,4 @@ Since the strategy keeps only 1 order with a volume of 1 lot for each direction,
 On the other hand, limiting position would not allow the strategy to keep its position in one direction for a long time.
 Staying in one-directed position leads to large losses in periods of order book fluctuations.
 
-More complicated strategy and ideas for further realization are available [here](ideas.md)
+More complicated strategy and ideas for further realization are available [here](ideas.md).
