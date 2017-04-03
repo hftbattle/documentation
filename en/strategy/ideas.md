@@ -23,7 +23,7 @@ Here is the possible solution of these problems:
 
 1. We would stay on the price, which is closer to `middle_price` by one `min_step` from the one achieved by `volume_before_our_order` constraint.
    There is a possibility of standing on a free price, which is definitely good for us. This is a simplified version of more complicated idea:
-   generally, the price should be chosen in a such way, that will allow us to keep more volume on the next price and less volume on our price.
+   generally, the price should be chosen in a such way, that will allow us to stay at price level which volume is significantly less than the volume of the next price.
 2. We would not place the order, if its price difference with the opposite best price is less than some predetermined value.
    It is reasonable to change this later, when this constraint would not allow us to keep orders on some direction.
    Let it be called `offset`.
