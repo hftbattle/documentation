@@ -1,14 +1,14 @@
-## Exchange data
+## Market data
 
-The package repository contains a data folder with several hours of market data (line in the configuration file *date* that data of several exchange working hours (the "day": "{{ book["data.small_day"] }}" line in the configuration file of the trading symbol.
+The package repository contains a data folder with the first several hours of market data (configuration file line "day": "{{ book["data.small_day"] }}") of the trading symbol.
 
 That's enough to:
-- make sure, your code gets compiled
+- make sure your code compiles successfully
 - debug your strategy
 
-To check out the very idea of the strategy you may download a complete trading dataset "{{ book["data.full_day"] }}" from [here]({{ book["contest.local_pack.data.url"] }}).
+To check out the core ideas of the strategy you may download dara for a complete trading day "{{ book["data.full_day"] }}" from [here]({{ book["contest.local_pack.data.url"] }}).
 
-You may do it by yourself. Just unzip the file into the root directory or use *download.py* script from the repository root
+You may do it manually: just unzip the file into the root directory or use *download.py* script from the repository root.
 
 ```bash
 ./download.py
@@ -16,4 +16,4 @@ You may do it by yourself. Just unzip the file into the root directory or use *d
 
 The script will download the file *data.zip* and unzip it into the *data* folder.
 
-To test the strategy on the complete dataset you should change the value of the field “day” "{{ book["data.full_day"] }}" in the configuration file.
+To test the strategy on the complete trading day you should change the value of the field `day` to "{{ book["data.full_day"] }}" in the configuration file.

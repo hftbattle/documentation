@@ -1,13 +1,11 @@
-## Adding a strategy
+## Strategy adding
 
-Once you decide to try more ideas and develop more strategies, one strategy - one file approach may become difficult to maintain. Let’s have a look how to add new strategies in the off-line development package.
+Once you decide to try more ideas and develop more strategies, using the one strategy - one file approach may become neccessary. Let’s have a look at how to add new strategies in the off-line development package.
 
 - [C++](#cpp)
 - [Python](#python)
 
 ### Creating a new C++ strategy {#cpp}
-
-To develop a new C++ strategy:
 
 #### 1. Create a strategy folder
 
@@ -16,7 +14,7 @@ To develop a new C++ strategy:
 
 Let’s call it *strategy_name*.
 
-- Rename the new folder with json and cpp files in it with the *strategy_name*, *strategy_name.json*, *strategy_name.cpp* respectively.
+- Rename the new folder with json and cpp files inside with the *strategy_name*, *strategy_name.json*, *strategy_name.cpp* respectively.
 
 #### 2. Register your strategy
 
@@ -34,19 +32,19 @@ Let’s say your folder, .json-file and the strategy are called *best_strategy_e
 REGISTER_CONTEST_STRATEGY(UserStrategy, best_strategy_ever)
 ```
 
-This is necessary due to specifics of the simulator’s dynamic linking process of the strategies.
+This is necessary due to specifics of the simulator’s dynamic linkage process of the strategies.
 
-#### 3. Restart CMake
+#### 3. Update CMake configuration
 
 - Those of you who work in cli run the following script *build.py*:
   ```bash
   ./build.py
   ```
-- Those working with CLion, go to *Tools > CMake > Reload CMake Project*.
+- Those working in CLion, go to *Tools > CMake > Reload CMake Project*.
 
 ### Creating a new Python strategy {#python}
 
-Unfortunately, there is currently no way to create new folders for `Python` strategies.
+Unfortunately, there is currently no way to create new folders for Python strategies.
 Please write your strategy in the
  `strategies/python_strategy/python_strategy.py` file.
 You may find out [here](run_strategy.md) how to run the strategy.

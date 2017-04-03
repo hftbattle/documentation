@@ -16,9 +16,9 @@ Documentation for [{{ book["contest.name"] }}]({{ book["contest.landing-page.url
 
   More on that in the [Off-line development kit](local_pack/README.md).
 - Read the [Quick start](quick_start.md) section.
-- More on this in the following sections [Strategy development](strategy/README.md), [Trading simulator](simulator/README.md), and [Glossary of terms](terms.md) and [HFAQ](HFAQ.md).
+- More on this in the following sections: [Strategy development](strategy/README.md), [Trading simulator](simulator/README.md), [Glossary of terms](terms.md) and [HFAQ](HFAQ.md).
 - Now, start developing your own strategy!
 
 ## Feedback and support
 
-Submit a question in the comments section of the documentation or email us to <{{ book["contest.support.email"] }}>.
+Submit a question in the comments section of the documentation or email us to {{ book["contest.support.email"] }}.

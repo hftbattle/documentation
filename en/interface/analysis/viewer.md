@@ -1,10 +1,10 @@
 ### Viewer
 
 We offer you a tool to visualize market trading — [Viewer]({{ book["viewer.url"] }}).
-Using this tool you may find out what was happening with selected symbol at any time of any day from a dataset.
+Using this tool you may find out what was happening with selected symbol at any time of any day from a training dataset.
 Viewer is available on the following link [{{ book["viewer.name"] }}]({{ book["viewer.url"] }}).
 
-You can get Viewer for the real trading (use the line Viewer at the top of the page) and to visualize your strategy on a particular day. (the "Write to Viewer" button on the submission page).
+You can get Viewer for have a look at historical market data (use the link Viewer at the top of the page) and to visualize your strategy on a particular day (the "Write to Viewer" button on the submission page).
 
 Its interface consists of the following parts:
 
@@ -14,20 +14,20 @@ Its interface consists of the following parts:
 
 Let's have a look at each of them in details:
 
-- [Char](#chart)
-- [Control](#control)
+- [Chart](#chart)
+- [Controls](#control)
 - [Control panel](#panel)
 - [My orders](#orders)
 
 ## Chart {#chart}
 
 Chart is the central piece of the analysis tool.
-`OX` axis is used for microsecond timing (local exchange time), `OY` axis - order book price level.
+`OX` axis is used for microsecond timing (exchange server time), `OY` axis - order book price level.
 
 Best price is shown as lines on the chart.
-Red lines - the best ask price, green line - the best offer price.
+Red lines - the best ask price, green line - the best bid price.
 
-Besides, all of the deals made on the market are shown.
+All of the deals made on the market are shown.
 Each deal can be further reviewed by clicking on it. You may find out when it was done, its volume and more.
 
 Information on how to work with a chart is given below.
@@ -36,10 +36,10 @@ Information on how to work with a chart is given below.
 
 ## Control {#control}
 
-Viewer implements a market trading simulation in such a way that events in the order book happen continuously.
-To move to the next event, push "right arrow" button («→»), for the previous event push the "left arrow" button  («←»), correspondingly.
+Viewer implements a trading simulation in such a way that events in the order book are executed continuously.
+To move to the next event, push "right arrow" button («→»), for the previous event push the "left arrow" button  («←»).
 
-Current location is marked by a vertical line on the chart.
+Current moment is marked by a vertical line on the chart.
 
 To jump into a specific moment on the chart, double click on a point you would like to move on.
 
@@ -48,7 +48,7 @@ Another way to show a certain moment is to use the time selection widget in the 
 ![]({{ book["gitbook.img"] }}/viewer/time.gif)
 
 <!-- TODO(asalikhov): there is a task to simplify date/time panel -->
-Select data/time and press the click on the tick icon (✔).
+Select date/time and press the click on the tick icon (✔).
 
 ## Control panel {#panel}
 
@@ -72,6 +72,6 @@ How to manage your orders.
 
 ![]({{ book["gitbook.img"] }}/viewer/deals.gif)
 
-Your orders are shown on the chart.
-To find out their symbol (form) - have a look at the control panel.
-The Symbol of the orders is shown in the "@" column.
+Your deals are shown on the chart.
+To find out their symbol (shape) - have a look at the control panel.
+The Symbol of the deals is shown in the "@" column.
