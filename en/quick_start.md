@@ -78,7 +78,7 @@ More on that in the [off-line development kit](local_pack/README.md).
 - You can also see your strategy transactions in Viewer.
   Click the button “Write data to Viewer” on the particular day.
   After a certain amount of time you will get an opportunity to see your strategy actions in Viewer.
-- You may browse through all events or through your strategy events only. (see Settings tab).
+- You may browse through all events or through your strategy events only (see Settings tab).
 - Click at any point on the chart to get into Viewer. Order book state around the time moment corresponding to the chart point will be displayed.
 
 More on that in the [Viewer](interface/analysis/viewer.md) section.

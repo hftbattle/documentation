@@ -9,7 +9,7 @@ Basic sections of the page are:
 
 #### Common results {#common_result}
 
-“Common results” table shows overall evaluation of the strategy or each parameters set if you are using parameter tuning.
+“Common results” table shows overall evaluation of the strategy or each parameter set if you are using parameter tuning.
 
 The strategy is evaluated according to this formula:<a id="result_formula"></a>
 

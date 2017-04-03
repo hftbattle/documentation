@@ -30,7 +30,7 @@ Let's have a look at how parameters are set:
 
 Populate data values fields and click on *Add* button.
 
-The parameters set by 1 and 2 methods are passed as is. The parameters set as a range of values will be automatically expanded in the parameters list and displayed in the parameters table.
+The parameter set by 1 and 2 methods are passed as is. The parameter set as a range of values will be automatically expanded in the parameters list and displayed in the parameters table.
 
 Parameters tuning interface allows you to add several parameters. You may also turn the tuning off for a specific parameter by setting a *default value*:
 
