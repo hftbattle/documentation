@@ -19,13 +19,13 @@
 
 1. Постоянная:
 
-  <img src="{{ book["gitbook.img"] }}/param_const_double_set.png" title="Константный вещественный параметр">
+  <img src="{{ book["gitbook.img"] }}/ru/param_const_double_set.png" title="Константный вещественный параметр">
 2. Список значений через запятую:
 
-  <img src="{{ book["gitbook.img"] }}/param_list_int_set.png" title="Список целых значений">
+  <img src="{{ book["gitbook.img"] }}/ru/param_list_int_set.png" title="Список целых значений">
 3. Диапазон значений с шагом: (start, end, step):
 
-  <img src="{{ book["gitbook.img"] }}/param_range_int_set.png" title="Диапазон значений от 0 до 10 с шагом 2">
+  <img src="{{ book["gitbook.img"] }}/ru/param_range_int_set.png" title="Диапазон значений от 0 до 10 с шагом 2">
 
 После ввода поля значений параметра нужно добавить эти значения, нажав на кнопку *Добавить*.
 В таком случае параметры, заданные способами 1 и 2, передадутся как есть, а параметры, заданные диапазоном значений с шагом, раскроются в список параметров автоматически и отобразятся в таблице параметров.
@@ -36,11 +36,11 @@
   2 значения для *double_param* и 4 значения для *int_param* дают 4 * 2 = 8 комбинаций.
   Здесь мы также видим, что, если осуществляется перебор параметра, то для него необязательно указывать значение по умолчанию.
 
-  <img src="{{ book["gitbook.img"] }}/param_double_int_combo.png" title="Пример задания нескольких серий параметров">
+  <img src="{{ book["gitbook.img"] }}/ru/param_double_int_combo.png" title="Пример задания нескольких серий параметров">
 - Пример отключения перебора параметра *double_param*, значение по умолчанию равно 0.
   Для параметра *int_param* значение по умолчанию игнорируется, так как включен перебор этого параметра:
 
-  <img src="{{ book["gitbook.img"] }}/param_double_int_turn_off_double.png" title="Пример отключения перебора параметра double_param">
+  <img src="{{ book["gitbook.img"] }}/ru/param_double_int_turn_off_double.png" title="Пример отключения перебора параметра double_param">
 
 #### Чтение параметров из стратегии {#from_strategy}
 
