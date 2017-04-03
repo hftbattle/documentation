@@ -53,7 +53,7 @@ More on that in [Setting dependences](/local_pack/requirements.md) section.
 A: Time between the moment an order is sent and the moment it is accepted by the market is called *round-trip*.
 
 The simulator has a *round-trip* set to {{ book["constraint.round-trip"] }} microseconds.
-That means all your requests for the orders adding / removal happen with a little time lag as after it was sent to the market.
+That means all your requests for the orders adding / removal happen with a little time lag as after it is sent to the market.
 
 ---
 
@@ -101,7 +101,8 @@ A: When a new order X comes into the order book, it is placed into the order que
 Inside each price all orders are sorted by the time they were placed in the queue.
 In case the best bid price is strictly less than the best ask price, the order book processing is stopped.
 Otherwise the process of the orders execution starts.
-Suppose the X order was a bid, that is an order to buy.
+
+Suppose the X order was a bid, i.e. an order to buy.
 Then opposite asks are taken one by one to execute against the X, in order of the price increase or, inside each price - in order of the placement time increase. The execution results in a new deal with the price of the passive executed order (ask, in this case) with the volume of minimal of the two orders, involved in the deal.
 The volume of the deal is subtracted from the volumes of the orders involved in the deal.
 And so the process goes, until the best bid price is less than the best ask price.
@@ -111,7 +112,7 @@ And so the process goes, until the best bid price is less than the best ask pric
 A: Two types of orders are used for the contest: [limit order](terms.md#limit_order) (limit order) and [IOC](terms.md#ioc_order) (Immediate-Or-Cancel).
 Consider what will happen if there is still some volume left after all processes are done for an order.
 
-- if the order was limited, it will stay in the order book by the specified price.
+- if the order was limit, it will stay in the order book by the specified price.
 - if the order was IOC, it will be immediately removed from the order book.
 
 For example.

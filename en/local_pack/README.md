@@ -15,4 +15,4 @@ More on how to use Off-line Development Package:
 - [Setting dependencies](requirements.md)
 - [Market data](data.md)
 - [Strategy adding](add_strategy.md)
-- [Strategy starting](run_strategy.md)
+- [Strategy running](run_strategy.md)

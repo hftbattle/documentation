@@ -4,7 +4,7 @@ After submitting your strategy in the testing mode its trading simulation on som
 
 In case your strategy depends on parameters you may define [parameter tuning](params.md) before submitting the strategy into the system.
 If you do so, the system will build all possible combinations and will run a strategy for each parameter set on each of the days selected.
-Total number of simulations equals to `(Total number of parameters set) x (number of days selected)`.
+Total number of simulations equals to `(Total number of parameter sets) x (number of days selected)`.
 
 Submission with a lower number of simulations have higher priority in the contest system:
 

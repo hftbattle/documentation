@@ -55,8 +55,6 @@ public:
 REGISTER_CONTEST_STRATEGY(UserStrategy, user_strategy)
 ```
 
-Далее вам нужно реализовать эти методы.
-
 ### Структура стратегий на языке Python {#python}
 
 Пустая стратегия выглядит следующим образом.

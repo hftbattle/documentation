@@ -40,16 +40,16 @@ Control mode has some restrictions:
 
 #### Weekly mode {#weekly_mode}
 
-At the beginning of each week **one of your strategies** is run in a **weekly** testing on a new dataset.
-To specify the strategy you want to test **tick** (✔ icon) next to it in your submissions table.
-Otherwise the system would automatically select the best strategy. System decision is based on the **control dataset** results.
+At the beginning of each week **one of your submissions** is run in a **weekly** testing on a new dataset.
+To specify a submission you want to test **tick** (✔ icon) next to it in your submissions table.
+Otherwise the system would automatically select the best one. System decision is based on the **control dataset** results.
 
-> **Note 1**: None of your strategies will be used in the weekly testing unless you select it manually or send any of your strategies in the control mode.
+> **Note 1**: None of your submissions will be used in the weekly testing unless you select it manually or make a control submission.
 >
-> **Note 2**: If you select a strategy that tuned several sets of parameters in the testing mode the system will automatically choose the parameter set with the best result.
+> **Note 2**: If you select a submission that tuned several sets of parameters in the testing mode the system will automatically choose the parameter set with the best result.
 
 Therefore there are two different ratings, which are being maintained for all the participants: by control testing and by weekly testing.
-Please pay attention, those ratings have no effect on the **winners selections** and just necessary to avoid overfitting and to evaluate results on the new available days.
+Please note that those ratings have no effect on the **winners selection** and are just necessary to avoid overfitting and to evaluate results on the new available days.
 
 #### Final testing {#final_test}
 

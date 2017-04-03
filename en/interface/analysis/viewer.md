@@ -4,7 +4,7 @@ We offer you a tool to visualize market trading — [Viewer]({{ book["viewer.url
 Using this tool you may find out what was happening with selected symbol at any time of any day from a training dataset.
 Viewer is available on the following link [{{ book["viewer.name"] }}]({{ book["viewer.url"] }}).
 
-You can get Viewer for have a look at historical market data (use the link Viewer at the top of the page) and to visualize your strategy on a particular day (the "Write to Viewer" button on the submission page).
+You can get Viewer to have a look at historical market data (use the link Viewer at the top of the page) and to visualize your strategy actions on a particular day (the "Write to Viewer" button on the submission page).
 
 Its interface consists of the following parts:
 
@@ -30,7 +30,7 @@ Red lines - the best ask price, green line - the best bid price.
 All of the deals made on the market are shown.
 Each deal can be further reviewed by clicking on it. You may find out when it was done, its volume and more.
 
-Information on how to work with a chart is given below.
+A sample of chart usage is given below.
 
 ![]({{ book["gitbook.img"] }}/viewer/chart.gif)
 

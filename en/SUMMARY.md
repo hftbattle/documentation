@@ -15,7 +15,7 @@
   - [Setting dependencies](local_pack/requirements.md)
   - [Market data](local_pack/data.md)
   - [Strategy adding](local_pack/add_strategy.md)
-  - [Strategy starting](local_pack/run_strategy.md)
+  - [Strategy running](local_pack/run_strategy.md)
 - [Strategy development](strategy/README.md)
   - [Strategy structure](strategy/structure.md)
   - [How to write a strategy](strategy/strategy_how_to.md)

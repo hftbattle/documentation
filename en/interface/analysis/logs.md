@@ -1,7 +1,7 @@
 ### Logs 
 
 Mining and analysis of trading information is a significant part of strategy development.
-Since number of atomic market events can be extremely large (about {{ book["trading.daily_deals"] }} million), there is a need in extracting the most important details, features and strategy actions.
+Since the number of atomic market events can be extremely large (about {{ book["trading.daily_deals"] }} million), there is a need in extracting the most important details, features and strategy actions.
 
 There are 3 files in deals and orders archive:
 **orders.tsv** and **deals.tsv** - charts containing all the strategy orders and deals,
@@ -56,7 +56,7 @@ Similarly one row in **deals.tsv**:
 You can use the following ways to display information from your strategy:
 
 1. Output to `stdout` and `stderr`.
-  It's recommended to use for printing small amount of information (running parameters, config, etc.)
+  It's recommended to use it for printing small amount of information (running parameters, config, etc.).
   Logs in stdout and stderr are **limited with {{ book["constraint.symbol"] }} symbols, {{ book["constraint.string"] }} lines and {{ book["constraint.symbol_in_string"] }} symbols per line**.
 2. Logging to files with our log streams, e.g. `SCREEN() <<` (**C++ only**):
 
