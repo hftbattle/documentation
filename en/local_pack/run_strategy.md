@@ -27,7 +27,7 @@ You need to:
 
 ### CLion usage {#clion}
 
-To launch simulation in [CLion](({{ book["clion-download.url"] }}) you need to:
+To launch simulation in [CLion]({{ book["clion-download.url"] }}) you need to:
 
 - **specify executable file**:
 
