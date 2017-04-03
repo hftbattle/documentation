@@ -64,22 +64,19 @@ There are three tabs:
 
   * Load seconds
 
-     Time in seconds to be loaded when you open Viewer.
+     Length of time period in seconds to be loaded when you open Viewer.
   * Tool height
 
      Height of the chart in pixels.
   * Dense mode
 
-     Viewer won't show empty quotes if it is on.
+     Viewer won't show empty quotes if this option is turned on.
   * Cumulative volume
 
-     There will be be an extra column for each quote representing the total volume of all orders with price no worse than current if it is on.
-  * Show cross
-
-     Viewer show crosses (e.g. adding an ask order with price less than best bid) if it is on.
+     Show an extra column for each quote representing the total volume of all orders with given direction with price no worse than current quote price.
   * My events
 
-     Viewer will omit all changes without your orders participation while navigation if "Stop only on my events" flag is on.
+     Viewer will omit all changes without your orders participation while navigating if "Stop only on my events" flag is turned on.
 
 ![]({{ book["gitbook.img"] }}/viewer/control-panel.gif)
 
