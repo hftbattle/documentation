@@ -38,7 +38,7 @@ def trading_book_update(strat, order_book):
         strat.add_limit_order(dir, best_price, amount)
 {%- endcodetabs %}
 
-When the [trading_book_update](/api/ParticipantStrategy.md#trading_book_update) method is called, the orders placed in the previous calls, could still be not executed.
+When the [trading_book_update](/api/ParticipantStrategy.md#trading_book_update) method is called, the orders placed in the previous calls could still be not executed.
 As a result, a large amount of our orders can be accumulated in the order book.
 Luckily, we are able to get all our active orders:
 

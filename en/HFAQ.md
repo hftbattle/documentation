@@ -53,7 +53,7 @@ More on that in [Setting dependences](/local_pack/requirements.md) section.
 A: Time between the moment an order is sent and the moment it is accepted by the market is called *round-trip*.
 
 The simulator has a *round-trip* set to {{ book["constraint.round-trip"] }} microseconds.
-That means all your requests for the orders adding / removal happen with a little time lag as after it is sent to the market.
+That means all your requests for the orders adding / removal happen with a little time lag as after if it is sent to the market.
 
 ---
 
@@ -68,7 +68,7 @@ A: A position is being closed in some time period. During that period the close 
 A: There could be a number of reasons for that:
 
 1. It is possible that the order exceeds an allowed maximum position limit.
-2. A price level is not within whe allowed limits, there is no such a price for the security.
+2. A price level is not within whe the allowed limits, there is no such a price for the security.
 3. Number of lots is not a natural number.
 4. The order could be matched with your another order in the opposite direction.
 5. You are trying to set the order in the hidden part of the order book.
@@ -120,7 +120,7 @@ Let's say the order book has 3 orders to sell:
 
 - volume of 10 on the price of 101, placed at 11:00
 - volume of 20 on the price of 101, placed at 11:01
-- volume of 20 on the price of 102, placed at 11:00
+- volume of 10 on the price of 102, placed at 11:00
 
 | Price| Volume (placement time) |
 | --- | --- |
