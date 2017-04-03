@@ -48,7 +48,7 @@ def add_chart_point(self,
 - *y_axis_type* — side to display the vertical axis: *ChartYAxisType::Left* or *ChartYAxisType::Right* (ChartYAxisType.Left or ChartYAxisType.Right in *Python*).
 - *chart_number* — 0 for the default chart, 1 or more for your custom charts.
 
-Strategy standing on best price in each direction and displaying best price chart:
+Strategy standing on best price in each direction and displaying the best price chart:
 
 {% codetabs name="C++", type="c++" -%}
 #include "participant_strategy.h"
