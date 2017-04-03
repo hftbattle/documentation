@@ -5,7 +5,7 @@
 This section contains the description of the main simulator API classes:
 
 - [CommonEnums](CommonEnums.md) gives you the definition of *Dir*, *OrderStatus*, *ChartYAxisType* and of the methods *opposite_dir* and *dir_sign*.
-- [Deal](Deal.md) - description of a deal you participate in.
+- [Deal](Deal.md) - description of a deal.
 - [ExecutionReport](ExecutionReport.md) - order execution report.
 - [Order](Order.md) - exchange order description.
 - [OrderBook](OrderBook.md) - the aggregator of all orders of specific [instrument](/terms.md#instrument).
