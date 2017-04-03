@@ -45,7 +45,7 @@ A: Make sure your system has:
 More on that in [Setting dependences](/local_pack/requirements.md) section.
 
 ---
-
+ 
 ## Trading simulator {#simulator}
 
 ##### Q: Is there a lag between a moment when an order was sent and the moment when it was placed in the order book?
