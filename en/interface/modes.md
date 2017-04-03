@@ -15,7 +15,7 @@ Training mode aims for a strategy testing, dealing with various issues, selectin
 
 While in the testing mode you are provided with comprehensive data on how your strategy performs during trading.
 To learn more on how to analyze your strategy visit the [Result Analysis](analysis/README.md) section.
-The mode allows you to optimize your strategy by tuning your initial parameters set. More on that in [Parameters tuning](params.md) section.
+The mode allows you to optimize your strategy by tuning your initial parameter set. More on that in [Parameters tuning](params.md) section.
 It also allows you to choose days for your strategy to run on.
 For example, the best way to improve the results on a specific day is to run your strategy only on this day - this way you'll obtain the results as soon as possible.
 Other participants will not be able to see your submissions in the training mode.
