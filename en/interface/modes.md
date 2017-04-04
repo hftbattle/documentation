@@ -17,7 +17,7 @@ While in the testing mode you are provided with comprehensive data on how your s
 To learn more on how to analyze your strategy visit the [Result Analysis](analysis/README.md) section.
 The mode allows you to optimize your strategy by tuning your initial parameter set. More on that in [Parameters tuning](params.md) section.
 It also allows you to choose days for your strategy to run on.
-For example, the best way to improve the results on a specific day is to run your strategy only on this day - this way you'll obtain the results as soon as possible.
+For example, the best way to improve the results on a specific day is to run your strategy only on this day — this way you'll obtain the results as soon as possible.
 Other participants will not be able to see your submissions in the training mode.
 The daily total number of simulations is limited.
 For more on limits visit your submissions page.

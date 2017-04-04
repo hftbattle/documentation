@@ -22,10 +22,10 @@ Let's have a look at each of them in details:
 ## Chart {#chart}
 
 Chart is the central piece of the analysis tool.
-`OX` axis is used for microsecond timing (exchange server time), `OY` axis - order book price level.
+`OX` axis is used for microsecond timing (exchange server time), `OY` axis — order book price level.
 
 Best price is shown as lines on the chart.
-Red lines - the best ask price, green line - the best bid price.
+Red lines — the best ask price, green line — the best bid price.
 
 All of the deals made on the market are shown.
 Each deal can be further reviewed by clicking on it. You may find out when it was done, its volume and more.
@@ -91,5 +91,5 @@ Click on the time in a dialog box to open the moment of the order placement.
 <!-- ![]({{ book["gitbook.img"] }}/viewer/deals.gif) -->
 
 Your deals are shown on the chart.
-To find out their symbol (shape) - have a look at the control panel.
+To find out their symbol (shape) — have a look at the control panel.
 The Symbol of the deals is shown in the "@" column.

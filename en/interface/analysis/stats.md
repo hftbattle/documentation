@@ -14,7 +14,7 @@ Basic sections of the page are:
 The strategy is evaluated according to this formula:<a id="result_formula"></a>
 
 ```py
-SCORE = AVG - (STD / 10.0) + min(0, MIN_INTRADAY_RESULT) / 5.0
+SCORE = AVG — (STD / 10.0) + min(0, MIN_INTRADAY_RESULT) / 5.0
 ```
 
 - `AVG` — average strategy score calculated on all of the days (taking fee of {{ book["constraint.comission"] }} per lot into account).

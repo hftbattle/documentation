@@ -13,11 +13,11 @@ This page is not a comprehensive description but rather a quick start overview!
 
 There are three submission types in the competition:
 
-- There is no practical limit on the number of [training submissions](interface/modes.md#training_mode) - use them to develop and to improve your strategies.
-- [Control mode](interface/modes.md#control_mode) - your strategies will be run on a new set of days, which are not available in the testing mode. This helps you to determine whether your strategy performs well on out of sample data.
+- There is no practical limit on the number of [training submissions](interface/modes.md#training_mode) — use them to develop and to improve your strategies.
+- [Control mode](interface/modes.md#control_mode) — your strategies will be run on a new set of days, which are not available in the testing mode. This helps you to determine whether your strategy performs well on out of sample data.
   Besides, control submissions are taken into account for [overall rating]({{ book["contest.arena.leaderboard.url"] }}).
   You may upload up to {{ book["constraint.daily_control_submissions.en"] }} control submissions per day.
-- [Weekly testing](interface/modes.md#weekly_mode) - each week the selected strategy (or the best one among control runs) will be run on a new dataset.
+- [Weekly testing](interface/modes.md#weekly_mode) — each week the selected strategy (or the best one among control runs) will be run on a new dataset.
 
 [Final testing](interface/modes.md#final_test) will be carried out after the main competition phase is over.
 

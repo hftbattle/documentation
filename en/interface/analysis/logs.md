@@ -4,7 +4,7 @@ Mining and analysis of trading information is a significant part of strategy dev
 Since the number of atomic market events can be extremely large (about {{ book["trading.daily_deals"] }} million), there is a need in extracting the most important details, features and strategy actions.
 
 There are 3 files in deals and orders archive:
-**orders.tsv** and **deals.tsv** - charts containing all the strategy orders and deals,
+**orders.tsv** and **deals.tsv** — charts containing all the strategy orders and deals,
 **logs.txt** containing custom output.
 Here you can explore it:
 

@@ -79,7 +79,7 @@ def trading_book_update(strat, order_book):
             strat.add_limit_order(dir, best_price, amount)
 {%- endcodetabs %}
 
-A drawback of this approach - if the best price is changed, we will not react on it.
+A drawback of this approach — if the best price is changed, we will not react on it.
 
 It can lead to the risk that we will not be able to trade in one of the directions for a considerable time.
 To get the list of active orders we would use the [orders_by_dir()](/api/SecurityOrdersSnapshot.md#orders_by_dir) method of the [SecurityOrdersSnapshot](/api/SecurityOrdersSnapshot.md#) class.

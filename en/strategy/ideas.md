@@ -171,7 +171,7 @@ def trading_book_update(strat, order_book):
    You may do it both to reduce the current position and to collect other participants' orders staying on unfair price.
 5. It is worth thinking about what price can be treated as fair in each time period.
    `middle_price` is a bad indicator so you should watch carefully for other participants' actions in the order book on any update.
-6. The strategy above has a problem - it takes its orders into account while processing volumes at the quotes.
+6. The strategy above has a problem — it takes its orders into account while processing volumes at the quotes.
    This may lead to unexpected situations such as moving the target price level for the new orders because of the strategy's previously placed orders in the order book.
 
 New ideas will come up during the contest and we are going to provide you the detailed overview.

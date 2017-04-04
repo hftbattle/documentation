@@ -103,7 +103,7 @@ In case the best bid price is strictly less than the best ask price, the order b
 Otherwise the process of the orders execution starts.
 
 Suppose the X order was a bid, i.e. an order to buy.
-Then opposite asks are taken one by one to execute against the X, in order of the price increase or, inside each price - in order of the placement time increase. The execution results in a new deal with the price of the passive executed order (ask, in this case) with the volume of minimal of the two orders, involved in the deal.
+Then opposite asks are taken one by one to execute against the X, in order of the price increase or, inside each price — in order of the placement time increase. The execution results in a new deal with the price of the passive executed order (ask, in this case) with the volume of minimal of the two orders, involved in the deal.
 The volume of the deal is subtracted from the volumes of the orders involved in the deal.
 And so the process goes, until the best bid price is less than the best ask price.
 
@@ -132,7 +132,7 @@ Let's say a trader places a bid X on some price with a volume of 35.
 
 1. X — limit order on the price of 101.
   2 deals are going to happen, one with the volume of 10 and another with the volume of 20. The rest of the X stays in the order book on the price of 101.
-2. X - of IOC type on the price of 101.
+2. X — of IOC type on the price of 101.
   2 deals are going to happen, with the rest of the X to be removed from the order book.
-3. X - of IOC type on the price of 102.
+3. X — of IOC type on the price of 102.
   3 deals are going to happen with the volume of 10, 20 and 5 on the price of 101, 101 and 102 and the X will have nothing left.
