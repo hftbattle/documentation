@@ -53,7 +53,7 @@ More on that in [Setting dependences](/local_pack/requirements.md) section.
 A: Time between the moment an order is sent and the moment it is accepted by the market is called *round-trip*.
 
 The simulator has a *round-trip* set to {{ book["constraint.round-trip"] }} microseconds.
-That means all your requests for the orders adding / removal happen with a little time lag as after if it is sent to the market.
+That means all your requests for the orders adding / removal happen with a little time lag as after if it is sent to the real market.
 
 ---
 

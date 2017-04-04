@@ -6,7 +6,7 @@ That's enough to:
 - make sure your code compiles successfully
 - debug your strategy
 
-To check out the core ideas of the strategy you may download daеa for a complete trading day "{{ book["data.full_day"] }}" from [here]({{ book["contest.local_pack.data.url"] }}).
+To check out the core ideas of the strategy you may download data for a complete trading day "{{ book["data.full_day"] }}" from [here]({{ book["contest.local_pack.data.url"] }}).
 
 You may do it manually: just unzip the file into the root directory or use *download.py* script from the repository root.
 

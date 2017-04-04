@@ -19,7 +19,7 @@ You need to:
   ./build.py
   ```
 
-  This will create libraries for your strategies in the *build* folder.
+  It will create libraries for your strategies in the *build* folder.
 - **run a simulation**.
 
   ```bash
