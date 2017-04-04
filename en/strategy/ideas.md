@@ -5,7 +5,8 @@ In [base strategy](base_strategy.md) we placed our orders on the `middle_price` 
 However, this behaviour is not acceptable, for example, when the best price is unfair in some direction.
 The `middle_price` is very sensitive to order book fluctuations: a new order placed before the previous best price level in some direction can change the `middle_price`, causing our strategy to place orders in wrong price levels.
 Particularly, the `middle_price` will be dramatically changed if an order with value of 1 lot will be placed far above the previous best bid price.
-It is clear that this order does not show the real instrument bid price in most cases. Here, by the way, it is reasonable to think about the "better" `middle_price` evaluation.
+It is clear that this order does not show the real instrument bid price in most cases. It is reasonable to think about the "better" `middle_price` evaluation in order to reduce the dependency on "random" orders.
+
 
 Note that the order book of given instrument is rarefied so there may be large gaps (i.e. large number of price levels without any order) and also many quotes with a small volume.
 Let's remember that. It is quite clear that standing at the free price level is generally better than standing at the occupied one, because of the higher queue position.
@@ -171,6 +172,6 @@ def trading_book_update(strat, order_book):
 5. It is worth thinking about what price can be treated as fair in each time period.
    `middle_price` is a bad indicator so you should watch carefully for other participants' actions in the order book on any update.
 6. The strategy above has a problem - it takes its orders into account while processing volumes at the quotes.
-   This may lead to unexpected situations such as moving the target price level for the new orders because of the strategy's previous orders in the order book.
+   This may lead to unexpected situations such as moving the target price level for the new orders because of the strategy's previously placed orders in the order book.
 
 New ideas will come up during the contest and we are going to provide you the detailed overview.
