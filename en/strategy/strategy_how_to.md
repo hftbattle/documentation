@@ -52,11 +52,13 @@ Here we can use the [orders](/api/OrderBook.md#orders) method which returns a re
 
 > Note 1: The variable `our_orders` contains orders we had already placed but have not sent a corresponding deletion request yet.
 > So, if the [delete_order](/api/ParticipantStrategy.md#delete_order) method is called for an order, then `our_orders` variable will not contain this order on the next update even if it is not deleted yet in the simulator due to the round-trip delay.
-
-> Note 2: The object [order_book.orders()](/api/OrderBook.md#orders) is only being refreshed between updates. The structure stays unchanged during a single update.
+>
+> Note 2: The object [order_book.orders()](/api/OrderBook.md#orders) is only being refreshed between updates.
+  The structure stays unchanged during a single update.
 
 We are going to place an order in case there is no active order at the same direction.
-To find out whether an active order actually exists we use [active_orders_count(Dir dir)](/api/SecurityOrdersSnapshot.md#active_orders_count) method of the [SecurityOrdersSnapshot](/api/SecurityOrdersSnapshot.md) class. The method returns the number of active orders by given direction:
+To find out whether an active order actually exists we use [active_orders_count(Dir dir)](/api/SecurityOrdersSnapshot.md#active_orders_count) method of the [SecurityOrdersSnapshot](/api/SecurityOrdersSnapshot.md) class.
+The method returns the number of active orders by given direction:
 
 {% codetabs name="C++", type="c++" -%}
 void trading_book_update(const OrderBook& order_book) override {

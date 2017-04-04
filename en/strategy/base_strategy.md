@@ -9,7 +9,8 @@ The idea of the strategy is to keep one order on the best price at each directio
 In case a direction has none of our active orders, the strategy places an order with volume of `volume`.
 In case an order exists, but happens to be placed on the different price, we cancel it and place a new one.
 The volume of the placed order can be decreased for us not to get out of the maximum position limit.
-It is very important for HFT strategy to be able to quickly close the current position. So, we will try to limit the maximum open position to the value of `max_pos`.
+It is very important for HFT strategy to be able to quickly close the current position.
+So, we will try to limit the maximum open position to the value of `max_pos`.
 
 Description of the strategy parameters:
 

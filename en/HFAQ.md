@@ -15,8 +15,10 @@ Questions are categorized:
 ##### Q: Can a team participate in the competition?
 
 A: No, it can not as this is an individual competition.
-Rules state the real name must be provided. There will be the only one award.
-Multiple logins are forbidden. Final versions will be checked for plagiarism.
+Rules state the real name must be provided.
+There will be the only one award.
+Multiple logins are forbidden.
+Final versions will be checked for plagiarism.
 
 ---
 
@@ -59,7 +61,8 @@ That means all your requests for the orders adding / removal happen with a littl
 
 ##### Q: I set *stop_loss* with a [set_stop_loss_result](api/ParticipantStrategy.md#set_stop_loss_result) method. Why did I get lower result?
 
-A: A position is being closed in some time period. During that period the close price can be varied significantly and so your total result may vary (be less or more) than the one you set as *stop_loss*.
+A: A position is being closed in some time period.
+During that period the close price can be varied significantly and so your total result may vary (be less or more) than the one you set as *stop_loss*.
 
 ---
 
@@ -75,7 +78,8 @@ A: There could be a number of reasons for that:
 
 ##### Q: The strategy position is being closed. What does it mean? {#close_position}
 
-A: The trading simulator does not allow the strategy to set new orders and deletes the active ones. Once it is done, the trading simulator sets orders in a such way that the resulting position of the strategy equals to zero.
+A: The trading simulator does not allow the strategy to set new orders and deletes the active ones.
+Once it is done, the trading simulator sets orders in a such way that the resulting position of the strategy equals to zero.
 
 ---
 
@@ -103,7 +107,8 @@ In case the best bid price is strictly less than the best ask price, the order b
 Otherwise the process of the orders execution starts.
 
 Suppose the X order was a bid, i.e. an order to buy.
-Then opposite asks are taken one by one to execute against the X, in order of the price increase or, inside each price — in order of the placement time increase. The execution results in a new deal with the price of the passive executed order (ask, in this case) with the volume of minimal of the two orders, involved in the deal.
+Then opposite asks are taken one by one to execute against the X, in order of the price increase or, inside each price — in order of the placement time increase.
+The execution results in a new deal with the price of the passive executed order (ask, in this case) with the volume of minimal of the two orders, involved in the deal.
 The volume of the deal is subtracted from the volumes of the orders involved in the deal.
 And so the process goes, until the best bid price is less than the best ask price.
 
@@ -131,7 +136,8 @@ Let's say a trader places a bid X on some price with a volume of 35.
  Consider several options:
 
 1. X — limit order on the price of 101.
-  2 deals are going to happen, one with the volume of 10 and another with the volume of 20. The rest of the X stays in the order book on the price of 101.
+  2 deals are going to happen, one with the volume of 10 and another with the volume of 20.
+  The rest of the X stays in the order book on the price of 101.
 2. X — of IOC type on the price of 101.
   2 deals are going to happen, with the rest of the X to be removed from the order book.
 3. X — of IOC type on the price of 102.

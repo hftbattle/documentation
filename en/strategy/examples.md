@@ -10,7 +10,8 @@ The idea of the strategy is to keep one order on the best price at each directio
 In case a direction has none of our active orders, the strategy places an order with volume of `volume`.
 In case an order exists, but happens to be of other price, we cancel it and replace it on the price we need.
 The volume of the placed order can be decreased for us not to get out of the maximum volume size.
-For HFT strategies being able to quickly nullify the position amount, is very important. So, we will try to limit the maximum amount of the open position to `max_pos` number.
+For HFT strategies being able to quickly nullify the position amount, is very important.
+So, we will try to limit the maximum amount of the open position to `max_pos` number.
 
 Description of the strategy parameters:
 
@@ -132,7 +133,8 @@ On the other hand, if a limit is set tight the strategy will not gather a volume
 A serious factor that limits the strategy result - maximum position volume set low.
 Increase this parameter and your strategy will make a larger number of deals, so your profit rises proportionally.
 On the other hand the bigger your maximum position volume the longer your strategy keeps a position in one direction and this affects negatively on the overall result.
-2. Current strategy keeps just 1 order on 1 price level for each direction. Go in for several different price levels in the order book and you make much more profitable deals.
+2. Current strategy keeps just 1 order on 1 price level for each direction.
+  Go in for several different price levels in the order book and you make much more profitable deals.
 3. It has already been said that it’s very important to quickly close the position.
 One of such methods is a dynamic price and volume selection for new orders being set.
 The larger the current position along a given direction the more active you need to act in the opposite direction and refrain from acting in the current direction.

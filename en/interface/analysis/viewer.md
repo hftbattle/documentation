@@ -28,7 +28,8 @@ Best price is shown as lines on the chart.
 Red lines — the best ask price, green line — the best bid price.
 
 All of the deals made on the market are shown.
-Each deal can be further reviewed by clicking on it. You may find out when it was done, its volume and more.
+Each deal can be further reviewed by clicking on it.
+You may find out when it was done, its volume and more.
 
 <!-- A sample of chart usage is given below. -->
 <!-- ![]({{ book["gitbook.img"] }}/viewer/chart.gif) -->
@@ -55,27 +56,27 @@ There are three tabs:
 
 - Data
 
-   Moment you want to explore in the appropriate format
+  Moment you want to explore in the appropriate format
 - Information
 
-   Description of transactions occured at the moment you have chosen
+  Description of transactions occured at the moment you have chosen
 - Settings
 
   * Load seconds
 
-     Length of the time period in seconds to be loaded when you open Viewer.
+    Length of the time period in seconds to be loaded when you open Viewer.
   * Tool height
 
-     Height of the chart in pixels.
+    Height of the chart in pixels.
   * Dense mode
 
-     Viewer won't show empty quotes if this option is turned on.
+    Viewer won't show empty quotes if this option is turned on.
   * Cumulative volume
 
-     Show an extra column for each quote representing the total volume of all orders with given direction with price no worse than the current quote price.
+    Show an extra column for each quote representing the total volume of all orders with given direction with price no worse than the current quote price.
   * My events
 
-     Viewer will omit all changes without your orders participation while navigating if "Stop only on my events" flag is turned on.
+    Viewer will omit all changes without your orders participation while navigating if "Stop only on my events" flag is turned on.
 
 <!--  ![]({{ book["gitbook.img"] }}/viewer/control-panel.gif) -->
 

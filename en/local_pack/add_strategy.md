@@ -1,6 +1,7 @@
 ## Strategy adding
 
-Once you decide to try more ideas and develop more strategies, using the one strategy — one file approach may become neccessary. Let’s have a look at how to add new strategies in the off-line development package.
+Once you decide to try more ideas and develop more strategies, using the one strategy — one file approach may become neccessary.
+Let’s have a look at how to add new strategies in the off-line development package.
 
 - [C++](#cpp)
 - [Python](#python)
@@ -26,7 +27,8 @@ Once the files are copied you need to edit *cpp* file.
 REGISTER_CONTEST_STRATEGY(UserStrategy, strategy_name)
 ```
 
-Let’s say your folder, .json-file and the strategy are called *best_strategy_ever*. You will therefore need to add the following line at the end of the file *best_strategy_ever.cpp*:
+Let’s say your folder, .json-file and the strategy are called *best_strategy_ever*.
+You will therefore need to add the following line at the end of the file *best_strategy_ever.cpp*:
 
 ```c++
 REGISTER_CONTEST_STRATEGY(UserStrategy, best_strategy_ever)
@@ -51,8 +53,6 @@ You may find out [here](run_strategy.md) how to run the strategy.
 
 <!-- TODO(asalikhov): it may be allowed to write in another files -->
 <!-- To create a new strategy in Python:
-
-#### 1. Создайте папку стратегии
 
 #### 1. Create a strategy folder
 

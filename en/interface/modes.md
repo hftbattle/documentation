@@ -11,11 +11,13 @@ Details on each mode are given below.
 
 #### Training mode {#training_mode}
 
-Training mode aims for a strategy testing, dealing with various issues, selecting optimal strategy parameters and so forth. Initially training dataset will contain {{ book["data.training_days"] }} days of September, October and November 2016 and then may be expanded during the competition.
+Training mode aims for a strategy testing, dealing with various issues, selecting optimal strategy parameters and so forth.
+Initially training dataset will contain {{ book["data.training_days"] }} days of September, October and November 2016 and then may be expanded during the competition.
 
 While in the testing mode you are provided with comprehensive data on how your strategy performs during trading.
 To learn more on how to analyze your strategy visit the [Result Analysis](analysis/README.md) section.
-The mode allows you to optimize your strategy by tuning your initial parameter set. More on that in [Parameters tuning](params.md) section.
+The mode allows you to optimize your strategy by tuning your initial parameter set.
+More on that in [Parameters tuning](params.md) section.
 It also allows you to choose days for your strategy to run on.
 For example, the best way to improve the results on a specific day is to run your strategy only on this day — this way you'll obtain the results as soon as possible.
 Other participants will not be able to see your submissions in the training mode.
@@ -24,13 +26,16 @@ For more on limits visit your submissions page.
 
 #### Control mode {#control_mode}
 
-This mode is designed to run your strategy on a set of {{ book["data.control_days"] }} days. The set does not contain any of the training days and is not to be changed during the whole contest.
+This mode is designed to run your strategy on a set of {{ book["data.control_days"] }} days.
+The set does not contain any of the training days and is not to be changed during the whole contest.
 The mode aims for two purposes:
 
 - Control submissions are used to calculate your current rating.
   Only strategies with a positive result are shown in the rating.
   All participants are able to see your result but not the strategy code.
-- Control mode aims to be a testing set. You can use it to find out whether your strategy performs well on a new, out of sample, data. It also helps you to avoid overfitting.
+- Control mode aims to be a testing set.
+  You can use it to find out whether your strategy performs well on a new, out of sample, data.
+  It also helps you to avoid overfitting.
 
 Control mode has some restrictions:
 
@@ -42,7 +47,8 @@ Control mode has some restrictions:
 
 At the beginning of each week **one of your submissions** is run in a **weekly** testing on a new dataset.
 To specify a submission you want to test **tick** (✔ icon) next to it in your submissions table.
-Otherwise the system would automatically select the best one. System decision is based on the **control dataset** results.
+Otherwise the system would automatically select the best one.
+System decision is based on the **control dataset** results.
 
 > **Note 1**: None of your submissions will be used in the weekly testing unless you select it manually or make a control submission.
 >
@@ -53,7 +59,9 @@ Please note that those ratings have no effect on the **winners selection** and a
 
 #### Final testing {#final_test}
 
-Strategy submission is stopped as soon as the main phase of the competition is over. Then the final testing begins. It will take **{{ book["final_testing_duration"] }} weeks**.
+Strategy submission is stopped as soon as the main phase of the competition is over.
+Then the final testing begins.
+It will take **{{ book["final_testing_duration"] }} weeks**.
 Each week we will publish your strategy results for the 5 most recent trading days.
 
 **Final score** is the result on the final dataset consisting of **{{ book["data.final_days"] }} trading days** after the arena is frozen.
