@@ -1,4 +1,3 @@
-
 # Simple strategy example
 
 - [Description of the strategy and its source code](#strategy)

@@ -1,4 +1,3 @@
-
 ## Improved strategy{#improved}
 
 In [base strategy](base_strategy.md) we placed our orders on the `middle_price` with fixed `offset`.

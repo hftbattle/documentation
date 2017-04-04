@@ -1,4 +1,4 @@
-### Charts 
+### Charts
 
 Charts are useful for the strategy analysis.
 

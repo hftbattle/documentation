@@ -1,4 +1,4 @@
-### Logs 
+### Logs
 
 Mining and analysis of trading information is a significant part of strategy development.
 Since the number of atomic market events can be extremely large (about {{ book["trading.daily_deals"] }} million), there is a need in extracting the most important details, features and strategy actions.

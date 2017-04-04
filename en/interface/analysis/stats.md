@@ -1,6 +1,6 @@
 ### Statistics
 
-There's a vast interface for the strategy analysis on the submission page. 
+There's a vast interface for the strategy analysis on the submission page.
 Basic sections of the page are:
 
 - [Common results](#common_result)

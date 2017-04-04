@@ -1,4 +1,4 @@
-##  Strategy submission
+## Strategy submission
 
 After submitting your strategy in the testing mode its trading simulation on some set of days starts.
 
