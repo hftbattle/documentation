@@ -5,5 +5,5 @@ Reading the following sections might be helpful:
 
 - [Overall strategy structure](structure.md)
 - [How to write a strategy](strategy_how_to.md)
-- [Strategy examples](examples.md)
+- [Simple strategy example](strategy/base_strategy.md)
 - [Ideas to implement](ideas.md)

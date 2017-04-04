@@ -53,13 +53,13 @@ Select date/time and press the click on the tick icon (✔).
 
 There are three tabs:
 
-- data
+- Data
 
    Moment you want to explore in the appropriate format
-- information
+- Information
 
    Description of transactions occured at the moment you have chosen
-- settings
+- Settings
 
   * Load seconds
 

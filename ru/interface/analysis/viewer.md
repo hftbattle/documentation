@@ -52,13 +52,13 @@ Viewer доступен по адресу [{{ book["viewer.name"] }}]({{ book["v
 
 Состоит из трех вкладок:
 
-- data
+- Data
 
    Момент в заданном формате
-- information
+- Information
 
    Описание транзакций, совершенных в этот момент
-- settings
+- Settings
 
   * Load seconds
 
