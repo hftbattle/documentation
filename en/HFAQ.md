@@ -71,7 +71,7 @@ During that period the close price can be varied significantly and so your total
 A: There could be a number of reasons for that:
 
 1. It is possible that the order exceeds an allowed maximum position limit.
-2. A price level is not within whe the allowed limits, there is no such a price for the security.
+2. A price level is not within the allowed limits, there is no such a price for the security.
 3. Number of lots is not a natural number.
 4. The order could be matched with your another order in the opposite direction.
 5. You are trying to set the order in the hidden part of the order book.
@@ -97,7 +97,7 @@ best_price = strat.trading_book().best_price(dir)
 
 ---
 
-## Miscellanous {#misc}
+## Miscellaneous {#misc}
 
 ##### Q: How does the order book work?
 

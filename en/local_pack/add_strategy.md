@@ -1,6 +1,6 @@
 ## Strategy adding
 
-Once you decide to try more ideas and develop more strategies, using the one strategy — one file approach may become neccessary.
+Once you decide to try more ideas and develop more strategies, using the one strategy — one file approach may become necessary.
 Let’s have a look at how to add new strategies in the off-line development package.
 
 - [C++](#cpp)

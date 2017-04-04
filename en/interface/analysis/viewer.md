@@ -59,7 +59,7 @@ There are three tabs:
   Moment you want to explore in the appropriate format
 - Information
 
-  Description of transactions occured at the moment you have chosen
+  Description of transactions occurred at the moment you have chosen
 - Settings
 
   * Load seconds

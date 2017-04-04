@@ -6,7 +6,7 @@
 
 ## Description of the strategy and its source code {#strategy}
 
-The idea of the strategy is to keep one order on the best price at each direction (BID и ASK) with the price of `middle_price`and a constant offset `offset` in the corresponding direction.
+The idea of the strategy is to keep one order on the best price at each direction (BID and ASK) with the price of `middle_price`and a constant offset `offset` in the corresponding direction.
 In case a direction has none of our active orders, the strategy places an order with volume of `volume`.
 In case an order exists, but happens to be of other price, we cancel it and replace it on the price we need.
 The volume of the placed order can be decreased for us not to get out of the maximum volume size.

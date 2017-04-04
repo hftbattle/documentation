@@ -17,7 +17,7 @@ The strategy is evaluated according to this formula:<a id="result_formula"></a>
 SCORE = AVG — (STD / 10.0) + min(0, MIN_INTRADAY_RESULT) / 5.0
 ```
 
-- `AVG` — average strategy score calculated on all of the days (taking fee of {{ book["constraint.comission"] }} per lot into account).
+- `AVG` — average strategy score calculated on all of the days (taking fee of {{ book["constraint.fee"] }} per lot into account).
 - `STD` — [standard deviation]({{ book["std_deviation.en_url"] }}) of result on all sample days.
 - `MIN_INTRADAY_RESULT` — the minimum result of the strategy that was reached at any given moment during a day (not necessarily at the close of the trading session), among all of the days.
 

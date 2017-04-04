@@ -28,7 +28,7 @@ There are three submission types in the competition:
   - Maximum bid / ask size for an open [position](terms.md#position) is limited to {{ book["constraint.position"] }} lots.
     This limit replaces the initial capital limit.
   - If your strategy losses reach {{ book["constraint.stop_loss"] }}, the simulator liquidates the position and stops trading.
-- Fee = {{ book["constraint.comission"] }} per each executed lot.
+- Fee = {{ book["constraint.fee"] }} per each executed lot.
 - Round-trip equals to {{ book["constraint.round-trip"] }} microseconds.
   This is the time period from a moment you request some action (to add or to remove an order) to the moment when it is actually processed.
 - At the end of the trading session the [position](terms.md#position) is liquidated.
