@@ -30,9 +30,8 @@ Red lines - the best ask price, green line - the best bid price.
 All of the deals made on the market are shown.
 Each deal can be further reviewed by clicking on it. You may find out when it was done, its volume and more.
 
-A sample of chart usage is given below.
-
-![]({{ book["gitbook.img"] }}/viewer/chart.gif)
+<!-- A sample of chart usage is given below. -->
+<!-- ![]({{ book["gitbook.img"] }}/viewer/chart.gif) -->
 
 ## Control {#control}
 
@@ -45,7 +44,7 @@ To jump into a specific moment on the chart, double click on a point you would l
 
 Another way to show a certain moment is to use the time selection widget in the control panel.
 
-![]({{ book["gitbook.img"] }}/viewer/time.gif)
+<!-- ![]({{ book["gitbook.img"] }}/viewer/time.gif) -->
 
 <!-- TODO(asalikhov): there is a task to simplify date/time panel -->
 Select date/time and press the click on the tick icon (✔).
@@ -78,7 +77,7 @@ There are three tabs:
 
      Viewer will omit all changes without your orders participation while navigating if "Stop only on my events" flag is turned on.
 
-![]({{ book["gitbook.img"] }}/viewer/control-panel.gif)
+<!--  ![]({{ book["gitbook.img"] }}/viewer/control-panel.gif) -->
 
 ## My orders {#orders}
 
@@ -88,9 +87,8 @@ In a while there will be a link to Viewer showing the order book your strategy g
 Click on the volume to study your orders on the price and when those orders were added.
 Click on the time in a dialog box to open the moment of the order placement.
 
-How to manage your orders.
-
-![]({{ book["gitbook.img"] }}/viewer/deals.gif)
+<!-- How to manage your orders. -->
+<!-- ![]({{ book["gitbook.img"] }}/viewer/deals.gif) -->
 
 Your deals are shown on the chart.
 To find out their symbol (shape) - have a look at the control panel.
