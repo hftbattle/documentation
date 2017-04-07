@@ -1,11 +1,22 @@
 # HFAQ
+
 Questions are categorized:
 
+- [Organizational questions](#org)
 - [Arena's interface](#interface)
 - [Off-line development package](#local_pack)
 - [Trading simulator](#simulator)
 - [Simulator's API](#api)
 - [Miscellaneous](#misc)
+
+---
+
+## Organizational questions {#org}
+
+##### Q: Can a team participate in the competition?
+
+A: Yes. To do this you need to create one account for the entire team, specifying the data of one of the participants.
+Multiple logins are forbidden. Final versions will be checked for plagiarism, offenders will be excluded from the competition.
 
 ---
 
@@ -34,7 +45,7 @@ A: Make sure your system has:
 More on that in [Setting dependences](/local_pack/requirements.md) section.
 
 ---
- 
+
 ## Trading simulator {#simulator}
 
 ##### Q: Is there a lag between a moment when an order was sent and the moment when it was placed in the order book?

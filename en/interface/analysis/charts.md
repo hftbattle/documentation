@@ -1,4 +1,4 @@
-### Charts 
+### Charts
 
 Charts are useful for the strategy analysis.
 
@@ -18,7 +18,7 @@ The default chart "Chart 0" is shown for each training submission with 2 followi
 
 <img src="{{ book["gitbook.img"] }}/base_chart.png" title="Best price chart" align="center">
 
-> Note: charts tool uses antialiasing to display lines.
+> Note: charts tool uses anti-aliasing to display lines.
 > To get exact values you can zoom in by selecting necessary area with mouse.
 
 #### Redirection to Viewer {#links}
