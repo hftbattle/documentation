@@ -16,6 +16,7 @@ Questions are categorized:
 ##### Q: Can a team participate in the competition?
 
 A: Yes. To do this you need to create one account for the entire team, specifying the data of one of the participants.
+There will be only one award for the entire team.
 Creating multiple accounts is forbidden.
 All submissions will be checked for plagiarism, violators will be disqualified from the competition.
 
