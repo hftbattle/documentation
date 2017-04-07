@@ -1,5 +1,7 @@
 # HFAQ
+
 Questions are categorized:
+
 - [Organizational questions](#org)
 - [Arena's interface](#interface)
 - [Off-line development package](#local_pack)
@@ -11,14 +13,11 @@ Questions are categorized:
 
 ## Organizational questions {#org}
 
-<!-- TODO(asalikhov): it may change in the future -->
 ##### Q: Can a team participate in the competition?
 
-A: No, it can not as this is an individual competition.
-Rules state the real name must be provided.
-There will be the only one award.
+A: Yes. To do this you need to create one account for the entire team, specifying the data of one of the participants.
 Multiple logins are forbidden.
-Final versions will be checked for plagiarism.
+Final versions will be checked for plagiarism, offenders will be excluded from the competition.
 
 ---
 
