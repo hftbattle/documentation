@@ -1,4 +1,4 @@
-## Improved strategy{#improved}
+## Improved strategy
 
 In [base strategy](base_strategy.md) we placed our orders on the `middle_price` with fixed `offset`.
 However, this behaviour is not acceptable, for example, when the best price is unfair in some direction.

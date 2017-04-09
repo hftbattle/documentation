@@ -122,7 +122,7 @@ def trading_book_update(strat, order_book):
                     strat.add_limit_order(dir, target_price, order_amount)
 {%- endcodetabs %}
 
-## The strategy analysis{#analysis}
+## The strategy analysis {#analysis}
 
 Since the strategy keeps only 1 order with a volume of 1 lot for each direction, it does not make enough deals to produce a good profit.
 On the other hand, limiting position would not allow the strategy to keep its position in one direction for a long time.
