@@ -25,6 +25,7 @@ A wrapper class for your strategy, which interacts with a trading simulator.
 | [set_max_total_amount()](#set_max_total_amount) | Sets the maximum position. |
 | [set_stop_loss_result()](#set_stop_loss_result) | Sets the minimum strategy result. |
 | [executed_amount()](#executed_amount) | Your current position, only executed orders are taken into account. |
+| [fix_moment_in_viewer()](#fix_moment_in_viewer) | Saves link to Viewer in the web system after data is written there. |
 | [is_our()](#is_our) | Whether this order is yours. |
 | [is_our()](#is_our) | Whether this deal is yours. |
 | [trading_book()](#trading_book) | Your current trading order book. |
@@ -241,6 +242,18 @@ Only executed orders are taken into account.
 Amount executed_amount() const;
 {%- language name="Python", type="py" -%}
 def executed_amount(self)
+{%- endcodetabs %}
+
+#### fix_moment_in_viewer() {#fix_moment_in_viewer}
+
+Takes any string you want to be the name of current moment.
+
+Saves link to Viewer in the web system after data is written there.
+
+{% codetabs name="C++", type="c++" -%}
+void fix_moment_in_viewer(const std::string& name);
+{%- language name="Python", type="py" -%}
+def fix_moment_in_viewer(self, name)
 {%- endcodetabs %}
 
 #### is_our() {#is_our}

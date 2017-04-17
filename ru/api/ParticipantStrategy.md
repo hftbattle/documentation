@@ -25,6 +25,7 @@
 | [set_max_total_amount()](#set_max_total_amount) | Устанавливает желаемое ограничение максимальной позиции. |
 | [set_stop_loss_result()](#set_stop_loss_result) | Устанавливает желаемое ограничение минимального результата. |
 | [executed_amount()](#executed_amount) | Ваша текущая позиция, учитывающая только исполненные заявки. |
+| [fix_moment_in_viewer()](#fix_moment_in_viewer) | Сохраняет ссылку на Viewer в веб системе после того как данные записываются во Viewer. |
 | [is_our()](#is_our) | Является ли заявка вашей. |
 | [is_our()](#is_our) | Является ли сделка вашей. |
 | [trading_book()](#trading_book) | Текущий стакан торгового инструмента. |
@@ -241,6 +242,18 @@ def set_stop_loss_result(self, stop_loss_result)
 Amount executed_amount() const;
 {%- language name="Python", type="py" -%}
 def executed_amount(self)
+{%- endcodetabs %}
+
+#### fix_moment_in_viewer() {#fix_moment_in_viewer}
+
+Принимает любую строку — название момента Viwer.
+
+Сохраняет ссылку на Viewer в веб системе после того как данные записываются во Viewer.
+
+{% codetabs name="C++", type="c++" -%}
+void fix_moment_in_viewer(const std::string& name);
+{%- language name="Python", type="py" -%}
+def fix_moment_in_viewer(self, name)
 {%- endcodetabs %}
 
 #### is_our() {#is_our}

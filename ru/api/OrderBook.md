@@ -149,7 +149,7 @@ def all_quotes(self, dir)
 {%- endcodetabs %}
 
 Приведём пример использования данного метода.
-Мы пробежимся по всем котировкам с заявками на покупку и выведем текущее количество заявок с такой ценой.
+Мы пробежимся по всем котировкам с заявками на покупку и выведем текущее количество заявок с данной ценой.
 
 {% codetabs name="C++", type="c++" -%}
 for (const auto& quote : book.all_quotes(BID)) {
@@ -157,7 +157,7 @@ for (const auto& quote : book.all_quotes(BID)) {
 }
 {%- language name="Python", type="py" -%}
 for quote in order_book.all_quotes(BID):
-    print('price: %s amount: %s' % (quote.price(), quote.volume()))
+    print 'price: %s amount: %s' % (quote.price(), quote.volume())
 {%- endcodetabs %}
 
 #### quotes_count() {#quotes_count}
