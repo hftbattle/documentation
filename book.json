@@ -80,15 +80,13 @@
       "lang": "ru"
     },
     "yametrika": {
-      "number": 35257920,
-      "settings": {
-        "webvisor": true,
-        "clickmap": true,
-        "trackLinks": true,
-        "accurateTrackBounce": true,
-        "trackHash": true,
-        "ut": "noindex"
-      }
+      "id": 35257920,
+      "webvisor": true,
+      "clickmap": true,
+      "trackLinks": true,
+      "accurateTrackBounce": true,
+      "trackHash": true,
+      "ut": "noindex"
     }
   }
 }
