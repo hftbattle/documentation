@@ -12,3 +12,4 @@ The simulator has a number of limitations that make it work similar to the real 
 - The strategy simulation can not run on a single day longer than {{ book["constraint.simulation_time"] }} minutes.
 - At the end of the trading day the simulator closes your [position](/terms.md#position) automatically.
   In case your strategy makes large number of deals during a day that will be just another convenience.
+- Orders count is limited by {{ book["constraint.max_orders"] }} per day.
