@@ -21,6 +21,7 @@
   - [Как написать стратегию](strategy/strategy_how_to.md)
   - [Пример простой стратегии](strategy/base_strategy.md)
   - [Идеи для реализации](strategy/ideas.md)
+  - [Продвинутые идеи](strategy/advanced.md)
 - [Симулятор торгов](simulator/README.md)
   - [Данные для симуляции](simulator/data.md)
   - [Ограничения симулятора](simulator/restrictions.md)

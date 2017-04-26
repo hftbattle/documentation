@@ -21,6 +21,7 @@
   - [How to write a strategy](strategy/strategy_how_to.md)
   - [Simple strategy example](strategy/base_strategy.md)
   - [Ideas to implement](strategy/ideas.md)
+  - [Advanced ideas](strategy/advanced.md)
 - [Trading simulator](simulator/README.md)
   - [Data for simulation](simulator/data.md)
   - [Simulator restrictions](simulator/restrictions.md)
