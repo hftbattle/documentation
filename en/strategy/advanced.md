@@ -37,7 +37,6 @@ public:
 
   void trading_book_update(const OrderBook& order_book) override {
     auto& orders = order_book.orders();
-    auto pos = executed_amount();
     
     for (Dir dir : {BID, ASK}) {
       auto my_prices = orders.orders_by_dir_as_map(dir);
@@ -97,6 +96,9 @@ private:
 
 REGISTER_CONTEST_STRATEGY(UserStrategy, user_strategy)
 {%- language name="Python", type="py" -%}
+# -*- coding: utf-8 -*-
+
+
 from py_defs import *
 from common_enums import *
         
@@ -119,7 +121,6 @@ def init(strat, config):
 
 def trading_book_update(strat, trading_book):
     orders = trading_book.orders()
-    pos = strat.executed_amount()
   
     for dir in (BID, ASK):
         my_prices = set(order.price() for order in orders.orders_by_dir(dir))
