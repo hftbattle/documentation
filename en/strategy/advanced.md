@@ -2,16 +2,19 @@
 
 The strategy is a better version of [improved strategy](ideas.md).
 
-Its main feature is maintaining orders on multiple quotes in each direction during each update. Quotes count is set by **MAX_LEVELS** parameter, and order amount - by **VOLUME**.
+Its main feature is maintaining orders on multiple quotes in each direction during each update.
+Quotes count is set by **MAX_LEVELS** parameter, and order amount - by **VOLUME**.
 
-Certainly strategy becomes more risky in that case. As we are having big volume on each direction we may lose a lot of money during large price shifts. To be safe during such fluctuations you may stop trading in some direction for some fixed period of time after having a beat on that direction with volume larger than some threshold.
+Certainly strategy becomes more risky in that case.
+As we are having big volume on each direction we may lose a lot of money during large price shifts.
+To be safe during such fluctuations you may stop trading in some direction for some fixed period of time after having a beat on that direction with volume larger than some threshold.
 
-Keeping intervals between price levels helps
-  - having our orders executed near *middle price* and getting some minor profit;
-  - having our orders executed with larger (and so deeper i.e. reaching more far levels from *middle price*) and more profitable beating orders;
+Keeping intervals between price levels helps:
+
+  - having our orders executed near *middle price* and getting some minor profit.
+  - having our orders executed with larger (and so deeper i.e. reaching more far levels from *middle price*) and more profitable beating orders.
 
 The intervals size is handled by **DIFF_BETWEEN_LEVELS** parameter.
-
 
 There is a base version of the strategy:
 
@@ -79,10 +82,6 @@ public:
       }
     }
   }
-
-  void trading_deals_update(std::vector<Deal>&& /*deals*/) override { }
-
-  void execution_report_update(const ExecutionReport& /*execution_report*/) override { }
 
 private:
   Amount volume_;
