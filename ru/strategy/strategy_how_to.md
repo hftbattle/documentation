@@ -38,7 +38,6 @@ def trading_book_update(strat, order_book):
         strat.add_limit_order(dir, best_price, amount)
 {%- endcodetabs %}
 
-
 В тот момент, когда у нас вызывается функция [trading_book_update](/api/ParticipantStrategy.md#trading_book_update), наши заявки, поставленные в прошлых вызовах этой функции, всё еще могут быть не исполнены.
 В итоге, у нас может скопиться огромное количество заявок.
 К счастью, у нас есть возможность посмотреть все наши активные заявки:

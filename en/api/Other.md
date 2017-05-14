@@ -40,7 +40,6 @@ You are able to set a default return value in brackets (it will be used if there
 - `config["field_in_json"].as<std::string>("default_string")`.
 - `config["time"].as<Microseconds>(10us)`.
 
-
 ## Amount
 
 Path in Local Pack `include/base/constants.h`

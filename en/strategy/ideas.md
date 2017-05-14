@@ -7,7 +7,6 @@ Particularly, the `middle_price` will be dramatically changed if an order with v
 It is clear that this order does not show the real instrument bid price in most cases.
 It is reasonable to think about the "better" `middle_price` evaluation in order to reduce the dependency on "random" orders.
 
-
 Note that the order book of given instrument is rarefied so there may be large gaps (i.e. large number of price levels without any order) and also many quotes with a small volume.
 Let's remember that.
 It is quite clear that standing at the free price level is generally better than standing at the occupied one, because of the higher queue position.

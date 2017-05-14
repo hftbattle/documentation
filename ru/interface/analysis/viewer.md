@@ -76,7 +76,6 @@ Viewer доступен по адресу [{{ book["viewer.name"] }}]({{ book["v
 
     При включенном флаге "Stop only on my events" Viewer при навигации будет пропускать все события, в которых не учавствуют Ваши заявки.
 
-
 <!-- ![]({{ book["gitbook.img"] }}/viewer/control-panel.gif) -->
 
 ## Свои заявки {#orders}
