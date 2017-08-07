@@ -56,7 +56,6 @@
     "constraint.logs_size": "1000",
     "constraint.simulation_time": "20",
     "constraint.max_orders": "2000000",
-
     "constraint.daily_control_submissions.ru.nom": "две",
     "constraint.daily_control_submissions.ru.gen": "двух",
     "constraint.daily_control_submissions.ru.ins": "двумя",
